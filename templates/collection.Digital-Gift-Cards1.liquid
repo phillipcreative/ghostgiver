@@ -1,0 +1,218 @@
+<div class="banner-relative Desktop">
+  <img class="bg-main-works " src="{{settings.imgbanner_PRODUCTS | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">Ways to ghostgive</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="banner-relative mobile"  style="display:none ">
+       
+  <img class="bg-main-works " src="{{settings.imgbanner_PRODUCT_MOBILE | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">Ways to ghostgive</div>
+      </div>
+    </div>
+  </div>
+</div>
+  {% assign collection_width = settings.collection_block_width %}
+{% assign collection_filter_ajax = settings.ajax %}{% if collection_filter_ajax %}{% assign collection_filter_ajax = 1 %}{% endif %}
+{% assign collection_left_sidebar = settings.collection_left_sidebar %}{% if collection_left_sidebar %}{% assign collection_left_sidebar = 1 %}{% endif %}
+{% if collection.description contains 'collection-width-boxed' %}{% assign collection_width = 'boxed' %}{% endif %}
+{% if collection.description contains 'collection-filter-ajax-0' %}{% assign collection_filter_ajax = 0 %}{% endif %}
+{% if collection.description contains 'collection-left-sidebar-0' %}{% assign collection_left_sidebar = 0 %}{% endif %}
+{% comment %}
+  {% include 'breadcrumbs' %}
+{% endcomment %}
+
+<div class="block {{ collection_width }} {{ settings.collection_outer_margin }} my-class">
+    <div class="container">
+        <div class="row row-table">
+            {% if collection_left_sidebar == 1 %}{% section 'collection-sidebar' %}{% endif %}
+            {% section 'collection-section' %}
+        </div>
+        <div class="ymax"></div>
+        <!-- /Two columns -->
+    </div>
+</div>
+{% section 'text_shop_info' %}
+
+<script>
+
+
+    function makeEqualAjax() {
+        if (!$('body').hasClass('equal-height')) return false;
+        var item = '.products-grid > *',
+                holder = '.product-item-photo-holder';
+        $(holder).each(function () {
+            $(this).css({ 'height': 'auto' });
+        });
+        setTimeout(function () {
+            $(item).equalHeight(holder);
+        }, 2500);
+    };
+
+    function updateQueryParams(){
+        if (location.search.length) {
+            for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+                aKeyValue = aCouples[i].split('=');
+                if (aKeyValue.length > 1) {
+                    Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+                }
+            }
+        }
+    }
+    function updateURLParameter(url, param, paramVal){
+        var newAdditionalURL = "";
+        var tempArray = url.split("?");
+        var baseURL = tempArray[0];
+        var additionalURL = tempArray[1];
+        var temp = "";
+        if (additionalURL) {
+            tempArray = additionalURL.split("&");
+            for (i=0; i<tempArray.length; i++){
+                if(tempArray[i].split('=')[0] != param){
+                    newAdditionalURL += temp + tempArray[i];
+                    temp = "&";
+                }
+            }
+        }
+        var rows_txt = temp + "" + param + "=" + paramVal;
+        return baseURL + "?" + newAdditionalURL + rows_txt;
+    }
+    function getUrlLastTag(url)
+    {
+        last_tag=0;
+        url_array=url.split('+');
+        last_tag=url_array[url_array.length-1].split('/')[0].split('?')[0];
+        if(!last_tag){
+            last_tag=url.split('collections/')[1];
+            if(last_tag.split('/').length > 1){
+                last_tag=last_tag.split('/')[1].split('?')[0];
+            } else{
+                last_tag = 0
+            }
+        }
+        return last_tag;
+    }
+    function postAjaxJsInit(url,name="",val=""){
+        window.history.pushState('', '', url);
+        {% if settings.collection_toolbar_position != 'sidebar' and collection_left_sidebar == 1 %}updateQueryParams();{% endif %}
+        $.get(url, function(data) {
+            if(getUrlLastTag(url))
+            {
+                group=tag_group[getUrlLastTag(url)];
+            }else{
+                group='colors';
+            }
+            listing=$('.product-listing', data).html().split('<div class="product-item ').join('<div style="opacity:0" class="product-item ');
+            {% if collection_left_sidebar == 1 %}
+            {% if collection_filter_fixed == 1 %}
+            filters=$('.filter-col-content', data).html().split('open').join('').split('style="display: block;"').join('').split('filter-group-'+group).join('filter-group-'+group+' open');
+            {% else %}
+            filters=$('.filter-col-content', data).html().split('style="display: block;"').join('');
+            {% endif %}
+            {% endif %}
+            $(".product-listing").html(listing);
+            {% if collection_left_sidebar == 1 %}$(".filter-col-content").html(filters);{% endif %}
+            $('.breadcrumbs').html($('.breadcrumbs', data).html());
+            showProduct(1,'fadeInUp','.product-item');
+            viewMode('.view-mode');
+            $(".sidebar-block").blockSelectedMark();
+            $(".sidebar-block-top").hideShopBy();
+            if ($(".filter-col.fixed").length) {
+                $(".filter-col.fixed").fixedSidebar();
+                $(".sidebar-block").blockCollapseAccordion();
+            } else {
+                $(".sidebar-block").blockCollapse();
+            }
+            tooltipIni();
+            makeEqualAjax();
+            // Countdown
+            countDownIni('.countdown');
+            currencyUpdate();
+            $('*').removeClass('block-loading');
+        });
+    }
+    {% if collection_filter_ajax == 1 %}
+    $(function(){
+        if($('body').hasClass('ie'))
+        {
+            $('.sort-by-js')
+                    .bind('change', function() {
+                                Shopify.queryParams.sort_by = jQuery(this).val();
+                                location.search = jQuery.param(Shopify.queryParams);
+                            }
+                    );
+            $('select[name=view]')
+                    .bind('change', function() {
+                                Shopify.queryParams.view = jQuery(this).val();
+                                location.search = jQuery.param(Shopify.queryParams);
+                            }
+                    );
+        }else
+        {
+            $(document).on('change','.filter-row select,.aside-filter-row select',function(e){
+                name=$(this).attr('name');
+                val=$(this).val();
+                url=updateURLParameter(window.location.href.replace('#','').replace('{{ shop.url }}',''), name, val);
+                $('.filter-row,.aside-filter-row').addClass('block-loading');
+                postAjaxJsInit(url,name,val);
+                e.preventDefault();
+            })
+        }
+    })
+
+
+    {% else %}
+    $(function(){
+        $('.sort-by-js')
+                .on('change', function() {
+                            Shopify.queryParams.sort_by = jQuery(this).val();
+                            location.search = jQuery.param(Shopify.queryParams);
+                        }
+                );
+
+        $('select[name=view]')
+                .on('change', function() {
+                            Shopify.queryParams.view = jQuery(this).val();
+                            location.search = jQuery.param(Shopify.queryParams);
+                        }
+                );
+    })
+    {% endif %}
+
+    $(document).on('click','.show_more',function(e){
+        url=$(this).attr('href');
+        $(this).addClass('block-loading');
+        $.get(url, function(data) {
+            product_items=$('.product-listing .product-items', data).html().split('<div class="product-item ').join('<div style="opacity:0" class="product-item anim ');
+            $('.product-items').append(product_items);
+            {% if section.settings.previews_height_yes %}
+            equalHeight('.product-item', {{ section.settings.previews_height }});
+            {% endif %}
+            showProduct(1,'fadeInUp','.product-item.anim');
+            $('.show_more_wrapper').html($('.show_more_wrapper', data).html());
+            $('.pagination').html($('.pagination', data).html());
+            viewMode('.view-mode');
+            $(".sidebar-block").blockSelectedMark();
+            $(".sidebar-block-top").hideShopBy();
+            if ($(".filter-col.fixed").length) {
+                $(".filter-col.fixed").fixedSidebar();
+                $(".sidebar-block").blockCollapseAccordion();
+            } else {
+                $(".sidebar-block").blockCollapse();
+            }
+            tooltipIni();
+            makeEqualAjax();
+            countDownIni();
+        })
+        e.preventDefault();
+    })
+
+</script>

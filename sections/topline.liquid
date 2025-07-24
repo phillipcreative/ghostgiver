@@ -1,0 +1,120 @@
+
+    <!-- Header Topline -->
+    <div class="block  block--no-preload {{ section.settings.block_width }}  offset-top-0">
+        <div class="container header-topline alert alert-dismissable"  data-expires="{{ section.settings.expires }}"  data-enable-expires="{{ section.settings.developer_mode }}" {% unless section.settings.bg_color contains '0,0,0,0' %}style="background:{{ section.settings.bg_color }}"{% endunless %}>
+            <div class="header-topline-inside">
+                {% if section.settings.close %}<a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="icon icon-close"></i></a>{% endif %}
+                <div class="header-topline-text">
+                    <span {% unless section.settings.color contains '0,0,0,0' %}style="color:{{ section.settings.color }}"{% endunless %}>{{ section.settings.caption }}</span> {% if section.settings.button %}<a href="{{ section.settings.button_link }}"  class="btn {{ section.settings.button_style }} anim-jelly">{{ section.settings.button_text }}</a>{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Header Topline -->
+    <script>
+        if ((jQuery('.header-topline').attr('data-enable-expires') == 'true') && (jQuery.cookie('bntTopline') == 'yes')) {
+            jQuery('.header-topline').remove();
+        }
+    </script>
+    {% if section.settings.bg_color %}
+        <style>
+            .header-topline-inside:before {background: {{ section.settings.bg_color }} }
+        </style>
+    {% endif %}
+
+{% schema %}
+{
+"name": "Topline",
+"class": "index-section",
+"settings": [
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true,
+"info":"only home page"
+},
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"global_width",
+"info":"click Save to see changes"
+},
+{
+"type": "header",
+"content": "Settings"
+},
+{
+"type": "color",
+"id": "color",
+"label": "Text color"
+},
+{
+"type": "color",
+"id": "bg_color",
+"label": "Bg color"
+},{
+"type": "html",
+"id": "caption",
+"label": "Text",
+"default":"SUMMER SEASON SALE UP TO <b>90% OFF</b>. USE CODE: <b>SUMMER</b>."
+},{
+"type": "checkbox",
+"id": "close",
+"label": "Show Close button",
+"default":true
+},{
+"type": "checkbox",
+"id": "button",
+"label": "Button",
+"default":true
+},
+{
+"type": "select",
+"id": "button_style",
+"options": [
+{ "value": "", "label": "Default"},
+{ "value": "btn-invert", "label": "Inverted"},
+{ "value": "btn-alt", "label": "Colored"}
+],
+"default":"btn-alt",
+"label": "Button Style"
+},{
+"type": "text",
+"id": "button_text",
+"label": "Button text",
+"default":"shop now"
+},{
+"type": "url",
+"id": "button_link",
+"label": "Button link"
+},{
+"type": "text",
+"id": "expires",
+"label": "Expires days:",
+"info":"period to show after click x",
+"default":"1"
+},{
+"type": "select",
+"id": "developer_mode",
+"label": "Developer mode",
+"info":"if Yes then topline is showed always",
+"default":"false",
+"options":[
+{ "value": "false", "label": "Yes" },
+{ "value": "true", "label": "No" }
+]
+}
+]
+}
+{% endschema %}

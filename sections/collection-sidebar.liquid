@@ -1,0 +1,359 @@
+{% assign collection_left_sidebar = settings.collection_left_sidebar %}{% if collection_left_sidebar %}
+  {% assign collection_left_sidebar = 1 %}{% endif %}
+{% assign collection_filter_ajax = settings.ajax %}{% if collection_filter_ajax %}
+  {% assign collection_filter_ajax = 1 %}{% endif %}
+{% assign collection_filter_fixed = section.settings.fixed %}{% if collection_filter_fixed %}
+  {% assign collection_filter_fixed = 1 %}{% endif %}
+{% if collection.description contains 'collection-filter-fixed-0' %}
+  {% assign collection_filter_fixed = 0 %}{% endif %}
+{% if collection.description contains 'collection-filter-ajax-0' %}
+  {% assign collection_filter_ajax = 0 %}{% endif %}
+{% if collection.description contains 'collection-left-sidebar-0' %}
+  {% assign collection_left_sidebar = 0 %}{% endif %}
+<script type="text/javascript">
+  tag_group=[];
+</script>
+{% if collection_left_sidebar == 1 %}
+  <div class="filter-col {% unless collection_filter_ajax == 1 %}no-ajax-filter{% endunless %} {% if collection_filter_fixed == 1 %}fixed{% endif %} aside-left">
+    <div class="filter-container">
+      <div class="fstart"></div>
+      <div class="fixed-wrapper">
+        <div class="fixed-scroll">
+          <div class="filter-col-header">
+            <div class="title">{{ 'general.theme.filters' | t }}</div>
+            <a href="#" class="filter-col-toggle"></a>
+          </div>
+          <div class="filter-col-content">
+            {% if settings.collection_toolbar_position == 'sidebar' %}
+              <div class="aside-filter-row">
+                <div class="pull-left">
+                  <div class="select-wrapper-sm">
+                    {% comment %}      {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+                                                                                                                                                                                                  <select class="form-control input-sm SortBy sort-by-js"  name="sort_by">
+                                                                                                                                                                                                      <option value="manual" {% if sort_by contains "manual" %} selected="selected"{% endif %}>{{ 'collections.sorting.featured' | t }}</option>
+                                                                                                                                                                                                      <option value="best-selling"{% if sort_by contains "best-selling" %} selected="selected"{% endif %}>{{ 'collections.sorting.best_selling' | t }}</option>
+                                                                                                                                                                                                      <option value="title-ascending" {% if sort_by contains "title-ascending"  %}selected="selected"{% endif %}>{{ 'collections.sorting.az' | t }}</option>
+                                                                                                                                                                                                      <option value="title-descending" {% if sort_by contains "title-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.za' | t }}</option>
+                                                                                                                                                                                                      <option value="price-ascending" {% if sort_by contains "price-ascending" %} selected="selected"{% endif %}>{{ 'collections.sorting.price_ascending' | t }}</option>
+                                                                                                                                                                                                      <option value="price-descending" {% if sort_by contains "price-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.price_descending' | t }}</option>
+                                                                                                                                                                                                      <option value="created-descending" {% if sort_by contains "created-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.date_descending' | t }}</option>
+                                                                                                                                                                                                      <option value="created-ascending" {% if sort_by contains "created-ascending" %} selected="selected"{% endif %}>{{ 'collections.sorting.date_ascending' | t }}</option>
+                                                                                                                                                                                    </select>{% endcomment %}
+                    <!-- <select  lass="form-control input-sm SortBy sort-by-js" name="forma" onchange="location = this.value;">    <option value="/collections/free-printable-cards"><a href="/collections/free-printable-cards">Free Printable Cards</a></option>    <option value="/collections/printed-cards-envelopes"><a href="/collections/printed-cards-envelopes">Physical Cards</a></option>    <option value="/collections/demo"><a href="sitemap.php">Products</a></option>
+</select> -->
+                    <!--
+                      <select class="form-control input-sm SortBy sort-by-js" name="forma" id="optionSelector">                                         <option value="Choose_Value">Choose Option</option>    <option value="/collections/free-printable-cards">Free Printable Cards</option>    <option value="/collections/printed-cards-envelopes">Physical Cards</option>    <option value="/collections/demo">Products</option>
+</select> -->
+                    <select id="dropdown" onchange="navigateToLink(this)">
+                      <option value="">Choose Option</option>
+                      <option value="/collections/free-printable-cards">Free Printable Cards</option>
+                      <option value="/collections/printed-cards-envelopes">Physical Cards & Envelopes</option>
+                      <option value="/collections/gifts">Gifts</option>
+                      <option value="/collections/digital-gift-card-via-text">Digital Gift Card (via Text)</option>
+                      <option value="/collections/digital-gift-card-via-email">Digital Gift Card (via Email)</option>
+                       <option value="/collections/individual-code-via-e-tailers">Ghost Code (via E-tailers)</option>
+                      <!-- <option value="/collections/send-cash-via-venmo">Send Cash (via Venmo)</option> -->
+                     
+                    </select>
+
+                  </div>
+                </div>
+                <div class="pull-right">
+                  <div class="view-mode">
+                    {% unless settings.collection_listing_only_default %}
+                      <a href="#" class="grid-view">
+                        <i class="icon icon-th"></i>
+                      </a>
+                      <a href="#" class="list-view">
+                        <i class="icon icon-th-list"></i>
+                      </a>
+                    {% endunless %}
+                  </div>
+                </div>
+                <div class="bg-striped"></div>
+              </div>
+          {% endif %}
+
+
+            <!-- new filter start -->
+            {% assign current_tags_str = current_tags | downcase %}
+            {% assign t_item = 'general.theme.item' | t %}
+            {% assign t_items = 'general.theme.items_c' | t %}
+            {% if section.settings.shopping_by %}
+              {% if current_tags.size > 0 %}
+                <div class="sidebar-block-top">
+                  <h3 class="block-title">{{ 'general.theme.shopping_by' | t }}:</h3>
+                  <ul class="selected-filters">
+                    {% for tag in current_tags %}
+                      <li>{{ tag | link_to_remove_tag: tag | replace: '">', '"  class="selected-filter"><span>' | replace: '</a>', '</span><span class="remove"><i class="icon icon-close"></i></span></a>' }}<div class="bg-striped"></div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            {% endif %}
+            {% if section.settings.cross_tags %}
+              {% assign all_collection_tags = collection.tags | downcase %}
+            {% else %}
+              {% assign all_collection_tags = collection.all_tags | downcase %}
+            {% endif %}
+            {% for block in section.blocks %}
+              {% assign enable = block.settings.enable %}
+              {% assign title = block.settings.title %}
+              {% assign tags = block.settings.tags %}
+              {% assign closed = block.settings.closed %}
+              {% assign style = block.settings.style %}
+              {% assign open = 'open' %}
+              {% if closed %}
+                {% assign open = '' %}{% endif %}
+              {% if block.settings.enable %}
+                {% assign block_settings_tags_downcase = block.settings.tags | downcase %}
+                {% assign user_filter_tags = block.settings.tags | downcase | split: "," | uniq %}
+                {% assign user_filter_tags_original = block.settings.tags | split: "," | uniq %}
+                {% assign empty_flag = '1' %}
+                {% for user_tag in user_filter_tags %}
+                  {% assign tag_only_dawncase_real = user_tag | downcase | strip | split: '__' | first | append: '"' | prepend: '"' %}
+                  {% if all_collection_tags contains tag_only_dawncase_real %}
+                    {% unless current_tags_str contains tag_only_dawncase_real %}
+                      {% assign empty_flag = '0' %}
+                    {% endunless %}
+                  {% endif %}
+              {% endfor %}
+
+                <!-- Check if the current tag from the current group -->
+                {% assign current_tag_from_current_group = false %}
+                {% assign current_tag_from_current_group_value = '' %}
+                {% for user_tag in user_filter_tags %}
+                  {% assign tag_only_dawncase = user_tag | downcase | strip | split: '__' | first %}
+                  {% for tag in current_tags %}
+                    {% assign tag_current_downcase = tag | downcase | append: '' %}
+                    {% if tag_only_dawncase == tag_current_downcase %}
+                      {% assign current_tag_from_current_group = true %}
+                      {% assign current_tag_from_current_group_value = tag | handle %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                <!-- End -->
+                {% if empty_flag == '0' %}
+                  <div class="sidebar-block collapsed {% if collection_filter_fixed == 1 and  style == 'color-list' %}open{% endif %} {% unless collection_filter_fixed == 1 %}{{ open }}{% endunless %} filter-group-{{ title | strip_html | downcase | handle }}">
+                    <div class="block-title">
+                      <span>{{ block.settings.title }}</span>
+                      <div class="toggle-arrow"></div>
+                    </div>
+
+                    <div
+                      class="block-content"
+                      {% if collection_filter_fixed == 1 and style == 'color-list' %}
+                      style="display: block;"
+                      {% endif %}>
+
+                      <ul class="{{ block.settings.style }}">
+                        {% for user_tag in user_filter_tags_original %}
+                          {% assign tag_only_dawncase = user_tag | downcase | strip | split: '__' | first | append: '"' | prepend: '"' %}
+                          {% assign user_tag_value = user_tag | strip | split: '__' | first %}
+                          {% assign user_tag_title = user_tag | strip | split: '__' | last %}
+                          {% assign user_tag_value_dawncase = user_tag | dawncase | strip | split: '__' | first %}
+                          {% if all_collection_tags contains tag_only_dawncase %}
+                            {% assign flag_link_to_remove_tag = false %}
+                            {% if current_tags_str contains tag_only_dawncase %}
+                              {% capture user_tag_capture = %}{{ user_tag_value | link_to_remove_tag: user_tag_value_dawncase }}{% endcapture %}
+                              {% assign flag_link_to_remove_tag = true %}
+                            {% else %}
+                              {% capture user_tag_capture = %}{{ user_tag_value | link_to_add_tag: user_tag_value_dawncase }}{% endcapture %}
+                            {% endif %}
+                            {% assign user_tag_capture_href = user_tag_capture | split: 'href="' | last | split: '"' | first %}
+                            {% assign user_tag_capture_title = user_tag_capture | split: 'title="' | last | split: '"' | first %}
+                            {% unless flag_link_to_remove_tag %}
+                              {% if current_tag_from_current_group %}
+                                <!-- for replacing user_tag_capture_href -->
+                                {% assign user_tag_capture_href_array = user_tag_capture_href | split: '?' | first | split: '/' | last | split: '+' %}
+                                {% assign tags_part = '' %}
+                                {% if user_tag_capture_href_array.size > 1 %}
+                                  {% for tag in user_tag_capture_href_array %}
+                                    {% unless tag == current_tag_from_current_group_value %}
+                                      {% assign tags_part = tags_part | append: tag %}
+                                      {% unless forloop.last %}
+                                        {% assign tags_part = tags_part | append: '+' %}
+                                      {% endunless %}
+                                    {% endunless %}
+                                  {% endfor %}
+                                {% endif %}
+                                {% assign user_tag_capture_collection = user_tag_capture_href | split: '/collections/' | last | split: '/' | first %}
+                                {% assign user_tag_capture_href_first = '/collections/' | append: user_tag_capture_collection | append: '/' | append: tags_part %}
+                                {% assign user_tag_capture_href_last = user_tag_capture_href | split: '?' %}
+                                {% if user_tag_capture_href_last.size > 1 %}
+                                  {% assign user_tag_capture_href_last = user_tag_capture_href_last | last | prepend: '?' %}
+                                {% else %}
+                                  {% assign user_tag_capture_href_last = '' %}
+                                {% endif %}
+                                {% assign user_tag_capture_href = user_tag_capture_href_first | append: user_tag_capture_href_last %}
+                              {% endif %}
+                            {% endunless %}
+                            <li
+                              data-value="{{ user_tag_value | handle }}"
+                              {% if current_tags_str contains tag_only_dawncase %}
+                              class="active"
+                              {% endif %}>
+                              {% case block.settings.style %}
+                                {% when 'color-list' %}
+                                  <a
+                                    href="{{ user_tag_capture_href }}"
+                                    title="{{ user_tag_capture_href }}"
+                                    data-tooltip="{{ user_tag_title }}">
+                                    <span class="clear"></span>
+                                    <span class="value"><img src="{{ user_tag | handle | prepend:'color-' | append:'.png' | file_url }}" alt="{{ user_tag_title }}"></span>
+                                  </a>
+                                {% when 'banners-list' %}
+                                  <a
+                                    href="{{ user_tag_capture_href }}"
+                                    title="{{ user_tag_capture_title }}"
+                                    style="background-image: url({{ user_tag_value | handle | prepend:'color-' | append:'.png' | file_url }})">
+                                    <span>{{ user_tag_title }}</span>
+                                  </a>
+                                {% when 'tags' %}
+                                  <a href="{{ user_tag_capture_href }}" title="{{ user_tag_capture_title }}">
+                                    <span class="clear"></span>
+                                    <span class="value">
+                                      <span>{{ user_tag_title }}</span>
+                                    </span>
+                                  </a>
+                                {% else %}
+                                  <a href="{{ user_tag_capture_href }}" title="{{ user_tag_capture_title }}">
+                                    <span class="clear"></span>
+                                    <span class="value">{{ user_tag_title }}</span>
+                                  </a>
+                              {% endcase %}
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+                      </ul>
+                      <div class="bg-striped"></div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          <!-- new filter end -->
+          </div>
+        </div>
+      </div>
+      <div class="fend"></div>
+    </div>
+  </div>
+{% endif %}
+<script type="text/javascript">
+    $(function(){
+        Shopify.queryParams = {};
+        updateQueryParams();
+        {% if collection_filter_ajax == 1 %}
+        $(document).on('click','.filter-col-content ul:not(.categories) li a',function(e){
+            url=$(this).attr('href').replace('#','');
+            if($(this).hasClass('selected-filter'))
+            {
+                $(this).closest('li').addClass('block-loading');
+            }else{
+                $(this).closest('.sidebar-block').addClass('block-loading');
+            }
+            postAjaxJsInit(url);
+            e.preventDefault();
+        })
+  
+        $(document).on('click','.filter-col-content ul.categories li a',function(e){
+            url=$(this).attr('href').replace('#','')+location.search;
+            $(this).closest('.sidebar-block').addClass('block-loading');
+            postAjaxJsInit(url);
+            e.preventDefault();
+        })
+        {% endif %}
+    })
+</script>
+
+{% schema %}
+  {
+    "name": "Sidebar (filter by tags)",
+    "class": "collect-sidebar",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "[Documentation](http://big-skins.com/banita/shopify/manuals/#SetupSidebarFilter)"
+      },
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "fixed",
+        "label": "Accordion mode",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "shopping_by",
+        "label": "Enable Shopping by Tag",
+        "default": true,
+        "info": "block shows checked filter items"
+      }, {
+        "type": "checkbox",
+        "id": "cross_tags",
+        "label": "Cross tags filtering",
+        "default": false,
+        "info": "special mode that automatically hides tags from the filter, which are absent for the current tags selection"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "group",
+        "name": "Group of tags",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "enable",
+            "label": "Enable",
+            "default": true
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "info": "for ex. Price, Colors, Size, Brands etc"
+          },
+          {
+            "type": "textarea",
+            "id": "tags",
+            "label": "Tags",
+            "info": "Write product tags, separated by comma. Make sure that the tags are the same as in the products."
+          },
+          {
+            "type": "select",
+            "id": "style",
+            "label": "Style",
+            "options": [
+              {
+                "value": "category-list",
+                "label": "List"
+              }, {
+                "value": "size-list",
+                "label": "Sizes"
+              }, {
+                "value": "color-list",
+                "label": "Pics"
+              }, {
+                "value": "tags",
+                "label": "Tags"
+              }
+            ],
+            "default": "category-list",
+            "info": "If you choose pics, you need upload in settings\/files pic image, color-tagname.png 27 x 27 px"
+          }, {
+            "type": "checkbox",
+            "id": "closed",
+            "label": "Closed by default",
+            "default": false,
+            "info": "if accordion mode disabled"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

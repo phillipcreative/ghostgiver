@@ -1,0 +1,110 @@
+{% assign enable = block.settings.enable %}
+{% assign title = block.settings.title %}
+{% assign tags = block.settings.tags %}
+{% assign closed = block.settings.closed %}
+{% assign style = block.settings.style %}
+{% assign open = 'open' %}
+{% if closed %}{% assign open = '' %}{% endif %}
+{% assign user_filter_tags = tags | split:"," %}
+{% assign old_tags_url = current_tags | join:'+' | downcase | replace :' ','-' %}
+{% assign current_tags_url = current_tags | join:'+' | downcase | replace :' ','-' %}
+{% assign collection_all_tags = collection.all_tags | join:'!_!' | downcase | append:'!_!' | prepend:'!_!'  %}
+{% assign current_tags_str = current_tags | downcase %}
+{% assign href = 'href="' | append:collection.url | append:'/' %}
+{% if enable %}
+    {% assign empty_flag = '1' %}
+    {% for user_tag in user_filter_tags %}
+        {% assign tag_dawncase =  user_tag | downcase | escape | append:'!_!' | prepend:'!_!' | replace:'!_! ','!_!' | replace:' !_! ','!_!' %}
+        {% if collection_all_tags contains tag_dawncase %}
+            {% assign empty_flag = '0' %}
+        {% endif %}
+    {% endfor %}
+
+    {% if empty_flag == '0' %}
+        <div class="sidebar-block collapsed {% if collection_filter_fixed == 1 and  style == 'color-list' %}open{% endif %} {% unless collection_filter_fixed == 1 %}{{ open }}{% endunless %} filter-group-{{ title | strip_html | downcase | handle }}">
+            <div class="block-title">
+                <span>{{ title }}</span>
+                <div class="toggle-arrow"></div>
+            </div>
+            <div class="block-content" {% if collection_filter_fixed == 1 and  style == 'color-list' %}style="display: block;"{% endif %}>
+                {% assign tags_users_handle = '' %}
+                {% for user_tag in user_filter_tags %}
+                    {% assign tag_dawncase = user_tag | handle | downcase %}
+                    {% assign tag_dawncase = tag_dawncase | append:'"'| prepend:'"' %}
+                    {% assign tags_users_handle =  tags_users_handle | append:tag_dawncase | append:','  %}
+                {% endfor %}
+
+                <ul class="{{ style }}">
+
+
+                    {% for tag in collection.all_tags %}
+                        {% assign tag_only_dawncase = tag | downcase | append:'"'| prepend:'"' %}
+                        {% assign tag_dawncase = tag | handle | downcase %}
+                        {% assign tag_dawncase_check = tag_dawncase | append:'"'| prepend:'"' %}
+                        {% assign tag_handle = tag | handle | append:'+' | prepend:'+' %}
+                        {% assign tags_from_href_old = tag | link_to_remove_tag: tag | split:'href="' | last | split:'"' | first | split:'/' | last | prepend:href %}
+                        {% assign tags_from_href_new = tag | link_to_remove_tag: tag | split:'href="' | last | split:'"' | first | split:'/' | last | append:'+' | prepend:'+' | replace:tag_handle,'+' | append :'!_!' | prepend:'!_!' | remove:'+!_!' | remove:'!_!+' | remove:'!_!'  | remove:'++' | prepend:href  %}
+
+                        {% if tags_users_handle contains tag_dawncase_check %}
+                            {% unless title == "Popular Tags" %}
+                            <script type="text/javascript">
+                                tag_group['{{ tag_dawncase }}'] = '{{ title | handle }}';
+                            </script>
+                            {% endunless %}
+                            {% assign new_current_tags_url = old_tags_url %}
+                            {% for a in user_filter_tags %}
+                                {% assign tag_a =  a | handle | downcase %}
+                                {% for b in current_tags %}
+                                    {% assign tag_b = b | handle | downcase %}
+                                    {% if tag_b == tag_a %}
+                                        {% assign new_current_tags_url = '' %}
+                                        {% for c in current_tags %}
+                                            {% assign tag_c = c | handle | downcase %}
+                                            {% if tag_c == tag_b %}{% continue %}{% endif %}
+                                            {% assign new_current_tags_url = new_current_tags_url | append:tag_c %}
+                                            {% unless forloop.last %}{% assign new_current_tags_url = new_current_tags_url | append:'+' %}{% endunless %}
+                                        {% endfor %}
+                                        {% break %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                            {% assign sub_a = old_tags_url | prepend:'/' %}
+                            {% assign sub_b = new_current_tags_url | prepend:'/' %}
+                            <li {% if current_tags_str contains tag_only_dawncase %}class="active"{% endif %}>
+
+                                {% if style == 'category-list' %}
+                                    {{ tag  | link_to_add_tag: tag | replace:sub_a,sub_b | replace:'/+','/' | replace:'++','+' }}
+                                    {{ '' | link_to_remove_tag: tag  | replace:tags_from_href_old,tags_from_href_new | replace:"<a","<a class='clear' " }}
+                                    {% elsif  style == 'size-list' %}
+                                    {% if current_tags_str contains tag_only_dawncase %}
+                                        {{ tag | upcase  | link_to_remove_tag: tag | replace:tags_from_href_old,tags_from_href_new | replace:'">','"><span class="clear"></span><span class="value">' | replace:'</a>','</span></a>' }}
+                                    {% else %}
+                                        {{ tag | upcase  | link_to_add_tag: tag | replace:sub_a,sub_b | replace:'/+','/' | replace:'++','+'  | replace:'">','"><span class="clear"></span><span class="value">' | replace:'</a>','</span></a>' }}
+                                    {% endif %}
+                                    {% elsif  style == 'color-list' %}
+
+                                    {% assign color_img = tag_dawncase | prepend:'color-' | append:'.png' | file_url %}
+                                    {% if current_tags_str contains tag_only_dawncase %}
+                                        {% assign tag_title_tooltip = 'data-tooltip="' | append:'Remove ' | append:user_tag | append:'"' %}
+                                        {{ tag  | link_to_remove_tag: tag | replace:tags_from_href_old,tags_from_href_new | replace:'">','" data-tooltip="tooltip"><span class="clear"></span><span class="value"><img src="image_src" alt="' | replace:'</a>','"></span></a>' | replace:"image_src",color_img | replace:'data-tooltip="tooltip"',tag_title_tooltip }}
+                                    {% else %}
+                                        {{ tag  | link_to_add_tag: tag | replace:sub_a,sub_b | replace:'/+','/' | replace:'++','+'  | replace:'">','" data-tooltip="z-tooltip"><span class="clear"></span><span class="value"><img src="image_src"  alt="' | replace:'</a>','"></span></a>' | replace:'image_src',color_img | replace:'z-tooltip',user_tag }}
+                                    {% endif %}
+
+                                {% else %}
+                                    {% if current_tags_str contains tag_only_dawncase %}
+                                        {{ tag  | link_to_remove_tag: tag | replace:tags_from_href_old,tags_from_href_new | replace:'">','"><span class="clear"></span><span class="value"><span>' | replace:'</a>','</span></span></a>' }}
+                                    {% else %}
+                                        {{ tag  | link_to_add_tag: tag | replace:sub_a,sub_b | replace:'/+','/' | replace:'++','+'  | replace:'">','"><span class="clear"></span><span class="value"><span>' | replace:'</a>','</span></span></a>' }}
+                                    {% endif %}
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                </ul>
+                <div class="bg-striped"></div>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}

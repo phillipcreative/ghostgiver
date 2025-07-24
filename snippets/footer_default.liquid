@@ -1,0 +1,37 @@
+<footer class="page-footer variant1">
+    <div class="container">
+        <div class="under-footer">
+            <a href="#"><img src="{{ "footer_banner.jpg" | asset_url}}" alt="" class="img-responsive"></a>
+        </div>
+        <div class="footer-bot">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="footer-logo"> <a href="#"><img src="{{ "footer_logo.png" | asset_url}}" alt=""></a> </div>
+                    </div>
+                    <div class="col-md-4">
+                        {% if settings.footer_social_icons %}
+                        <div class="footer-social">
+                            {{ settings.footer_social_icons }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4">
+                        {% if settings.footer_show_methods_of_payment %}
+                        <div class="footer-payment-link">
+                            <a><img src="{{ 'icon-pay-1.png' | asset_url }}" alt=""></a>
+                            <a><img src="{{ 'icon-pay-2.png' | asset_url }}" alt=""></a>
+                            <a><img src="{{ 'icon-pay-3.png' | asset_url }}" alt=""></a>
+                            <a><img src="{{ 'icon-pay-4.png' | asset_url }}" alt=""></a>
+                            <a><img src="{{ 'icon-pay-5.png' | asset_url }}" alt=""></a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="after-footer">
+            <div class="footer-copyright text-center"> &copy; {{ settings.copyright }} </div>
+        </div>
+    </div>
+</footer>

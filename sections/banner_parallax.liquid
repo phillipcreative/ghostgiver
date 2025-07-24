@@ -1,0 +1,193 @@
+{% if section.settings.enable %}
+  {% if section.settings.image != blank %}
+  <div class="block jarallax full-no-sidemargin {{ section.settings.block_width }} {{ section.settings.outer_margin }}" {% if section.settings.image %}style="background-image: url('{{ section.settings.image | img_url: '2048x' }}')"{% endif %}>
+    <div class="container">
+      <a {% if section.settings.link %}href="{{ section.settings.link }}"  target="{{ section.settings.link_target }}"{% endif %} class="banner-wrap">
+        <div class="banner style-3 autosize-text" data-fontratio="12.6">
+          <div class="banner-caption {{ section.settings.captions_h_alignment }} {{ section.settings.captions_v_alignment }}">
+            <div class="vert-wrapper">
+              <div class="vert">
+                <div class="text-1" {% unless section.settings.caption_1_color contains '0,0,0,0' %}style="color:{{ section.settings.caption_1_color }}"{% endunless %}>{{ section.settings.caption_1_text }}</div>
+                <div class="text-2" {% unless section.settings.caption_2_color contains '0,0,0,0' %}style="color:{{ section.settings.caption_2_color }}"{% endunless %}>{{ section.settings.caption_2_text }}</div>
+                <div class="text-3" {% unless section.settings.caption_3_color contains '0,0,0,0' %}style="color:{{ section.settings.caption_3_color }}"{% endunless %}>{{ section.settings.caption_3_text }}</div>
+                <div class="text-4" {% unless section.settings.caption_4_color contains '0,0,0,0' %}style="color:{{ section.settings.caption_4_color }}"{% endunless %}>{{ section.settings.caption_4_text }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  {% else %}
+  <div class="block">
+    <div class="container">
+      <p class="blockquote">
+        To Init <b>Banner parallax</b>:<br />
+        1.<b>Choose Image</b><br />
+        2.<b>Save</b>
+      </p>
+    </div>
+  </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Banner parallax",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type":"select",
+        "id":"block_width",
+        "label":"Width",
+        "options":[
+          {"value":"boxed","label":"Boxed"},
+          {"value":"fullwidth","label":"Fullwidth"},
+          {"value":"fullboxed","label":"Fullboxed"},
+          {"value":"global_width","label":"Use global site width"}
+        ],
+        "default":"fullboxed",
+        "info":"click Save to see changes"
+      },
+      {
+        "type": "select",
+        "id": "outer_margin",
+        "label": "Outer top margin",
+        "options":[
+            {"value":"offset-top-0","label":"None"},
+            {"value":"offset-top-30","label":"30px"},
+            {"value":"offset-top-40","label":"40px"},
+            {"value":"offset-top-50","label":"50px"}
+        ],
+        "default": "offset-top-50"
+      },
+      {
+      "type": "header",
+      "content": "General"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+        "info":"recommended size 1920x830 (like in demo)"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link"
+      },
+      {
+        "type": "select",
+        "id": "link_target",
+        "label": "Link Target",
+        "default":"_self",
+        "options": [
+          { "value": "_blank", "label": "New page" },
+          { "value": "_self",  "label": "In current page" }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "CAPTIONS"
+      },
+      {
+        "type": "select",
+        "id": "captions_h_alignment",
+        "label": "Horizontal alignment",
+        "default": "text-left",
+        "options": [
+          { "value": "text-left", "label": "Left" },
+          { "value": "text-center", "label": "Center" },
+          { "value": "text-right", "label": "Right" }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "captions_v_alignment",
+        "label": "Vertical alignment",
+        "default": "text-middle",
+        "options": [
+          { "value": "text-top", "label": "Top" },
+          { "value": "text-middle", "label": "Middle" },
+          { "value": "text-bot", "label": "Bottom" }
+        ]
+      },
+      {
+        "type":"header",
+        "content":"Caption 1"
+      },
+      {
+        "type": "text",
+        "id": "caption_1_text",
+        "label": "Caption",
+        "default":"Sale"
+      },
+      {
+        "type": "color",
+        "id": "caption_1_color",
+        "label": "Color"
+      },
+      {
+        "type":"header",
+        "content":"Caption 2"
+      },
+      {
+        "type": "text",
+        "id": "caption_2_text",
+        "label": "Caption",
+        "default":"Summer"
+      },
+      {
+        "type": "color",
+        "id": "caption_2_color",
+        "label": "Color"
+      },
+      {
+        "type":"header",
+        "content":"Caption 3"
+      },
+      {
+        "type": "text",
+        "id": "caption_3_text",
+        "label": "Caption",
+        "default":"Collection"
+      },
+      {
+        "type": "color",
+        "id": "caption_3_color",
+        "label": "Color"
+      },
+      {
+        "type":"header",
+        "content":"Caption 4"
+      },
+      {
+        "type": "text",
+        "id": "caption_4_text",
+        "label": "Caption",
+        "default":"2017"
+      },
+      {
+        "type": "color",
+        "id": "caption_4_color",
+        "label": "Color"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Parallax + Text",
+        "category": "Banners"
+      }
+    ]
+  }
+{% endschema %}

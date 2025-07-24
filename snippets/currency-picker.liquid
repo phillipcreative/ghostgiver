@@ -1,0 +1,15 @@
+<!-- Header Currency -->
+<div class="header-link header-select dropdown-link header-currency" {% unless section.settings.currencies %}style="display:none"{% endunless %}>
+{% assign codes = 'USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,ILS,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK' | split: ',' %}
+{% assign supported_full_codes = settings.supported_currencies | split: '|' %}
+<a href="#" class="selected-currency">{{ shop.currency }}</a>
+<ul class="dropdown-container">
+    {% for full_code in supported_full_codes %}
+
+        {% assign code=full_code|split:':' %}
+        <li class="{{ code[1] }}"><a href="#"  data-value="{{ code[1] }}">{{ code[0] }} {{ code[1] }}</a></li>
+
+    {% endfor %}
+</ul>
+</div>
+<!-- /Header Currency -->

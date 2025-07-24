@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "we_send_gift_ccTxWU": {
+      "type": "we-send-gift",
+      "blocks": {
+        "collection_block_Vk4pDz": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "digital-gift-card",
+            "collection_content": "You just need to know your recipient’s cell phone number"
+          }
+        },
+        "collection_block_CYzpyh": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "digital-gift-card-1",
+            "collection_content": "You just need to know your recipient’s email address"
+          }
+        },
+        "collection_block_AnViYX": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "gifts-1",
+            "collection_content": "You just need to know your recipient’s mailing address"
+          }
+        },
+        "collection_block_XthhMi": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "send-cash",
+            "collection_content": "You just need to know your recipient’s @Payname"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_Vk4pDz",
+        "collection_block_CYzpyh",
+        "collection_block_AnViYX",
+        "collection_block_XthhMi"
+      ],
+      "settings": {
+        "banner_desktop": "shopify:\/\/shop_images\/MASK_2x_df91da65-65f0-4714-8858-93f0d841dd65.png",
+        "banner_mobile": "shopify:\/\/shop_images\/Mask_Group_37_a382572f-442d-4982-9ce8-1c82ebe223bd.png",
+        "page_title": "Get Started",
+        "section_heading": "CHOOSE HOW YOU’D LIKE TO SEND",
+        "section_content": "From digital options to physical products, we've got you covered.",
+        "section_blueimg": "shopify:\/\/shop_images\/Group_39360_2x_2dfe7f7a-0716-42b4-8cca-0d76c0cb4119.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "we_send_gift_ccTxWU"
+  ]
+}

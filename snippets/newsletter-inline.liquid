@@ -1,0 +1,25 @@
+<div class="newsletter">
+  <h4 class="newsletter-title">{{ settings.newsletter_title }}</h4>
+  <div class="newsletter-text">{{ settings.newsletter_desc }}</div>
+  {% if settings.newsletter_mailchimp_yes %}
+    <form action="{{ settings.newsletter_action | strip }}" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div class="input-group">
+        <input  type="email" name="EMAIL" class="form-control required email" >
+        <span class="input-group-btn"><button class="btn btn-invert" type="submit"><i class="icon icon-arrow-right"></i></button></span>
+      </div>
+    </form>
+  {% else %}
+    {% form 'customer', id: 'newsletter-inline-form' %}
+    {% if form.posted_successfully? %}
+      <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+    {% else %}
+      <div class="input-group password__input-group">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email" name="contact[email]" id="Email" class="form-control" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"  >
+        {{ form.errors | default_errors }}
+        <span class="input-group-btn"> <button type="submit" class="btn btn-invert" name="commit" id="Subscribe" title="{{ 'general.newsletter_form.submit' | t }}"> <i class="icon icon-arrow-right"></i> </button> </span>
+      </div>
+    {% endif %}
+    {% endform %}
+  {% endif %}
+</div>

@@ -1,0 +1,145 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ways_to_ghostgive_ipegPG": {
+      "type": "ways_to_ghostgive",
+      "disabled": true,
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/Ways_to_Ghostgive_Image_for_Desktop.jpg",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Ways_to_Ghostgive.png",
+        "bannername": "",
+        "description": "<span>W<\/span>e've got so many options it's spooky! So, however you like to give, we’ll help you Ghost someone…the good way. Your way.",
+        "icon1": "shopify:\/\/shop_images\/Card_and_Printer.png",
+        "box_1_caption_1": "Free printable cards",
+        "point1_text": "Download and print free Ghost Giver cards. Add to anything you want and start giving. Does not include code for conﬁrmation & thank you.",
+        "link_1": "shopify:\/\/collections\/free-printable-cards",
+        "point_btn1": "LEARN MORE",
+        "icon2": "shopify:\/\/shop_images\/Card_and_Envelope.png",
+        "box_2_caption_2": "Physical cards & envelopes",
+        "point2_text": "Purchase pre-printed Ghost Giver cards and envelopes. Add to anything you want and start giving. Includes code for conﬁrmation and thank you.",
+        "link_2": "shopify:\/\/collections\/printed-cards-envelopes",
+        "point_btn2": "LEARN MORE",
+        "icon3": "shopify:\/\/shop_images\/Group_42719_2x_70fd5b90-d647-4711-a903-e7ce8d946e04.png",
+        "box_3_caption_3": "Gifts",
+        "point3_text": "Not sure what to give? Send something from one of our partners—like a Ghost Giver-branded Velvey. Because sending something sweet is always the right choice.",
+        "link_3": "shopify:\/\/collections\/gifts",
+        "point_btn3": "LEARN MORE",
+        "icon4": "shopify:\/\/shop_images\/Text_2x_1c19213d-0e88-4a0c-bda0-8313ec1853ee.png",
+        "box_4_caption_4": "Digital Gift Card (via Text)",
+        "point4_text": "No address? No problem. If you have your recipient s cell phone number, we ll send them You ve been GHOSTED! ...the good way text with a link to your anonymous message and digital gift card.",
+        "link_4": "shopify:\/\/collections\/digital-gift-card-via-text",
+        "point_btn4": "Learn More",
+        "icon5": "shopify:\/\/shop_images\/Mask_Group_86_1.png",
+        "box_5_caption_5": "Digital Gift Card (via Email)",
+        "point5_text": "No address? No problem. If you have your recipient s email address, w e ll send them a You ve been GHOSTED! ...the good way email with a link to your anonymous message and digital gift card.",
+        "link_5": "shopify:\/\/collections\/digital-gift-card-via-email",
+        "point_btn5": "Learn More",
+        "icon6": "shopify:\/\/shop_images\/Mask_Group_78_2x_ababdb1d-a4e2-4c5f-becd-8ac0569c9997.png",
+        "box_6_caption_6": "Ghost Code (via E-tailers)",
+        "point6_text": "Ghost Give from any online store that allows you to include a message —like Amazon or FTD. Purchase a Ghost Giver code here to use at checkout wherever you choose to give.",
+        "link_6": "shopify:\/\/collections\/individual-code-via-e-tailers",
+        "point_btn6": "Learn More",
+        "icon7": "shopify:\/\/shop_images\/Mask_Group_84_2x_f7a7f8ab-7bab-46f4-959b-40eac9871c2e.png",
+        "box_7_caption_7": "Send Cash <span>(via Venmo)<span><\/span><\/span>",
+        "point7_text": "When in doubt, send cash. Choose your dollar amount (plus a little tip!) and we’ll deposit it right to a Venmo account with a spooky, “You’ve been Ghosted… the good way!”",
+        "link_7": "shopify:\/\/collections\/send-cash-via-venmo",
+        "point_btn7": "Learn More"
+      }
+    },
+    "ways_to_giver_new_FDNnzL": {
+      "type": "ways-to-giver-new",
+      "blocks": {
+        "collection_block_BKc9fx": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "digital-gift-card",
+            "collection_content": "You just need to know your recipient’s cell phone number"
+          }
+        },
+        "collection_block_diYMPQ": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "digital-gift-card-1",
+            "collection_content": "You just need to know your recipient’s email address"
+          }
+        },
+        "collection_block_UCXygn": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "gifts-1",
+            "collection_content": "You just need to know your recipient’s mailing address"
+          }
+        },
+        "collection_block_HeCgYt": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "send-cash",
+            "collection_content": "You just need to know your recipient’s @Payname"
+          }
+        },
+        "collection_block2_9wcDyp": {
+          "type": "collection_block2",
+          "settings": {
+            "collection2": "individual-code-via-e-tailers",
+            "collection_content2": "Send anything. You do the ordering. We provide the code + instructions."
+          }
+        },
+        "collection_block2_n7Qb33": {
+          "type": "collection_block2",
+          "settings": {
+            "collection2": "food-delivery",
+            "collection_content2": "Send food. You do the ordering. We provide the code + instructions."
+          }
+        },
+        "collection_block2_Gc3F8n": {
+          "type": "collection_block2",
+          "settings": {
+            "collection2": "physical-cards-envelopes",
+            "collection_content2": "Include with gifts of your own. You do the delivering."
+          }
+        },
+        "collection_block2_hhzRCg": {
+          "type": "collection_block2",
+          "settings": {
+            "collection2": "free-printable-cards-1",
+            "collection_content2": "Print for free, add an anonymous note, and give. Great for kids!"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_BKc9fx",
+        "collection_block_diYMPQ",
+        "collection_block_UCXygn",
+        "collection_block_HeCgYt",
+        "collection_block2_9wcDyp",
+        "collection_block2_n7Qb33",
+        "collection_block2_Gc3F8n",
+        "collection_block2_hhzRCg"
+      ],
+      "custom_css": [],
+      "settings": {
+        "banner_desktop": "shopify:\/\/shop_images\/WAYS_TO_GHOSTGIVE.jpg",
+        "banner_mobile": "shopify:\/\/shop_images\/Group_46145_7c3148e9-5267-4f00-9639-b12d6eba8a93.png",
+        "page_title": "Ways to ghostgive",
+        "section_heading": "",
+        "section_content": "We've got so many options it's spooky! So, however you like to<br> give, we’ll help you Ghost someone…the good way.",
+        "collection_title": "GIVE WITH GHOST GIVER",
+        "collection_subheading": "We Send the Gift",
+        "collection_title2": "GIVE ON YOUR OWN",
+        "collection_subheading2": "You Send the Gift"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ways_to_ghostgive_ipegPG",
+    "ways_to_giver_new_FDNnzL"
+  ]
+}

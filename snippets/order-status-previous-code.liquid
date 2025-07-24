@@ -1,0 +1,979 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+</style>
+<style>
+  .anyflexbox .content .wrap {
+    position: static;
+    padding: 221px 15px 0;
+    width: 100%;
+    max-width: 1504px;
+  }
+
+  .anyflexbox .content .wrap header.main__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid #ebeaea;
+    min-height: 222px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    position: relative;
+  }
+
+  .anyflexbox .content .wrap header.main__header a.logo.logo--center {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    header.main__header
+    a.logo.logo--center
+    img.logo__image {
+    max-height: unset;
+    width: 100%;
+  }
+
+  .anyflexbox .content .wrap .step__sections .section__header.os-header {
+    margin: 0 !important;
+    justify-content: center;
+  }
+
+  .anyflexbox .content .wrap .step__sections svg.icon-svg {
+    position: unset;
+    transform: none !important;
+    margin: 0 20px 0 0;
+    stroke: #af59d7;
+    font-weight: bold;
+    width: 57px;
+    height: 57px;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    .section__header.os-header
+    .os-header__heading {
+    flex-grow: unset;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    .section__header.os-header
+    .os-header__heading
+    span.os-order-number {
+    margin: 0;
+    font-size: 31px;
+    line-height: 38px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -0.62px;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    .thank-you__additional-content
+    p.title-order {
+    font-size: clamp(1.2rem, 2vw, 30px);
+    line-height: clamp(1rem, 2vw, 22px);
+    text-align: center;
+    padding: 0 0 23px;
+    color: #af59d7;
+    font-weight: 800;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    .thank-you__additional-content
+    .heading-area {
+    margin: 3rem 0 0;
+  }
+
+  .anyflexbox .content .wrap .step__sections .thank-you__additional-content h1 {
+    text-align: center;
+    margin: 0rem auto clamp(0px, 2vw, 3rem);
+    font-size: clamp(20px, 3vw, 30px) !important;
+    line-height: clamp(1.5rem, 3vw, 39px);
+    color: #000000;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    max-width: 48rem;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    .thank-you__additional-content
+    .content-area {
+    background: transparent !important;
+    border: 0;
+    padding: 0;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    .thank-you__additional-content
+    .content-area
+    .row-12
+    img {
+    max-width: 200rem;
+    display: block;
+    margin: 0 auto 44px;
+  }
+
+  .text_cstm2 {
+    text-align: center;
+    margin: 0rem auto 2rem;
+    max-width: 41rem;
+  }
+
+  .text_cstm2 p {
+    font-size: clamp(1rem, 2vw, 20px);
+    line-height: clamp(1rem, 2vw, 27px);
+    letter-spacing: -0.4px;
+    color: #030303;
+    font-weight: 500;
+  }
+  .text_cstm3 {
+    font-size: clamp(1rem, 2vw, 20px);
+    line-height: clamp(1rem, 2vw, 27px);
+    letter-spacing: -0.6px;
+    color: #030303;
+    font-weight: 500;
+    text-align: center;
+    margin: 1rem auto;
+    max-width: 43rem;
+  }
+
+  .anyflexbox .main__content {
+    position: relative;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    .thank-you__additional-content
+    .row-2.button-area_absolute {
+    position: absolute;
+    bottom: 3rem;
+    max-width: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box {
+    border: 5px solid #af59d7;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box
+    .content-box__row {
+    padding: 22px 14px 41px;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box
+    .content-box__row
+    h2 {
+    font-size: 23px;
+    color: #000;
+    line-height: 27.11px;
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box
+    .content-box__row
+    p {
+    font-size: 19px;
+    line-height: 27px;
+    color: #030303;
+    margin: 0;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box
+    .content-box__row
+    form
+    button.btn {
+    background: #af59d7;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0 0;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box
+    .content-box__row
+    form
+    button.btn
+    svg.icon-svg {
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    margin: 0;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box
+    .content-box__row
+    form
+    button.btn
+    span.btn__content {
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 27px;
+  }
+
+  .anyflexbox .content .wrap * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box {
+    margin: 0;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box:not(:last-child) {
+    margin: 0 0 20px;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box
+    > .content-box__row.content-box__row--no-border {
+    padding-bottom: 0;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    .step__sections
+    > .section
+    .section__content
+    .content-box
+    > .content-box__row.content-box__row--no-border
+    + .content-box__row
+    * {
+    font-size: 16px;
+    color: #000;
+  }
+
+  .anyflexbox .content .wrap {
+    margin-top: 36px;
+  }
+
+  .anyflexbox .content .wrap main.main__content {
+    padding: 0 0 269px;
+  }
+
+  .anyflexbox .content .wrap footer.main__footer {
+    display: none;
+  }
+
+  .anyflexbox .content .wrap aside.sidebar {
+    position: relative;
+    padding: 16px;
+    background: rgb(242, 242, 242, 0.47);
+    width: 100%;
+    max-width: 43%;
+  }
+
+  .anyflexbox .content .wrap aside.sidebar::after {
+    width: 0;
+    height: 0;
+  }
+
+  .anyflexbox .content .wrap aside.sidebar .sidebar__content * {
+    color: #000;
+    font-size: 18px;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    aside.sidebar
+    .sidebar__content
+    span.payment-due__price {
+    font-size: 25px;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    aside.sidebar
+    .sidebar__content
+    td.total-line__price.payment-due {
+    vertical-align: middle;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    aside.sidebar
+    .sidebar__content
+    td.total-line__price.payment-due
+    span.payment-due__currency.remove-while-loading {
+    position: relative;
+    top: 2px;
+  }
+
+  .anyflexbox .content .wrap > .main {
+    padding: 0;
+    width: 100%;
+    max-width: 57%;
+    padding-right: 59px;
+  }
+
+  .anyflexbox .content * {
+    box-sizing: border-box;
+  }
+
+  .anyflexbox
+    .content
+    .wrap
+    aside.sidebar
+    .sidebar__content
+    .product-thumbnail__quantity {
+    color: #fff;
+  }
+
+  .anyflexbox .content .wrap button.btn {
+    color: #fff;
+    font-size: clamp(1rem, 2vw, 26px);
+    line-height: clamp(1rem, 2vw, 27px);
+    border-radius: 1rem;
+    letter-spacing: -1.04px;
+    font-weight: 600;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .anyflexbox .content .wrap a.step__footer__continue-btn.btn {
+    color: #fff;
+    font-size: 18px;
+    padding: 0;
+    width: 100%;
+    max-width: 200px;
+    min-height: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #af59d7;
+  }
+
+  .anyflexbox .content .wrap .step__footer p.step__footer__info {
+    font-size: 20px;
+    color: #000;
+  }
+  .anyflexbox .content .wrap .section {
+    padding: 0;
+  }
+
+  .addMessage {
+    max-width: 62px !important;
+    display: block;
+    margin: 0 !important;
+    padding-right: 22px;
+  }
+
+  .d-none {
+    display: none;
+  }
+
+  .btn-primary {
+    width: 40%;
+    justify-content: center;
+    background-color: #1e3d5a !important;
+  }
+
+  .btn-grp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .text_cstm4 {
+    font-size: clamp(1rem, 2vw, 20px);
+    line-height: clamp(1rem, 2vw, 27px);
+    letter-spacing: -0.7px;
+    color: #030303;
+    font-weight: 700;
+    text-align: center;
+    margin: 1rem auto;
+    max-width: 35rem;
+  }
+
+  .text_cstm5 {
+    color: #141414;
+    font-size: clamp(1rem, 3vw, 24px);
+    line-height: clamp(1.1rem, 3vw, 29px);
+    text-align: center;
+    margin: 1.5rem auto;
+    max-width: 40rem;
+  }
+
+  .text_cstm6 {
+    font-size: clamp(1.3rem, 4vw, 30px);
+    line-height: clamp(1rem, 3vw, 22px);
+    color: #af59d7;
+    text-align: center;
+    margin: 1rem auto clamp(0px, 2vw, 3rem) auto;
+    letter-spacing: -2.82px;
+    font-weight: 600;
+    max-width: 40rem;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-pink {
+    width: 83%;
+  }
+
+  #individual-code-case {
+    .heading1 {
+      margin: 0rem auto 3rem;
+      max-width: 40rem;
+    }
+
+    .heading2 {
+      margin: 0rem auto 3rem;
+      max-width: 50rem;
+    }
+
+    .circle {
+      width: 61px;
+      height: 61px;
+      background-color: #af59d7;
+      color: white;
+      border-radius: 50%;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .circle-container1 {
+      margin: 2rem auto 1rem;
+    }
+
+    .circle-container2 {
+      margin: 4rem auto 1rem;
+    }
+
+    .cstm_box {
+      border: 4px solid #d8d8d8;
+      padding: 2rem;
+      text-align: center;
+      font-size: clamp(1.2rem, 2vw, 28px);
+      line-height: clamp(1.5rem, 2vw, 32px);
+      font-weight: 500;
+      color: #141414;
+      letter-spacing: -0.59px;
+      margin-bottom: 4rem;
+    }
+
+    .heading {
+      color: #af59d7;
+      font-weight: 700;
+    }
+
+    .text_cstm7 {
+      font-size: clamp(1rem, 2vw, 21px);
+      line-height: clamp(1.5rem, 2vw, 32px);
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: -0.44px;
+      color: #141414;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (max-width: 1439px) {
+    .anyflexbox .content .wrap header.main__header {
+      min-height: 150px;
+      padding: 0;
+    }
+    .anyflexbox .content .wrap header.main__header a.logo.logo--center {
+      max-width: 220px;
+    }
+    .anyflexbox .content .wrap {
+      padding: 150px 15px 0;
+    }
+  }
+
+  @media (max-width: 1365px) {
+    .anyflexbox
+      .content
+      .wrap
+      .step__sections
+      .thank-you__additional-content
+      .content-area
+      .row-12
+      .text_cstm2 {
+      margin: 40px auto 45px;
+    }
+    .anyflexbox .content .wrap > .main {
+      padding-right: 30px;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .anyflexbox .content .wrap main.main__content {
+      padding: 0 0 170px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .anyflexbox .content .wrap {
+      margin-top: 0;
+      padding: 0px 0px 20px;
+    }
+    .anyflexbox .content .wrap header.main__header {
+      position: unset;
+      min-height: unset;
+      border: 0;
+    }
+    .anyflexbox .content .wrap > .main {
+      padding: 50px 15px 0;
+      width: 100%;
+      max-width: 100%;
+      padding-right: 15px;
+    }
+    .anyflexbox .content .wrap aside.sidebar {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .anyflexbox .content .wrap main.main__content {
+      padding: 0;
+    }
+    .anyflexbox
+      .content
+      .wrap
+      .step__sections
+      .thank-you__additional-content
+      .row-2.button-area_absolute {
+      display: none !important;
+    }
+    .anyflexbox
+      .content
+      .wrap
+      .step__sections
+      > .section
+      .section__content
+      .content-box
+      .content-box__row
+      form
+      button.btn {
+      flex-flow: column;
+      gap: 6px;
+    }
+    .anyflexbox .content .wrap a.step__footer__continue-btn.btn {
+      max-width: 100%;
+    }
+
+    .anyflexbox .content .wrap p.step__footer__info {
+      padding: 10px 0 0;
+    }
+  }
+  @media (max-width: 662px) {
+    .btn-primary {
+      width: 95%;
+    }
+
+    .btn-grp {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .anyflexbox
+      .content
+      .wrap
+      .step__sections
+      .thank-you__additional-content
+      .content-area
+      .row-12
+      img {
+      max-width: 14rem;
+    }
+  }
+</style>
+<div id="product-case" class="d-none">
+  <div class="heading-area">
+    <div id="dynamic-product-type"></div>
+    <p class="title-order"></p>
+    <h1>
+      NOW IT’S TIME TO INCLUDE AN ANONYMOUS MESSAGE. JUST PRESS THE BUTTON BELOW
+      TO GET STARTED
+    </h1>
+  </div>
+  <div class="content-area">
+    <div class="row-12">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Personalized_written_audio_or_video_message.png?v=1719468689"
+      />
+      <div class="flex-center" style="margin-bottom: 3rem">
+        <button class="btn btn-pink flex-center" onclick="messagePage()">
+          <span
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Speech_bubble_for_button_on_Order_Confirmation_Page.png?v=1718617712"
+              class="addMessage" /></span
+          >ADD YOUR ANONYMOUS MESSAGE
+        </button>
+      </div>
+      <div id="text_cstm2" class="text_cstm2 d-none">
+        <p>
+          Can’t commit to your message quite yet? The order confirmation email
+          that was just sent to you also includes a message creation link. Just
+          be sure to complete your anonymous message BEFORE your recipient gets
+          their GHOST GIVE. Otherwise, they'll get a boring auto-generated
+          message from us. <br />
+          Booooo!
+        </p>
+      </div>
+      <div class="text_cstm4">
+        For a quick refresher on what to expect next, please refer to our HOW IT
+        WORKS and EXAMPLE pages below
+      </div>
+      <div class="btn-grp">
+        <button class="btn btn-primary" onclick="navigateToHowItWorks()">
+          HOW IT WORKS
+        </button>
+        <button class="btn btn-primary">EXAMPLE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="physical-card-case" class="d-none">
+  <div class="heading-area">
+    <p class="title-order">What's Next?</p>
+  </div>
+  <div class="content-area">
+    <div class="row-12">
+      <div class="text_cstm3">
+        <p>
+          When you receive your Ghost Giver card, please follow the directions
+          on the back of the card to setup a greeting for the recipient of your
+          gift.
+        </p>
+      </div>
+      <div class="text_cstm3">
+        <p>
+          Once finished, detach the bottom portion of the card, insert it into
+          the provided envelope and attach to your gift.
+        </p>
+      </div>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Mask_Group_70.png?v=1718948420"
+        alt=""
+      />
+      <div class="text_cstm3">
+        <p>
+          Your recipient will be able to use the code on their half of the card
+          to send you a reply message or a thank you.
+        </p>
+      </div>
+      <div class="text_cstm4" style="max-width: 45.5rem">
+        For a quick refresher on how to ghostgive with Physical Cards &
+        Envelopes please refer to our HOW IT WORKS and EXAMPLE pages below
+      </div>
+      <div class="btn-grp">
+        <button class="btn btn-primary" onclick="navigateToHowItWorks()">
+          HOW IT WORKS
+        </button>
+        <button class="btn btn-primary">EXAMPLE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="individual-code-case" class="d-none">
+  <div class="heading-area">
+    <p class="title-order" style="font-weight: 600">
+      You’re almost done... only a few more steps
+    </p>
+    <div class="flex-center circle-container1">
+      <div class="flex-center circle">1</div>
+    </div>
+    <h1 class="heading1">FIRST, IT’S TIME TO INCLUDE AN ANONYMOUS MESSAGE</h1>
+  </div>
+  <div class="content-area">
+    <div class="row-12">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Personalized_written_audio_or_video_message.png?v=1719468689"
+      />
+      <div class="flex-center" style="margin-bottom: 3rem">
+        <button class="btn btn-pink flex-center" onclick="messagePage()">
+          <span
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Speech_bubble_for_button_on_Order_Confirmation_Page.png?v=1718617712"
+              class="addMessage" /></span
+          >ADD YOUR ANONYMOUS MESSAGE
+        </button>
+      </div>
+      <div class="text_cstm2">
+        <p>
+          Can’t commit to your message quite yet? The order confirmation email
+          that was just sent to you also includes a message creation link. Just
+          be sure to complete your anonymous message BEFORE your recipient gets
+          their GHOST GIVE. Otherwise, they'll get a boring auto-generated
+          message from us. <br />
+          Booooo!
+        </p>
+      </div>
+      <div class="flex-center circle-container2">
+        <div class="flex-center circle">2</div>
+      </div>
+      <h1 class="heading2">
+        NEXT, COPY AND PASTE THE FOLLOWING TEXT & CODE INTO THE E-TAILER’S GIFT
+        MESSAGE BOX (WHICH IS USUALLY PROVIDED AT CHECKOUT)
+      </h1>
+      <div class="cstm_box">
+        <div class="heading">YOU’VE BEEN GHOSTED! …the good way.</div>
+        <div style="margin-bottom: 1rem">
+          You have a message from your Ghost Giver! Visit message (dot)
+          ghostgiver (dot) com and enter the following code to retrieve your
+          message:
+        </div>
+        <div id="order-id" class="heading"></div>
+      </div>
+      <div class="flex-center">
+        <button id="text-to-copy" class="btn btn-pink flex-center">
+          <span
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/copy_2x_2fc54a87-855d-4c6f-8fc4-f56dd5f34815.png?v=1721830749"
+              class="addMessage" /></span
+          >CLICK TO COPY ABOVE TEXT
+        </button>
+      </div>
+      <div class="btn-grp">
+        <button class="btn btn-primary" onclick="navigateToHowItWorks()">
+          HOW IT WORKS
+        </button>
+        <button class="btn btn-primary">EXAMPLE</button>
+      </div>
+      <div class="text_cstm7">
+        Note: Several online retailers don’t allow you to include URLs in a gift
+        message - due to misuse. This is why we’ve included (dot) twice in our
+        URL, message (dot) ghostgiver (dot) com, as opposed to
+        message.ghostgiver.com. Your recipient should know to type the period in
+        the browser's address bar - assuming they use the internet regularly.
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row-2 button-area_absolute">
+  <img
+    src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_39399.svg?v=1718373756"
+  />
+</div>
+
+<script>
+  debugger;
+  let access_code;
+  let orderId;
+
+  // https://yourgreetings-server.azurewebsites.net/api/accessCodes
+  // https://localhost:7242/api/accessCodes
+  fetch("https://yourgreetings-server.azurewebsites.net/api/accessCodes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(Shopify.checkout),
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      if (data) {
+        debugger;
+        orderId = `${Shopify.checkout.order_id}`;
+        orderId = `${orderId.substring(0, 3)}-${orderId.substring(
+          3,
+          6
+        )}-${orderId.substring(6, 9)}-${orderId.substring(9)}`;
+        let lineItems = Shopify.checkout.line_items;
+        let checkoutFor = lineItems.map((x) => x.properties._For);
+        access_code = data;
+        console.log(access_code);
+        console.log(Shopify);
+
+        if (lineItems.find((x) => x.properties._Contact) != undefined) {
+          document.getElementById("product-case").classList.remove("d-none");
+          let contact = lineItems.find((x) => x.properties._Contact).properties
+            ._Contact;
+          if (checkoutFor.includes("digital-gift-card-via-email")) {
+            //digital-gift-card-via-email
+            document.getElementById("dynamic-product-type").innerHTML = `
+                  <div class="text_cstm5">
+                  You're digital gift card will be sent to the following email address after you add your anonymous message:
+                  </div>
+                  <div class="text_cstm6">${contact}</div>`;
+          } else if (checkoutFor.includes("digital-gift-card-via-text")) {
+            //digital-gift-card-via-text
+            document.getElementById("dynamic-product-type").innerHTML = `
+                  <div class="text_cstm5">
+                  You're digital gift card will be sent to the following cell phone number after you add your anonymous message:
+                  </div>
+                  <div class="text_cstm6">${contact}</div>`;
+          } else if (checkoutFor.includes("send-cash-via-venmo")) {
+            //send-cash-via-venmo
+            document.getElementById("dynamic-product-type").innerHTML = `
+                  <div class="text_cstm5">
+                  The cash amount you designated will be sent to the following Venmo address
+                  within the next 24 hours:
+                  </div>
+                  <div class="text_cstm6">@${contact}</div>`;
+          }
+        } else {
+          if (
+            lineItems.find((x) => x.variant_id == 44382753063089) != undefined //individual-code-case
+          ) {
+            document.getElementById("order-id").innerHTML = orderId;
+            document
+              .getElementById("individual-code-case")
+              .classList.remove("d-none");
+          } else {
+            // Gifts case
+            document.getElementsByClassName("title-order")[0].innerHTML =
+              "You’re almost done...";
+            document.getElementById("product-case").classList.remove("d-none");
+            document.getElementById("text_cstm2").classList.remove("d-none");
+          }
+        }
+      } else {
+        // physical-card-case
+        document
+          .getElementById("physical-card-case")
+          .classList.remove("d-none");
+      }
+    })
+    .catch((error) => {
+      console.error(error); // Handle any errors that occurred during the request
+    });
+
+  function messagePage() {
+    if (access_code != null) {
+      window.open(
+        `https://setup.ghostgiver.com/typeOfMessage/?AccessCode=${access_code}`,
+        "_blank"
+      );
+    }
+  }
+
+  function navigateToHowItWorks() {
+    window.open(
+      "https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext",
+      "_blank"
+    );
+  }
+
+  document
+    .getElementById("text-to-copy")
+    .addEventListener("click", function (event) {
+      debugger;
+      const cstmBox = document.getElementsByClassName("cstm_box");
+      if (cstmBox[0]) {
+        const textToCopy = cstmBox[0].textContent || cstmBox[0].innerText;
+        copyTextToClipboard(textToCopy);
+      }
+    });
+
+  function copyTextToClipboard(text) {
+    // Create a temporary textarea element
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+
+    // Make the textarea invisible and append it to the body
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+
+    // Select the text and copy it to the clipboard
+    textarea.select();
+    document.execCommand("copy");
+
+    // Remove the textarea element
+    document.body.removeChild(textarea);
+  }
+</script>

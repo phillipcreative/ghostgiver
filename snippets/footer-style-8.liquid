@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        {% include 'footer-logo' %}
+                    </div>
+                    <div class="hidden-xs hidden-sm">
+                        <div class="footer-copyright">
+                            {{ section.settings.copyright }}
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col footer-col-center">{{ section.settings.support_time }}</div>
+                <div class="footer-col">
+                    {% if section.settings.social_icons %}
+                        <div class="footer-social">
+                            {% include 'social-media-links' %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bot visible-xs visible-sm">
+        <div class="container">
+            <div class="footer-copyright"> {{ section.settings.copyright }} </div>
+        </div>
+    </div>
+</div>

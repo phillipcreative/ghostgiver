@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "how_it_works_collection_z34yja": {
+      "type": "How-it-works-collection",
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/Ways_to_Ghostgive_Image_for_Desktop.jpg",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Ways_to_Ghostgive.png",
+        "link_page": "shopify:\/\/collections\/digital-gift-card-via-email",
+        "headinmain": "HOW  IT WORKS",
+        "headinSub": "Digital Gift Card (Email)",
+        "img_below_head": "shopify:\/\/shop_images\/Mask_Group_77_2x_0932af16-e024-4de7-abd9-1f69d3b68034.png",
+        "enable": true,
+        "block_width": "global_width",
+        "outer_margin": "offset-top-50",
+        "link_1": "",
+        "link_target_1": "_self",
+        "icon1": "shopify:\/\/shop_images\/Mask_Group_60_2x_2ffc891d-d1f6-444e-83e1-955b4684e199.png",
+        "cstmclass1": "",
+        "box_1_caption_1": "CHOOSE CARD",
+        "box_1_caption_2": "Choose a gift card from one of our many merchants.",
+        "link_2": "",
+        "link_target_2": "_self",
+        "icon2": "shopify:\/\/shop_images\/Mask_Group_91_2x_39aa62b4-268f-47fd-9c39-995f4ac2931c.png",
+        "cstmclass2": "",
+        "box_2_caption_1": "SET AMOUNT",
+        "box_2_caption_2": "Set the amount of money you would like to put on the chosen gift card.",
+        "link_3": "",
+        "link_target_3": "_self",
+        "icon3": "shopify:\/\/shop_images\/Mask_Group_93_2x_4660a180-0f6c-434a-963c-8ede2331ae5e.png",
+        "cstmclass3": "",
+        "box_3_caption_1": "ADD E-MAIL",
+        "box_3_caption_2": "Add the email address of the person you’d like us to email the gift card.",
+        "link_4": "",
+        "link_target_4": "_self",
+        "icon4": "shopify:\/\/shop_images\/Mask_Group_63_2x_ae4ba274-7041-46a9-bce8-42aac8d25852.png",
+        "cstmclass4": "spacing-topp",
+        "box_4_caption_1": "WE EMAIL IT",
+        "box_4_caption_2": "After checkout we’ll email your recipient a link to your anonymous message + digital gift card.",
+        "link_5": "",
+        "link_target_5": "_self",
+        "icon5": "shopify:\/\/shop_images\/Mask_Group_63_2x_7eed1de4-b2c2-417e-b45e-325f6df5558b.png",
+        "cstmclass5": "spacing-topp",
+        "box_5_caption_1": "GET NOTIFIED",
+        "box_5_caption_2": "Get real-time confirmation via text\/email when your gift card is received, plus a possible thank you from your recipient."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "how_it_works_collection_z34yja"
+  ]
+}

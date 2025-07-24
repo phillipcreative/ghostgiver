@@ -1,0 +1,61 @@
+<!-- Basic page needs ================================================== -->
+<meta charset="utf-8">
+<link rel="icon" href="{% if settings.favicon != blank %}{{ settings.favicon | img_url }}{% else %}{{ 'favicon.ico' | asset_url }}{% endif %}"  />
+<!-- Banita Version 1.7.0 -->
+{% capture seo_title %} {{ page_title }} {% if current_tags %} {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}} {% endif %} {% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }} {% endif %}
+    {% unless page_title contains shop.name %} &ndash; {{ shop.name }} {% endunless %}
+{% endcapture %}
+<title>{{ seo_title }}</title>
+{% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+{% endif %}
+<!-- Social meta ================================================== -->
+{% include 'social-meta-tags' %}
+<!-- Helpers ================================================== -->
+<link rel="canonical" href="{{ canonical_url }}">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+{{ 'font-icomoon.css' | asset_url | stylesheet_tag }}
+{{ 'bootstrap.css' | asset_url | stylesheet_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
+{{ 'darktooltip.css' | asset_url | stylesheet_tag }}
+<!-- Icon Font -->
+{{ 'paymentfont.css' | asset_url | stylesheet_tag }}
+{{ 'style.css' | asset_url | stylesheet_tag }}
+{{ 'animate.css' | asset_url | stylesheet_tag }}
+<!-- Custom + rtl -->
+{% if settings.rtl or template contains 'rtl'%}{{ 'style-rtl.css' | asset_url | stylesheet_tag }}{% endif %}
+{{ 'custom_colors.css' | asset_url | stylesheet_tag }}
+{{ 'custom.css' | asset_url | stylesheet_tag }}
+{{ 'Responsive.css' | asset_url | stylesheet_tag }}
+{{ 'phillip-upwork-changes.css' | asset_url | stylesheet_tag }}
+{% include 'google-fonts' %}
+{{ 'jquery.min.js' | asset_url | script_tag }}
+{{ 'imask.js' | asset_url | script_tag }}
+{{ 'custom.js' | asset_url | script_tag }}
+{{ 'jquery.cookie.min.js' | asset_url | script_tag }}
+{{ 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'  | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+<script type="text/javascript">
+    var price_format="{{ shop.money_with_currency_format | strip | remove:'"' }}";
+    var $price_format="{{ shop.money_with_currency_format | strip | remove:'"' }}";
+    locale = [];
+    window.shopCurrency = "{{ shop.currency }}";
+    window.supported_currencies = "{{ settings.supported_currencies }}";
+    locales={
+        recently_added_items:"{{ 'general.theme.recently_added_items' | t }}",
+        no_items_in_cart:"{{ 'general.theme.no_items_in_cart' | t }}",
+        remove:"{{ 'cart.general.remove' | t }}",
+        edit:"{{ 'general.theme.edit' | t }}",
+        qty:"{{ 'cart.label.quantity' | t }}",
+        apply:"{{ 'general.theme.apply' | t }}",
+        added:"{{ 'general.theme.added' | t }}",
+        add_to_cart:"{{ 'products.product.add_to_cart' | t }}",
+        adding:"{{ 'general.theme.adding' | t }}",
+        days:"{{ 'general.theme.days' | t }}",
+        hrs:"{{ 'general.theme.hrs' | t }}",
+        min:"{{ 'general.theme.min' | t }}",
+        sec:"{{ 'general.theme.sec' | t }}"
+    }
+</script>

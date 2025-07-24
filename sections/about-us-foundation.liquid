@@ -1,0 +1,239 @@
+<div class="banner-relative Desktop">
+  <img class="bg-main-works " src="{{section.settings.imgbanner | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="banner-relative mobile" style="display:none;">
+  <img class="bg-main-works " src="{{section.settings.imgbanner_mobile | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about_us" style="background-image: url('{{ section.settings.bg_image |img_url:"master" }} ');">
+  <div class="container">
+    <div class="row">
+         <div class="not-tabs">
+     
+
+
+            <a href="{{ section.settings.link_whoweare }}">{{ section.settings.tab1_name }}</a>
+      
+        
+            <a class="active" href="javascript:void(0)">{{ section.settings.tab2_name }}</a>
+     
+  
+  
+
+        <div id="tabs-content">
+      <div id="tab2" class="tab-content">
+        <img src="{{ section.settings.img_ghos_foundation | img_url:'master' }}">
+        <div class="foundation_img_text">
+          <div class="image_left_abt">
+            <img src="{{ section.settings.img_ghost_right | img_url:'master' }}">
+          </div>
+          <div class="text_left_abt">
+            <span>{{ section.settings.text_left }}</span>
+          </div>
+        </div>
+        <div class="foundation_point">
+          <h2>{{ section.settings.poins_head }}</h2>
+          <div class="ponts_cstm1">
+            <div class="custm-point-one">
+              <h3>{{ section.settings.point1_head }}</h3>
+              <p>{{ section.settings.point1_text }}</p>
+            </div>
+            <div class="btn">
+              <a class="btn btn-purple" href="{{ section.settings.btn_poit1_url }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="53.097" height="49.144" viewBox="0 0 53.097 49.144">
+                  <g id="shopping-cart" transform="translate(-0.25 -0.249)">
+                    <path id="Union_211" data-name="Union 211" d="M39.143,45.274a3.869,3.869,0,1,1,3.869,3.87A3.869,3.869,0,0,1,39.143,45.274Zm-19.975,0a3.87,3.87,0,1,1,3.871,3.87A3.87,3.87,0,0,1,19.168,45.274Zm-4.041-13-3.779-18.87c-.012-.055-.025-.105-.033-.16L9.344,3.39H1.691a1.7,1.7,0,0,1,0-3.39h9.043a1.7,1.7,0,0,1,1.658,1.364L14.381,11.3H51.4a1.7,1.7,0,0,1,1.668,2.013L49.451,32.265v.013a6.209,6.209,0,0,1-6.094,5H21.213A6.2,6.2,0,0,1,15.127,32.278Z" transform="translate(0.25 0.249)" fill="#fff"/>
+                  </g>
+                </svg>
+                {{ section.settings.point1_btn_text -}}
+              </a>
+            </div>
+          </div>
+          <div class="ponts_cstm2">
+            <div class="custm-point-two">
+              <h3>{{ section.settings.point2_head }}</h3>
+              <p>{{ section.settings.point2_text }}</p>
+            </div>
+            <div class="btn">
+              <a class="btn btn-purple" href="{{ section.settings.btn_poit2_url }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="53.097" height="49.144" viewBox="0 0 53.097 49.144">
+                  <g id="shopping-cart" transform="translate(-0.25 -0.249)">
+                    <path id="Union_211" data-name="Union 211" d="M39.143,45.274a3.869,3.869,0,1,1,3.869,3.87A3.869,3.869,0,0,1,39.143,45.274Zm-19.975,0a3.87,3.87,0,1,1,3.871,3.87A3.87,3.87,0,0,1,19.168,45.274Zm-4.041-13-3.779-18.87c-.012-.055-.025-.105-.033-.16L9.344,3.39H1.691a1.7,1.7,0,0,1,0-3.39h9.043a1.7,1.7,0,0,1,1.658,1.364L14.381,11.3H51.4a1.7,1.7,0,0,1,1.668,2.013L49.451,32.265v.013a6.209,6.209,0,0,1-6.094,5H21.213A6.2,6.2,0,0,1,15.127,32.278Z" transform="translate(0.25 0.249)" fill="#fff"/>
+                  </g>
+                </svg>
+                {{ section.settings.point2_btn_text -}}
+              </a>
+            </div>
+          </div>
+          <div class="ponts_cstm3">
+            <div class="custm-point-three">
+              <h3>{{ section.settings.point3_head }}</h3>
+              <p>{{ section.settings.point3_text }}</p>
+            </div>
+            <div class="btn">
+              <a class="btn btn-purple" href="{{ section.settings.btn_poit3_url }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64.007" height="64.005" viewBox="0 0 64.007 64.005">
+                  <g id="Venmo_Icon" data-name="Venmo Icon" transform="translate(-688.868 -2139.766)">
+                    <path id="Path_1138" data-name="Path 1138" d="M751.375,2171.769a30.5,30.5,0,0,1-61.007,0,28.448,28.448,0,0,1,.276-4.086,30.5,30.5,0,0,1,60.73,4.086Z" fill="none" stroke="#fff" stroke-width="3"/>
+                    <path id="Path_1139" data-name="Path 1139" d="M729.515,2150.583h.145c.467,1.2.979,2.386,1.383,3.607a13.176,13.176,0,0,1,.354,2.043v2.173c-.214,1.181-.365,2.375-.654,3.536a41.627,41.627,0,0,1-5.413,12.14c-2.166,3.438-4.542,6.745-6.826,10.109H705.322c-.052-.259-.108-.518-.151-.779q-.834-4.984-1.664-9.969-1.342-8.049-2.687-16.095c-.266-1.583-.57-3.158-.857-4.738v-.145l11.569-1.12c.935,7.533,1.859,14.97,2.8,22.56.162-.234.234-.323.292-.422a50.093,50.093,0,0,0,4.392-9.235,16.227,16.227,0,0,0,1.066-7.932c-.19-1.193-.525-2.364-.806-3.6,1.336-.271,2.726-.549,4.112-.84,2.044-.426,4.084-.865,6.126-1.3" transform="translate(5.384 5.229)" fill="#fff"/>
+                  </g>
+                </svg>
+                {{ section.settings.point3_btn_text -}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+                    </div>
+</div>    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us Foundation",
+"settings": [
+      {
+        "type":"image_picker",
+        "id":"imgbanner",
+        "label":"Add image Banner"
+      },
+   {
+        "type":"image_picker",
+        "id":"imgbanner_mobile",
+        "label":"Add image Banner for mobile"
+      },
+      {
+        "type":"html",
+        "id":"bannername",
+        "label":"Enter Heading Of Banner"
+      }
+  ,
+    {
+        "type":"image_picker",
+        "id":"bg_image",
+        "label":"Add a background image of banner bellow "
+      }
+  ,
+   {
+        "type":"text",
+        "id":"tab1_name",
+        "label":"Enter Tab 1 Heading"
+      },
+      {
+        "type":"url",
+        "id":"link_whoweare",
+        "label":"Enter Tab 1 Url"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"tab2_name",
+        "label":"Enter Tab 2 Heading"
+      },
+ {
+        "type":"image_picker",
+        "id":"img_ghos_foundation",
+        "label":"Add Image of Tab 2"
+      }
+  ,
+      {
+        "type":"image_picker",
+        "id":"img_ghost_right",
+        "label":"Enter Image Right bellow Main image second Tab "
+      }
+  ,  {
+        "type":"html",
+        "id":"text_left",
+        "label":"Add text tab2"
+      }
+  ,  {
+        "type":"text",
+        "id":"poins_head",
+        "label":"Add heading of points Foundation tab"
+      }
+ ,  {
+        "type":"text",
+        "id":"point1_head",
+        "label":"Add heading of point1 Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point1_text",
+        "label":"Add text of point1 Foundation tab"
+      }
+   ,  {
+        "type":"url",
+        "id":"btn_poit1_url",
+        "label":"Add Url of point1 btn Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point1_btn_text",
+        "label":"Add text of btn  point1 Foundation tab"
+      }
+ ,  {
+        "type":"text",
+        "id":"point2_head",
+        "label":"Add heading of point2 Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point2_text",
+        "label":"Add text of point2 Foundation tab"
+      }
+   ,  {
+        "type":"url",
+        "id":"btn_poit2_url",
+        "label":"Add Url of point2 btn Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point2_btn_text",
+        "label":"Add text of btn  point2 Foundation tab"
+      }
+ ,  {
+        "type":"text",
+        "id":"point3_head",
+        "label":"Add heading of point3 Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point3_text",
+        "label":"Add text of point3 Foundation tab"
+      }
+   ,  {
+        "type":"url",
+        "id":"btn_poit3_url",
+        "label":"Add Url of point3 btn Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point3_btn_text",
+        "label":"Add text of btn  point3 Foundation tab"
+      }
+
+
+    ],
+  "presets":[
+    {
+      "name":"About Us Foundation"
+    }
+  ]
+}
+{% endschema %}

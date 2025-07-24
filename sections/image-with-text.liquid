@@ -1,0 +1,150 @@
+{% if section.settings.enable %}
+    <div class="block full-no-sidemargin full-nopad {{ section.settings.block_width }} {{ section.settings.outer_margin }}" style="background-image: url('{% if section.settings.image != blank %}{{ section.settings.image | img_url: '2048x' }}{% else %}{{ 'banner-3-1.jpg' | asset_url }}{% endif %}')">
+        <div class="container">
+            <a {% if section.settings.link %}href="{{ section.settings.link }}" target="{{ section.settings.link_target }}"{% endif %} class="banner-wrap">
+                <div class="banner style-4 autosize-text" data-fontratio="12.6">
+                    <div class="banner-caption {{ section.settings.captions_h_alignment }}">
+                        <div class="vert-wrapper">
+                            <div class="vert">
+                                <div class="text-1">{{ section.settings.caption_1_text }}</div>
+                                <div class="text-2">{{ section.settings.caption_2_text }}</div>
+                                {% if section.settings.link_button_yes %}<div class="banner-btn text-hover"><span>{{ section.settings.link_button_text }}</span></div>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endif %}
+
+{% schema %}
+{
+"name": "Banner + text",
+"class": "index-section",
+"settings": [
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"fullwidth",
+"info":"click Save to see changes"
+},
+{
+"type": "select",
+"id": "outer_margin",
+"label": "Outer top margin",
+"options":[
+{"value":"offset-top-0","label":"None"},
+{"value":"offset-top-30","label":"30px"},
+{"value":"offset-top-40","label":"40px"},
+{"value":"offset-top-50","label":"50px"}
+],
+"default": "offset-top-50"
+},
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image",
+"info":"recommended width 1920x (like in demo)"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "header",
+"content": "CAPTIONS"
+},
+{
+"type": "select",
+"id": "captions_h_alignment",
+"label": "Horizontal alignment",
+"default": "text-center",
+"options": [
+{ "value": "text-left", "label": "Left" },
+{ "value": "text-center", "label": "Center" },
+{ "value": "text-right", "label": "Right" }
+]
+},
+{
+"type":"header",
+"content":"Caption 1"
+},
+{
+"type": "text",
+"id": "caption_1_text",
+"label": "Caption",
+"default":"Talk with your feet. Play with your heart."
+},
+{
+"type": "color",
+"id": "caption_1_color",
+"label": "Color"
+},
+{
+"type":"header",
+"content":"Caption 2"
+},
+{
+"type": "text",
+"id": "caption_2_text",
+"label": "Caption",
+"default":"Coming together is the beginning. Staying together is progress. Working together is success."
+},
+{
+"type": "color",
+"id": "caption_2_color",
+"label": "Color"
+},
+{
+"type": "checkbox",
+"id": "link_button_yes",
+"label": "Add link button",
+"default":true
+},
+{
+"type": "text",
+"id": "link_button_text",
+"label": "Link button text",
+"default":"Shop now"
+}
+],
+"presets": [
+{
+"name": "Banner + text",
+"category": "Banners"
+}
+]
+}
+{% endschema %}

@@ -1,0 +1,274 @@
+<script>
+  console.log({{cart | json}})
+</script>
+<style>
+  .name .description p {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-top: 3px;
+    color: black;
+  }
+</style>
+<!--
+  set allProducts to "yes" if you want the product to be added regardless of the products in the cart - otherwise set it to "no"
+-->
+
+{% assign allProducts = 'yes' %}
+
+<!--
+  If you want the auto add system to work only if a specific product of your choice is added at the cart - replace product-1 with the url portion of said product
+-->
+
+{% assign for_specific_product = all_products['product-1'] %}
+
+<!--
+  Next, you will pick the product to be added automatically - replace product-2 with the url portion of said product
+-->
+
+{% assign product_to_add_auto = all_products['personalized-written-audio-or-video-message'] %}
+
+<!-- assign custom gift card -->
+{% assign product_gift_card = all_products['gift-card-voucher-new'] %}
+{% assign digital_gift_card_processing_fee = all_products['digital-gift-card-processing-fee'] %}
+{% assign gift_card_id = product_gift_card.variants.first.id %}
+{% assign digital_gift_card_ids = all_products['gift-card-voucher-new'].variants | map: 'id' | join: ', ' %}
+{% assign send_cash_via_venmo_ids = all_products['send-cash-via-venmo'].variants | map: 'id' | join: ', ' %}
+{% assign individual_code_via_e_tailers_ids = all_products['individual-code-via-e-tailers'].variants | map: 'id' | join: ', ' %}
+{% assign digital_gift_card_processing_fee_id = digital_gift_card_processing_fee.variants.first.id %}
+{% assign venmo_processing_fee_id = all_products['venmo-processing-fee'].variants.first.id %}
+
+{% unless cart.item_count == 0 or product_to_add_auto.empty? or product_to_add_auto.variants.first.available == false %}
+  <!--
+    By default it is the 1st variant of the product that is taken into account and added automatically - if you want to change that, then modify "product_to_add_auto.variants.first.id" by the identifier of the variant that you will find in the variants editor of your product
+  -->
+
+  {% assign variant_id = product_to_add_auto.variants.first.id %}
+  {% if cart.item_count > 0 %}
+    <div class="block  block--no-preload global_width">
+      <div class="container">
+        <div class="title center">
+          <h1 class="dark-pink">Shopping Cart</h1>
+          </div>
+          <form action="/cart" method="post" novalidate class="cart white">
+          <div class="cart-table">
+            <div class="table-header">
+              <div class="photo">
+                {{ 'cart.label.cart_product_image' | t }}
+              </div>
+              <div class="name">
+                {{ 'cart.label.cart_product_name' | t }}
+              </div>
+              <div class="price">
+                {{ 'cart.label.price' | t }}
+              </div>
+              <div class="qty">
+                {{ 'cart.label.quantity_short' | t }}
+              </div>
+              <div class="subtotal">
+                {{ 'cart.label.total' | t }}
+              </div>
+              <div class="remove">
+                <span class="hidden-sm hidden-xs">{{ 'cart.general.remove' | t }}</span>
+              </div>
+            </div>
+            {% comment %} {% assign polina_products = cart.items | where: 'id', {{variant_id}} %} {% endcomment %}
+            {% comment %} <div>{{ polina_products | json }}</div> {% endcomment %}
+
+            {% comment %} {%- assign sorted_cart_items = cart.items | reverse -%} {% endcomment %}
+            {% for item in cart.items %}
+
+              <div
+                class="table-row"
+                {% if item.id == {{variant_id}} %}
+                  style="background: #fde9fc; padding: 0.5rem 0;"
+                {% endif %}
+                {% if item.id == {{digital_gift_card_processing_fee_id}} or item.id == {{venmo_processing_fee_id}} or digital_gift_card_ids contains item.id %}
+                  style="padding: 0.5rem 0;"
+                {% endif %}
+              >
+              <div class="photo">
+                {% if digital_gift_card_ids contains item.id %}
+                  <a href="{{ item.url | within: collections.all }}"
+                    ><img src="{{ item.properties._Image }}" alt="{{ item.title | escape }}"
+                  ></a>
+                {% else %}
+                  <a href="{{ item.url | within: collections.all }}"
+                    ><img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}"
+                  ></a>
+                {% endif %}
+              </div>
+                <div class="name">
+                  <a
+                    href="{{ item.url }}"
+                    class="text-uppercase"
+                    style="font-size: 15px;font-weight: bold;"
+                  >
+                    {% if item.properties._For == 'digital-gift-card-via-text' %}
+                      {{ item.product.title }} (Via Text)
+                    {% elsif item.properties._For == 'digital-gift-card-via-email' %}
+                      {{ item.product.title }} (Via Email)
+                    {% else %}
+                      {{ item.product.title }}
+                    {% endif %}
+                  </a>
+                  {% if item.id == {{variant_id}} %}
+                    {% assign item.properties = item.product.title %}
+                    <div class="description">
+                      {{ item.product.description }}
+                    </div>
+                    {% assign isProduct = true %}
+                  {% endif %}
+
+                  {% assign propertySize = item.properties | size %}
+                  {% if propertySize > 0 %}
+                    {% for p in item.properties %}
+                      {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                      {% unless p.last == blank or first_character_in_key == '_' %}
+                        <br>
+                        {{ p.first }}:
+
+                        {% comment %}
+                          Check if there was an uploaded file associated
+                        {% endcomment %}
+                        {% if p.last contains '/uploads/' %}
+                          <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                        {% else %}
+                          {{ p.last }}
+                        {% endif %}
+                      {% endunless %}
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                <div class="price">
+                  {{ item.price | money }}
+                </div>
+                <div class="qty qty-changer">
+                  <fieldset>
+                    {% if item.id != {{variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}} %}
+                      {% unless digital_gift_card_ids contains item.id or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
+                        <input type="button" value="&#x2212;" class="decrease">
+                      {% endunless %}
+                    {% endif %}
+                    <input
+                      type="text"
+                      class="qty-input"
+                      name="updates[]"
+                      id="updates_{{ item.id }}"
+                      value="{{ item.quantity }}"
+                      data-min="0"
+                      {% if item.id == {{variant_id}} %}
+                        readonly
+                        style="padding: inherit;"
+                      {% endif %}
+                      {% if item.id == {{gift_card_id}} or item.id == {{digital_gift_card_processing_fee_id}} or digital_gift_card_ids contains item.id or item.id == {{venmo_processing_fee_id}} or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
+                        readonly
+                        style="padding: inherit;"
+                      {% endif %}
+                    >
+
+                    {% if item.id != {{variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}}%}
+                      {% unless digital_gift_card_ids contains item.id or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
+                        <input type="button" value="+" class="increase">
+                      {% endunless %}
+                    {% endif %}
+                  </fieldset>
+                </div>
+                <div class="subtotal">
+                  {% if item.original_line_price != item.line_price %}
+                    <small class="cart-item__original-price"
+                      ><s>{{ item.original_line_price | money }}</s></small
+                    >
+                  {% endif %}
+                  {{ item.line_price | money }}
+                  {% if item.original_line_price != item.line_price %}
+                    {% for discount in item.discounts %}
+                      <small class="cart-item__discount">
+                        {{ discount.title }}
+                      </small>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                <div class="remove">
+                  {% comment %} {% if item.id != {{variant_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.product.title != "Digital Gift Card"%}
+                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="icon icon-close-2 js-minicart-remove-item"></a>
+                  {% endif %} {% endcomment %}
+                  {% if item.id != {{variant_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != 44398982234289 %}
+                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-variant-id="{{ item.variant_id }}" data-line-number="{{ forloop.index }}" title="{{ 'cart.general.remove' | t }}" class="icon icon-close-2 js-cart-remove-item"></a>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+            <div class="table-row custom-subtotal" style="background: #fde9fc;">
+              <div class="col-md-12 col-xs-12">
+                <table class="total-price">
+                  {% if cart.total_discounts > 0 %}
+                    {% assign savings = cart.total_discounts | money %}
+                    <tr>
+                      <td colspan="2">{{ 'cart.general.savings_html' | t: price: savings }}</td>
+                    </tr>
+                  {% endif %}
+                  <tr class="total">
+                    <td>{{ 'cart.general.subtotal' | t }}: {{ cart.total_price | money }}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="table-footer text-center">
+              <a class="btn btn-gold-cart" href="{{ shop.url }}">{{ 'cart.general.continue' | t }}</a>
+              <a class="btn btn-gold-cart " href="/cart/clear"
+                ><i class="icon icon-bin"></i><span>{{ 'cart.general.clear' | t }}</span></a
+              >
+              <button class="btn btn-gold-cart" type="submit" name="update">
+                <i class="icon icon-sync"></i><span>{{ 'cart.general.update' | t }}</span>
+              </button>
+              <button class="btn btn-checkout" type="submit" name="checkout">
+                {{ 'cart.general.checkout_procees' | t }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  {% else %}
+    <div class="block  block--no-preload fullheight">
+      <div class="container">
+        <div class="empty-cart text-center">
+          <div class="empty-cart-text">{{ 'general.theme.empty_cart_1' | t }}</div>
+          <div class="empty-cart-icon">
+            <i class="icon-basket"></i>
+          </div>
+          <div>
+            <a href="#" onclick="history.go(-1);return false;" class="btn btn-alt btn-lg">
+              {{- 'general.theme.back' | t -}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if allProducts == 'no' %}
+    {% assign isProduct = false %}
+
+    {% for item in cart.items %}
+      {% if item.product.handle == for_specific_product.handle %}
+        {% assign isProduct = true %}
+      {% endif %}
+    {% endfor %}
+
+    {% if isProduct == true %}
+      <script>
+        (function($) {
+
+        })(jQuery);
+      </script>
+    {% endif %}
+
+  {% else %}
+    <script>
+      (function($) {
+        let cartItems = {{ cart.items | json }}
+      })(jQuery);
+    </script>
+  {% endif %}
+{% endunless %}

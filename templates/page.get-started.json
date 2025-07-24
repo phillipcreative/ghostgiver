@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "get_started_7pJjTq": {
+      "type": "get_started",
+      "blocks": {
+        "content_block_dNAjKj": {
+          "type": "content_block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/Mask_Group_112_2x_aaca4603-40f4-4d30-9c67-04ab98374908.png",
+            "block_title": "We Send the Gift",
+            "block_link": "shopify:\/\/pages\/we-send-the-gift"
+          }
+        },
+        "content_block_JCikHe": {
+          "type": "content_block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/Mask_Group_111_2x_79edda7d-934e-4c48-b82c-5214344c5fc8.png",
+            "block_title": "You Send the Gift",
+            "block_link": "shopify:\/\/pages\/you-send-the-gift"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_dNAjKj",
+        "content_block_JCikHe"
+      ],
+      "settings": {
+        "banner_desktop": "shopify:\/\/shop_images\/MASK_2x_df91da65-65f0-4714-8858-93f0d841dd65.png",
+        "banner_mobile": "shopify:\/\/shop_images\/Mask_Group_37_a382572f-442d-4982-9ce8-1c82ebe223bd.png",
+        "page_title": "Get Started",
+        "section_heading": "CHOOSE HOW YOU WANT TO GIVE",
+        "section_content": "We can do the sending or give you what you need to ghost on your own.",
+        "section_blueimg": "shopify:\/\/shop_images\/Group_39360_524f19f2-a0f1-4804-af83-e3f00e1bed0f.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "get_started_7pJjTq"
+  ]
+}

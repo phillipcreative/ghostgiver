@@ -1,0 +1,73 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_catm_66Mp9x": {
+      "type": "collection_catm",
+      "blocks": {
+        "collection_cAweN9": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "free-printable-cards"
+          }
+        },
+        "collection_BrTTwM": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "printed-cards-envelopes"
+          }
+        },
+        "collection_H3Lrw4": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "gifts"
+          }
+        },
+        "collection_zntNVG": {
+          "type": "collection",
+          "settings": {
+            "collection": "free-printable-cards-1"
+          }
+        },
+        "collection_aMkyLC": {
+          "type": "collection",
+          "settings": {
+            "collection": "physical-cards-envelopes"
+          }
+        },
+        "collection_HhdnQw": {
+          "type": "collection",
+          "settings": {
+            "collection": "gifts-1"
+          }
+        }
+      },
+      "block_order": [
+        "collection_cAweN9",
+        "collection_BrTTwM",
+        "collection_H3Lrw4",
+        "collection_zntNVG",
+        "collection_aMkyLC",
+        "collection_HhdnQw"
+      ],
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/MASK_2x_6b1a4aaf-5049-440a-b056-8a8c2226fdde.png",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/thumb_PRODUCTS_-_Mobile_Image.png",
+        "bannername": "Products"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collection_catm_66Mp9x"
+  ]
+}

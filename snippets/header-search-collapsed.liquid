@@ -1,0 +1,9 @@
+{% if section.settings.header_search %}
+<div class="header-search header-search--collapsed">
+    <form  action="/search">
+        <input name="q" class="search-input" placeholder="{{ 'general.theme.search_here' | t }}" type="text" value="{{ search.terms | escape }}">
+        <input class="search-submit" type="submit" value="">
+        <span class="search-icon"><i class="icon icon-magnify"></i></span>
+    </form>
+</div>
+{% endif %}

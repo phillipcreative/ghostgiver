@@ -1,0 +1,142 @@
+<div class="container">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-logo">{% include 'footer-logo' %}</div>
+      <div class="row">
+        <div class="col-md-3 col-lg-3">
+          <div class="footer-block collapsed-mobile">
+            {% if section.settings.navigation_1 != blank %}
+            <div class="title">
+              {% comment %}
+                <h4>{{ linklists[section.settings.navigation_1].title }}</h4>
+              {% endcomment %}
+              <h4>{{ section.settings.menu_heading1 }}</h4>
+              <div class="toggle-arrow"></div>
+            </div>
+            <div class="collapsed-content">
+              <ul>
+                {% for link in linklists[section.settings.navigation_1].links %}
+                {% unless link.title contains "venmo1" %}
+                <li>
+                  {{ link.title | append : label | link_to : link.url }}
+                </li>
+                {% endunless %} {% endfor %}
+              </ul>
+            </div>
+            {% else %}
+            <p>Choose Navigation in Theme Settings / Footer / NAVIGATION 1</p>
+            {% endif %}
+          </div>
+          {% comment %}
+          <div class="footer-block collapsed-mobile">
+            <div class="title">
+              <h4>Products</h4>
+              <div class="toggle-arrow"></div>
+            </div>
+            <div class="collapsed-content">
+              <ul>
+                <li>
+                  <a href="/collections/all" title="">Featured Products</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% endcomment %}
+        </div>
+
+        <div class="col-md-3 col-lg-3">
+          <div class="footer-block collapsed-mobile">
+            {% if section.settings.navigation_2 != blank %}
+            <div class="title">
+                  {% comment %}
+              <h4>{{ linklists[section.settings.navigation_2].title }}</h4>
+               {% endcomment %}
+                <h4>{{ section.settings.menu_heading2 }}</h4>
+              <div class="toggle-arrow"></div>
+            </div>
+            <div class="collapsed-content">
+              <ul>
+                {% for link in linklists[section.settings.navigation_2].links %}
+                <li>
+                  {{ link.title | append : label | link_to : link.url }}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% else %}
+            <p>Choose Navigation in Theme Settings / Footer / NAVIGATION 2</p>
+            {% endif %}
+          </div>
+        </div>
+
+        {% if section.settings.support_time != blank or
+        section.settings.support_time_title != blank %}
+        <div class="col-md-3 col-lg-3">
+          <div class="footer-block collapsed-mobile">
+            <div class="title">
+              <h4>{{ section.settings.support_time_title }}</h4>
+              <div class="toggle-arrow"></div>
+            </div>
+            <div class="collapsed-content">
+              {{ section.settings.support_time }}
+            </div>
+            <div class="social_icon">{% include 'social-media-links' %}</div>
+          </div>
+        </div>
+        {% endif %} {% if section.settings.twitter_widget_content != blank %}
+        <div class="col-md-3 col-lg-3 mt-sm">
+          <h4 class="gift-card-text">
+            <span style="color: #af59d7"
+              ><a href="{{ section.settings.url_text_img }}"
+                >{{ section.settings.gift_card_heading }}</a
+              >
+            </span>
+          </h4>
+          <a href="{{ section.settings.url_text_img }}">
+            <img
+              src="{{ section.settings.image_gift_card | img_url : 'master' }}"
+              width="200"
+              alt="-25%"
+            />
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="footer-middle">
+    <div class="container">
+      <div class="row">
+        {% if section.settings.shop_info_yes or section.settings.newsletter %}
+        <div class="col-md-5">
+          {% if section.settings.shop_info_yes %}{% include 'footer_shop_info'
+          %}{% endif %} {% if section.settings.newsletter %}{% include
+          'newsletter-inline' %}{% endif %}
+        </div>
+        {% endif %} {% if section.settings.show_methods_of_payment %}
+        <div class="col-md-3">{% include 'footer_payments' %}</div>
+        {% endif %} {% if section.settings.show_brands %}
+        <div class="col-md-4">{% include 'footer_brands' %}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 text-center-xs text-center-sm">
+          <div class="footer-copyright">
+            {{ section.settings.copyright }}
+          </div>
+        </div>
+        <div
+          class="col-md-7 text-right-not-xs text-right-not-sm text-center-xs text-center-sm"
+        >
+          {% if section.settings.social_icons %}
+          <div class="footer-social">{% include 'social-media-links' %}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

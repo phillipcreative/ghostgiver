@@ -1,0 +1,23 @@
+{% assign has_image = false %}
+{% if item.featured_image or item.image %}
+    {% assign has_image = true %}
+    {% assign image_alt = item.title | escape %}
+{% endif %}
+
+<div class="product-item large">
+    <div class="product-item-inside">
+        <div class="product-item-info">
+            {% if has_image %}
+            <div class="product-item-photo">
+                <div class="product-item-gallery-main">
+                    <a title="{{ product.title }}" href="{{ product.url  }}">{{ item | img_url: 'medium' | img_tag: image_alt }}</a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="product-item-details">
+                <div class="product-item-name"><a title="{{ product.title }}" href="{{ product.url  }}" class="product-item-link">{{ product.title }}</a></div>
+                <a class="btn"  href="{{ product.url  }}"> <span>{{ 'blogs.article.read_more' | t }}</span> </a>
+            </div>
+        </div>
+    </div>
+</div>

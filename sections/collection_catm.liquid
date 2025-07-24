@@ -1,0 +1,110 @@
+<div class="banner-relative Desktop">
+  <img class="bg-main-works " src="{{section.settings.imgbanner | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="banner-relative mobile" style="display:none ">
+
+  <img class="bg-main-works " src="{{section.settings.imgbanner_mobile | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="product_list_coll">
+  <div class="block block--no-preload global_width block--loaded">
+    <div class="container pro_cst_pg">
+      <div class="block block--no-preload global_width  offset-top-30  block--loaded">
+        <div class="container">
+          <ul class="breadcrumbs">
+            <li>
+              <a href="/" title="Home">Home</a>
+            </li>
+            <li>
+              /
+              <span>Products</span>
+            </li>
+            <span>(7 Items)</span>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row collections-grid">
+        {% for block in section.blocks %}
+          <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+            <a href="{{ block.settings.collection.url }}" class="collection-item">
+
+
+              <div class="collection-item-photo">
+                <img
+                  loading="lazy"
+                  src="{{ block.settings.collection.featured_image |img_url:'master' }}"
+                  alt="{{ block.settings.collection.title }}">
+              </div>
+              <div class="collection-item-title">
+                <p>{{ block.settings.collection.title }}</p>
+              </div>
+            </a>
+          </div>
+
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Cstm Collection",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "imgbanner",
+        "label": "Enter Image Banner "
+      }, {
+        "type": "image_picker",
+        "id": "imgbanner_mobile",
+        "label": "Add image Banner for Mobile"
+      }, {
+        "type": "text",
+        "id": "bannername",
+        "label": "Enter Banner name "
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Select collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Cstm Collection"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

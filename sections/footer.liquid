@@ -1,0 +1,234 @@
+<div class="bg_img_footer"  style="background-image: url('https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_39340.png?v=1716375370')">
+</div>
+  {% assign style = section.settings.style %}
+{% if template contains 'home-page-' %}{% assign style = template | split:'home-page-' %}{% assign style = style | last %}{% endif %}
+{% if style == '9' %}{% assign style = '3' %}{% endif %}
+{% assign style_file = 'footer-style-' | append:style %}
+<footer class="page-footer page-footer-variant-{{ style }} {{ section.settings.block_width }} {{ section.settings.outer_margin }} {% if style == '8' %}page-footer-dark{% endif %}"  id="footer">
+    {% include style_file %}
+</footer>
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type":"select",
+            "id":"block_width",
+            "label":"Width",
+            "options":[
+                {"value":"boxed","label":"Boxed"},
+                {"value":"fullwidth","label":"Fullwidth"},
+                {"value":"global_width","label":"Use global site width"}
+            ],
+            "default":"boxed",
+            "info":"click Save to see changes"
+        },
+        {
+            "type": "select",
+            "id": "outer_margin",
+            "label": "Outer top margin",
+            "options":[
+                {"value":"offset-top-0","label":"None"},
+                {"value":"offset-top-30","label":"30px"},
+                {"value":"offset-top-40","label":"40px"},
+                {"value":"offset-top-50","label":"50px"}
+            ],
+            "default": "offset-top-50"
+        },
+{
+"type": "select",
+"id": "style",
+"label": "Style",
+"options": [
+{ "value": "1", "label": "Footer 1 (Default)" },
+{ "value": "2", "label": "Footer 2" },
+{ "value": "3", "label": "Footer 3" },
+{ "value": "4", "label": "Footer 4" },
+{ "value": "5", "label": "Footer 5" },
+{ "value": "6", "label": "Footer 6" },
+{ "value": "7", "label": "Footer 7" },
+{ "value": "8", "label": "Footer 8" }
+],
+"default": "4"
+},
+
+        {
+            "type": "header",
+            "content": "Logo"
+        },
+        {
+            "type": "paragraph",
+            "content": "absent in Style 3"
+        },
+       {
+            "type": "url",
+            "id": "url_text_img",
+            "label": "Add URL Gift card and its heading "
+        },
+      {
+            "type": "text",
+            "id": "gift_card_heading",
+            "label": "Add Gift card heading"
+        },
+      
+       {
+            "type": "image_picker",
+            "id": "image_gift_card",
+            "label": "Add Gift card image"
+        },
+        
+        {
+            "type": "checkbox",
+            "id": "logo_yes",
+            "label": "Enable",
+            "default":true
+        },
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo image"
+        },
+        {
+            "type": "text",
+            "id": "logo_max_width",
+            "label": "Custom logo width (in pixels)",
+            "default": "210"
+        },
+        {
+            "type": "header",
+            "content": "Navigation 1"
+        },
+        {
+            "type": "text",
+            "id": "menu_heading1",
+            "label": "Menu Heading",
+        },
+        {
+            "type": "paragraph",
+            "content": "for Style 1,4"
+        },
+        {
+            "type": "link_list",
+            "id": "navigation_1",
+            "label": "Choose navigation 1",
+            "default":"main-menu"
+        },
+        {
+            "type": "header",
+            "content": "Navigation 2"
+        },
+      {
+            "type": "text",
+            "id": "menu_heading2",
+            "label": "Menu Heading",
+        },
+        {
+            "type": "paragraph",
+            "content": "for Style 1,4"
+        },
+        {
+            "type": "link_list",
+            "id": "navigation_2",
+            "label": "Choose navigation 2",
+            "default":"main-menu"
+        },
+        {
+            "type": "header",
+            "content": "Coupon"
+        },
+        {
+            "type": "paragraph",
+            "content": "for Style 1,5"
+        },
+
+        {
+            "type": "textarea",
+            "id": "twitter_widget_content",
+            "label": "Any Html",
+            "default":"<a href='#'><img src='https://cdn.shopify.com/s/files/1/1880/9649/files/coupon.png?12447768482550947422' alt /></a>"
+        },
+        {
+            "type": "header",
+            "content": "Additional blocks"
+        },
+        {
+            "type": "checkbox",
+            "id": "shop_info_yes",
+            "label": "Shop Info",
+            "default": true,
+            "info":"setup in General Settings / Shop Info (footer) (for Style 1)"
+        },
+        {
+            "type": "checkbox",
+            "id": "newsletter",
+            "label": "Newsletter Subscription",
+            "default": true,
+            "info":"setup in General Settings / Newsletter Subscription (for Style 1, 2, 4, 5, 6)"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_methods_of_payment",
+            "label": "Methods of Payment",
+            "default": true,
+            "info":"setup in General Settings / Methods of Payment (footer) (for Style 1, 3, 4, 5, 6)"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_brands",
+            "label": "Brands",
+            "default": true,
+            "info":"setup in General Settings / Brands (for Style 1)"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_instagram",
+            "label": "Instagram photos",
+            "default": true,
+            "info":"setup in General Settings / Instagram (for Style 2, 3, 4)"
+        },
+        {
+            "type": "checkbox",
+            "id": "social_icons",
+            "label": "Social media",
+            "default": true,
+            "info":"setup in General Settings / Social media"
+        },
+        {
+            "type": "header",
+            "content": "Contacts"
+        },
+        {
+            "type": "paragraph",
+            "content": "absent in Style 2"
+        },
+        {
+            "type": "text",
+            "id": "support_time_title",
+            "label": "Support time title",
+            "default":"CONNECT WITH US"
+        },
+        {
+            "type": "textarea",
+            "id": "support_time",
+            "label": "Support time",
+            "default": "<ul> <li><i class='icon icon-phone'></i>+01 234 567 89</li> <li><i class='icon icon-close-envelope'></i><a href='mailto:Banitahelp@.com'>Banitahelp@.com</a></li> <li><i class='icon icon-clock'></i>8:00 - 19:00, Monday - Saturday</li> </ul>",
+            "info": "example html code you can get in doc"
+        },
+        {
+            "type": "header",
+            "content": "Copyright"
+        },
+        {
+            "type": "textarea",
+            "id": "copyright",
+            "label": "Copyright",
+            "default": "2017 &copy; BigSteps. All Rights Reserved."
+        }
+    ]
+}
+{% endschema %}

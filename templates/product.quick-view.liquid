@@ -1,0 +1,25 @@
+{% layout none %}
+{% assign product_image_size = section.settings.product_image_size %}
+{% assign product_options = settings.product_options %}
+{% if product.metafields.c_f.product_image_size != blank %}{% assign product_image_size = product.metafields.c_f.product_image_size %}{% endif %}
+{% if product.metafields.c_f.product_options != blank %}{% assign product_options = product.metafields.c_f.product_options %}{% endif %}
+{% assign sold_out = true %}
+{% if product.available %}
+    {% assign sold_out = false %}
+{% endif %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+{% endif %}
+<div class="block product-block">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                {% include 'product-media' product:product, quick_view:'yes' %}
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                {% include 'product-page-info' design:'default', quick_view:'yes' %}
+            </div>
+        </div>
+    </div>
+</div>

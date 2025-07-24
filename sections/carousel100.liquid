@@ -1,0 +1,297 @@
+{% if section.settings.enable %}
+  {%- assign image_size = '499x499' -%}
+  <div class="block {{ section.settings.block_width }} {{ section.settings.outer_margin }} offset-side">
+    <div class="container">
+      <div class="row">
+   
+        <div class="col-md-12">
+          {% if section.settings.limit_2 != blank %}
+            {%- assign product_limit_2 = section.settings.limit_2 -%}
+          {% endif %}
+          {%- assign collection_2 = collections[section.settings.collection_2] -%}
+          {% if section.settings.title_2 != blank %}
+            <div class="title">
+              <h2>{{ section.settings.title_2 }}</h2>
+              {% if section.settings.show_view_all_2 == "left" or section.settings.show_view_all_2 == "right" %}
+                <span class="show-more text-{{ section.settings.show_view_all_2 }} hidden-xs">
+                  <a href="/pages/ways-to-ghostgive" title="{{ collection_2.title }}">{{ 'general.theme.show_all' | t }} +</a>
+                </span>
+              {% endif %}
+              <div class="carousel-arrows"></div>
+            </div>
+          {% endif %}
+          <!-- /Products Grid -->
+          <div class="products-grid singel_carsuls products-carousel data-to-show-lg-{{ section.settings.per_row_desctop_2 }} data-to-show-md-2 data-to-show-sm-3 data-to-show-xs-{{ section.settings.per_row_mobile_port_2 }}" data-slick='{"slidesToShow": {{ section.settings.per_row_desctop_2 }}, "slidesToScroll": 1, "responsive": [{"breakpoint": 1200,"settings": {"slidesToShow": 2}}, {"breakpoint": 992,"settings": {"slidesToShow": 2}}, {"breakpoint": 768,"settings": {"slidesToShow": 2}}, {"breakpoint": 480,"settings": {"slidesToShow": {{ section.settings.per_row_mobile_port_2 }}}}] }'>
+             {% for block in section.blocks  limit: product_limit_2%}  
+        {% if block.type == 'collection' %}
+    <div class="product-item">
+            <div class="product-item-inside">
+                <!-- Product Photo -->
+                <div class="product-item-photo-holder">
+                  <div class="product-item-photo item">
+                                    	<a title="NAVY BLUE + PINK FOIL" href="{{ block.settings.url }}">
+                                    		{% if block.settings.image_collect %}
+                                    		<img class="product-image-photo" src="{{ block.settings.image_collect | img_url: '500x500' }}" alt="">
+                                    			       {% endif %}
+                                    		</a></div>
+                    
+                    <!-- /product main photo  -->
+                    
+                </div>
+                <!-- /Product Photo -->
+                <!-- Product Details -->
+                {% if block.settings.url %}
+                <div class="product-item-details">
+                    <div class="product-item-name" style="height: 51px;"><a title="NAVY BLUE + PINK FOIL" href="{{ block.settings.url }}" class="product-item-link" tabindex="0"> {{block.settings.linktext}}</a></div>
+                </div>
+                {% endif %}
+                <!-- /Product Details -->
+            </div>
+        </div>
+      {% endif %}
+                           {% else %}
+              <p class="blockquote">
+                To Init
+                <b>Product's carousel</b>:<br/>
+                1.<b>Choose Collection</b><br/>
+                2.<b>Save</b>
+              </p>
+      {% endfor %}
+          </div>
+        <!-- /Products Grid -->
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+  {
+    "name": "1 carousels per row (2+2)",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable Carousel",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "block_width",
+        "label": "Width",
+        "options": [
+          {
+            "value": "boxed",
+            "label": "Boxed"
+          }, {
+            "value": "fullwidth",
+            "label": "Fullwidth"
+          }, {
+            "value": "global_width",
+            "label": "Use global site width"
+          }
+        ],
+        "default": "global_width",
+        "info": "click Save to see changes"
+      },
+      {
+        "type": "select",
+        "id": "outer_margin",
+        "label": "Outer top margin",
+        "options": [
+          {
+            "value": "offset-top-0",
+            "label": "None"
+          }, {
+            "value": "offset-top-30",
+            "label": "30px"
+          }, {
+            "value": "offset-top-40",
+            "label": "40px"
+          }, {
+            "value": "offset-top-50",
+            "label": "50px"
+          }
+        ],
+        "default": "offset-top-50"
+      }, {
+        "type": "header",
+        "content": "Carousel 1"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Heading"
+      }, {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }, {
+        "id": "limit",
+        "type": "text",
+        "label": "Products limit",
+        "info": "if no limit keep empty, for better perfomance try reduce limit and enable 'View all' button",
+        "default": "4"
+      }, {
+        "type": "select",
+        "id": "show_view_all",
+        "label": "Show 'Show all' button",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          }, {
+            "value": "bottom",
+            "label": "Under carousel"
+          }, {
+            "value": "left",
+            "label": "Near carousel title"
+          }, {
+            "value": "right",
+            "label": "Near arrows"
+          }
+        ],
+        "default": "none"
+      }, {
+        "type": "header",
+        "content": "Products per row:"
+      }, {
+        "type": "select",
+        "id": "per_row_desctop",
+        "label": "Desctop > 1201px",
+        "default": "2",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          }, {
+            "value": "4",
+            "label": "4"
+          }
+        ]
+      }, {
+        "type": "select",
+        "id": "per_row_mobile_port",
+        "label": "< 481 (mobile portrait)",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          }, {
+            "value": "2",
+            "label": "2"
+          }
+        ]
+      }, {
+        "type": "header",
+        "content": "Carousel 2"
+      }, {
+        "type": "text",
+        "id": "title_2",
+        "label": "Heading",
+        "default": "Heading"
+      }, {
+        "id": "collection_2",
+        "type": "collection",
+        "label": "Collection"
+      }, {
+        "id": "limit_2",
+        "type": "text",
+        "label": "Products limit",
+        "info": "if no limit keep empty, for better perfomance try reduce limit and enable 'View all' button",
+        "default": "4"
+      }, {
+        "type": "select",
+        "id": "show_view_all_2",
+        "label": "Show 'Show all' button",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          }, {
+            "value": "bottom",
+            "label": "Under carousel"
+          }, {
+            "value": "left",
+            "label": "Near carousel title"
+          }, {
+            "value": "right",
+            "label": "Near arrows"
+          }
+        ],
+        "default": "none"
+      }, {
+        "type": "header",
+        "content": "Products per row:"
+      }, {
+        "type": "select",
+        "id": "per_row_desctop_2",
+        "label": "Desctop > 1201px",
+        "default": "2",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          }, {
+            "value": "4",
+            "label": "4"
+          }
+        ]
+      }, {
+        "type": "select",
+        "id": "per_row_mobile_port_2",
+        "label": "< 481 (mobile portrait)",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          }, {
+            "value": "2",
+            "label": "2"
+          }
+        ]
+      }
+    ],
+     "blocks": [
+    {
+      "type": "collection",
+      "name": "collection",
+      "settings": [
+        {
+          "id": "image_collect",
+          "type": "image_picker",
+            "label": "please add image"
+        },
+        {
+          "id": "linktext",
+          "type": "richtext",
+          "label": "text"
+        },
+    {
+        "id": "url",
+        "type": "url",
+        "label": "Add link"
+      }
+      ]
+    }
+     
+  ],
+    "presets": [
+      {
+        "name": "1 carousels per row (2+2)",
+        "category": "Collection's Carousel",
+      "blocks": [
+        { 
+          "type": "collection"
+        }
+      ]
+      }
+    ]
+  }
+{% endschema %}

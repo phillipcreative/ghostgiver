@@ -1,0 +1,24 @@
+{% case product_image_size %}
+ {% when '5' %}
+   {% assign column_1 = 'col-sm-5' %}
+   {% assign column_2 = 'col-sm-7' %}
+{% when '6' %}
+   {% assign column_1 = 'col-sm-6' %}
+   {% assign column_2 = 'col-sm-6' %}
+ {% when '7' %}
+   {% assign column_1 = 'col-sm-7' %}
+   {% assign column_2 = 'col-sm-5' %}
+{% endcase  %}
+{% include 'breadcrumbs' %}
+<div class="block boxed product-block offset-top-30">
+    <div class="container">
+        <div class="row">
+            <div class="{{ column_1 }} product-gallery-wrap">
+                {% include 'product-media' product:product %}
+            </div>
+            <div class="{{ column_2 }}">
+                {% include 'product-page-info' design:'default', quick_view:'no' %}
+            </div>
+        </div>
+    </div>
+</div>

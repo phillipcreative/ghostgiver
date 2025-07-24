@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "how_it_works_collection_NUgAM7": {
+      "type": "How-it-works-collection",
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/Ways_to_Ghostgive_Image_for_Desktop.jpg",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Ways_to_Ghostgive.png",
+        "link_page": "shopify:\/\/collections\/printed-cards-envelopes",
+        "headinmain": "How It Works",
+        "headinSub": "Physical Cards and Envelopes",
+        "img_below_head": "shopify:\/\/shop_images\/Card_and_Envelope.png",
+        "enable": true,
+        "block_width": "global_width",
+        "outer_margin": "offset-top-50",
+        "link_1": "",
+        "link_target_1": "_self",
+        "icon1": "shopify:\/\/shop_images\/Mask_Group_65_2x_3f32eb6b-1276-4669-8644-36d5563109ca.png",
+        "cstmclass1": "",
+        "box_1_caption_1": "PURCHASE",
+        "box_1_caption_2": "Find the card + envelope you like best and click on ADD TO CART to purchase.",
+        "link_2": "",
+        "link_target_2": "_self",
+        "icon2": "shopify:\/\/shop_images\/Mask_Group_67_2x_50b4221f-471f-455b-b3ef-71db9b3c842e.png",
+        "cstmclass2": "",
+        "box_2_caption_1": "RECEIVE",
+        "box_2_caption_2": "Your card + envelope will be mailed to you. Be sure to follow the instructions on the back of the card.",
+        "link_3": "",
+        "link_target_3": "_self",
+        "icon3": "shopify:\/\/shop_images\/Mask_Group_67_2x_955caa85-9451-4761-8a9f-c56388222a66.png",
+        "cstmclass3": "",
+        "box_3_caption_1": "ATTACH",
+        "box_3_caption_2": "Place the recipient’s half of the card inside the envelope and attach it to the gift.",
+        "link_4": "",
+        "link_target_4": "_self",
+        "icon4": "shopify:\/\/shop_images\/Mask_Group_63_2x_48035724-b4e4-4fba-993b-f23a5a7e0397.png",
+        "cstmclass4": "",
+        "box_4_caption_1": "GHOSTGIVE",
+        "box_4_caption_2": "Send the gift to the intended recipient, or leave it in a place where they will find it (and make sure NOT TO BE SEEN).",
+        "link_5": "",
+        "link_target_5": "_self",
+        "icon5": "shopify:\/\/shop_images\/Mask_Group_63_2x_b82c9fc9-31e7-4633-b173-d3f3a3cfac1d.png",
+        "cstmclass5": "spacing-topp",
+        "box_5_caption_1": "GET NOTIFIED",
+        "box_5_caption_2": "Get real-time confirmation via text\/email when your gift is received, plus a possible thank you from your recipient."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "how_it_works_collection_NUgAM7"
+  ]
+}

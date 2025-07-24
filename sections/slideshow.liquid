@@ -1,0 +1,1036 @@
+    {%- if section.blocks.size > 0 -%}
+    <div class="block  {{ section.settings.block_width }} full-nopad {{ section.settings.outer_margin }} full-no-sidemargin">
+        <div class="container" >
+        <div class="bnslider-wrapper">
+    <div class="bnslider bnslider--{{ section.settings.slideshow_height }}  {% if section.settings.keep_scale %}keep-scale{% endif %}"  {% if section.settings.keep_scale_width %}data-start-width='{{ section.settings.keep_scale_width }}'{% endif %}  {% if section.settings.keep_scale_height %}data-start-height='{{ section.settings.keep_scale_height }}'{% endif %}
+            {% if section.settings.keep_scale_mwidth %}data-start-mwidth='{{ section.settings.keep_scale_mwidth }}'{% endif %}  {% if section.settings.keep_scale_mheight %}data-start-mheight='{{ section.settings.keep_scale_mheight }}'{% endif %}
+         id="bnslider-{{ section.id }}" data-slick='{"arrows": {{ section.settings.arrows }}, "dots": {{ section.settings.dots }}}' data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}">
+        {% for block in section.blocks %}
+            {% if block.settings.enable %}
+                {%- assign is_background_video = false -%}
+                {% if block.settings.type == 'box' or block.settings.type == 'background-box' or  block.settings.type == 'background' %}
+                    <div class="bnslider-slide {% if block.settings.type == 'background-box' or  block.settings.type == 'background' %}bnslider-slide--background-video{% endif %}">
+                        {% unless block.settings.type == 'background' %}
+                        <div class="video-loader"><i class="spinner icon-spinner3"></i></div>
+                        <button type="button" class="bnslider-video-control bnslider-video-control--close" data-controls="bnsliderVideo-{{ block.id }}">
+                            <svg width="80" height="80" class="slider-control-icon" viewBox="0 0 100 100">
+                                <rect x="4" y="4" width="92" height="92" class="box"></rect>
+                                <line x1="35" y1="35" x2="65" y2="65" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-miterlimit="10"></line>
+                                <line x1="65" y1="35" x2="35" y2="65" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-miterlimit="10"></line>
+                            </svg>
+                        </button>
+                        <button type="button" class="bnslider-video-control bnslider-video-control--play" data-controls="bnsliderVideo-{{ block.id }}" data-tooltip="Youtube Player">
+                            <svg width="80" height="80" class="slider-control-icon" viewBox="0 0 100 100">
+                                <rect x="4" y="4" width="92" height="92" class="box"></rect>
+                                <polygon points="30,30 70,50 30,70" class="play" />
+                            </svg>
+                        </button>
+                        {% endunless %}
+                        <div id="bnsliderVideo-{{ block.id }}" class="bnslider-video {% if block.settings.type == 'background-box' or  block.settings.type == 'background' %} bnslider-video--background {% endif %} {% if block.settings.type == 'box' %} bnslider-video--box {% endif %} " data-id="{{ block.settings.video_id }}" data-type="{{ block.settings.type }}" data-bnslider="bnslider-{{ section.id }}"></div>
+                        <div class="bnslider-image" style="background-image: url('{% if block.settings.image %}{{ block.settings.image | img_url: '2048x' }}{% endif %}{% if block.settings.image == blank %}{% capture current %}{% cycle 1, 2 %}{% endcapture %}{{ 'slide_placeholder_' | append:current | append:'.gif'  | asset_url }}{% endif %} ')"></div>
+                        <div class="bnslider-text-wrap bnslider-overlay">
+                            <div class="bnslider-text-content {{ block.settings.captions_v_alignment }} {{ block.settings.captions_h_alignment }}">
+                                <div class="bnslider-text-content-flex container">
+                                    <div class="bnslider-vert">
+                                        {%- for i in (1..3) -%}
+                                            {%- capture enable -%}caption_{{ i }}_yes{%- endcapture -%}
+                                            {%- capture text -%}caption_{{ i }}{%- endcapture -%}
+                                            {%- capture text_hor_alignment -%}caption_{{ i }}_hor_alignment{%- endcapture -%}
+                                            {%- capture animation -%}caption_{{ i }}_animation{%- endcapture -%}
+                                            {%- capture delay -%}caption_{{ i }}_delay{%- endcapture -%}
+                                            {%- capture color -%}caption_{{ i }}_color{%- endcapture -%}
+                                            {%- capture bgcolor -%}caption_{{ i }}_bgcolor{%- endcapture -%}
+                                            {%- capture fontweight -%}caption_{{ i }}_fontweight{%- endcapture -%}
+                                            {%- capture fontsize -%}caption_{{ i }}_fontsize{%- endcapture -%}
+                                            {%- capture lineheight -%}caption_{{ i }}_lineheight{%- endcapture -%}
+                                            {%- capture othercss -%}caption_{{ i }}_othercss{%- endcapture -%}
+                                            {%- if block.settings[enable] %}
+                                                <div class="bnslider-text bnslider-text--{{ block.settings[fontsize] }}  text-{{ block.settings[text_hor_alignment] }} animated" data-animation="{{ block.settings[animation] }}" data-delay="{{ block.settings[delay] }}" data-fontcolor="{{ block.settings[color] }}" data-bgcolor="{{ block.settings[bgcolor] }}" data-fontweight="{{ block.settings[fontweight] }}" data-lineheight="{{ block.settings[lineheight] }}"  data-otherstyle="{{ block.settings[othercss] }}">{{ block.settings[text] }}</div>
+                                            {%- endif -%}
+                                        {% endfor %}
+                                        {% if block.settings.link != blank %}{% if block.settings.link_button_yes %} <a href="{{ block.settings.link }}" target="{{ block.settings.link_target }}" class="btn-slider btn-slider-alt  text-{{ block.settings.btn_hor_aligment }} animated" data-animation="{{ block.settings.button_animation }}" data-delay="{{ block.settings.button_delay }}" data-fontcolor="{{ block.settings.button_text_color }}" data-bgcolor="{{ block.settings.button_bgcolor }}" data-hover-color="{{ block.settings.button_text_color_on }}" data-hover-bgcolor="{{ block.settings.button_bgcolor_on }}" data-otherstyle="{{ block.settings.button_othercss }}">{{ block.settings.link_button_text }}</a>{% endif %}{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="bnslider-slide">
+                    {% if block.settings.link %}{% unless block.settings.link_button_only_yes %}<a href="{{ block.settings.link }}" target="{{ block.settings.link_target }}" class="bnslider-link">{% endunless %}{% endif %}
+                         
+                  <div class="bnslider-image  desktop {{ block.settings.bg_v_alignment }}" style="background-image: url('{% if block.settings.image %}{{ block.settings.image | img_url: '2048x' }}{% endif %}{% if block.settings.image == blank %}{% capture current %}{% cycle 1, 2 %}{% endcapture %}{{ 'slide_placeholder_' | append:current | append:'.gif'  | asset_url }}{% endif %} ')"></div>
+                       <div class="bnslider-image mobile {{ block.settings.bg_v_alignment }}" style="background-image: url('{% if block.settings.image1 %}{{ block.settings.image1 | img_url: '2048x' }}{% endif %}{% if block.settings.image1 == blank %}{% capture current %}{% cycle 1, 2 %}{% endcapture %}{{ 'slide_placeholder_' | append:current | append:'.gif'  | asset_url }}{% endif %} ')"></div>
+                  
+                  <div class="bnslider-text-wrap bnslider-overlay">
+                            <div class="bnslider-text-content {{ block.settings.captions_v_alignment }} {{ block.settings.captions_h_alignment }}">
+                                <div class="bnslider-text-content-flex container">
+                                    <div class="bnslider-vert">
+                                        {%- for i in (1..1) -%}
+                                            {%- capture enable -%}caption_{{ i }}_yes{%- endcapture -%}
+                                            {%- capture text -%}caption_{{ i }}{%- endcapture -%}
+                                            {%- capture text_hor_alignment -%}caption_{{ i }}_hor_alignment{%- endcapture -%}
+                                            {%- capture animation -%}caption_{{ i }}_animation{%- endcapture -%}
+                                            {%- capture delay -%}caption_{{ i }}_delay{%- endcapture -%}
+                                            {%- capture color -%}caption_{{ i }}_color{%- endcapture -%}
+                                            {%- capture bgcolor -%}caption_{{ i }}_bgcolor{%- endcapture -%}
+                                            {%- capture fontweight -%}caption_{{ i }}_fontweight{%- endcapture -%}
+                                            {%- capture fontsize -%}caption_{{ i }}_fontsize{%- endcapture -%}
+                                            {%- capture lineheight -%}caption_{{ i }}_lineheight{%- endcapture -%}
+                                            {%- capture othercss -%}caption_{{ i }}_othercss{%- endcapture -%}
+                                            {%- if block.settings[enable] %}
+                                               {% comment %} <div class="bnslider-text bnslider-text--{{ block.settings[fontsize] }}  text-{{ block.settings[text_hor_alignment] }} animated" data-animation="{{ block.settings[animation] }}" data-delay="{{ block.settings[delay] }}" data-fontcolor="{{ block.settings[color] }}" data-bgcolor="{{ block.settings[bgcolor] }}" data-fontweight="{{ block.settings[fontweight] }}" data-lineheight="{{ block.settings[lineheight] }}"  data-otherstyle="{{ block.settings[othercss] }}">
+                                                  {{ block.settings[text] }}</div> {% endcomment %} 
+                                            {%- endif -%}
+                                        {% endfor %}
+                                        {% if block.settings.link != blank %}{% if block.settings.link_button_yes  %} {% if block.settings.link_button_only_yes %} <a href="{{ block.settings.link }}" target="{{ block.settings.link_target }}" {% else %} <div{% endif %} class="btn-slider btn-slider-alt animated text-{{ block.settings.btn_hor_aligment }}" data-animation="{{ block.settings.button_animation }}" data-delay="{{ block.settings.button_delay }}" data-fontcolor="{{ block.settings.button_text_color }}" data-bgcolor="{{ block.settings.button_bgcolor }}" data-hover-color="{{ block.settings.button_text_color_on }}" data-hover-bgcolor="{{ block.settings.button_bgcolor_on }}" data-otherstyle="{{ block.settings.button_othercss }}">{{ block.settings.link_button_text }}{% if block.settings.link_button_only_yes %} </a>{% else %} </div>{% endif %}{% endif %}{% endif %}
+                    </div>
+                    </div>
+                                        </div>
+                    </div>
+                    {% if block.settings.link %}{% unless block.settings.link_button_only_yes %}</a>{% endunless %}{% endif %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        {%- endfor %}
+        </div>
+        </div>
+        </div>
+    {% endif %}
+    </div>
+    {%- if section.blocks.size == 0 -%}
+        <div class="placeholder-noblocks">
+            {{ 'homepage.onboarding.no_content' | t }}
+        </div>
+    {%- endif -%}
+
+{% schema %}
+{
+"name": "Slideshow",
+"class": "index-section index-section--flush",
+"max_blocks": 10,
+"settings": [
+{
+"type": "paragraph",
+"content": "[Documentation](http://big-skins.com/banita/shopify/manuals/#Slider)"
+},
+
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"fullwidth",
+"info":"click Save to see changes"
+},
+{
+"type": "select",
+"id": "outer_margin",
+"label": "Outer top margin",
+"options":[
+{"value":"offset-top-0","label":"None"},
+{"value":"offset-top-30","label":"30px"},
+{"value":"offset-top-40","label":"40px"},
+{"value":"offset-top-50","label":"50px"}
+],
+"default": "offset-top-0"
+},
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "checkbox",
+"id": "autoplay",
+"label": "Auto-rotate slides",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "dots",
+"label": "Show dots",
+"info":"slider navigation",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "arrows",
+"label": "Show arrows",
+"info":"slider navigation",
+"default": true
+},
+{
+"type": "select",
+"id": "autoplay_speed",
+"label": "Autoplay speed",
+"default": "5000",
+"options": [
+{ "value": "3000", "label": "3 seconds" },
+{ "value": "4000", "label": "4 seconds" },
+{ "value": "5000", "label": "5 seconds" },
+{ "value": "7000", "label": "7 seconds" },
+{ "value": "10000", "label": "10 seconds" },
+{ "value": "15000", "label": "15 seconds" }
+]
+},
+{
+"type": "select",
+"id": "slideshow_height",
+"label": "Section height",
+"default": "lg",
+"options": [
+{ "value": "sm", "label": "Small" },
+{ "value": "md", "label": "Medium" },
+{ "value": "lg", "label": "Large" },
+{ "value": "fullheight", "label": "Fullheight" }
+],
+"info":"this option will be ignored if you check 'Keep aspect ratio'"
+},
+{
+"type": "paragraph",
+"content": "Custom slider height/width. We advise to use these settings if you want to keep original slides bg images width/height for mobile and desktop"
+},
+{
+"type": "checkbox",
+"id": "keep_scale",
+"label": "Keep aspect ratio",
+"info":"(it makes own proportion for the slider)",
+"default": false
+},
+{
+"type": "text",
+"id": "keep_scale_width",
+"label": "Slider width",
+"default": "1920",
+"info": "Only if 'Keep aspect ratio' is checked. We advise to write original slide image width in px"
+},
+{
+"type": "text",
+"id": "keep_scale_height",
+"label": "Slider height",
+"default": "820",
+"info": "Only if 'Keep aspect ratio' is checked. We advise to write original slide image height in px"
+},
+{
+"type": "paragraph",
+"content": "Only For Mobile (max 768px):"
+},
+{
+"type": "text",
+"id": "keep_scale_mwidth",
+"label": "Slider width",
+"default": "1920"
+},
+{
+"type": "text",
+"id": "keep_scale_mheight",
+"label": "Slider height",
+"default": "820"
+}
+],
+"blocks": [
+{
+"type": "image",
+"name": "Slide",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image"
+},
+  {
+"type": "image_picker",
+"id": "image1",
+"label": "Image1"
+},
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+{
+"type": "select",
+"id": "bg_v_alignment",
+"label": "Image vertical alignment",
+"default": "bg-middle",
+"options": [
+{ "value": "bg-top", "label": "Top" },
+{ "value": "bg-middle", "label": "Middle" },
+{ "value": "bg-bottom", "label": "Bottom" }
+]
+},
+{
+"type": "header",
+"content": "VIDEO"
+},
+{
+"type":"select",
+"id": "type",
+"label": "Apply video",
+"options": [
+{ "value": "none", "label": "None" },
+{ "value": "box", "label": "Use slide image with play button" },
+{ "value": "background-box", "label": "Background video with play button" },
+{ "value": "background", "label": "Background video without play button" }
+],
+"default":"none"
+},
+{
+"type": "text",
+"id": "video_id",
+"label": "YouTube video ID",
+"default": "_9VUPq3SxOc",
+"info": "[Find your YouTube video ID](https://docs.joeworkman.net/rapidweaver/stacks/youtube/video-id)."
+},
+{
+"type": "header",
+"content": "LINK"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Slide link"
+},
+{
+"type": "select",
+"id": "link_target",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "header",
+"content": "Button Link"
+},
+{
+"type": "checkbox",
+"id": "link_button_yes",
+"label": "Add link button",
+"default":true
+},
+{
+"type": "text",
+"id": "link_button_text",
+"label": "Link button text",
+"default":"Shop now"
+},
+{
+"type": "checkbox",
+"id": "link_button_only_yes",
+"label": "Apply slide link to button only",
+"default":false
+},
+{
+"type": "select",
+"id": "btn_hor_aligment",
+"label": "Btn Horizontal alignment",
+"default": "center",
+"options": [
+{ "value": "left", "label": "Left" },
+{ "value": "center", "label": "Center" },
+{ "value": "right", "label": "Right" }
+]
+},
+{
+"type": "select",
+"id": "button_animation",
+"label": "Button CSS Animation",
+"default": "fadeIn",
+"options": [
+{ "group": "Attention Seekers", "value": "bounce", "label": "bounce" },
+{ "group": "Attention Seekers", "value": "flash", "label": "flash" },
+{ "group": "Attention Seekers", "value": "pulse", "label": "pulse" },
+{ "group": "Attention Seekers", "value": "rubberBand", "label": "rubberBand" },
+{ "group": "Attention Seekers", "value": "shake", "label": "shake" },
+{ "group": "Attention Seekers", "value": "swing", "label": "swing" },
+{ "group": "Attention Seekers", "value": "tada", "label": "tada" },
+{ "group": "Attention Seekers", "value": "wobble", "label": "wobble" },
+{ "group": "Attention Seekers", "value": "jello", "label": "jello" },
+
+{ "group": "Bouncing Entrances", "value": "bounceIn", "label": "bounceIn" },
+{ "group": "Bouncing Entrances", "value": "bounceInDown", "label": "bounceInDown" },
+{ "group": "Bouncing Entrances", "value": "bounceInLeft", "label": "bounceInLeft" },
+{ "group": "Bouncing Entrances", "value": "bounceInRight", "label": "bounceInRight" },
+{ "group": "Bouncing Entrances", "value": "bounceInUp", "label": "bounceInUp" },
+
+{ "group": "Fading Entrances", "value": "fadeIn", "label": "fadeIn" },
+{ "group": "Fading Entrances", "value": "fadeInDown", "label": "fadeInDown" },
+{ "group": "Fading Entrances", "value": "fadeInDownBig", "label": "fadeInDownBig" },
+{ "group": "Fading Entrances", "value": "fadeInLeft", "label": "fadeInLeft" },
+{ "group": "Fading Entrances", "value": "fadeInLeftBig", "label": "fadeInLeftBig" },
+{ "group": "Fading Entrances", "value": "fadeInRight", "label": "fadeInRight" },
+{ "group": "Fading Entrances", "value": "fadeInRightBig", "label": "fadeInRightBig" },
+{ "group": "Fading Entrances", "value": "fadeInUp", "label": "fadeInUp" },
+{ "group": "Fading Entrances", "value": "fadeInUpBig", "label": "fadeInUpBig" },
+
+{ "group": "Flippers", "value": "flip", "label": "flip" },
+{ "group": "Flippers", "value": "flipInX", "label": "flipInX" },
+{ "group": "Flippers", "value": "flipInY", "label": "flipInY" },
+
+{ "group": "Lightspeed", "value": "lightSpeedIn", "label": "lightSpeedIn" },
+{ "group": "Lightspeed", "value": "lightSpeedOut", "label": "lightSpeedOut" },
+
+{ "group": "Rotating Entrances", "value": "rotateIn", "label": "rotateIn" },
+{ "group": "Rotating Entrances", "value": "rotateInDownLeft", "label": "rotateInDownLeft" },
+{ "group": "Rotating Entrances", "value": "rotateInDownRight", "label": "rotateInDownRight" },
+{ "group": "Rotating Entrances", "value": "rotateInUpLeft", "label": "rotateInUpLeft" },
+{ "group": "Rotating Entrances", "value": "rotateInUpRight", "label": "rotateInUpRight" },
+
+{ "group": "Sliding Entrances", "value": "slideInUp", "label": "slideInUp" },
+{ "group": "Sliding Entrances", "value": "slideInDown", "label": "slideInDown" },
+{ "group": "Sliding Entrances", "value": "slideInLeft", "label": "slideInLeft" },
+{ "group": "Sliding Entrances", "value": "slideInRight", "label": "slideInRight" },
+
+{ "group": "Zoom Entrances", "value": "zoomIn", "label": "zoomIn" },
+{ "group": "Zoom Entrances", "value": "zoomInDown", "label": "zoomInDown" },
+{ "group": "Zoom Entrances", "value": "zoomInLeft", "label": "zoomInLeft" },
+{ "group": "Zoom Entrances", "value": "zoomInRight", "label": "zoomInRight" },
+{ "group": "Zoom Entrances", "value": "zoomInUp", "label": "zoomInUp" },
+
+{ "group": "Pop Enter", "value": "popIn", "label": "popIn" },
+{ "group": "Pop Enter", "value": "popInLeft", "label": "popInLeft" },
+{ "group": "Pop Enter", "value": "popInRight", "label": "popInRight" },
+{ "group": "Pop Enter", "value": "popInTop", "label": "popInTop" },
+{ "group": "Pop Enter", "value": "popInBottom", "label": "popInBottom" },
+
+{ "group": "Jump", "value": "jumpInLeft", "label": "jumpInLeft" },
+{ "group": "Jump", "value": "jumpInRight", "label": "jumpInRight" },
+
+{ "group": "Swoop", "value": "swoopInLeft", "label": "swoopInLeft" },
+{ "group": "Swoop", "value": "swoopInRight", "label": "swoopInRight" },
+{ "group": "Swoop", "value": "swoopInTop", "label": "swoopInTop" },
+{ "group": "Swoop", "value": "swoopInBottom", "label": "swoopInBottom" },
+
+{ "group": "Drive", "value": "driveInLeft", "label": "driveInLeft" },
+{ "group": "Drive", "value": "driveInRight", "label": "driveInRight" },
+{ "group": "Drive", "value": "driveInTop", "label": "driveInTop" },
+{ "group": "Drive", "value": "driveInBottom", "label": "driveInBottom" },
+
+{ "group": "Pull", "value": "pullUp", "label": "pullUp" },
+{ "group": "Pull", "value": "pullDown", "label": "pullDown" },
+{ "group": "Pull", "value": "pullLeft", "label": "pullLeft" },
+{ "group": "Pull", "value": "pullRight", "label": "pullRight" },
+
+{ "group": "Specials", "value": "hinge", "label": "hinge" },
+{ "group": "Specials", "value": "rollIn", "label": "rollIn" },
+{ "group": "Specials", "value": "ball", "label": "ball" },
+{ "group": "Specials", "value": "pulsate", "label": "pulsate" },
+{ "group": "Specials", "value": "blink", "label": "blink" },
+{ "group": "Specials", "value": "fold", "label": "fold" }
+]
+},
+{
+"type": "text",
+"id": "button_delay",
+"label": "Button Delay",
+"default": "2000",
+"info":"from 0 (in ms)"
+},
+{
+"type":"color",
+"id": "button_text_color",
+"label": "Button Text Color",
+"default": "#FFFFFF"
+},
+{
+"type":"color",
+"id": "button_text_color_on",
+"label": "Button Text Color Hover",
+"default": "#FFFFFF"
+},
+{
+"type":"color",
+"id": "button_bgcolor",
+"label": "Button Background Color",
+"default": "#ff358b"
+},
+{
+"type":"color",
+"id": "button_bgcolor_on",
+"label": "Button Background Color Hover",
+"default": "#000000"
+},
+{
+"type":"textarea",
+"id": "button_othercss",
+"label": "Button Own css",
+"info":"for ex., display: table;padding: 0.1em 0.5em;"
+},
+{
+"type": "header",
+"content": "CAPTIONS"
+},
+{
+"type": "select",
+"id": "captions_h_alignment",
+"label": "Horizontal alignment",
+"default": "txt-center",
+"options": [
+{ "value": "txt-left", "label": "Left" },
+{ "value": "txt-center", "label": "Center" },
+{ "value": "txt-right", "label": "Right" }
+],
+"info":"global alignment for captions, but every caption has also individual horizontal alignment"
+},
+{
+"type": "select",
+"id": "captions_v_alignment",
+"label": "Vertical alignment",
+"default": "txt-middle",
+"options": [
+{ "value": "txt-top", "label": "Top" },
+{ "value": "txt-middle", "label": "Middle" },
+{ "value": "txt-bottom", "label": "Bottom" }
+]
+},
+{
+"type": "header",
+"content": "Caption 1"
+},
+{
+"type": "checkbox",
+"id": "caption_1_yes",
+"default":true,
+"label":"Enable"
+},
+{
+"type": "html",
+"id": "caption_1",
+"label": "Text",
+"default": "Lorem Ipsum"
+},
+{
+"type": "select",
+"id": "caption_1_animation",
+"label": "CSS Animation",
+"default": "fadeIn",
+"options": [
+{ "group": "Attention Seekers", "value": "bounce", "label": "bounce" },
+{ "group": "Attention Seekers", "value": "flash", "label": "flash" },
+{ "group": "Attention Seekers", "value": "pulse", "label": "pulse" },
+{ "group": "Attention Seekers", "value": "rubberBand", "label": "rubberBand" },
+{ "group": "Attention Seekers", "value": "shake", "label": "shake" },
+{ "group": "Attention Seekers", "value": "swing", "label": "swing" },
+{ "group": "Attention Seekers", "value": "tada", "label": "tada" },
+{ "group": "Attention Seekers", "value": "wobble", "label": "wobble" },
+{ "group": "Attention Seekers", "value": "jello", "label": "jello" },
+
+{ "group": "Bouncing Entrances", "value": "bounceIn", "label": "bounceIn" },
+{ "group": "Bouncing Entrances", "value": "bounceInDown", "label": "bounceInDown" },
+{ "group": "Bouncing Entrances", "value": "bounceInLeft", "label": "bounceInLeft" },
+{ "group": "Bouncing Entrances", "value": "bounceInRight", "label": "bounceInRight" },
+{ "group": "Bouncing Entrances", "value": "bounceInUp", "label": "bounceInUp" },
+
+{ "group": "Fading Entrances", "value": "fadeIn", "label": "fadeIn" },
+{ "group": "Fading Entrances", "value": "fadeInDown", "label": "fadeInDown" },
+{ "group": "Fading Entrances", "value": "fadeInDownBig", "label": "fadeInDownBig" },
+{ "group": "Fading Entrances", "value": "fadeInLeft", "label": "fadeInLeft" },
+{ "group": "Fading Entrances", "value": "fadeInLeftBig", "label": "fadeInLeftBig" },
+{ "group": "Fading Entrances", "value": "fadeInRight", "label": "fadeInRight" },
+{ "group": "Fading Entrances", "value": "fadeInRightBig", "label": "fadeInRightBig" },
+{ "group": "Fading Entrances", "value": "fadeInUp", "label": "fadeInUp" },
+{ "group": "Fading Entrances", "value": "fadeInUpBig", "label": "fadeInUpBig" },
+
+{ "group": "Flippers", "value": "flip", "label": "flip" },
+{ "group": "Flippers", "value": "flipInX", "label": "flipInX" },
+{ "group": "Flippers", "value": "flipInY", "label": "flipInY" },
+
+{ "group": "Lightspeed", "value": "lightSpeedIn", "label": "lightSpeedIn" },
+{ "group": "Lightspeed", "value": "lightSpeedOut", "label": "lightSpeedOut" },
+
+{ "group": "Rotating Entrances", "value": "rotateIn", "label": "rotateIn" },
+{ "group": "Rotating Entrances", "value": "rotateInDownLeft", "label": "rotateInDownLeft" },
+{ "group": "Rotating Entrances", "value": "rotateInDownRight", "label": "rotateInDownRight" },
+{ "group": "Rotating Entrances", "value": "rotateInUpLeft", "label": "rotateInUpLeft" },
+{ "group": "Rotating Entrances", "value": "rotateInUpRight", "label": "rotateInUpRight" },
+
+{ "group": "Sliding Entrances", "value": "slideInUp", "label": "slideInUp" },
+{ "group": "Sliding Entrances", "value": "slideInDown", "label": "slideInDown" },
+{ "group": "Sliding Entrances", "value": "slideInLeft", "label": "slideInLeft" },
+{ "group": "Sliding Entrances", "value": "slideInRight", "label": "slideInRight" },
+
+{ "group": "Zoom Entrances", "value": "zoomIn", "label": "zoomIn" },
+{ "group": "Zoom Entrances", "value": "zoomInDown", "label": "zoomInDown" },
+{ "group": "Zoom Entrances", "value": "zoomInLeft", "label": "zoomInLeft" },
+{ "group": "Zoom Entrances", "value": "zoomInRight", "label": "zoomInRight" },
+{ "group": "Zoom Entrances", "value": "zoomInUp", "label": "zoomInUp" },
+
+{ "group": "Pop Enter", "value": "popIn", "label": "popIn" },
+{ "group": "Pop Enter", "value": "popInLeft", "label": "popInLeft" },
+{ "group": "Pop Enter", "value": "popInRight", "label": "popInRight" },
+{ "group": "Pop Enter", "value": "popInTop", "label": "popInTop" },
+{ "group": "Pop Enter", "value": "popInBottom", "label": "popInBottom" },
+
+{ "group": "Jump", "value": "jumpInLeft", "label": "jumpInLeft" },
+{ "group": "Jump", "value": "jumpInRight", "label": "jumpInRight" },
+
+{ "group": "Swoop", "value": "swoopInLeft", "label": "swoopInLeft" },
+{ "group": "Swoop", "value": "swoopInRight", "label": "swoopInRight" },
+{ "group": "Swoop", "value": "swoopInTop", "label": "swoopInTop" },
+{ "group": "Swoop", "value": "swoopInBottom", "label": "swoopInBottom" },
+
+{ "group": "Drive", "value": "driveInLeft", "label": "driveInLeft" },
+{ "group": "Drive", "value": "driveInRight", "label": "driveInRight" },
+{ "group": "Drive", "value": "driveInTop", "label": "driveInTop" },
+{ "group": "Drive", "value": "driveInBottom", "label": "driveInBottom" },
+
+{ "group": "Pull", "value": "pullUp", "label": "pullUp" },
+{ "group": "Pull", "value": "pullDown", "label": "pullDown" },
+{ "group": "Pull", "value": "pullLeft", "label": "pullLeft" },
+{ "group": "Pull", "value": "pullRight", "label": "pullRight" },
+
+{ "group": "Specials", "value": "hinge", "label": "hinge" },
+{ "group": "Specials", "value": "rollIn", "label": "rollIn" },
+{ "group": "Specials", "value": "ball", "label": "ball" },
+{ "group": "Specials", "value": "pulsate", "label": "pulsate" },
+{ "group": "Specials", "value": "blink", "label": "blink" },
+{ "group": "Specials", "value": "fold", "label": "fold" }
+]
+},
+{
+"type": "text",
+"id": "caption_1_delay",
+"label": "Delay",
+"default": "0",
+"info":"from 0 (in ms)"
+},
+{
+"type":"color",
+"id": "caption_1_color",
+"label": "Color",
+"default": "#FFFFFF"
+},
+{
+"type":"select",
+"id": "caption_1_hor_alignment",
+"label": "Horizontal alignment",
+"options": [
+{ "value": "global", "label": "Use parent alignment" },
+{ "value": "left", "label": "Left" },
+{ "value": "center", "label": "Center" },
+{ "value": "right", "label": "Right" }
+],
+"default":"global"
+},
+{
+"type":"color",
+"id": "caption_1_bgcolor",
+"label": "Background color"
+},
+{
+"type":"select",
+"id": "caption_1_fontweight",
+"label": "Font Weight",
+"options": [
+{ "value": "100", "label": "Thin" },
+{ "value": "300", "label": "Light" },
+{ "value": "400", "label": "Regular" },
+{ "value": "500", "label": "Semibold" },
+{ "value": "700", "label": "Bold" },
+{ "value": "900", "label": "Black" }
+],
+"default":"400"
+},
+{
+"type":"select",
+"id": "caption_1_fontsize",
+"label": "Font Size",
+"options": [
+{ "value": "xs", "label": "Extra Small" },
+{ "value": "sm", "label": "Small" },
+{ "value": "md", "label": "Medium" },
+{ "value": "lg", "label": "Large" }
+],
+"default":"lg"
+},
+{
+"type":"text",
+"id": "caption_1_lineheight",
+"label": "Font Lineheight",
+"default":"1.00",
+"info":"from 1.00"
+},
+{
+"type":"textarea",
+"id": "caption_1_othercss",
+"label": "Own css",
+"info":"for ex., display: table;padding: 0.1em 0.5em;"
+},
+{
+"type": "header",
+"content": "Caption 2"
+},
+{
+"type": "checkbox",
+"id": "caption_2_yes",
+"default":true,
+"label":"Enable"
+},
+{
+"type": "text",
+"id": "caption_2",
+"label": "Text",
+"default": "Lorem Ipsum"
+},
+{
+"type": "select",
+"id": "caption_2_animation",
+"label": "CSS Animation",
+"default": "fadeIn",
+"options": [
+{ "group": "Attention Seekers", "value": "bounce", "label": "bounce" },
+{ "group": "Attention Seekers", "value": "flash", "label": "flash" },
+{ "group": "Attention Seekers", "value": "pulse", "label": "pulse" },
+{ "group": "Attention Seekers", "value": "rubberBand", "label": "rubberBand" },
+{ "group": "Attention Seekers", "value": "shake", "label": "shake" },
+{ "group": "Attention Seekers", "value": "swing", "label": "swing" },
+{ "group": "Attention Seekers", "value": "tada", "label": "tada" },
+{ "group": "Attention Seekers", "value": "wobble", "label": "wobble" },
+{ "group": "Attention Seekers", "value": "jello", "label": "jello" },
+
+{ "group": "Bouncing Entrances", "value": "bounceIn", "label": "bounceIn" },
+{ "group": "Bouncing Entrances", "value": "bounceInDown", "label": "bounceInDown" },
+{ "group": "Bouncing Entrances", "value": "bounceInLeft", "label": "bounceInLeft" },
+{ "group": "Bouncing Entrances", "value": "bounceInRight", "label": "bounceInRight" },
+{ "group": "Bouncing Entrances", "value": "bounceInUp", "label": "bounceInUp" },
+
+{ "group": "Fading Entrances", "value": "fadeIn", "label": "fadeIn" },
+{ "group": "Fading Entrances", "value": "fadeInDown", "label": "fadeInDown" },
+{ "group": "Fading Entrances", "value": "fadeInDownBig", "label": "fadeInDownBig" },
+{ "group": "Fading Entrances", "value": "fadeInLeft", "label": "fadeInLeft" },
+{ "group": "Fading Entrances", "value": "fadeInLeftBig", "label": "fadeInLeftBig" },
+{ "group": "Fading Entrances", "value": "fadeInRight", "label": "fadeInRight" },
+{ "group": "Fading Entrances", "value": "fadeInRightBig", "label": "fadeInRightBig" },
+{ "group": "Fading Entrances", "value": "fadeInUp", "label": "fadeInUp" },
+{ "group": "Fading Entrances", "value": "fadeInUpBig", "label": "fadeInUpBig" },
+
+{ "group": "Flippers", "value": "flip", "label": "flip" },
+{ "group": "Flippers", "value": "flipInX", "label": "flipInX" },
+{ "group": "Flippers", "value": "flipInY", "label": "flipInY" },
+
+{ "group": "Lightspeed", "value": "lightSpeedIn", "label": "lightSpeedIn" },
+{ "group": "Lightspeed", "value": "lightSpeedOut", "label": "lightSpeedOut" },
+
+{ "group": "Rotating Entrances", "value": "rotateIn", "label": "rotateIn" },
+{ "group": "Rotating Entrances", "value": "rotateInDownLeft", "label": "rotateInDownLeft" },
+{ "group": "Rotating Entrances", "value": "rotateInDownRight", "label": "rotateInDownRight" },
+{ "group": "Rotating Entrances", "value": "rotateInUpLeft", "label": "rotateInUpLeft" },
+{ "group": "Rotating Entrances", "value": "rotateInUpRight", "label": "rotateInUpRight" },
+
+{ "group": "Sliding Entrances", "value": "slideInUp", "label": "slideInUp" },
+{ "group": "Sliding Entrances", "value": "slideInDown", "label": "slideInDown" },
+{ "group": "Sliding Entrances", "value": "slideInLeft", "label": "slideInLeft" },
+{ "group": "Sliding Entrances", "value": "slideInRight", "label": "slideInRight" },
+
+{ "group": "Zoom Entrances", "value": "zoomIn", "label": "zoomIn" },
+{ "group": "Zoom Entrances", "value": "zoomInDown", "label": "zoomInDown" },
+{ "group": "Zoom Entrances", "value": "zoomInLeft", "label": "zoomInLeft" },
+{ "group": "Zoom Entrances", "value": "zoomInRight", "label": "zoomInRight" },
+{ "group": "Zoom Entrances", "value": "zoomInUp", "label": "zoomInUp" },
+
+{ "group": "Pop Enter", "value": "popIn", "label": "popIn" },
+{ "group": "Pop Enter", "value": "popInLeft", "label": "popInLeft" },
+{ "group": "Pop Enter", "value": "popInRight", "label": "popInRight" },
+{ "group": "Pop Enter", "value": "popInTop", "label": "popInTop" },
+{ "group": "Pop Enter", "value": "popInBottom", "label": "popInBottom" },
+
+{ "group": "Jump", "value": "jumpInLeft", "label": "jumpInLeft" },
+{ "group": "Jump", "value": "jumpInRight", "label": "jumpInRight" },
+
+{ "group": "Swoop", "value": "swoopInLeft", "label": "swoopInLeft" },
+{ "group": "Swoop", "value": "swoopInRight", "label": "swoopInRight" },
+{ "group": "Swoop", "value": "swoopInTop", "label": "swoopInTop" },
+{ "group": "Swoop", "value": "swoopInBottom", "label": "swoopInBottom" },
+
+{ "group": "Drive", "value": "driveInLeft", "label": "driveInLeft" },
+{ "group": "Drive", "value": "driveInRight", "label": "driveInRight" },
+{ "group": "Drive", "value": "driveInTop", "label": "driveInTop" },
+{ "group": "Drive", "value": "driveInBottom", "label": "driveInBottom" },
+
+{ "group": "Pull", "value": "pullUp", "label": "pullUp" },
+{ "group": "Pull", "value": "pullDown", "label": "pullDown" },
+{ "group": "Pull", "value": "pullLeft", "label": "pullLeft" },
+{ "group": "Pull", "value": "pullRight", "label": "pullRight" },
+
+{ "group": "Specials", "value": "hinge", "label": "hinge" },
+{ "group": "Specials", "value": "rollIn", "label": "rollIn" },
+{ "group": "Specials", "value": "ball", "label": "ball" },
+{ "group": "Specials", "value": "pulsate", "label": "pulsate" },
+{ "group": "Specials", "value": "blink", "label": "blink" },
+{ "group": "Specials", "value": "fold", "label": "fold" }
+]
+},
+{
+"type": "text",
+"id": "caption_2_delay",
+"label": "Delay",
+"default": "0",
+"info":"from 0 (in ms)"
+},
+{
+"type":"select",
+"id": "caption_2_hor_alignment",
+"label": "Horizontal alignment",
+"options": [
+{ "value": "global", "label": "Use parent alignment" },
+{ "value": "left", "label": "Left" },
+{ "value": "center", "label": "Center" },
+{ "value": "right", "label": "Right" }
+],
+"default":"global"
+},
+{
+"type":"color",
+"id": "caption_2_color",
+"label": "Color",
+"default": "#FFFFFF"
+},
+{
+"type":"color",
+"id": "caption_2_bgcolor",
+"label": "Background color"
+},
+{
+"type":"select",
+"id": "caption_2_fontweight",
+"label": "Font Weight",
+"options": [
+{ "value": "100", "label": "Thin" },
+{ "value": "300", "label": "Light" },
+{ "value": "400", "label": "Regular" },
+{ "value": "500", "label": "Semibold" },
+{ "value": "700", "label": "Bold" },
+{ "value": "900", "label": "Black" }
+],
+"default":"400"
+},
+{
+"type":"select",
+"id": "caption_2_fontsize",
+"label": "Font Size",
+"options": [
+{ "value": "xs", "label": "Extra Small" },
+{ "value": "sm", "label": "Small" },
+{ "value": "md", "label": "Medium" },
+{ "value": "lg", "label": "Large" }
+],
+"default":"lg"
+},
+{
+"type":"text",
+"id": "caption_2_lineheight",
+"label": "Font Lineheight",
+"default":"1.00",
+"info":"from 1.00"
+},
+{
+"type":"textarea",
+"id": "caption_2_othercss",
+"label": "Own css",
+"info":"for ex., display: table;padding: 0.1em 0.5em;"
+},
+{
+"type": "header",
+"content": "Caption 3"
+},
+{
+"type": "checkbox",
+"id": "caption_3_yes",
+"default":true,
+"label":"Enable"
+},
+{
+"type": "text",
+"id": "caption_3",
+"label": "Text",
+"default": "Lorem Ipsum"
+},
+{
+"type": "select",
+"id": "caption_3_animation",
+"label": "CSS Animation",
+"default": "fadeIn",
+"options": [
+{ "group": "Attention Seekers", "value": "bounce", "label": "bounce" },
+{ "group": "Attention Seekers", "value": "flash", "label": "flash" },
+{ "group": "Attention Seekers", "value": "pulse", "label": "pulse" },
+{ "group": "Attention Seekers", "value": "rubberBand", "label": "rubberBand" },
+{ "group": "Attention Seekers", "value": "shake", "label": "shake" },
+{ "group": "Attention Seekers", "value": "swing", "label": "swing" },
+{ "group": "Attention Seekers", "value": "tada", "label": "tada" },
+{ "group": "Attention Seekers", "value": "wobble", "label": "wobble" },
+{ "group": "Attention Seekers", "value": "jello", "label": "jello" },
+
+{ "group": "Bouncing Entrances", "value": "bounceIn", "label": "bounceIn" },
+{ "group": "Bouncing Entrances", "value": "bounceInDown", "label": "bounceInDown" },
+{ "group": "Bouncing Entrances", "value": "bounceInLeft", "label": "bounceInLeft" },
+{ "group": "Bouncing Entrances", "value": "bounceInRight", "label": "bounceInRight" },
+{ "group": "Bouncing Entrances", "value": "bounceInUp", "label": "bounceInUp" },
+
+{ "group": "Fading Entrances", "value": "fadeIn", "label": "fadeIn" },
+{ "group": "Fading Entrances", "value": "fadeInDown", "label": "fadeInDown" },
+{ "group": "Fading Entrances", "value": "fadeInDownBig", "label": "fadeInDownBig" },
+{ "group": "Fading Entrances", "value": "fadeInLeft", "label": "fadeInLeft" },
+{ "group": "Fading Entrances", "value": "fadeInLeftBig", "label": "fadeInLeftBig" },
+{ "group": "Fading Entrances", "value": "fadeInRight", "label": "fadeInRight" },
+{ "group": "Fading Entrances", "value": "fadeInRightBig", "label": "fadeInRightBig" },
+{ "group": "Fading Entrances", "value": "fadeInUp", "label": "fadeInUp" },
+{ "group": "Fading Entrances", "value": "fadeInUpBig", "label": "fadeInUpBig" },
+
+{ "group": "Flippers", "value": "flip", "label": "flip" },
+{ "group": "Flippers", "value": "flipInX", "label": "flipInX" },
+{ "group": "Flippers", "value": "flipInY", "label": "flipInY" },
+
+{ "group": "Lightspeed", "value": "lightSpeedIn", "label": "lightSpeedIn" },
+{ "group": "Lightspeed", "value": "lightSpeedOut", "label": "lightSpeedOut" },
+
+{ "group": "Rotating Entrances", "value": "rotateIn", "label": "rotateIn" },
+{ "group": "Rotating Entrances", "value": "rotateInDownLeft", "label": "rotateInDownLeft" },
+{ "group": "Rotating Entrances", "value": "rotateInDownRight", "label": "rotateInDownRight" },
+{ "group": "Rotating Entrances", "value": "rotateInUpLeft", "label": "rotateInUpLeft" },
+{ "group": "Rotating Entrances", "value": "rotateInUpRight", "label": "rotateInUpRight" },
+
+{ "group": "Sliding Entrances", "value": "slideInUp", "label": "slideInUp" },
+{ "group": "Sliding Entrances", "value": "slideInDown", "label": "slideInDown" },
+{ "group": "Sliding Entrances", "value": "slideInLeft", "label": "slideInLeft" },
+{ "group": "Sliding Entrances", "value": "slideInRight", "label": "slideInRight" },
+
+{ "group": "Zoom Entrances", "value": "zoomIn", "label": "zoomIn" },
+{ "group": "Zoom Entrances", "value": "zoomInDown", "label": "zoomInDown" },
+{ "group": "Zoom Entrances", "value": "zoomInLeft", "label": "zoomInLeft" },
+{ "group": "Zoom Entrances", "value": "zoomInRight", "label": "zoomInRight" },
+{ "group": "Zoom Entrances", "value": "zoomInUp", "label": "zoomInUp" },
+
+{ "group": "Pop Enter", "value": "popIn", "label": "popIn" },
+{ "group": "Pop Enter", "value": "popInLeft", "label": "popInLeft" },
+{ "group": "Pop Enter", "value": "popInRight", "label": "popInRight" },
+{ "group": "Pop Enter", "value": "popInTop", "label": "popInTop" },
+{ "group": "Pop Enter", "value": "popInBottom", "label": "popInBottom" },
+
+{ "group": "Jump", "value": "jumpInLeft", "label": "jumpInLeft" },
+{ "group": "Jump", "value": "jumpInRight", "label": "jumpInRight" },
+
+{ "group": "Swoop", "value": "swoopInLeft", "label": "swoopInLeft" },
+{ "group": "Swoop", "value": "swoopInRight", "label": "swoopInRight" },
+{ "group": "Swoop", "value": "swoopInTop", "label": "swoopInTop" },
+{ "group": "Swoop", "value": "swoopInBottom", "label": "swoopInBottom" },
+
+{ "group": "Drive", "value": "driveInLeft", "label": "driveInLeft" },
+{ "group": "Drive", "value": "driveInRight", "label": "driveInRight" },
+{ "group": "Drive", "value": "driveInTop", "label": "driveInTop" },
+{ "group": "Drive", "value": "driveInBottom", "label": "driveInBottom" },
+
+{ "group": "Pull", "value": "pullUp", "label": "pullUp" },
+{ "group": "Pull", "value": "pullDown", "label": "pullDown" },
+{ "group": "Pull", "value": "pullLeft", "label": "pullLeft" },
+{ "group": "Pull", "value": "pullRight", "label": "pullRight" },
+
+{ "group": "Specials", "value": "hinge", "label": "hinge" },
+{ "group": "Specials", "value": "rollIn", "label": "rollIn" },
+{ "group": "Specials", "value": "ball", "label": "ball" },
+{ "group": "Specials", "value": "pulsate", "label": "pulsate" },
+{ "group": "Specials", "value": "blink", "label": "blink" },
+{ "group": "Specials", "value": "fold", "label": "fold" }
+]
+},
+{
+"type": "text",
+"id": "caption_3_delay",
+"label": "Delay",
+"default": "0",
+"info":"from 0 (in ms)"
+},
+{
+"type":"select",
+"id": "caption_3_hor_alignment",
+"label": "Horizontal alignment",
+"options": [
+{ "value": "global", "label": "Use parent alignment" },
+{ "value": "left", "label": "Left" },
+{ "value": "center", "label": "Center" },
+{ "value": "right", "label": "Right" }
+],
+"default":"global"
+},
+{
+"type":"color",
+"id": "caption_3_color",
+"label": "Color",
+"default": "#FFFFFF"
+},
+{
+"type":"color",
+"id": "caption_3_bgcolor",
+"label": "Background color"
+},
+{
+"type":"select",
+"id": "caption_3_fontweight",
+"label": "Font Weight",
+"options": [
+{ "value": "100", "label": "Thin" },
+{ "value": "300", "label": "Light" },
+{ "value": "400", "label": "Regular" },
+{ "value": "500", "label": "Semibold" },
+{ "value": "700", "label": "Bold" },
+{ "value": "900", "label": "Black" }
+],
+"default":"400"
+},
+{
+"type":"select",
+"id": "caption_3_fontsize",
+"label": "Font Size",
+"options": [
+{ "value": "xs", "label": "Extra Small" },
+{ "value": "sm", "label": "Small" },
+{ "value": "md", "label": "Medium" },
+{ "value": "lg", "label": "Large" }
+],
+"default":"lg"
+},
+{
+"type":"text",
+"id": "caption_3_lineheight",
+"label": "Font Lineheight",
+"default":"1.00",
+"info":"from 1.00"
+},
+{
+"type":"textarea",
+"id": "caption_3_othercss",
+"label": "Own css",
+"info":"for ex., display: table;padding: 0.1em 0.5em;"
+}
+]
+}
+],
+"presets": [{
+"name": "Slideshow",
+"category": "Banners",
+"settings": {
+"autoplay": true,
+"autoplay_speed": "5000"
+},
+"blocks": [
+{
+"type": "image"
+},
+{
+"type": "image"
+}
+]
+}]
+}
+{% endschema %}

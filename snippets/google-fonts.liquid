@@ -1,0 +1,17 @@
+{% assign temp_font = '' %}
+{% if settings.body_font_family != blank %}
+  {% assign temp_font = settings.body_font_family %}
+  {{ '//fonts.googleapis.com/css?family=' | append: settings.body_font_family | stylesheet_tag }}
+{% endif %}
+{% if settings.color_product_page_name_font_family != blank and temp_font != settings.color_product_page_name_font_family %}
+  {% assign temp_font = settings.color_product_page_name_font_family %}
+  {{ '//fonts.googleapis.com/css?family=' | append: settings.color_product_page_name_font_family | stylesheet_tag }}
+{% endif %}
+{% if settings.color_product_page_price_font_family != blank and temp_font != settings.color_product_page_price_font_family %}
+  {% assign temp_font = settings.color_product_page_price_font_family %}
+  {{ '//fonts.googleapis.com/css?family=' | append: settings.color_product_page_price_font_family | stylesheet_tag }}
+{% endif %}
+{% if settings.color_topnav_level_1_font_family != blank  and temp_font != settings.color_topnav_level_1_font_family %}
+  {% assign temp_font = settings.color_topnav_level_1_font_family %}
+  {{ '//fonts.googleapis.com/css?family=' | append: settings.color_topnav_level_1_font_family | stylesheet_tag }}
+{% endif %}

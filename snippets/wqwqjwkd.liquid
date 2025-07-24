@@ -1,0 +1,1160 @@
+{% capture email_title %}
+  {% if has_pending_payment %}
+    Thank you for your order!
+  {% else %}
+    Thank you for your purchase!
+  {% endif %}
+{% endcapture %}
+{% capture email_body %}
+  {% if has_pending_payment %}
+    {% if buyer_action_required %}
+      You’ll get a confirmation email after completing your payment.
+    {% else %}
+      Your payment is being processed. You'll get an email when your order is confirmed.
+    {% endif %}
+  {% else %}
+    {% if requires_shipping %}
+    {% case delivery_method %}
+        {% when 'pick-up' %}
+          You’ll receive an email when your order is ready for pickup.
+        {% when 'local' %}
+          Hi {{ customer.first_name }}, we're getting your order ready for delivery.
+        {% else %}
+          We're getting your order ready to be shipped. We'll notify you when it's been sent.
+      {% endcase %}
+        {% if delivery_instructions != blank  %}
+          <p><b>Delivery information:</b> {{ delivery_instructions }}</p>
+        {% endif %}
+       {% if consolidated_estimated_delivery_time %}
+         <p>
+           Estimated delivery <b>{{ consolidated_estimated_delivery_time }}</b>
+         </p>
+       {% endif %}
+    {% endif %}
+  {% endif %}
+  {% assign gift_card_line_items = line_items | where: "gift_card" %}
+  {% assign line_items_properties_For = line_items | map: "properties" |  map: "_For" %}
+  {% assign line_items_properties_Contact = line_items | map: "properties" |  map: "_Contact" %}
+  {% assign spl_message = line_items | where: "variant_id", 44236113313969 %}
+  {% assign individual_code = line_items | where: "variant_id", 44382753063089 %}
+  {% assign found_gift_card_with_recipient_email = false %}
+  {% assign order_id_str = order.id | append: "" %}
+  {% assign part1 = order_id_str | slice: 0, 3 %}
+  {% assign part2 = order_id_str | slice: 3, 3 %}
+  {% assign part3 = order_id_str | slice: 6, 3 %}
+  {% assign part4 = order_id_str | slice: 9, 4 %}
+  {% for line_item in gift_card_line_items %}
+    {% if line_item.properties["__shopify_send_gift_card_to_recipient"] and line_item.properties["Recipient email"] %}
+      {% assign found_gift_card_with_recipient_email = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% if found_gift_card_with_recipient_email %}
+    <p>Your gift card recipient will receive an email with their gift card code.</p>
+  {% elsif gift_card_line_items.first %}
+    <p>You’ll receive separate emails for any gift cards.</p>
+  {% endif %}
+{% endcapture %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/notifications/styles.css">
+    <style>
+      .button__cell {
+        background: {{ shop.email_accent_color }};
+      }
+      a,
+      a:hover,
+      a:active,
+      a:visited {
+        color: {{ shop.email_accent_color }};
+      }
+      .title-order {
+        text-align: center;
+        font-size: 30px;
+        color: #AF59D7;
+        line-height: 27px;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+      }
+      .row-12 img {
+        max-width: 200rem;
+        display: block;
+        margin: 0 auto 44px;
+      }
+      .row-12 .text_cstm p {
+        max-width: 200rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      #main-content {
+        text-align: center;
+        color: #141414;
+      }
+      . {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .text_cstm5 {
+
+
+        /*
+
+   font-size: clamp(1rem, 3vw, 24px); 
+   line-height: clamp(1.1rem, 3vw, 29px); 
+*/
+        font-size: 1.5rem;
+        line-height: 1.813rem;
+        margin: 1.5rem auto;
+        max-width: 40rem;
+      }
+      .text_cstm6 {
+
+
+        /*
+
+   font-size: clamp(1.3rem, 4vw, 30px); 
+   line-height: clamp(1rem, 3vw, 22px); 
+*/
+        font-size: 1.875rem;
+        line-height: 1.375rem;
+        color: #af59d7;
+        margin: 1rem auto 3rem;
+        letter-spacing: -1.80px;
+        font-weight: 600;
+      }
+      h1 {
+        margin: 0 auto 3rem;
+
+
+        /*
+
+   font-size: clamp(17px, 3vw, 25px) !important; 
+   line-height: clamp(1rem, 3vw, 30px); 
+*/
+        font-size: 1.563rem !important;
+        line-height: 1.875rem;
+        color: #000000;
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+      button.btn,
+      a.btn {
+        color: #fff;
+
+
+        /*
+
+   font-size: clamp(10px, 2vw, 22px); 
+   line-height: clamp(10px, 2vw, 23px); 
+*/
+        font-size: 1.375rem;
+        line-height: 1.438rem;
+        border-radius: 1rem;
+        letter-spacing: -0.8px;
+        font-weight: 500;
+      }
+      .addMessage {
+        max-width: 30px !important;
+        display: block;
+        margin: 0 !important;
+        padding-right: 22px;
+      }
+      .text_cstm2 p {
+
+
+        /*
+
+   font-size: clamp(1rem, 2vw, 16px); 
+   line-height: clamp(1rem, 2vw, 22px); 
+*/
+        font-size: 1rem;
+        line-height: 1.375rem;
+        letter-spacing: -0.4px;
+        color: #030303;
+        font-weight: 500;
+      }
+      .text_cstm4 {
+
+        /*
+   font-size: clamp(1rem, 2vw, 19px); 
+   line-height: clamp(1rem, 2vw, 25px);
+*/
+        font-size: 1.188rem;
+        line-height: 1.563rem;
+        letter-spacing: -0.7px;
+        color: #030303;
+        font-weight: 700;
+        text-align: center;
+        margin: 1rem auto;
+        max-width: 30rem;
+      }
+      .btn-grp {
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+        gap: 4% !important;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+      }
+      .btn-pink {
+        display: flex;
+        padding: 1.5rem 3rem;
+        background-color: #af59d7;
+        margin: auto;
+      }
+      .btn-primary {
+        width: 43%;
+        justify-content: center;
+        background-color: #1e3d5a !important;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+      }
+      .btn-content {
+        display: flex;
+        margin: auto;
+      }
+      .cstm_para {
+        font-size: 13.5px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 2rem;
+      }
+      .cstm_box {
+        border: 4px solid #d8d8d8;
+        padding: 2rem;
+        text-align: center;
+        font-size: 1.438rem;
+        line-height: 1.688rem;
+        font-weight: 500;
+        color: #141414;
+        letter-spacing: -0.59px;
+      }
+
+      .circle {
+        width: 56px;
+        height: 56px;
+        background-color: #af59d7;
+        color: white;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: 800;
+      }
+
+      .circle-container1 {
+        margin: 2rem auto 1rem;
+      }
+
+      .circle-container2 {
+        margin: 3rem auto 1rem;
+      }
+
+      .box-heading {
+        color: #af59d7;
+        font-weight: 700;
+      }
+
+      .text_cstm7 {
+
+        /*
+   font-size: clamp(0.8rem, 2vw, 17px); 
+   line-height: clamp(1.2rem, 2vw, 28px);
+*/
+        font-size: 1.063rem;
+        line-height: 1.75rem;
+        font-weight: 500;
+        font-style: italic;
+        letter-spacing: -0.44px;
+        color: #141414;
+        text-align: center;
+        margin-bottom: 3rem;
+        max-width: 33rem;
+      }
+      @media (max-width: 662px) {
+        .btn-primary {
+          width: 95%;
+        }
+
+        .btn-grp {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        .anyflexbox .content .wrap .step__sections .thank-you__additional-content .content-area .row-12 img {
+          max-width: 14rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <table class="body" style="width: clamp(200px, 100%, 800px);margin: auto;background: #fff;">
+      <tr>
+        <td>
+          <table class="header row">
+            <tr>
+              <td class="header__cell">
+                <table class="container">
+                  <tr>
+                    <td>
+                      <table class="row">
+                        <tr>
+                          <td class="shop-name__cell">
+                            <a href="{{shop.url}}"><img
+                                src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/LOGO_GHOST_GIVER.png?v=1717136249"
+                                alt="{{ shop.name }}"
+                                width="300"></a>
+                          </td>
+                          <td>
+                            <tr>
+                              <td class="order-number__cell">
+                                <span class="order-number__text">
+                                  Order {{ order_name }}
+                                </span>
+                              </td>
+                            </tr>
+                            {%- if po_number %}
+                              <tr>
+                                <td class="po-number__cell">
+                                  <span class="po-number__text">
+                                    PO number #{{ po_number }}</span>
+                                </td>
+                              </tr>
+                            {%- endif %}
+                          </td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table class="row content">
+            <tr>
+              <td class="content__cell">
+                <table class="container">
+                  <tr>
+                    <td>
+                      <h2>{{ email_title }}</h2>
+                      <div id="main-content">
+                        {% if spl_message == empty %}
+                          <div class="physical-card-case">
+                            <div class="heading-area">
+                              <h2 class="title-order">
+                                What's Next?
+                              </h2>
+                            </div>
+                            <div class="content-area">
+                              <div class="row-12">
+                                <div class="text_cstm">
+                                  <p>When you receive your Ghost Giver card, please follow the directions on the back of the card to setup a greeting for the recipient of your gift.</p>
+                                </div>
+                                <div class="text_cstm">
+                                  <p>Once finished, detach the bottom portion of the card, insert it into the provided envelope and attach to your gift.</p>
+                                </div>
+                                <img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Mask_Group_70.png?v=1718948420" alt="">
+                                <div class="text_cstm">
+                                  <p>Your recipient will be able to use the code on their half of the card to send you a reply message or a thank you.</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        {% else %}
+                          {% if line_items_properties_For contains "send-cash-via-venmo" %}
+                            <div id="send-cash-via-venmo">
+                              <div class="heading-area">
+                                <div class="text_cstm5">
+                                  The cash amount you designated will be sent to the following Venmo address within the next 24 hours:
+                                </div>
+                                <div class="text_cstm6">@{{ line_items_properties_Contact }}</div>
+                                <div class="text_cstm2">
+                                  <p class="cstm_para">Below are the instructions you were provided after you checked out. Be sure to set up your anonymous message before your recipient receives their GHOST GIVE.</p>
+                                </div>
+                                <h1>
+                                  NOW IT’S TIME TO INCLUDE AN ANONYMOUS MESSAGE. JUST PRESS THE BUTTON BELOW TO GET STARTED
+                                </h1>
+                              </div>
+                              <div class="content-area">
+                                <div class="row-12">
+                                  <img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Personalized_written_audio_or_video_message.png?v=1719468689" />
+                                  <div style="margin-bottom: 2rem;">
+                                    <div class="btn-content">
+                                      <a class="btn btn-pink" href="https://setup.ghostgiver.com/typeOfMessage/?orderId={{order.id}}">
+                                        <span><img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Speech_bubble_for_button_on_Order_Confirmation_Page.png?v=1718617712" class="addMessage" /></span>ADD YOUR ANONYMOUS MESSAGE
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="text_cstm2">
+                                    <p>
+                                      Be sure to complete your anonymous message BEFORE your recipient gets their GHOST GIVE. Otherwise, they'll get a boring auto-generated message from us.<br/>
+                                      Booooo!
+                                    </p>
+                                  </div>
+                                  <div class="text_cstm4">
+                                    For a quick refresher on what to expect next, please refer to our HOW IT WORKS and EXAMPLE pages below
+                                  </div>
+                                  <div class="btn-grp">
+                                    <button class="btn btn-primary" style="margin-left: auto; margin-right:0.5rem">HOW IT WORKS</button>
+                                    <button class="btn btn-primary" style="margin-right: auto; margin-left:0.5rem">EXAMPLE</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          {% elsif line_items_properties_For contains "digital-gift-card-via-email" %}
+                            <div id="digital-gift-card-via-email">
+                              <div class="heading-area">
+                                <div class="text_cstm5">
+                                  You're digital gift card will be sent to the following email address after you add your anonymous message:
+                                </div>
+                                <div class="text_cstm6">{{ line_items_properties_Contact }}</div>
+                                <div class="text_cstm2">
+                                  <p class="cstm_para">Below are the instructions you were provided after you checked out. If you haven't yet set up your anonymous message, please do so now, so we can send your email.</p>
+                                </div>
+                                <h1>
+                                  NOW IT’S TIME TO INCLUDE AN ANONYMOUS MESSAGE. JUST PRESS THE BUTTON BELOW TO GET STARTED
+                                </h1>
+                              </div>
+                              <div class="content-area">
+                                <div class="row-12">
+                                  <img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Personalized_written_audio_or_video_message.png?v=1719468689" />
+                                  <div style="margin-bottom: 2rem;">
+                                    <div class="btn-content">
+                                      <a class="btn btn-pink" href="https://setup.ghostgiver.com/typeOfMessage/?orderId={{order.id}}">
+                                        <span><img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Speech_bubble_for_button_on_Order_Confirmation_Page.png?v=1718617712" class="addMessage" /></span>ADD YOUR ANONYMOUS MESSAGE
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="text_cstm2">
+                                    <p>
+                                      Be sure to complete your anonymous message BEFORE your recipient gets their GHOST GIVE. Otherwise, they'll get a boring auto-generated message from us.<br/>
+                                      Booooo!
+                                    </p>
+                                  </div>
+                                  <div class="text_cstm4">
+                                    For a quick refresher on what to expect next, please refer to our HOW IT WORKS and EXAMPLE pages below
+                                  </div>
+                                  <div class="btn-grp">
+                                    <button class="btn btn-primary" style="margin-left: auto; margin-right:0.5rem">HOW IT WORKS</button>
+                                    <button class="btn btn-primary" style="margin-right: auto; margin-left:0.5rem">EXAMPLE</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          {% elsif line_items_properties_For contains "digital-gift-card-via-text" %}
+                            <div id="digital-gift-card-via-email">
+                              <div class="heading-area">
+                                <div class="text_cstm5">
+                                  You're digital gift card will be sent to the following cell phone number after you add your anonymous message:
+                                </div>
+                                <div class="text_cstm6">{{ line_items_properties_Contact }}</div>
+                                <div class="text_cstm2">
+                                  <p class="cstm_para">Below are the instructions you were provided after you checked out. If you haven't yet set up your anonymous message, please do so now, so we can send your text.</p>
+                                </div>
+                                <h1>
+                                  NOW IT’S TIME TO INCLUDE AN ANONYMOUS MESSAGE. JUST PRESS THE BUTTON BELOW TO GET STARTED
+                                </h1>
+                              </div>
+                              <div class="content-area">
+                                <div class="row-12">
+                                  <img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Personalized_written_audio_or_video_message.png?v=1719468689" />
+                                  <div style="margin-bottom: 2rem;">
+                                    <div class="btn-content">
+                                      <a class="btn btn-pink" href="https://setup.ghostgiver.com/typeOfMessage/?orderId={{order.id}}">
+                                        <span><img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Speech_bubble_for_button_on_Order_Confirmation_Page.png?v=1718617712" class="addMessage" /></span>ADD YOUR ANONYMOUS MESSAGE
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="text_cstm2">
+                                    <p>
+                                      Be sure to complete your anonymous message BEFORE your recipient gets their GHOST GIVE. Otherwise, they'll get a boring auto-generated message from us.<br/>
+                                      Booooo!
+                                    </p>
+                                  </div>
+                                  <div class="text_cstm4">
+                                    For a quick refresher on what to expect next, please refer to our HOW IT WORKS and EXAMPLE pages below
+                                  </div>
+                                  <div class="btn-grp">
+                                    <button class="btn btn-primary" style="margin-left: auto; margin-right:0.5rem">HOW IT WORKS</button>
+                                    <button class="btn btn-primary" style="margin-right: auto; margin-left:0.5rem">EXAMPLE</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          {% else %}
+                            {% if individual_code == empty %}
+                              <p>If you haven't already completed your anonymous message, click the ADD YOUR ANONYMOUS MESSAGE button to do so now. If you don't, your recipient will get a boring auto-generated message from us. Boooo!</p>
+                              <div class="row-2 button-area" style="margin: 1.2rem 0em 1.2rem 0rem;">
+                                <div class="cta-section d-md-flex" style="display: flex;">
+                                  <a
+                                    class="btn-velvey"
+                                    href="https://setup.ghostgiver.com/typeOfMessage/?orderId={{order.id}}"
+                                    style="margin: auto;">
+                                    <div style="position: relative;">
+                                      <img
+                                        class="img-icon"
+                                        src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/SEND_A_VELVEY_2x_de3970fc-e0df-4a1c-9249-a0d0d990d6a8.png?v=1718966539"
+                                        width="180">
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                            {% else %}
+                              <div id="individual-code-case" class="d-none">
+                                <div class="heading-area">
+                                  <div class="text_cstm2">
+                                    <p class="cstm_para">Below are the instructions you were provided after you checked out. Be sure to set up your anonymous message before your recipient receives their GHOST GIVE.</p>
+                                  </div>
+                                  <div class="circle-container1">
+                                    <div class="circle">1</div>
+                                  </div>
+                                  <h1 class="heading1">FIRST, IT’S TIME TO INCLUDE AN ANONYMOUS MESSAGE</h1>
+                                </div>
+                                <div class="content-area">
+                                  <div class="row-12">
+                                    <img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Personalized_written_audio_or_video_message.png?v=1719468689" />
+                                    <div style="margin-bottom: 2rem;">
+                                      <div class="btn-content">
+                                        <a class="btn btn-pink" href="https://setup.ghostgiver.com/typeOfMessage/?orderId={{order.id}}">
+                                          <span><img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Speech_bubble_for_button_on_Order_Confirmation_Page.png?v=1718617712" class="addMessage" /></span>ADD YOUR ANONYMOUS MESSAGE
+                                        </a>
+                                      </div>
+                                    </div>
+                                    <div class="text_cstm2">
+                                      <p>
+                                        Be sure to complete your anonymous message BEFORE your recipient gets their GHOST GIVE. Otherwise, they'll get a boring auto-generated message from us.<br/>
+                                        Booooo!
+                                      </p>
+                                    </div>
+                                    <div class="circle-container2">
+                                      <div class="circle">2</div>
+                                    </div>
+                                    <h1 class="heading2">
+                                      NEXT, COPY AND PASTE THE FOLLOWING TEXT & CODE INTO THE E-TAILER’S GIFT MESSAGE BOX (WHICH IS USUALLY PROVIDED AT CHECKOUT)
+                                    </h1>
+                                    <div class="cstm_box">
+                                      <div class="box-heading">YOU’VE BEEN GHOSTED! …the good way.</div>
+                                      <div style="margin-bottom: 1rem">
+                                        You have a message from your Ghost Giver! Visit message (dot) ghostgiver (dot) com and  enter the following code to retrieve your message:
+                                      </div>
+                                      <div class="box-heading">{{ part1 }}-{{ part2 }}-{{ part3 }}-{{ part4 }}</div>
+                                    </div>
+                                    <div class="btn-grp">
+                                      <button class="btn btn-primary" style="margin-left: auto; margin-right:0.5rem">HOW IT WORKS</button>
+                                      <button class="btn btn-primary" style="margin-right: auto; margin-left:0.5rem">EXAMPLE</button>
+                                    </div>
+                                    <div class="text_cstm7">
+                                      Note: Several online retailers don’t allow you to include URLs in a gift message - due  to misuse. This is why we’ve included (dot) twice in our URL, message (dot) ghostgiver (dot) com, as opposed to message.ghostgiver.com. Your recipient should know to type the period in the browser's address bar - assuming they use the internet regularly.
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            {% endif %}
+                          {% endif %}
+
+                        {% endif %}
+                      </div>
+                      {% assign transaction_count = transactions | size %}
+                      {% if transaction_count > 0 %}
+                        {% for transaction in transactions %}
+                          {% if transaction.show_buyer_pending_payment_instructions? %}
+                            <p>
+                              {{ transaction.buyer_pending_payment_notice }}
+                            </p>
+
+                            <p>
+                              <table class="row">
+                                <tr>
+                                  {% for instruction in transaction.buyer_pending_payment_instructions %}
+                                    <td>{{ instruction.header }}</td>
+                                  {% endfor %}
+                                  <td>Amount</td>
+                                </tr>
+                                <tr>
+                                  {% for instruction in transaction.buyer_pending_payment_instructions %}
+                                    <td>{{ instruction.value }}</td>
+                                  {% endfor %}
+                                  <td>{{ transaction.amount | money }}</td>
+                                </tr>
+                              </table>
+                            </p>
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+
+                      {% if order_status_url %}
+                        <table class="row actions">
+                          <tr>
+                            <td class="empty-line">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td class="actions__cell">
+                              <table class="button main-action-cell">
+                                <tr>
+                                  <td class="button__cell">
+                                    <a href="{{ order_status_url }}" class="button__text">View your order</a>
+                                  </td>
+                                </tr>
+                              </table>
+                              {% if shop.url %}
+                                <table class="link secondary-action-cell">
+                                  <tr>
+                                    <td class="link__cell">or
+                                      <a href="{{ shop.url }}">Visit our store</a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              {% endif %}
+
+                            </td>
+                          </tr>
+                        </table>
+
+                      {% else %}
+                        {% if shop.url %}
+                          <table class="row actions">
+                            <tr>
+                              <td class="actions__cell">
+                                <table class="button main-action-cell">
+                                  <tr>
+                                    <td class="button__cell">
+                                      <a href="{{ shop.url }}" class="button__text">Visit our store</a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        {% endif %}
+
+                      {% endif %}
+
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table class="row section">
+            <tr>
+              <td class="section__cell">
+                <table class="container">
+                  <tr>
+                    <td>
+                      <h3>Order summary</h3>
+                    </td>
+                  </tr>
+                </table>
+                <table class="container">
+                  <tr>
+                    <td>
+
+
+                      <table class="row">
+                        {% for line in subtotal_line_items %}
+                          <tr class="order-list__item">
+                            <td class="order-list__item__cell">
+                              <table>
+                                <td>
+                                  {% if line.image %}
+                                    <img
+                                      src="{{ line | img_url: 'compact_cropped' }}"
+                                      allign="left"
+                                      width="60"
+                                      height="60"
+                                      class="order-list__product-image" />
+                                  {% endif %}
+                                </td>
+                                <td class="order-list__product-description-cell">
+                                  {% if line.product.title %}
+                                    {% assign line_title = line.product.title %}
+                                  {% else %}
+                                    {% assign line_title = line.title %}
+                                  {% endif %}
+
+                                  {% if line.quantity < line.quantity %}
+                                    {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %}
+                                  {% else %}
+                                    {% assign line_display = line.quantity %}
+                                  {% endif %}
+
+                                  <span class="order-list__item-title">{{ line_title }}&nbsp;&times;&nbsp;{{ line_display }}</span><br/>
+
+                                  {% if line.variant.title != 'Default Title' %}
+                                    <span class="order-list__item-variant">{{ line.variant.title }}</span><br/>
+                                  {% endif %}
+
+                                  {% for group in line.groups %}
+                                    <span class="order-list__item-variant">Part of: {{ group.display_title }}</span><br/>
+                                  {% endfor %}
+
+                                  {% if line.gift_card and line.properties["__shopify_send_gift_card_to_recipient"] %}
+                                    {% for property in line.properties %}
+                                      {% assign property_first_char = property.first | slice: 0 %}
+                                      {% if property.last != blank and property_first_char != '_' %}
+                                        <div class="order-list__item-property">
+                                          <dt>{{ property.first }}:</dt>
+                                          <dd>
+                                            {% if property.last contains '/uploads/' %}
+                                              <a
+                                                href="{{ property.last }}"
+                                                class="link"
+                                                target="_blank">
+                                                {{ property.last | split: '/' | last }}
+                                              </a>
+                                            {% else %}
+                                              {{ property.last }}
+                                            {% endif %}
+                                          </dd>
+                                        </div>
+                                      {% endif %}
+                                    {% endfor %}
+
+                                  {% endif %}
+
+                                  {% if line.selling_plan_allocation %}
+                                    <span class="order-list__item-variant">{{ line.selling_plan_allocation.selling_plan.name }}</span><br/>
+                                  {% endif %}
+
+                                  {% if line.refunded_quantity > 0 %}
+                                    <span class="order-list__item-refunded">Refunded</span>
+                                  {% endif %}
+
+                                  {% if line.discount_allocations %}
+                                    {% for discount_allocation in line.discount_allocations %}
+                                      {% if discount_allocation.discount_application.target_selection != 'all' %}
+                                        <span class="order-list__item-discount-allocation">
+                                          <img
+                                            src="{{ 'notifications/discounttag.png' | shopify_asset_url }}"
+                                            width="18"
+                                            height="18"
+                                            class="discount-tag-icon" />
+                                          <span>
+                                            {{ discount_allocation.discount_application.title | upcase }}
+                                            (-{{ discount_allocation.amount | money }})
+                                          </span>
+                                        </span>
+                                      {% endif %}
+                                    {% endfor %}
+                                  {% endif %}
+                                </td>
+                                <td class="order-list__price-cell">
+                                  {% if line.original_line_price != line.final_line_price %}
+                                    <del class="order-list__item-original-price">{{ line.original_line_price | money }}</del>
+                                  {% endif %}
+                                  <p class="order-list__item-price">
+                                    {% if line.final_line_price > 0 %}
+                                      {{ line.final_line_price | money }}
+                                    {% else %}
+                                      Free
+                                    {% endif %}
+                                  </p>
+                                </td>
+                              </table>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                      </table>
+
+                      <table class="row subtotal-lines">
+                        <tr>
+                          <td class="subtotal-spacer"></td>
+                          <td>
+                            <table class="row subtotal-table">
+                              {% for discount_application in discount_applications %}
+                                {% if discount_application.target_selection == 'all' %}
+                                  {% capture discount_title %}
+              {% if discount_application.title %}
+                {{ discount_application.title | upcase }}
+              {% else %}
+                Discount
+              {% endif %}
+            {% endcapture %}
+                                  <tr class="subtotal-line">
+                                    <td class="subtotal-line__title">
+                                      <p>
+                                        <span>Discount</span>
+                                        <span class="subtotal-line__discount">
+                                          <img
+                                            src="{{ 'notifications/discounttag.png' | shopify_asset_url }}"
+                                            width="18"
+                                            height="18"
+                                            class="discount-tag-icon" />
+                                          <span class="subtotal-line__discount-title">{{ discount_title }}</span>
+                                        </span>
+                                      </p>
+                                    </td>
+                                    <td class="subtotal-line__value">
+                                      <strong>-{{ discount_application.total_allocated_amount | money }}</strong>
+                                    </td>
+                                  </tr>
+
+                                {% endif %}
+                              {% endfor %}
+
+
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title">
+                                  <p>
+                                    <span>Subtotal</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <strong>{{ subtotal_price | money }}</strong>
+                                </td>
+                              </tr>
+
+                              {% if delivery_method == 'pick-up' %}
+
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
+                                    <p>
+                                      <span>Pickup</span>
+                                    </p>
+                                  </td>
+                                  <td class="subtotal-line__value">
+                                    <strong>{{ shipping_price | money }}</strong>
+                                  </td>
+                                </tr>
+
+                              {% else %}
+
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
+                                    <p>
+                                      <span>Shipping</span>
+                                    </p>
+                                  </td>
+                                  <td class="subtotal-line__value">
+                                    <strong>{{ shipping_price | money }}</strong>
+                                  </td>
+                                </tr>
+
+                              {% endif %}
+
+                              {% if total_duties %}
+
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
+                                    <p>
+                                      <span>Duties</span>
+                                    </p>
+                                  </td>
+                                  <td class="subtotal-line__value">
+                                    <strong>{{ total_duties | money }}</strong>
+                                  </td>
+                                </tr>
+
+                              {% endif %}
+
+
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title">
+                                  <p>
+                                    <span>Taxes</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <strong>{{ tax_price | money }}</strong>
+                                </td>
+                              </tr>
+
+
+                              {% if total_tip and total_tip > 0 %}
+
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
+                                    <p>
+                                      <span>Tip</span>
+                                    </p>
+                                  </td>
+                                  <td class="subtotal-line__value">
+                                    <strong>{{ total_tip | money }}</strong>
+                                  </td>
+                                </tr>
+
+                              {% endif %}
+                            </table>
+                            {% assign transaction_size = 0 %}
+                            {% assign transaction_amount = 0 %}
+                            {% for transaction in transactions %}
+                              {% if transaction.status == "success" %}
+                                {% unless transaction.kind == "authorization" or transaction.kind == "void" %}
+                                  {% assign transaction_size = transaction_size | plus: 1 %}
+                                  {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
+                                {% endunless %}
+                              {% endif %}
+                            {% endfor %}
+                            <table class="row subtotal-table subtotal-table--total">
+                              {% if payment_terms and payment_terms.automatic_capture_at_fulfillment == false or b2b? %}
+                                {% assign due_at_date = payment_terms.next_payment.due_at | date: "%b %d, %Y" %}
+
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
+                                    <p>
+                                      <span>Total paid today</span>
+                                    </p>
+                                  </td>
+                                  <td class="subtotal-line__value">
+                                    <strong>{{ transaction_amount | money_with_currency }}</strong>
+                                  </td>
+                                </tr>
+
+                                <div class="payment-terms">
+
+                                  <tr class="subtotal-line">
+                                    <td class="subtotal-line__title">
+                                      <p>
+                                        <span>Total due {{ due_at_date }}</span>
+                                      </p>
+                                    </td>
+                                    <td class="subtotal-line__value">
+                                      <strong>{{ payment_terms.next_payment.amount_due | money_with_currency }}</strong>
+                                    </td>
+                                  </tr>
+
+                                </div>
+                              {% else %}
+
+                                <tr class="subtotal-line">
+                                  <td class="subtotal-line__title">
+                                    <p>
+                                      <span>Total</span>
+                                    </p>
+                                  </td>
+                                  <td class="subtotal-line__value">
+                                    <strong>{{ total_price | money_with_currency }}</strong>
+                                  </td>
+                                </tr>
+
+                              {% endif %}
+                            </table>
+
+                            {% if total_discounts > 0 %}
+                              <p class="total-discount">
+                                You saved
+                                <span class="total-discount--amount">{{ total_discounts | money }}</span>
+                              </p>
+                            {% endif %}
+
+                            {% unless payment_terms %}
+                              {% if transaction_size > 1 or transaction_amount < total_price %}
+                                <table class="row subtotal-table">
+                                  <tr>
+                                    <td colspan="2" class="subtotal-table__line"></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2" class="subtotal-table__small-space"></td>
+                                  </tr>
+
+                                  {% for transaction in transactions %}
+                                    {% if transaction.status == "success" and transaction.kind == "capture" or transaction.kind == "sale" %}
+                                      {% if transaction.payment_details.credit_card_company %}
+                                        {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
+                                      {% else %}
+                                        {% capture transaction_name %}{{ transaction.gateway_display_name }}{% endcapture %}
+                                      {% endif %}
+
+
+                                      <tr class="subtotal-line">
+                                        <td class="subtotal-line__title">
+                                          <p>
+                                            <span>{{ transaction_name }}</span>
+                                          </p>
+                                        </td>
+                                        <td class="subtotal-line__value">
+                                          <strong>{{ transaction.amount | money }}</strong>
+                                        </td>
+                                      </tr>
+
+                                    {% endif %}
+                                    {% if transaction.kind == 'refund' %}
+                                      {% if transaction.payment_details.credit_card_company %}
+                                        {% assign refund_method_title = transaction.payment_details.credit_card_company %}
+                                      {% else %}
+                                        {% assign refund_method_title = transaction.gateway %}
+                                      {% endif %}
+
+
+                                      <tr class="subtotal-line">
+                                        <td class="subtotal-line__title">
+                                          <p>
+                                            <span>Refund</span>
+                                            <br>
+                                            <small>{{ refund_method_title | capitalize }}</small>
+                                          </p>
+                                        </td>
+                                        <td class="subtotal-line__value">
+                                          <strong>- {{ transaction.amount | money }}</strong>
+                                        </td>
+                                      </tr>
+
+                                    {% endif %}
+                                  {% endfor %}
+                                </table>
+                              {% endif %}
+
+
+                            {% endunless %}
+                          </td>
+                        </tr>
+                      </table>
+
+
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table class="row section">
+            <tr>
+              <td class="section__cell">
+                <table class="container">
+                  <tr>
+                    <td>
+                      <h3>Customer information</h3>
+                    </td>
+                  </tr>
+                </table>
+                <table class="container">
+                  <tr>
+                    <td>
+
+                      <table class="row">
+                        <tr>
+                          {% if requires_shipping and shipping_address %}
+                            <td class="customer-info__item">
+                              <h4>Shipping address</h4>
+                              {{ shipping_address | format_address }}
+                            </td>
+                          {% endif %}
+                          {% if billing_address %}
+                            <td class="customer-info__item">
+                              <h4>Billing address</h4>
+                              {{ billing_address | format_address }}
+                            </td>
+                          {% endif %}
+                        </tr>
+                      </table>
+                      <table class="row">
+                        <tr>
+                          {% if company_location %}
+                            <td class="customer-info__item">
+                              <h4>Location</h4>
+                              <p>
+                                {{ company_location.name }}
+                              </p>
+                            </td>
+                          {% endif %}
+                          {% if transaction_size > 0 or payment_terms and payment_terms.automatic_capture_at_fulfillment == false or b2b? %}
+                            <td class="customer-info__item">
+                              <h4>Payment</h4>
+                              <p class="customer-info__item-content">
+                                {% if payment_terms %}
+                                  {% assign due_date = payment_terms.next_payment.due_at | default: nil %}
+                                  {% if payment_terms.type == 'receipt' or payment_terms.type == 'fulfillment' and payment_terms.next_payment.due_at == nil %}
+                                    {{ payment_terms.translated_name }}<br>
+                                  {% else %}
+                                    {{ payment_terms.translated_name }}: Due {{ due_date | date: format: 'date' }}<br>
+                                  {% endif %}
+                                {% endif %}
+                                {% if transaction_size > 0 %}
+                                  {% for transaction in transactions %}
+                                    {% if transaction.status == "success" or transaction.status == "pending" %}
+                                      {% if transaction.kind == "capture" or transaction.kind == "sale" %}
+                                        {% if transaction.payment_details.credit_card_company %}
+                                          <img
+                                            src="{{ transaction.payment_details.credit_card_company | payment_icon_png_url  }}"
+                                            class="customer-info__item-credit"
+                                            height="24"
+                                            alt="{{ transaction.payment_details.credit_card_company }}">
+                                          <span>ending with {{ transaction.payment_details.credit_card_last_four_digits }}</span><br>
+                                        {% elsif transaction.gateway_display_name == "Gift card" %}
+                                          <img
+                                            src="{{ transaction.gateway_display_name | downcase | replace: ' ', '-'  | payment_type_img_url }}"
+                                            class="customer-info__item-credit"
+                                            height="24">
+                                          ending with {{ transaction.payment_details.gift_card.last_four_characters | upcase }}<br>
+                                          &emsp;&emsp;&emsp;&nbsp;Gift card balance -
+                                          <b>{{ transaction.payment_details.gift_card.balance | money }}</b>
+                                        {% elsif transaction.gateway_display_name != "Shop Cash" %}
+                                          {{ transaction.gateway_display_name }}<br>
+                                        {% endif %}
+                                      {% elsif transaction.kind == "authorization" and transaction.gateway_display_name == "Shop Cash" %}
+                                        <span>Shop Cash -
+                                          <b>{{ transaction.amount | money }}</b>
+                                        </span>
+                                      {% endif %}
+                                    {% endif %}
+                                  {% endfor %}
+                                {% endif %}
+                              </p>
+                            </td>
+                          {% endif %}
+                        </tr>
+                        <tr>
+                          {% if requires_shipping and shipping_address %}
+                            {% if shipping_method %}
+                              <td class="customer-info__item">
+                                <h4>Shipping method</h4>
+                                <p>
+                                  {% if delivery_promise_branded_shipping_line %}
+                                    {{ delivery_promise_branded_shipping_line }}
+                                  {% else %}
+                                    {{ shipping_method.title }}
+                                  {% endif %}
+                                </p>
+                              </td>
+                            {% endif %}
+                          {% endif %}
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table class="row footer">
+            <tr>
+              <td class="footer__cell">
+                <table class="container">
+                  <tr>
+                    <td>
+                      <p class="disclaimer__subtext">If you have any questions, reply to this email or contact us at
+                        <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <img
+            src="{{ 'notifications/spacer.png' | shopify_asset_url }}"
+            class="spacer"
+            height="1" />
+
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>

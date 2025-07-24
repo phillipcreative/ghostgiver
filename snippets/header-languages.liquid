@@ -1,0 +1,12 @@
+{% if section.settings.languages %}
+    <!-- Header Language -->
+    <div class="header-link header-select dropdown-link header-language">
+        <a href="#"><img src="{{ 'usa.png' | asset_url }}" alt /></a>
+        <ul class="dropdown-container">
+            <li><a href="/"><img src="{{ 'usa.png' | asset_url }}" alt />English</a></li>
+            <li><a href="/"><img src="{{ 'de.png' | asset_url }}" alt />German</a></li>
+            <li><a href="/"><img src="{{ 'fr.png' | asset_url }}" alt />French</a></li>
+        </ul>
+    </div>
+    <!-- /Header Language -->
+{% endif %}

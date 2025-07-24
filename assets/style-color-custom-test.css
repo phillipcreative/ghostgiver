@@ -1,0 +1,1867 @@
+/* Replace All Defult(pink) color With Custom Color */
+/* ----------------------------------- */
+/*        Replace Default Color        */
+/* ----------------------------------- */
+/* BOOTSTRAP VARIABLES */
+/* SEIKO VARIABLES */
+/* Input */
+/* Navbar */
+/* Sidebar Colors */
+/* Product */
+/* Product variant 1 */
+/* Button */
+p a:not(.btn),
+.contact-list a,
+.product-meta a,
+.dropdown-container .bottom-text a {
+  color: customcolor;
+}
+p a:not(.btn):hover,
+.contact-list a:hover,
+.product-meta a:hover,
+.dropdown-container .bottom-text a:hover {
+  color: #333745;
+}
+.btn-link {
+  color: customcolor;
+}
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
+  border-color: customcolor;
+}
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  color: customcolor;
+}
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+  color: customcolor;
+}
+.nav-pills > .active > a > .badge,
+a.list-group-item.active > .badge {
+  color: customcolor;
+}
+.header-link > a:hover i.icon {
+  color: customcolor;
+}
+.header-link > a:hover span {
+  color: customcolor;
+}
+.header-link > a .badge,
+.header-link > a:hover .badge {
+  background-color: customcolor;
+  color: #fff;
+}
+.header-logo svg {
+  fill: customcolor;
+}
+@media screen and (min-width: 992px) {
+  .nav > li.active > a {
+    color: customcolor;
+  }
+}
+/* Mobile header */
+@media screen and (max-width: 991px) {
+  .navbar:after {
+    background-color: customcolor;
+  }
+  .header-link.header-cart > a:hover i.icon {
+    color: customcolor;
+  }
+  .page-header.sticky.is-sticky .navbar .header-logo svg {
+    fill: customcolor;
+  }
+}
+@media screen and (min-width: 992px) {
+  .nav-department {
+    color: #fff !important;
+  }
+}
+.header-custom-text i.icon {
+  color: customcolor;
+}
+.menu-btn-special,
+.header-custom-link .menu-btn-special,
+.nav > li > a.menu-btn-special,
+.megamenu.department .nav > li > a.menu-btn-special {
+  background-color: customcolor;
+}
+.menu-btn-special:hover,
+.header-custom-link .menu-btn-special:hover,
+.nav > li > a.menu-btn-special:hover,
+.megamenu.department .nav > li > a.menu-btn-special:hover {
+  background-color: customcolor;
+}
+.page-header .box-left-icon:hover .box-text {
+  color: customcolor;
+}
+.page-header .box-left-icon:hover .box-icon i.icon {
+  background: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .header-custom-text i.icon,
+  .header-top-row .header-custom-text i.icon {
+    color: customcolor;
+  }
+}
+.footer-logo svg {
+  fill: customcolor;
+}
+.footer-social a,
+.icons-social a {
+  color: customcolor;
+}
+.footer-social a:hover i.icon.icon-circled,
+.icons-social a:hover i.icon.icon-circled {
+  background-color: customcolor;
+}
+.footer-social i.icon.icon-circled,
+.icons-social i.icon.icon-circled {
+  border-color: customcolor;
+}
+footer.variant3 .after-footer {
+  background: customcolor;
+}
+.footer-nav ul li a:hover {
+  color: customcolor;
+}
+footer.variant4 .footer-top a,
+footer.variant4 .footer-top a.readmore {
+  color: customcolor;
+}
+footer.variant4 .footer-top a:hover,
+footer.variant4 .footer-top a.readmore:hover {
+  color: #fff;
+}
+.cube-folding span::before {
+  background-color: customcolor;
+}
+.cube-folding .leaf2::before {
+  background-color: customcolor;
+  opacity: 0.75;
+}
+.cube-folding .leaf3::before {
+  background-color: customcolor;
+  opacity: 0.9;
+}
+.cube-folding .leaf4::before {
+  background-color: customcolor;
+  opacity: 0.6;
+}
+.sidebar-wrapper .sidebar-nav li a:before {
+  border-right-color: customcolor;
+}
+.sidebar-wrapper .sidebar-top a.slidepanel-toggle:hover {
+  color: customcolor;
+}
+.dropdown-link .dropdown-container {
+  border-bottom-color: customcolor;
+}
+.header-language .dropdown-container li a:hover {
+  color: customcolor;
+}
+.header-currency .dropdown-container li a:hover {
+  color: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .header-language .dropdown-container li a:hover {
+    color: customcolor;
+  }
+  .header-currency .dropdown-container li a:hover {
+    color: customcolor;
+  }
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border-top-color: customcolor;
+  color: customcolor;
+}
+.hoverslide span:before,
+.hoverslide a:before {
+  background-color: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .mobilemenu-header {
+    background: customcolor;
+  }
+  .navbar ul.nav li:hover > a,
+  .navbar ul.nav li.submenu-open > a {
+    background-color: #f8f8f8;
+    color: customcolor;
+  }
+  .navbar ul.nav li .arrow:hover:before {
+    color: customcolor;
+  }
+}
+.header-cart.variant-1 .dropdown-container .block-content .subtotal .price-container {
+  color: customcolor;
+}
+.header-cart.variant-1 .dropdown-container .block-content .action.viewcart:not(.btn-alt) {
+  border-color: customcolor;
+}
+.header-cart.variant-1 .dropdown-container .block-content .action.viewcart,
+.header-cart.variant-1 .dropdown-container .block-content .action.viewcart.focus,
+.header-cart.variant-1 .dropdown-container .block-content .action.viewcart:focus,
+.header-cart.variant-1 .dropdown-container .block-content .action.viewcart:active {
+  background-color: customcolor;
+  border-color: customcolor;
+}
+.header-cart.variant-1 .dropdown-container .block-content .action.viewcart:hover {
+  color: customcolor;
+  background-color: inherit;
+  border-color: customcolor;
+}
+.header-cart.variant-1 .dropdown-container .product-item-name a:hover {
+  color: customcolor;
+}
+.header-cart.variant-1 .dropdown-container .product-item-pricing .price-container {
+  color: customcolor;
+}
+.header-cart.variant-1 .dropdown-container .product.actions a:hover,
+.header-cart.variant-1 .dropdown-container .product.actions a:hover:after {
+  color: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .header-cart.variant-1 .dropdown-container .block-title {
+    background: customcolor;
+  }
+}
+.header-cart.variant-2 .dropdown-container .block-content .btn-alt {
+  color: customcolor;
+}
+.header-cart.variant-2 .dropdown-container .block-content .btn-alt:hover {
+  background-color: customcolor;
+  border-color: customcolor;
+  color: #fff;
+}
+.header-cart.variant-2 .dropdown-container .product-item-name a:hover {
+  color: customcolor;
+}
+.header-cart.variant-2 .dropdown-container .product-item-pricing .price-container {
+  color: customcolor;
+}
+.header-cart.variant-2 .dropdown-container .product.actions a:hover {
+  color: customcolor;
+}
+@media screen and (min-width: 992px) {
+  .header-cart.variant-2.dropdown-link .minicart-content-wrapper:after,
+  .header-cart.variant-2.dropdown-link #minicart-content-wrapper:after {
+    background: customcolor;
+  }
+}
+.touch .header-cart.variant-2 .dropdown-container .btn-minicart-close:hover {
+  color: customcolor;
+}
+a.readmore {
+  color: customcolor;
+}
+.custom-color {
+  color: customcolor;
+}
+.text-lg p:first-child:first-letter {
+  color: customcolor;
+}
+.marker {
+  background: customcolor;
+}
+ul.marker-list li a:hover {
+  color: customcolor;
+}
+ul.marker-list li a:hover:before {
+  background-color: customcolor;
+}
+ul.simple-list li a {
+  color: customcolor;
+}
+ul.simple-list i.icon {
+  color: customcolor;
+}
+ul.marker-simple-list li a {
+  color: customcolor;
+}
+ul.marker-simple-list li:before {
+  color: customcolor;
+}
+.blockquote {
+  border-left-color: customcolor;
+}
+.info-block:after,
+.info-block:before {
+  border-left-color: customcolor;
+}
+.info-block p:first-child:first-letter {
+  background-color: customcolor;
+}
+ul.social-list-simple li a:hover {
+  color: customcolor;
+}
+ul.tags li span.value span:before,
+ul.tags li span.value a:before {
+  background-color: customcolor;
+}
+ul.tags li.active span.value span {
+  background: customcolor;
+}
+ul.tags li.active span.clear {
+  color: customcolor;
+}
+.product-action-btn:hover {
+  background-color: customcolor;
+}
+.product-item.large .product-item-actions .actions-secondary a:hover {
+  background-color: customcolor;
+}
+.product-item-rating {
+  color: customcolor;
+}
+.product-item-label.label-sale {
+  background-color: customcolor;
+}
+.price-box .price,
+.price-box .special-price {
+  color: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .products-grid.product-variant-1 .product-item.large .product-item-actions .actions-secondary a:hover {
+    color: customcolor;
+  }
+}
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button:hover {
+  background-color: customcolor;
+}
+@media screen and (min-width: 768px) {
+  .products-grid.product-variant-2 .product-item.large .product-item-inside:hover:after,
+  .products-grid.product-variant-2 .product-item.large.hover .product-item-inside:after {
+    background-color: customcolor;
+  }
+}
+@media screen and (max-width: 991px) {
+  .products-grid.product-variant-2 .product-item.large .product-item-photo .product-item-actions .actions-secondary a:hover,
+  .products-grid.product-variant-2 .product-item.large .product-item-photo .product-item-actions .actions-secondary button:hover {
+    color: customcolor;
+  }
+}
+@media screen and (max-width: 991px) {
+  .products-grid.product-variant-3 .product-item.large .product-item-actions .actions-secondary a:hover {
+    color: customcolor;
+  }
+}
+.product-variant-4 .product-item.large .product-item-name a:hover {
+  color: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .product-variant-4 .product-item.large .product-item-actions .actions-secondary a:hover {
+    color: customcolor;
+  }
+}
+.product-item.small .price-box {
+  color: customcolor;
+}
+.product-small-list.variant2 .product-item.small .product-item-not-available span {
+  color: customcolor;
+}
+.product-small-list.variant2 .product-item.small .price-box .price,
+.product-small-list.variant2 .product-item.small .price-box .special-price {
+  color: customcolor;
+}
+.product-small-list.variant2 .product-item.small .product-item-actions .btn {
+  color: customcolor;
+}
+.product-small-list.variant2 .product-item.small .product-item-actions .btn.active {
+  color: customcolor;
+}
+.color-swatch li.active {
+  border-color: customcolor;
+}
+@media screen and (min-width: 992px) {
+  .products-listview .color-swatch li.active {
+    border-color: customcolor;
+  }
+}
+.products-listview.product-variant-1 .product-item.large .product-item-actions .actions-secondary a:hover,
+.products-listview.product-variant-2 .product-item.large .product-item-actions .actions-secondary a:hover,
+.products-listview.product-variant-3 .product-item.large .product-item-actions .actions-secondary a:hover,
+.products-listview.product-variant-4 .product-item.large .product-item-actions .actions-secondary a:hover {
+  color: customcolor;
+}
+@media screen and (min-width: 992px) {
+  .products-listview.product-variant-1 .product-item.large .product-item-label.label-sale,
+  .products-listview.product-variant-2 .product-item.large .product-item-label.label-sale,
+  .products-listview.product-variant-3 .product-item.large .product-item-label.label-sale,
+  .products-listview.product-variant-4 .product-item.large .product-item-label.label-sale {
+    background-color: customcolor;
+  }
+}
+.product-item.large .product-item-actions .actions-secondary a.wishlist.active {
+  color: customcolor;
+}
+.product-item.large .product-item-actions .actions-secondary a.wishlist.active:hover {
+  color: #fff;
+}
+.product-variant-5 .product-item.large .wishlist.active:not(:hover),
+.product-variant-5 .product-item.large .no_wishlist:hover {
+  color: customcolor;
+}
+.btn,
+.btn-primary,
+button.action {
+  border-color: customcolor;
+}
+.btn,
+.btn-primary,
+button.action,
+.btn.focus,
+.btn-primary.focus,
+button.action.focus,
+.btn:focus,
+.btn-primary:focus,
+button.action:focus,
+.btn:active,
+.btn-primary:active,
+button.action:active {
+  background-color: customcolor;
+  color: #ffffff;
+  border-color: customcolor;
+}
+.btn:hover,
+.btn-primary:hover,
+button.action:hover {
+  background-color: transparent;
+  color: customcolor;
+  border-color: customcolor;
+}
+.btn.btn-invert,
+.btn-primary.btn-invert,
+button.action.btn-invert {
+  background-color: transparent;
+  color: customcolor;
+}
+.btn.btn-invert:active,
+.btn-primary.btn-invert:active,
+button.action.btn-invert:active,
+.btn.btn-invert.focus,
+.btn-primary.btn-invert.focus,
+button.action.btn-invert.focus,
+.btn.btn-invert:focus,
+.btn-primary.btn-invert:focus,
+button.action.btn-invert:focus {
+  background-color: transparent;
+  color: customcolor;
+}
+.btn.btn-invert:hover,
+.btn-primary.btn-invert:hover,
+button.action.btn-invert:hover {
+  background-color: customcolor;
+  color: #ffffff;
+}
+.btn-alt:not(.back-to-top),
+.btn-alt:not(.back-to-top).focus,
+.btn-alt:not(.back-to-top):focus,
+.btn-alt:not(.back-to-top):active {
+  background-color: #333745 !important;
+  border-color: #333745 !important;
+  color: #ffffff !important;
+}
+.btn-alt:not(.back-to-top):hover {
+  background-color: transparent !important;
+  color: #333745 !important;
+  border-color: #333745 !important;
+}
+.btn-alt:not(.back-to-top).btn-invert,
+.btn-alt:not(.back-to-top).btn-invert:active,
+.btn-alt:not(.back-to-top).btn-invert.focus,
+.btn-alt:not(.back-to-top).btn-invert:focus {
+  background-color: transparent !important;
+  color: #333745 !important;
+}
+.btn-alt:not(.back-to-top).btn-invert:hover {
+  background-color: #333745 !important;
+  color: #ffffff !important;
+}
+.blog-carousel .blog-item-links a:not(.readmore) {
+  color: customcolor;
+}
+.testimonial-single-slider .slick-prev:not(.slick-disabled):hover,
+.testimonial-single-slider .slick-next:not(.slick-disabled):hover {
+  background-color: transparent;
+}
+.testimonial-single-slider .slick-prev:not(.slick-disabled):hover:before,
+.testimonial-single-slider .slick-next:not(.slick-disabled):hover:before {
+  color: customcolor;
+}
+.required-text {
+  color: customcolor;
+}
+.form-card .back {
+  color: customcolor;
+}
+.form-card .back a {
+  color: customcolor;
+}
+.range-slider-range::-webkit-slider-thumb {
+  background: customcolor;
+}
+.range-slider-range::-moz-range-thumb {
+  background: customcolor;
+}
+.range-slider-value {
+  color: customcolor;
+}
+.mainSlider .swiper-container .caption {
+  background: customcolor;
+}
+.mainSlider .swiper-container .button {
+  background-color: customcolor;
+  color: #fff;
+}
+.mainSlider .swiper-container .button:hover {
+  color: customcolor;
+  background-color: #fff;
+}
+.mainSlider .swiper-container .caption .text1 {
+  color: customcolor;
+}
+.mainSlider .swiper-container .caption .cool-btn:hover {
+  color: customcolor !important;
+}
+.mainSlider .swiper-container .text2-1 {
+  color: customcolor;
+}
+.mainSlider .swiper-container .text2-4 {
+  color: customcolor;
+}
+.mainSlider .swiper-container .text2-5 {
+  color: customcolor;
+}
+.mainSlider .swiper-container .text3-6 {
+  background-color: customcolor;
+}
+.mainSlider .swiper-container .text3-6:hover {
+  color: customcolor;
+}
+.mainSlider .swiper-container .text4-1 {
+  color: customcolor;
+}
+.mainSlider .swiper-container .text4-4 {
+  background-color: customcolor;
+}
+.mainSlider .swiper-container .text4-4:hover {
+  color: customcolor;
+}
+.carousel-inside .carousel-control:hover {
+  background: customcolor;
+}
+.countdown-box .countdown > span {
+  color: customcolor;
+}
+.countdown-circle .countdown-text .text1 {
+  color: customcolor;
+}
+.countdown-circle .countdown > span {
+  border-color: customcolor;
+  color: customcolor;
+}
+.countdown-squared .countdown > span {
+  color: customcolor;
+}
+.banner.style-1 .banner-btn > span {
+  background-color: customcolor;
+}
+.banner.style-1 .banner-btn:hover > span {
+  color: customcolor;
+}
+.banner.style-3 .banner-btn > span {
+  background-color: customcolor;
+}
+.banner.style-3 .banner-btn:hover > span {
+  color: customcolor;
+}
+.banner.style-5 .banner-btn > span {
+  color: customcolor;
+}
+.banner.style-7 .banner-btn > span {
+  background-color: customcolor;
+}
+.banner.style-7 .banner-btn:hover > span {
+  color: customcolor;
+}
+.banner.style-9 .text-1 > span {
+  border-left-color: customcolor;
+}
+.banner.style-9 .text-1.text-hoverslide span.hoverbg {
+  background-color: customcolor;
+}
+/* banner style 10 */
+.banner.style-10 .text-1 {
+  color: customcolor;
+}
+.banner.style-10 .banner-btn > span {
+  background-color: customcolor;
+}
+.banner.style-10 .banner-btn.text-hoverslide:hover > span {
+  color: customcolor;
+}
+/* banner style 11 */
+.banner.style-11 .text-2 {
+  color: customcolor;
+}
+.banner.style-11 .banner-btn > span {
+  background-color: customcolor;
+}
+.banner.style-11 .banner-btn:hover > span {
+  color: customcolor;
+}
+.banner.style-12 .banner-btn {
+  color: customcolor;
+}
+.banner.style-13 .text-2 {
+  color: customcolor;
+}
+.banner.style-14 .banner-btn > span {
+  background-color: customcolor;
+}
+.banner.style-14 .banner-btn:hover > span {
+  color: customcolor;
+}
+.banner.style-15 .banner-btn {
+  color: customcolor;
+}
+.banner.style-16 .text-1 {
+  color: customcolor;
+}
+/* banner style 17 */
+.banner.style-17 .text-2.text-hoverslide span.hoverbg {
+  background-color: customcolor;
+}
+/* banner style 18 */
+.banner.style-18 .text-1 {
+  color: customcolor;
+}
+.banner.style-18 .banner-btn > span {
+  background-color: customcolor;
+}
+/* banner style 19 */
+.banner.style-19 .text-2 {
+  color: customcolor;
+}
+/* banner style 20 */
+.banner.style-20 .text-1 {
+  background-color: customcolor;
+}
+.banner.style-20 .text-1 .text-corner {
+  border-bottom-color: customcolor;
+}
+.category-slider .item .text-style-1,
+.category-slider-item .text-style-1 {
+  color: customcolor;
+}
+.category-block .category-title {
+  color: customcolor;
+}
+.category-slider-item .banner-btn > span {
+  background-color: customcolor;
+}
+.category-slider-item .banner-btn:hover > span {
+  color: customcolor;
+}
+.box-icon i.icon {
+  border-color: customcolor;
+}
+.box .box-icon i.icon {
+  background-color: customcolor;
+}
+.box:not(.style2):hover .box-icon i.icon {
+  color: customcolor;
+  background-color: #fff;
+}
+.box-left-icon .box-icon i.icon {
+  color: customcolor;
+}
+.box-left-icon:hover .box-icon i.icon {
+  background-color: customcolor;
+  color: #fff;
+}
+.box-left-icon-bg .box-text {
+  color: customcolor;
+}
+.box-left-icon-bg:hover .box-icon i.icon {
+  color: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .collapsed-mobile .toggle-arrow:hover:before {
+    color: customcolor;
+  }
+}
+#toolsPanel .tools-btn {
+  background: customcolor;
+}
+.productStack .productstack-content {
+  border-top-color: customcolor;
+}
+.productStack .toggleStack {
+  background: customcolor;
+}
+.productStack .total-cart .count,
+.productStack .total-cart .price {
+  color: customcolor;
+}
+.productStack .products-list .item-qty {
+  background-color: customcolor;
+}
+.productStack .products-list .actions .action {
+  color: customcolor;
+}
+.productStack .products-list .actions .action:hover {
+  background: customcolor;
+  color: #fff;
+}
+.modal-header .close:hover {
+  color: customcolor;
+}
+.breadcrumbs li a:hover {
+  color: customcolor;
+}
+.person .person-name a:hover {
+  color: customcolor;
+}
+.person .person-links a:hover {
+  color: customcolor;
+}
+h2.blog-title a:hover {
+  color: customcolor;
+}
+.blog-meta a {
+  color: customcolor;
+}
+.blog-comments .comment.reply a.replylink {
+  color: customcolor;
+}
+.sideblock ul.simple-list li a:hover {
+  color: customcolor;
+}
+.cart-table .table-row .name,
+.cart-table .table-row name a,
+.cart-table .table-row .price,
+.cart-table .table-row .subtotal {
+  color: customcolor;
+}
+.cart-table .table-row name a:hover {
+  color: customcolor;
+}
+.cart-table .table-row .qty input[type="text"] {
+  color: customcolor;
+}
+.cart-table .table-row .remove a:hover {
+  color: customcolor;
+}
+.cart-table .table-row .continue a:hover {
+  color: customcolor;
+}
+.total-price .total {
+  color: customcolor;
+}
+.cart-action a {
+  color: customcolor;
+}
+.gallery-item .link a:hover {
+  background-color: customcolor;
+}
+.filters li a:hover,
+.filters li a.active {
+  color: customcolor;
+}
+.filters.style2 a:hover,
+.filters.style2 a.active {
+  color: #fff;
+  background-color: customcolor;
+}
+button.mfp-arrow:hover {
+  background-color: customcolor;
+}
+.mfp-close:hover {
+  color: customcolor !important;
+}
+.mfp-arrow-right:after {
+  color: customcolor;
+}
+.mfp-arrow-left:after {
+  color: customcolor;
+}
+.mfp-arrow-left:hover:after,
+.mfp-arrow-right:hover:after {
+  color: #fff;
+}
+.sidebar-block .block-title:hover span {
+  color: customcolor;
+}
+.sidebar-block .block-title a:hover {
+  color: customcolor;
+}
+.sidebar-block:after {
+  border-color: customcolor transparent transparent transparent;
+}
+.sidebar-block.collapsed .toggle-arrow:hover:before {
+  color: customcolor;
+}
+ul.category-list li a:not(.clear):hover,
+ul.category-list li a:not(.clear).active {
+  color: customcolor;
+}
+ul.category-list li.active a {
+  color: customcolor;
+}
+ul.category-list li.active a.clear {
+  color: customcolor;
+}
+.selected-filters li a:hover {
+  color: customcolor;
+}
+.color-list li.active span.clear {
+  color: customcolor;
+}
+.color-list li.active span.value,
+.color-list li:hover span.value {
+  border-color: customcolor;
+}
+.size-list li.active span.value,
+.size-list li:hover span.value {
+  border-color: customcolor;
+  background: customcolor;
+}
+.size-list li.active span.clear {
+  color: customcolor;
+}
+.price-values {
+  color: customcolor;
+}
+.noUi-horizontal .noUi-handle {
+  background: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .filter-col-header {
+    background: customcolor;
+  }
+}
+.filter-row .directions a:hover,
+.filter-row .directions a:active {
+  color: customcolor;
+}
+.filter-row .view-mode a:hover,
+.filter-row .view-mode a.active {
+  color: customcolor;
+}
+.product-creative-slider-control .slick-prev:before,
+.product-creative-slider-control .slick-next:before {
+  color: customcolor;
+}
+.product-creative-slider-control .slick-prev:hover:before,
+.product-creative-slider-control .slick-next:hover:before {
+  color: customcolor;
+}
+.product-info-block .price {
+  color: customcolor;
+}
+.product-info-block .product-sku span,
+.product-info-block .product-availability span {
+  color: customcolor;
+}
+.product-info-block .product-qty .qty input[type="text"] {
+  color: customcolor;
+}
+.product-info-block .product-label:not(.new) {
+  background-color: customcolor;
+}
+.rating i.icon.fill {
+  color: customcolor;
+}
+.product-previews-carousel .slick-next:before,
+.product-previews-carousel .slick-prev:before {
+  color: customcolor;
+}
+.product-previews-carousel .slick-slide.active:after {
+  box-shadow: inset -2px 0 0 customcolor, inset 0 -2px 0 customcolor, inset 0 2px 0 customcolor, inset 2px 0 0 customcolor;
+  -webkit-box-shadow: inset -2px 0 0 customcolor, inset 0 -2px 0 customcolor, inset 0 2px 0 customcolor, inset 2px 0 0 customcolor;
+}
+.main-image .zoomLens {
+  border-color: customcolor !important;
+}
+.product-nav > a .product-nav-preview span.price {
+  background-color: customcolor;
+}
+.zoom-link:hover,
+.video-link:hover {
+  color: customcolor;
+}
+.tabaccordion .panel-title a:not(.collapsed) {
+  background: customcolor;
+  border-color: customcolor;
+}
+@media (min-width: 768px) {
+  .overflow .logo-center > a {
+    background: customcolor;
+  }
+}
+.irregular-grid .product-preview .product-details .product-name:hover {
+  color: customcolor;
+}
+@media (max-width: 767px) {
+  .journal .logo-center {
+    background: customcolor;
+  }
+}
+.page-header.variant-3 .header-link:not(.header-cart) .dropdown-container {
+  border-top-color: customcolor;
+}
+.page-header.variant-3 .sub-menu {
+  border-top-color: customcolor;
+}
+@media screen and (max-width: 991px) {
+  .page-header.variant-3 .navbar .header-logo svg {
+    fill: customcolor;
+  }
+}
+.page-header.variant-5:not(.is-sticky) .header-middle-row .header-custom-text i.icon {
+  color: customcolor;
+}
+.page-header.variant-9 .navbar .nav > li:hover > a {
+  color: customcolor;
+}
+.exp-search-close:hover,
+.exp-icon-search:hover {
+  color: customcolor;
+}
+@media screen and (min-width: 992px) {
+  .page-header.variant-7:not(.is-sticky) .header-link.header-search .exp-icon-search:hover {
+    color: customcolor;
+  }
+}
+@media screen and (min-width: 992px) {
+  .page-header.variant-8:not(.is-sticky) .header-link.header-search .exp-icon-search:hover {
+    color: customcolor;
+  }
+}
+@media screen and (min-width: 992px) {
+  .page-header.dark:not(.is-sticky) .navbar .nav > li:hover > a:after,
+  .page-header.stickydark.is-sticky .navbar .nav > li:hover > a:after,
+  .page-header.dark:not(.is-sticky) .navbar .nav > li.active > a:after,
+  .page-header.stickydark.is-sticky .navbar .nav > li.active > a:after {
+    background: customcolor;
+  }
+}
+.share-button .toggle:hover {
+  color: customcolor;
+}
+.share-button .social-list a {
+  background-color: customcolor;
+  border-color: customcolor;
+  color: #fff;
+}
+.rating i.spr-icon.spr-icon-star-half-alt,
+.rating i.spr-icon.spr-icon-star {
+  color: customcolor;
+}
+#shopify-product-reviews .spr-container .spr-review-header-byline strong {
+  color: customcolor;
+}
+#shopify-product-reviews .spr-container .spr-summary-starrating .spr-icon.spr-icon-star-half-alt,
+#shopify-product-reviews .spr-container .spr-starratings .spr-icon.spr-icon-star-half-alt,
+#shopify-product-reviews .spr-container .spr-summary-starrating .spr-icon.spr-icon-star,
+#shopify-product-reviews .spr-container .spr-starratings .spr-icon.spr-icon-star {
+  color: customcolor;
+}
+#shopify-product-reviews .spr-container .spr-form-review-rating .spr-icon.spr-icon-star:hover,
+#shopify-product-reviews .spr-container .spr-form-review-rating .spr-icon.spr-icon-star.spr-icon-star-hover {
+  color: customcolor;
+}
+.btn-primary.disabled,
+.btn-primary.disabled.active,
+.btn-primary.disabled:active,
+.btn-primary.disabled:focus,
+.btn-primary.disabled:hover,
+.btn-primary[disabled],
+.btn-primary[disabled].active,
+.btn-primary[disabled]:active,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary,
+fieldset[disabled] .btn-primary.active,
+fieldset[disabled] .btn-primary:active,
+fieldset[disabled] .btn-primary:focus,
+fieldset[disabled] .btn-primary:hover {
+  background-color: customcolor;
+  border-color: customcolor;
+}
+.slick-prev:not(.slick-disabled):hover,
+.slick-next:not(.slick-disabled):hover {
+  background: customcolor;
+}
+.slick-dots li.slick-active button {
+  background: customcolor;
+}
+/* Mega Menu */
+.sub-menu {
+  border-bottom-color: customcolor;
+}
+.sub-menu .category-title > a:hover {
+  color: customcolor;
+}
+.sub-menu .category-links a:hover {
+  color: customcolor;
+}
+.menu-label {
+  background: customcolor;
+}
+.simple-dropdown .sub-menu ul.category-links li:hover > a {
+  color: customcolor;
+}
+@media screen and (min-width: 992px) {
+  .megamenu.vertical .nav > li.active > a {
+    color: customcolor;
+  }
+}
+@media screen and (min-width: 992px) {
+  .megamenu.department .nav > li.active > a {
+    color: customcolor;
+  }
+}
+.view-all:not(.disabled):hover {
+  color: customcolor;
+}
+.back-to-top:hover {
+  background-color: customcolor !important;
+}
+.buy-fixed-btn:hover {
+  background: customcolor !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+.top-fixed-btn:hover,
+.fixed-btns.demo-mode .buy-fixed-btn:hover,
+#toolsPanel .tools-btn > a:hover {
+  background: customcolor !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+.coming-soon .wrapper-form .right-col h3 {
+  color: customcolor;
+}
+.coming-soon .wrapper-form .center-col a:hover {
+  color: customcolor;
+}
+.logo.logo-svg svg {
+  fill: customcolor;
+}
+/* ----------------------------------- */
+/*           STYLE OVERLAY             */
+/* ----------------------------------- */
+/* -------------------------------- */
+/*           General Colors         */
+/* -------------------------------- */
+/*  1.1 General Colors - Text */
+body,
+.products-grid.product-variant-2 .product-item.large .product-item-description,
+.blog-carousel .blog-item-teaser,
+.variant-1 .testimonials-item-teaser,
+.variant-1 .testimonials-item-date,
+.variant-2 .testimonials-item-teaser,
+.variant-2 .testimonials-item-date,
+.services-list .box-left-icon .box-text,
+ul.simple-list li,
+ul.marker-list li,
+.info-block,
+#shopify-product-reviews .spr-container input.spr-form-input:not(.spr-starrating),
+#shopify-product-reviews .spr-container input.spr-form-input:not(.spr-starrating)[disabled],
+#shopify-product-reviews .spr-container input.spr-form-input:not(.spr-starrating)[readonly],
+fieldset[disabled] #shopify-product-reviews .spr-container input.spr-form-input:not(.spr-starrating),
+#shopify-product-reviews .spr-container div.spr-form-input textarea,
+#shopify-product-reviews .spr-container div.spr-form-input textarea[disabled],
+#shopify-product-reviews .spr-container div.spr-form-input textarea[readonly],
+fieldset[disabled] #shopify-product-reviews .spr-container div.spr-form-input textarea {
+  color: customcolor  !important;
+}
+/* 1.2 General Colors - Links */
+a,
+.blog-carousel .blog-item-links a:not(.readmore),
+a.readmore,
+ul.marker-list li a {
+  color: customcolor ;
+}
+ul.marker-list li a:before {
+  background-color: customcolor ;
+}
+/* 1.3 General Colors - Links Hover */
+a:focus,
+a:hover,
+.blog-carousel .blog-item-links a:not(.readmore):hover,
+.blog-carousel .blog-item-links a:not(.readmore):focus,
+a.readmore:hover,
+a.readmore:focus,
+ul.marker-list li a:hover,
+ul.marker-list li a:focus {
+  color: customcolor ;
+}
+ul.marker-list li a:hover:before,
+ul.marker-list li a:focus:before {
+  background-color: customcolor ;
+}
+/* 1.4 General Colors - Background */
+body {
+  background-color: customcolor ;
+}
+/* -------------------------------- */
+/*        2 Captions (h1-h7)        */
+/* -------------------------------- */
+/* 2.1 Captions - Font Family */
+h1,
+h1-style,
+h2,
+h2-style,
+h3,
+h4,
+h5,
+h6,
+.filters li a {
+  font-family: ;
+}
+/* 2.2 Captions - Font Family */
+h1,
+h1-style {
+  font-size: customcolor ;
+  /* val */
+}
+@media screen and (min-width: 768px) {
+  .block.top-negative {
+    margin-top: calc(-val*1.75);
+  }
+}
+h2,
+h2-style {
+  font-size: customcolor ;
+}
+h3 {
+  font-size: customcolor ;
+}
+h4 {
+  font-size: customcolor ;
+}
+h5 {
+  font-size: customcolor ;
+}
+h6 {
+  font-size: customcolor ;
+}
+/* 2.3 Captions - Font Colors */
+h1,
+h1-style {
+  color: customcolor ;
+}
+h2,
+h2-style {
+  color: customcolor ;
+}
+h3 {
+  color: customcolor ;
+}
+h4 {
+  color: customcolor ;
+}
+h5 {
+  color: customcolor ;
+}
+h6 {
+  color: customcolor ;
+}
+/* 2.4 Captions - Font Colors & Background for Caption with Background */
+h1.h-bg,
+h2.h-bg {
+  color: customcolor;
+  background-color: customcolor;
+}
+/* -------------------------------- */
+/*          3 Left panel            */
+/* -------------------------------- */
+/* 3.1 Left panel - Background */
+.sidebar-wrapper {
+  background-color: customcolor;
+}
+/* 3.2 Left panel - Links Color */
+.sidebar-wrapper .sidebar-nav a,
+.sidebar-wrapper .sidebar-top a.slidepanel-toggle {
+  color: customcolor;
+}
+/* 3.3 Left panel - Links Hover */
+.sidebar-wrapper .sidebar-nav a:hover,
+.sidebar-wrapper .sidebar-nav a.active {
+  color: customcolor ;
+}
+.sidebar-wrapper .sidebar-nav li a:before,
+.sidebar-wrapper .sidebar-nav li:hover a:before {
+  background-color: customcolor ;
+}
+/* -------------------------------- */
+/*            4 Buttons             */
+/* -------------------------------- */
+/* 4.1 Buttons - Text Color */
+.btn,
+.btn-primary,
+button.action,
+.btn.focus,
+.btn-primary.focus,
+button.action.focus,
+.btn:focus,
+.btn-primary:focus,
+button.action:focus,
+.btn:active,
+.btn-primary:active,
+button.action:active {
+  color: customcolor;
+}
+.btn.btn-invert:hover,
+.btn-primary.btn-invert:hover,
+button.action.btn-invert:hover {
+  color: customcolor;
+}
+/* 4.2 Buttons - Text Hover */
+.btn:hover,
+.btn-primary:hover,
+button.action:hover {
+  color: customcolor;
+}
+.btn.btn-invert,
+.btn-primary.btn-invert,
+button.action.btn-invert,
+.btn.btn-invert:active,
+.btn-primary.btn-invert:active,
+button.action.btn-invert:active,
+.btn.btn-invert.focus,
+.btn-primary.btn-invert.focus,
+button.action.btn-invert.focus,
+.btn.btn-invert:focus,
+.btn-primary.btn-invert:focus,
+button.action.btn-invert:focus {
+  color: customcolor;
+}
+/* 4.3 Buttons - Background */
+.btn,
+.btn-primary,
+button.action,
+.btn.focus,
+.btn-primary.focus,
+button.action.focus,
+.btn:focus,
+.btn-primary:focus,
+button.action:focus,
+.btn:active,
+.btn-primary:active,
+button.action:active {
+  background-color: customcolor ;
+  border-color: customcolor ;
+}
+.btn.btn-invert:hover,
+.btn-primary.btn-invert:hover,
+button.action.btn-invert:hover {
+  background-color: customcolor ;
+  border-color: customcolor ;
+}
+/* 4.4 Buttons - Background Hover */
+.btn:hover,
+.btn-primary:hover,
+button.action:hover {
+  background-color: transparent;
+  border-color: customcolor ;
+}
+.btn.btn-invert,
+.btn-primary.btn-invert,
+button.action.btn-invert,
+.btn.btn-invert:active,
+.btn-primary.btn-invert:active,
+button.action.btn-invert:active,
+.btn.btn-invert.focus,
+.btn-primary.btn-invert.focus,
+button.action.btn-invert.focus,
+.btn.btn-invert:focus,
+.btn-primary.btn-invert:focus,
+button.action.btn-invert:focus {
+  background-color: transparent;
+  border-color: customcolor ;
+}
+/* -------------------------------- */
+/*            5 Header              */
+/* -------------------------------- */
+/* 5.1 Header - Text Color */
+@media screen and (min-width: 992px) {
+  .page-header,
+  .header-custom-text,
+  .header-custom-text i.icon,
+  .page-header .box-left-icon .box-text .title {
+    color: customcolor;
+  }
+}
+/* 5.2 Header - Links */
+/* 5.2.1 Header - Links Color */
+@media screen and (min-width: 992px) {
+  .page-header a:not(.btn),
+  .header-custom-link a:not(.btn),
+  .dropdown-container li a:not(.btn),
+  .header-link > a i.icon,
+  .exp-icon-search {
+    color: customcolor;
+  }
+}
+@media screen and (min-width: 992px) {
+  .nav > li > a:not(.btn),
+  .nav > li > a:not(.btn):focus {
+    color: customcolor;
+  }
+}
+/* 5.2.2 Header - Links - Hover & Active Color */
+@media screen and (min-width: 992px) {
+  .page-header a:not(.btn):hover,
+  .dropdown-container li a:not(.btn):hover,
+  .header-link > a:hover i.icon,
+  .header-link > a:hover span,
+  .header-link > a:hover,
+  .exp-icon-search:hover {
+    color: customcolor  !important;
+  }
+}
+/* 5.3 Header -  Icon */
+/* 5.3.1 Header -  Icon Color */
+@media screen and (min-width: 992px) {
+  .header-link > a i.icon,
+  .exp-icon-search {
+    color: customcolor;
+  }
+}
+@media screen and (max-width: 991px) {
+  .header-link.header-cart > a i.icon {
+    color: customcolor;
+  }
+}
+/* 5.3.1 Header - Icon Color Hover */
+@media screen and (min-width: 992px) {
+  .header-link > a:hover i.icon,
+  .exp-icon-search:hover {
+    color: customcolor  !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .header-link.header-cart > a i.icon:hover {
+    color: customcolor  !important;
+  }
+}
+/* 5.4 Header - Megamenu Row  */
+/* 5.4.1 Header - Megamenu Row - Background */
+.page-header.is-sticky .navbar,
+.page-header.variant-8.is-sticky .header-bottom-row,
+.page-header.variant-1 .navbar,
+.page-header.variant-2 .navbar,
+.page-header.variant-3 .navbar,
+.page-header.variant-9 .navbar,
+.page-header.variant-4 .menu-wrapper,
+.page-header.variant-5 .menu-wrapper,
+.page-header.variant-6 .menu-wrapper,
+.page-header.variant-7 .menu-wrapper,
+.page-header .header-link.header-search .exp-search.exp-search-open {
+  background-color: customcolor !important;
+}
+@media screen and (max-width: 991px) {
+  .page-header.variant-3 .header-links {
+    background-color: customcolor !important;
+  }
+}
+/* 5.5   Header - Rows */
+/* 5.5.1 Header - Header Middle Row */
+/* 5.5.1.1 Header - Header Middle Row - Color */
+@media screen and (min-width: 992px) {
+  .page-header:not(.is-sticky) .header-middle-row,
+  .page-header:not(.is-sticky) .header-middle-row .header-custom-text,
+  .page-header:not(.is-sticky) .header-middle-row .header-custom-text i.icon,
+  .page-header:not(.is-sticky) .header-middle-row .box-left-icon .box-text .title {
+    color: customcolor;
+  }
+}
+/* 5.5.1.2 Header - Header Middle Row - Link Color */
+@media screen and (min-width: 992px) {
+  .page-header:not(.is-sticky) .header-middle-row a:not(.btn),
+  .page-header:not(.is-sticky) .header-middle-row .header-custom-link a:not(.btn),
+  .page-header:not(.is-sticky) .header-middle-row .dropdown-container li a:not(.btn),
+  .page-header:not(.is-sticky) .header-middle-row .header-link > a i.icon,
+  .page-header:not(.is-sticky) .header-middle-row .exp-icon-search {
+    color: customcolor;
+  }
+}
+/* 5.5.1.3 Header - Header Middle Row - Link Hover Color */
+@media screen and (min-width: 992px) {
+  .page-header:not(.is-sticky) .header-middle-row a:not(.btn):hover,
+  .page-header:not(.is-sticky) .header-middle-row .dropdown-container li a:not(.btn):hover,
+  .page-header:not(.is-sticky) .header-middle-row .header-link > a:hover i.icon,
+  .page-header:not(.is-sticky) .header-middle-row .exp-icon-search:hover {
+    color: customcolor !important;
+  }
+}
+/* 5.5.1.4 Header - Header Middle Row - Icon Color */
+@media screen and (min-width: 992px) {
+  .page-header:not(.is-sticky) .header-middle-row .header-link > a i.icon,
+  .page-header:not(.is-sticky) .header-middle-row .exp-icon-search {
+    color: customcolor;
+  }
+}
+/* 5.5.1.5 Header - Header Middle Row - Icon Color Hover */
+@media screen and (min-width: 992px) {
+  .page-header:not(.is-sticky) .header-middle-row .header-link > a:hover i.icon,
+  .page-header:not(.is-sticky) .header-middle-row .exp-icon-search:hover {
+    color: customcolor !important;
+  }
+}
+/* 5.5.1.6 Header - Header Middle Row - Background */
+@media screen and (min-width: 992px) {
+  .page-header:not(.is-sticky) .header-middle-row {
+    background-color: customcolor !important;
+  }
+}
+/* 5.5.2 Header - Header Top Row */
+/* 5.5.2.1 Header - Header Top Row - Color */
+@media screen and (min-width: 992px) {
+  .header-top-row,
+  .header-top-row .header-custom-text,
+  .header-top-row .header-custom-text i.icon,
+  .header-top-row .box-left-icon .box-text .title {
+    color: customcolor;
+  }
+}
+/* 5.5.2.2 Header - Header Top Row - Link Color */
+@media screen and (min-width: 992px) {
+  .header-top-row a:not(.btn),
+  .header-top-row .header-custom-link a:not(.btn),
+  .header-top-row .dropdown-container li a:not(.btn),
+  .header-top-row .header-link > a i.icon,
+  .header-top-row .exp-icon-search {
+    color: customcolor;
+  }
+}
+/* 5.5.2.3 Header - Header Top Row - Link Hover Color */
+@media screen and (min-width: 992px) {
+  .header-top-row a:not(.btn):hover,
+  .header-top-row .dropdown-container li a:not(.btn):hover,
+  .header-top-row .header-link > a:hover i.icon,
+  .header-top-row .exp-icon-search:hover {
+    color: customcolor !important;
+  }
+}
+/* 5.5.2.4 Header - Header Top Row - Icon Color */
+@media screen and (min-width: 992px) {
+  .header-top-row .header-link > a i.icon,
+  .header-top-row .header-custom-text i.icon,
+  .header-top-row .exp-icon-search {
+    color: customcolor !important;
+  }
+}
+/* 5.5.2.5 Header - Header Top Row - Icon Color Hover */
+@media screen and (min-width: 992px) {
+  .header-top-row .header-link > a:hover i.icon,
+  .header-top-row .exp-icon-search:hover {
+    color: customcolor !important;
+  }
+}
+/* 5.5.2.6 Header - Header Top Row - Background */
+@media screen and (min-width: 992px) {
+  .header-top-row {
+    background-color: customcolor !important;
+  }
+}
+/* 5.6 Header - Dropdown */
+/* 5.6.1 Header - Dropdown - Background */
+.dropdown-link .dropdown-container {
+  background-color: customcolor;
+}
+.dropdown-link .dropdown-container:before,
+.dropdown-link .dropdown-container:after {
+  border-bottom-color: customcolor;
+}
+/* 5.6.2 Header - Dropdown - Text Color */
+.dropdown-link .dropdown-container {
+  color: customcolor !important;
+}
+/* 5.6.3 Header - Dropdown - Link Color */
+.dropdown-link .dropdown-container li a:not(.btn) {
+  color: customcolor !important;
+}
+/* 5.6.4 Header - Dropdown - Link Color Hover */
+.dropdown-link .dropdown-container li a:not(.btn):hover,
+.page-header:not(.is-sticky) .header-middle-row .dropdown-container li a:not(.btn):hover,
+.header-top-row .dropdown-container li a:not(.btn):hover {
+  color: customcolor !important;
+}
+/* -------------------------------- */
+/*         6 Topnavigation          */
+/* -------------------------------- */
+/* 6.1   Topnavigation - First Level */
+/* 6.1.1 Topnavigation - First Level - Links Color */
+@media screen and (min-width: 992px) {
+  .nav > li > a,
+  .nav > li > a:focus {
+    color: customcolor !important;
+  }
+}
+/* 6.1.2 Topnavigation - First Level - Links Hover Color */
+@media screen and (min-width: 992px) {
+  .nav > li > a:not(.btn):hover,
+  .nav > li > a:not(.btn):focus:hover,
+  .nav > li.hovered > a:not(.btn),
+  .nav > li.active > a:not(.btn) {
+    color: customcolor !important;
+  }
+}
+/* 6.1.3 Topnavigation - First Level - Background Hover Color */
+@media screen and (min-width: 992px) {
+  .nav > li > a:not(.btn):hover,
+  .nav > li > a:not(.btn):focus:hover,
+  .nav > li.hovered > a:not(.btn),
+  .nav > li.active > a:not(.btn) {
+    background-color: customcolor !important;
+  }
+  .page-header:not(.variant-9).nav > li:hover > a:not(.btn):after {
+    display: none !important;
+  }
+}
+/* 6.1.4 Topnavigation - First Level - Links Active Color */
+@media screen and (min-width: 992px) {
+  .nav > li.active > a:not(.btn) {
+    color: customcolor !important;
+  }
+}
+/* 6.1.5 Topnavigation - First Level - Background Links Active */
+@media screen and (min-width: 992px) {
+  .nav > li.active > a:not(.btn) {
+    background-color: customcolor !important;
+  }
+  .nav > li.active > a:not(.btn):after {
+    display: none !important;
+  }
+}
+/* 6.2   Topnavigation - Second Level Megamenu */
+/* 6.2.1 Topnavigation - Second Level Megamenu - Links Color */
+@media screen and (min-width: 992px) {
+  .mega-dropdown .sub-menu .category-title > a:not(.btn),
+  .mega-dropdown .sub-menu .category-links > li > a:not(.btn) {
+    color: customcolor  !important;
+  }
+}
+/* 6.2.2 Topnavigation - Second Level Megamenu - Links Hover Color */
+@media screen and (min-width: 992px) {
+  .mega-dropdown .sub-menu .category-title > a:not(.btn):hover,
+  .mega-dropdown .sub-menu .category-links > li > a:not(.btn):hover {
+    color: customcolor  !important;
+  }
+}
+/* 6.3   Topnavigation - Simple Menu */
+/* 6.3.1 Topnavigation - Simple Menu - Links Color */
+@media screen and (min-width: 992px) {
+  .simple-dropdown .sub-menu .category-title a:not(.btn),
+  .simple-dropdown .sub-menu .category-links a:not(.btn) {
+    color: customcolor !important;
+  }
+}
+/* 6.3.2 Topnavigation - Simple Menu - Links Hover Color */
+@media screen and (min-width: 992px) {
+  .simple-dropdown .sub-menu .category-title a:not(.btn):hover,
+  .simple-dropdown .sub-menu .category-links a:not(.btn):hover {
+    color: customcolor !important;
+  }
+}
+/* 6.3.3 Topnavigation - Simple Menu - Background Color */
+@media screen and (min-width: 992px) {
+  .simple-dropdown .sub-menu,
+  .simple-dropdown .sub-menu ul.category-links ul {
+    background-color: customcolor;
+  }
+}
+/* 6.4 Topnavigation - Label */
+/* 6.4.1 Topnavigation - Label (custom  default) Background Color */
+.menu-label {
+  background-color: customcolor ;
+}
+/* 6.4.2 Topnavigation - Label Alternative (custom  default) Background Color */
+.menu-label-alt {
+  background-color: customcolor;
+}
+/* 6.5 Topnavigation - Font Family */
+@media screen and (min-width: 992px) {
+  .nav > li > a,
+  .nav > li > a:focus {
+    font-family: !important;
+  }
+}
+/* 6.6 Topnavigation - Font Size */
+@media screen and (min-width: 992px) {
+  .nav > li > a,
+  .nav > li > a:focus {
+    font-size: !important;
+  }
+}
+/* 6.7 Topnavigation - Font Weight */
+@media screen and (min-width: 992px) {
+  .nav > li > a,
+  .nav > li > a:focus {
+    font-weight: !important;
+  }
+}
+/* -------------------------------- */
+/*         7 Header Cart            */
+/* -------------------------------- */
+/* 7.1 Header Cart - Icon Cart Badge Background Color */
+.header-link.header-cart > a .badge {
+  background-color: customcolor ;
+}
+/* 7.2 Header Cart - Dropdown Background Color */
+.header-cart.variant-2 .dropdown-container,
+.header-cart.variant-2 .dropdown-container .block-title,
+.header-cart.variant-2 .dropdown-container .product-item-qty input {
+  background-color: customcolor;
+}
+/* 7.3 Header Cart - Text Color */
+.header-cart.variant-2 .dropdown-container,
+.header-cart.variant-2 .dropdown-container .block-title,
+.header-cart.variant-2 .dropdown-container .label,
+.header-cart.variant-2 .dropdown-container .product-item-qty .label,
+.header-cart.variant-2 .dropdown-container .product-item-qty input {
+  color: customcolor ;
+}
+/* 7.4 Header Cart - Links Color */
+.header-cart.variant-2 .dropdown-container .product.actions a,
+.header-cart.variant-2 .dropdown-container .product-item-name a {
+  color: customcolor !important;
+}
+/* 7.5 Header Cart - Links Hover Color */
+.header-cart.variant-2 .dropdown-container .product.actions a:hover,
+.header-cart.variant-2 .dropdown-container .product-item-name a:hover {
+  color: customcolor  !important;
+}
+/* -------------------------------- */
+/*            8 Product             */
+/* -------------------------------- */
+/* 8.1   Product - Product Name */
+/* 8.1.1 Product - Product Name - Font Family */
+.product-item .product-item-name a.product-item-link {
+  font-family: ;
+}
+/* 8.1.2 Product - Product Name - Color */
+.products-grid:not(.product-variant-2) .product-item .product-item-name a {
+  color: customcolor ;
+}
+/* 8.1.3 Product - Product Name - Hover Color */
+.products-grid:not(.product-variant-2) .product-item .product-item-name a {
+  color: customcolor ;
+}
+/* 8.2 Product - Addtocart  */
+/* 8.2.1 Product - Addtocart - Border + Color */
+.products-grid:not(.product-variant-2) .btn.btn-invert,
+.product-variant-4 .btn.btn-invert,
+.products-grid:not(.product-variant-2) .btn.btn-invert:active,
+.product-variant-4 .btn.btn-invert:active,
+.products-grid:not(.product-variant-2) .btn.btn-invert.focus,
+.product-variant-4 .btn.btn-invert.focus,
+.products-grid:not(.product-variant-2) .btn.btn-invert:focus,
+.product-variant-4 .btn.btn-invert:focus {
+  border-color: customcolor ;
+  color: customcolor ;
+}
+/* 8.2.2 Product - Addtocart - Border + Color Hover */
+.products-grid:not(.product-variant-2) .btn.btn-invert:hover,
+.product-variant-4 .btn.btn-invert:hover {
+  background-color: customcolor;
+  border-color: customcolor ;
+  color: customcolor ;
+}
+/* 8.3 Product - Background Color */
+.product-item.large .product-item-info {
+  background-color: customcolor ;
+}
+/* 8.4 Product - Additional actions */
+/* 8.4.1 Product - Additional actions -  Background Color */
+.product-item.large .product-item-actions .actions-secondary a,
+.product-item.large .product-item-actions .actions-secondary a:focus,
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button,
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button:focus {
+  background-color: customcolor ;
+}
+/* 8.4.2 Product - Additional actions - Color */
+.product-item.large .product-item-actions .actions-secondary a,
+.product-item.large .product-item-actions .actions-secondary a:focus,
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button,
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button:hover {
+  color: customcolor ;
+}
+/* 8.4.3 Product - Additional actions -  Background Hover Color */
+.product-item.large .product-item-actions .actions-secondary a:hover,
+.product-item.large .product-item-actions .actions-secondary a:focus:hover,
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button:hover,
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button:focus:hover {
+  background-color: customcolor ;
+}
+/* 8.4.4 Product - Additional actions - Hover Color */
+.product-item.large .product-item-actions .actions-secondary a:hover,
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button:hover,
+.products-grid.product-variant-2 .product-item.large .product-item-details .product-item-actions .actions-primary button:focus:hover {
+  color: customcolor ;
+}
+/* 8.5 Product - Gallery arrows */
+/* 8.5.1 Product - Gallery arrows -  Background Color */
+.carousel-inside .carousel-control {
+  background-color: customcolor ;
+}
+/* 8.5.2 Product - Gallery arrows -  Background Hover Color */
+.carousel-inside .carousel-control:hover {
+  background-color: customcolor ;
+}
+/* 8.6 Product - Label */
+/* 8.6.1 Product - Label - NEW */
+.product-item-label.label-new {
+  background-color: customcolor ;
+}
+/* 8.6.2 Product - Label - SALE */
+.product-item-label.label-sale {
+  background-color: customcolor ;
+}
+/* -------------------------------- */
+/*            9 Footer              */
+/* -------------------------------- */
+/* 9.1 Footer General */
+/* 9.1.1 Footer - Background Color */
+.page-footer,
+.page-footer.variant2,
+.page-footer.variant2 .footer-bot,
+.page-footer.variant4 .footer-bot {
+  background-color: red !important;
+}
+.footer-social a:hover i.icon.icon-circled {
+   color: red !important; 
+}  
+/* 9.1.2 Footer - Text Color */
+.page-footer,
+.footer-copyright,
+.page-footer ul.simple-list li,
+.page-footer h2,
+.page-footer h3,
+.page-footer h4,
+.page-footer h5,
+.page-footer h6 {
+  color: green !important;
+}          
+/* 9.1.3 Footer - Link Color */
+.page-footer a,
+.page-footer a.readmore,
+.page-footer ul.simple-list li .icon,
+.footer-social a i.icon.icon-circled {
+  color: #fff !important;
+}
+.footer-social a i.icon.icon-circled {
+  border-color: #fff;
+}
+.footer-social a:hover i.icon.icon-circled,
+.page-footer ul.marker-list li a:before {
+  background-color: #fff;
+}
+/* 9.1.3 Footer - Link Color Hover */
+.page-footer a:hover,
+.page-footer a.readmore:hover {
+  color: customcolor !important;
+}        
+/* 9.2 Footer  Top Row */
+/* 9.2.1 Footer Top Row - Background Image */
+.page-footer .footer-top,
+.page-footer.variant4 .footer-top {
+  background-image: ;
+}
+/* 9.2.2 Footer Top Row  - Color */
+.page-footer .footer-top,
+.page-footer.variant4 .footer-top,
+.page-footer .footer-top h2,
+.page-footer.variant4 .footer-top h2,
+.page-footer .footer-top h3,
+.page-footer.variant4 .footer-top h3,
+.page-footer .footer-top h4,
+.page-footer.variant4 .footer-top h4,
+.page-footer .footer-top h5,
+.page-footer.variant4 .footer-top h5,
+.page-footer .footer-top h6,
+.page-footer.variant4 .footer-top h6 {
+  color: customcolor !important;
+}
+/* 9.2.3 Footer  Top Row  -  Link Color */
+.page-footer .footer-top a,
+.page-footer.variant4 .footer-top a,
+.page-footer .footer-top a.readmore,
+.page-footer.variant4 .footer-top a.readmore,
+.page-footer .news-title a,
+.page-footer.variant4 .news-title a,
+.page-footer h4.news-title a,
+.page-footer.variant4 h4.news-title a {
+  color: customcolor !important;
+}
+/* 9.2.4 Footer Top Row  -  Link Hover Color */
+.page-footer .footer-top a:hover,
+.page-footer.variant4 .footer-top a:hover,
+.page-footer .footer-top a.readmore:hover,
+.page-footer.variant4 .footer-top a.readmore:hover,
+.page-footer .news-title a:hover,
+.page-footer.variant4 .news-title a:hover,
+.page-footer h4.news-title a:hover,
+.page-footer.variant4 h4.news-title a:hover {
+  color: customcolor !important;
+}
+/* -------------------------------- */
+/*        10 Product Page           */
+/* -------------------------------- */
+/* 10.1 Product Page - Product Name */
+/* 10.1.1 Product Page - Product Name - Font Family */
+.product-info-block.classic .product-name,
+.product-info-block.creative .product-name {
+  font-family: ;
+}
+/* 10.1.1 Product Page - Product Name - Font Size */
+.product-info-block.classic .product-name,
+.product-info-block.creative .product-name {
+  font-size: ;
+}
+/* 10.2 Product Page - Product Price */
+/* 10.2.1 Product Page - Product Price - Font Family */
+.product-info-block .price {
+  font-family: ;
+}
+/* 10.2.1 Product Page - Product Price - Font Size */
+.product-info-block .price {
+  font-size: ;
+}
+/* 10.3 Product Page - Options */
+/* 10.3.1 Product Page - Options - Font Size */
+.size-list li span.value {
+  font-size: ;
+}
+/* 10.3.2 Product Page - Options - Hover Color */
+.size-list li:hover span.value {
+  color: customcolor;
+}
+/* 10.3.3 Product Page - Options - Hover Background */
+.size-list li:hover span.value {
+  background-color: customcolor;
+  border-color: customcolor;
+}
+/* 10.3.4 Product Page - Options - Active Color */
+.size-list li.active span.value {
+  color: customcolor;
+}
+/* 10.3.5 Product Page - Options - Active Background */
+.size-list li.active span.value {
+  background-color: customcolor;
+  border-color: customcolor;
+}

@@ -1,0 +1,26 @@
+{% unless settings.catalog_mode %}
+  {% capture status %}{{ 'general.theme.add_to_cart' | t }}{% endcapture %}
+  {% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity < 1 and product.selected_or_first_available_variant.inventory_policy == "continue" %}
+    {% capture status %}{{ 'general.theme.pre_order' | t }}{% endcapture %}
+  {% endif %}
+  <form method="post" action="/cart/add" class="test">
+    {% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity < 1 and product.selected_or_first_available_variant.inventory_policy == "continue" %}
+      <input
+        type="hidden"
+        name="properties[{{ 'general.theme.status' | t }}]"
+        value="{{ 'general.theme.pre_order' | t }}">
+    {% endif %}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ product.variants.first.id }}" />
+    <button
+      class="btn add-to-cart js-add-to-cart"
+      data-product-handle="{{ product.handle }}"
+      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      data-product-name="{{ product.title }}"
+      title="{{ status }}">
+      <span>{{ status }}</span>
+    </button>
+  </form>
+{% endunless %}

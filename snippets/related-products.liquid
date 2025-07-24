@@ -1,0 +1,56 @@
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+  {% assign found_a_collection = false %}
+  {% for c in product.collections %}
+    {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if collection and collection.products_count > 1 %}
+  {% if section.settings.product_related_enable %}
+    {% case section.settings.per_row_desctop %}
+    {% when '3' %}
+    {%- assign image_size = '499x499' -%}
+    {% when '4' %}
+    {%- assign image_size = '364x364' -%}
+    {% when '5' %}
+    {%- assign image_size = '283x283' -%}
+    {% endcase %}
+    {% if section.settings.limit != blank %}
+      {%- assign product_limit = section.settings.limit -%}
+    {% endif %}
+    {% assign current_product = product %}
+    {% assign current_product_found = false %}
+
+    <div class="block {{ section.settings.block_width }} {{ section.settings.outer_margin }} offset-side">
+      <div class="container">
+        {% if section.settings.title != blank %}
+          <div class="title">
+            <h2>{{ section.settings.title | escape }}</h2>
+            {% if section.settings.show_view_all == "left" or section.settings.show_view_all == "right" %}
+              <span class="show-more text-{{ section.settings.show_view_all }} hidden-xs"><a href="{{ collection.url }}" title="{{ collection.title }}">{{ 'general.theme.show_all' | t }} +</a></span>
+            {% endif %}
+            <div class="carousel-arrows"></div>
+          </div>
+        {% endif %}
+        <div class="products-grid products-carousel data-to-show-{{ section.settings.per_row_desctop }} data-to-show-lg-{{ section.settings.per_row_desctop }} data-to-show-md-3 data-to-show-sm-3 data-to-show-xs-{{ section.settings.per_row_mobile_port }}" data-slick='{"slidesToShow": {{ section.settings.per_row_desctop }}, "slidesToScroll":  1, "responsive": [{"breakpoint": 1201,"settings": {"slidesToShow": {{ section.settings.per_row_tablet_land }}}}, {"breakpoint": 993,"settings": {"slidesToShow": {{ section.settings.per_row_tablet_port }}}}, {"breakpoint": 769,"settings": {"slidesToShow": {{ section.settings.per_row_mobile_land }}}}, {"breakpoint": 481,"settings": {"slidesToShow": {{ section.settings.per_row_mobile_port }}}}] }'>
+          {% for product in collection.products limit: product_limit %}
+            {% if product.handle == current_product.handle %}
+              {% assign current_product_found = true %}
+            {% else %}
+              {% unless current_product_found == false and forloop.last %}
+              {% include 'product-card', per_row: section.settings.per_row, grid_image_width: image_size %}
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% if section.settings.show_view_all == "bottom" %}
+          <div class="text-center"><a href="{{ collection.url }}" class="btn btn-alt btn-lg" title="{{ collection.title }}">{{ 'general.theme.show_all' | t }}</a></div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+{% endif %}

@@ -1,0 +1,139 @@
+{% if section.settings.enable %}
+    {%- assign image_size = '499x499' -%}
+    {% if section.settings.limit != blank %}
+        {%- assign product_limit = section.settings.limit -%}
+    {% endif %}
+    {%- assign collection = collections[section.settings.collection] -%}
+    <div class="block {{ section.settings.block_width }} {{ section.settings.outer_margin }}">
+        <div class="container">
+            {% if section.settings.title != blank %}
+                <div class="title">
+                    <h2>{{ section.settings.title | escape }}</h2>
+                    {% if section.settings.show_view_all == "left" or section.settings.show_view_all == "right" %}
+                        <span class="show-more text-{{ section.settings.show_view_all }} hidden-xs"><a href="{{ collection.url }}" title="{{ collection.title }}">{{ 'general.theme.show_all' | t }} +</a></span>
+                    {% endif %}
+                    <div class="carousel-arrows"></div>
+                </div>
+            {% endif %}
+            <div class="products-grid data-to-show-{{ section.settings.per_row_desctop }} data-to-show-lg-{{ section.settings.per_row_desctop }} data-to-show-md-{{ section.settings.per_row_desctop }} data-to-show-sm-{{ section.settings.per_row_mobile_port }} data-to-show-xs-{{ section.settings.per_row_mobile_port }}">
+                {% for product in collection.products limit: product_limit %}
+                    {% include 'product-card', per_row: section.settings.per_row, grid_image_width: image_size %}
+                {% else %}
+                    <p class="blockquote">
+                        To Init <b>Product's grid</b>:<br />
+                        1.<b>Choose Collection</b><br />
+                        2.<b>Save</b>
+                    </p>
+                {% endfor %}
+            </div>
+            {% if section.settings.show_view_all == "bottom" %}
+                <div class="text-center"><a href="{{ collection.url }}" class="btn btn-alt btn-lg"  title="{{ collection.title }}">{{ 'general.theme.show_all' | t }}</a></div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+{% schema %}
+{
+"name": "Featured collection",
+"class": "index-section",
+"settings": [
+    {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable Carousel",
+        "default": true
+    },
+    {
+        "type": "header",
+        "content": "Layout"
+    },
+    {
+        "type":"select",
+        "id":"block_width",
+        "label":"Width",
+        "options":[
+            {"value":"boxed","label":"Boxed"},
+            {"value":"fullwidth","label":"Fullwidth"},
+            {"value":"global_width","label":"Use global site width"}
+        ],
+        "default":"global_width",
+        "info":"click Save to see changes"
+    },
+    {
+        "type": "select",
+        "id": "outer_margin",
+        "label": "Outer top margin",
+        "options":[
+            {"value":"offset-top-0","label":"None"},
+            {"value":"offset-top-30","label":"30px"},
+            {"value":"offset-top-40","label":"40px"},
+            {"value":"offset-top-50","label":"50px"}
+        ],
+        "default": "offset-top-50"
+    },
+    {
+        "type": "header",
+        "content": "General"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Heading"
+    },
+    {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+    },
+    {
+        "id": "limit",
+        "type": "text",
+        "label": "Products limit",
+        "info":"if no limit keep empty, for better perfomance try reduce limit and enable 'View all' button",
+        "default":"8"
+    },
+    {
+        "type": "select",
+        "id": "show_view_all",
+        "label": "Show 'Show all' button",
+        "options":[
+            {"value":"none","label":"None"},
+            {"value":"bottom","label":"Under grid"},
+            {"value":"left","label":"Near title"}
+        ],
+        "default": "none"
+    },
+    {
+        "type": "header",
+        "content": "Products per row:"
+    },
+    {
+        "type": "select",
+        "id": "per_row_desctop",
+        "label": "Desctop",
+        "default": "4",
+        "options": [
+            { "value": "3", "label": "3" },
+            { "value": "4", "label": "4" }
+        ]
+    },
+    {
+        "type": "select",
+        "id": "per_row_mobile_port",
+        "label": "< 481 (mobile portrait)",
+        "default": "1",
+        "options": [
+            { "value": "1", "label": "1" },
+            { "value": "2", "label": "2" }
+        ]
+    }
+],
+"presets": [
+    {
+        "name": "Featured collection",
+        "category": "Products"
+    }
+]
+}
+{% endschema %}

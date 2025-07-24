@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-logo">
+                                {% include 'footer-logo' %}
+                            </div>
+                            <div class="footer-block">
+                                {{ section.settings.support_time }}
+                            </div>
+                        </div>
+                        <div class="divider divider-sm visible-sm"></div>
+                        {% if section.settings.twitter_widget_content != blank %}
+                            <div class="col-md-6 hidden-sm hidden-xs">
+                                {{ section.settings.twitter_widget_content }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="divider divider-sm visible-xs"></div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-7">
+                            {% if section.settings.social_icons %}
+                                <div class="footer-social">
+                                    {% include 'social-media-links' %}
+                                </div>
+                            {% endif %}
+                            <div class="divider divider-sm"></div>
+                            {% if section.settings.show_methods_of_payment %}
+                                {% include 'footer_payments' %}
+                            {% endif %}
+                        </div>
+                        <div class="divider divider-sm visible-xs"></div>
+                        <div class="col-md-5">
+                            <div class="footer-block collapsed-mobile">
+                                {% if section.settings.newsletter %}{% include 'newsletter-inline' %}{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bot">
+        <div class="container">
+            {{ section.settings.copyright }}
+        </div>
+    </div>
+</div>

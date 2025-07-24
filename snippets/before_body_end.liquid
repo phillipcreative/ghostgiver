@@ -1,0 +1,59 @@
+<!--HTML INCLUDES-->
+{% include 'back_to_top' %}
+{% if settings.newsletter_popup_home_only_yes %}
+    {% if template == 'index' %}
+        {% include 'spy-newsletter' %}
+		     {% include 'spy-donate' %}
+    {% endif %}
+{% else %}
+		  {% include 'spy-donate' %}   
+	  
+    {% include 'spy-newsletter' %}
+{% endif %}
+{% include 'modals' %}
+{% include 'search_autocomplete' %}
+<!--JS SHOPIFY INCLUDES-->
+<script>
+    jQuery(function() {
+        CartJS.init({{ cart | json }}, {
+            "dataAPI": false,
+            "requestBodyClass": "loading",
+            "moneyFormat": "{{ shop.money_format }}",
+            "moneyWithCurrencyFormat": "{{ shop.money_with_currency_format }}"
+        });
+        if ((jQuery('.header-topline').attr('data-enable-expires') == 'true') && (jQuery.cookie('bntTopline') == 'yes')) {
+            jQuery('.header-topline').remove();
+        }
+    });
+</script>
+{% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+{% endif %}
+{% include 'currencies' %}
+<!--JS THEME Min files for better perfomance Production Mode -->
+{%comment%}
+{{ 'jquery.cookie.min.js' | asset_url | script_tag }}
+{{ 'slider.js' | asset_url | script_tag }}
+{{ 'bootstrap.min.js' | asset_url | script_tag }}
+{{ 'slick.min.js' | asset_url | script_tag }}
+{{ 'jarallax.min.js' | asset_url | script_tag }}
+{{ 'jquery.magnific-popup.min.js' | asset_url | script_tag }}
+{{ 'jquery.countdown.min.js' | asset_url | script_tag }}
+{{ 'lodash.min.js' | asset_url | script_tag }}
+{{ 'tocca.min.js' | asset_url | script_tag }}
+{{ 'jquery.darktooltip.min.js' | asset_url | script_tag }}
+{{ 'imagesloaded.pkgd.min.js' | asset_url | script_tag }}
+{{ 'jquery-scrollLock.min.js' | asset_url | script_tag }}
+{{ 'jquery.scroll-with-ease.min.js' | asset_url | script_tag }}
+{{ 'jquery.ez-plus.min.js' | asset_url | script_tag }}
+{%endcomment%}
+
+
+<!--minified version of all plugins and theme js. If you want use developer mode then uncoment previous js and comment plugin.js and app.min.js -->
+{{ 'plugins.min.js' | asset_url | script_tag }}
+{{ 'bluebird.min.js' | asset_url | script_tag }}
+{{ 'app.js' | asset_url | script_tag }}
+<!--JS THEME SHOPIFY CONST INCLUDES-->
+{{ 'cart.min.js' | asset_url | script_tag }}
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+{{ 'helper.js' | asset_url | script_tag }}

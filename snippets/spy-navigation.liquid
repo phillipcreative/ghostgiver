@@ -1,0 +1,146 @@
+{% if settings.megamenu_spy_navigation %} {% if
+section.settings.sidebar_navigation != blank %} {% if
+linklists['spy-menu'].links.size > 0 %}
+<div
+  class="spy-menu js-spy"
+  data-open="{% if template == 'index' or template contains 'home-page-' %}{% if settings.megamenu_spy_navigation_enable %}true{% else %}false{% endif %}{% else %}false{% endif %}"
+  data-close-when="{{ settings.megamenu_spy_navigation_open_when }}"
+>
+  <div class="spy-menu-open js-spy-open"><i class="icon-menu"></i></div>
+  <div class="spy-menu-close js-spy-close"><i class="icon-close"></i></div>
+  <ul class="nav">
+    {% for link in linklists['spy-menu'].links %}
+    <li class="submenu-open">
+      {% include 'header-navigation-label' label:link.title %}
+      {{ link.title | append : label | link_to : link.url }}
+      {% if linklists[link.handle].links.size > 0 %}
+      <ul>
+        {% for link_1 in linklists[link.handle].links %}
+        <li {% if link_1.active %}class="active" {% endif %}>
+          {% unless link_1.title contains "Venmo" %} {% include
+          'header-navigation-label' label:link_1.title %}
+          {{ link_1.title | append : label | link_to : link_1.url }}
+          {% if linklists[link_1.handle].links.size > 0 %}
+          <span class="arrow"></span>
+          <ul>
+            {% for link_2 in linklists[link_1.handle].links %}
+            <li>
+              {% include 'header-navigation-label' label:link_2.title %}
+              {{ link_2.title | append : label | link_to : link_2.url }}
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %} {% endunless %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %} {% else if settings.megamenu_spy_navigation and section.blocks.size
+> 0 %}
+<!--Spy Category-->
+<div
+  class="spy-menu js-spy"
+  data-open="{% if template == 'index' or template contains 'home-page-' %}{% if settings.megamenu_spy_navigation_enable %}true{% else %}false{% endif %}{% else %}false{% endif %}"
+  data-close-when="{{ settings.megamenu_spy_navigation_open_when }}"
+>
+  <div class="spy-menu-open js-spy-open"><i class="icon-menu"></i></div>
+  <div class="spy-menu-close js-spy-close"><i class="icon-close"></i></div>
+  <ul class="nav">
+    {% for block in section.blocks %} {% if block.settings.enable %} {% if
+    block.settings.assign_to == 'spy' or block.settings.assign_to == 'both' %}
+    <li class="submenu-open">
+      <a
+        {%
+        if
+        block.settings.link
+        !="blank"
+        %}href="{{ block.settings.link }}"
+        {%
+        endif
+        %}
+        >{{ block.settings.title }}{% if block.settings.label != blank %}<span
+          class="{{ block.settings.label_color }}"
+          >{{ block.settings.label }}</span
+        >{% endif %}</a
+      >
+      {% case block.type %} {% when 'tree' %} {% assign list =
+      block.settings.dropdown_list %} {% if list != blank %}
+      <ul>
+        {% for link in linklists[list].links %}
+        <li {% if link.active %}class="active" {% endif %}>
+          {% include 'header-navigation-label' label:link.title %}
+          {{ link.title | append : label | link_to : link.url }}
+          {% if linklists[link.handle].links.size > 0 %}
+          <span class="arrow"></span>
+          <ul>
+            {% for link_1 in linklists[link.handle].links %}
+            <li>
+              {% include 'header-navigation-label' label:link_1.title %}
+              {{ link_1.title | append : label | link_to : link_1.url }}
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% when 'columns' %}
+      <ul>
+        {% for i in (1..15) %} {% capture enable %}nav_col_{{
+          i
+        }}_yes{% endcapture %} {% capture title %}nav_col_{{
+          i
+        }}_title{% endcapture %} {% capture link %}nav_col_{{
+          i
+        }}_link{% endcapture %} {% capture list %}nav_col_{{
+          i
+        }}_list{% endcapture %}{% assign list = block.settings[list] %} {% if
+        block.settings[enable] %} {% if block.settings[title] != blank %}
+        <li>
+          <a
+            {%
+            if
+            block.settings[link]
+            !="blank"
+            %}
+            href="{{ block.settings[link] }}"
+            {%
+            endif
+            %}
+            >{{ block.settings[title] }}</a
+          >
+          {% if list != blank %}
+          <span class="arrow"></span>
+          <ul>
+            {% for link in linklists[list].links %}
+            <li>
+              {% include 'header-navigation-label' label:link.title %}
+              {{ link.title | append : label | link_to : link.url }}
+              {% if linklists[link.handle].links.size > 0 %}
+              <ul>
+                {% for link_1 in linklists[link.handle].links %}
+                <li>
+                  {% include 'header-navigation-label' label:link_1.title %}
+                  {{ link_1.title | link_to : link_1.url }}
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endif %} {% endif %} {% endfor %}
+      </ul>
+      {% endcase %}
+    </li>
+    {% endif %} {% endif %} {% endfor %}
+  </ul>
+</div>
+<!--Spy Category-->
+{% endif %} {% endif %}

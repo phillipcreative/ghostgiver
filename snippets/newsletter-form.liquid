@@ -1,0 +1,21 @@
+{% if settings.newsletter_mailchimp_yes %}
+    <form action="{{ settings.newsletter_action | strip }}" method="post"  name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="input-group input-wrap">
+            <input  type="email" name="EMAIL" class="form-control required email" />
+            <span class="input-group-btn"> <button class="btn btn-invert" type="submit"> <i class="icon icon-arrow-right"></i> <span>{{ 'general.newsletter_form.submit' | t }}</span> </button> </span>
+        </div>
+    </form>
+{% else %}
+    {% form 'customer', class: 'banita-form', id: 'newsletter-popup-form' %}
+    <div class="input-group input-wrap">
+    {% if form.posted_successfully? %}
+        <span class="success-message">{{ 'general.newsletter_form.confirmation' | t }}</span>
+    {% else %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email" name="contact[email]" class="form-control" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"  >
+        {{ form.errors | default_errors }}
+        <span class="input-group-btn"><button class="btn btn-invert" type="submit"> <i class="icon icon-arrow-right"></i><span>{{ 'general.theme.subscribe' | t }}</span></button></span>
+    {% endif %}
+    </div>
+    {% endform %}
+{% endif %}

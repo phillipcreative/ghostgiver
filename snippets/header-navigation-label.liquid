@@ -1,0 +1,12 @@
+{%- assign label='' -%}
+{% if settings.labels contains label %}
+    {%- assign categoriesArray=settings.labels|split:';' -%}
+    {% for category in categoriesArray %}
+        {%- assign categoryLabel = category|split:':' -%}
+        {% if categoryLabel[0] == label %}
+            {%- assign class = '<span class="menu-label">' -%}
+            {% if categoryLabel[2] contains 'alt' %}{% assign class='<span class="menu-label-alt">' %}{% endif %}
+            {%- assign label=class|append:categoryLabel[1]|append:'</span>' -%}
+        {% endif %}
+    {% endfor %}
+{% endif %}

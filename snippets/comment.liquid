@@ -1,0 +1,12 @@
+{% capture author %}<strong>{{ comment.author }}</strong>{% endcapture %}
+{% capture date %}<strong><time datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">{{ comment.created_at | date: format: 'month_day_year' }}</time></strong>{% endcapture %}
+<div class="comment">
+  <div class="user-photo">
+    <img class="img-responsive" src="{{ 'user-pic.png' | asset_url }}" alt="{{ comment.author }}">
+  </div>
+  <div class="comment-details">
+    <a class="author">{{ comment.author }}</a>
+    <div class="date">{{ date }}</div>
+    <div class="text">{{ comment.content }} </div>
+  </div>
+</div>

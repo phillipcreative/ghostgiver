@@ -1,0 +1,50 @@
+{% if settings.blog_meta_yes %}
+  <div class='sideblock half'>
+    <h3 class="sideblock-title">{{ settings.blog_meta_title }}</h3>
+    <ul class='simple-list'>
+      {{ settings.blog_meta_list }}
+    </ul>
+  </div>
+{% endif %}
+{% if settings.blog_archives_yes %}
+  <div class='sideblock half'>
+    <h3 class="sideblock-title">{{ settings.blog_archives_title }}</h3>
+    <ul class='simple-list'>
+      {{ settings.blog_archives_list }}
+    </ul>
+  </div>
+{% endif %}
+
+{% if settings.blog_tags_yes %}
+  {% if blog.all_tags.size > 0 %}
+  <div class='sideblock'>
+    <h3 class="sideblock-title">{{ 'general.theme.tags' | t }}</h3>
+    <ul class='tags'>
+      {% for tag in blog.all_tags %}
+        {% if current_tags contains tag %}
+          <li class="active">{{ tag  | link_to_remove_tag: tag | replace:'">','"><span class="clear"></span><span class="value"><span>' | replace:'</a>','</span></span></a>'  }}</li>
+        {% else %}
+          <li>{{ tag  | link_to_add_tag: tag | replace:'">','"><span class="value"><span>' | replace:'</a>','</span></span><span class="clear"></span></a>'  }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+{% endif %}
+{% comment %}
+{% if settings.blog_list_yes %}
+  <div class='sideblock half'>
+    <h3 class="sideblock-title">{{ 'general.theme.blogs' | t }}</h3>
+    <ul class='simple-list'>
+      <li><a href='#'>Blog 1</a></li>
+      <li><a href='#'>Blog 2</a></li>
+      <li><a href='#'>Blog 3</a></li>
+    </ul>
+  </div>
+{% endif %}
+{% endcomment %}
+<div class="sideblock">
+{% if settings.blog_instagram_yes %}
+ {% include 'instagram-widget' limit:16 %}
+{% endif %}
+</div>

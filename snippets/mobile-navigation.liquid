@@ -1,0 +1,175 @@
+<div class="menu-toggle"><a href="#" class="mobilemenu-toggle"><i class="icon icon-menu"></i></a></div>
+<div class="mobilemenu dblclick">
+    <div class="mobilemenu-header">
+        <div class="title">{{ 'general.theme.menu' | t }}</div>
+        <a href="#" class="mobilemenu-toggle"></a>
+    </div>
+    <div class="mobilemenu-content">
+        <div class="mobilemenu-links">
+            <div class="mobilemenu-links-1"></div>
+            <div class="mobilemenu-links-2"></div>
+        </div>
+        <ul class="nav">
+            {% if section.settings.default_navigation != blank %}
+                {% if linklists[section.settings.default_navigation].links.size > 0 %}
+                    {% for link in  linklists[section.settings.default_navigation].links %}
+                        <li>
+                            {% include 'header-navigation-label' label:link.title %}
+                            {{ link.title | append:label | link_to: link.url }}
+                            <span class="arrow"></span>
+                            {% if linklists[link.handle].links.size > 0 %}
+                                <ul>
+                                    {% for link_1 in  linklists[link.handle].links %}
+                                        <li {% if link_1.active %}class="active"{% endif %}>
+                                            {% include 'header-navigation-label' label:link_1.title %}
+                                            {{ link_1.title | append:label | link_to: link_1.url }}
+                                            {% if linklists[link_1.handle].links.size > 0 %}
+                                                <span class="arrow"></span>
+                                                <ul>
+                                                    {% for link_2 in linklists[link_1.handle].links %}
+                                                        <li>
+                                                            {% include 'header-navigation-label' label:link_2.title %}
+                                                            {{ link_2.title | append:label | link_to: link_2.url }}
+                                                            {% if linklists[link_2.handle].links.size > 0 %}
+                                                                <span class="arrow"></span>
+                                                                <ul>
+                                                                    {% for link_3 in linklists[link_2.handle].links %}
+                                                                        <li>
+                                                                            {% include 'header-navigation-label' label:link_3.title %}
+                                                                            {{ link_3.title | append:label | link_to: link_3.url }}
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            {% endif %}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            {% else if section.blocks.size > 0 %}
+                {% for block in section.blocks %}
+                    {% if block.settings.enable %}
+                         {% if block.settings.assign_to == 'header' or  block.settings.assign_to == 'both' %}
+                        <li> <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>{{ block.settings.title }}{% if block.settings.label != blank %}<span class="{{ block.settings.label_color }}">{{ block.settings.label }}</span>{% endif %}</a><span class="arrow"></span>
+                            {% case block.type %}
+                            {% when 'tree' %}
+                            {% assign list = block.settings.dropdown_list %}
+                            {% if list != blank %}
+                                <ul>
+                                    {% for link in  linklists[list].links %}
+                                        <li {% if link.active %}class="active"{% endif %}>
+                                            {% include 'header-navigation-label' label:link.title %}
+                                            {{ link.title | append:label | link_to: link.url }}<span class="arrow"></span>
+                                            {% if linklists[link.handle].links.size > 0 %}
+                                                <ul>
+                                                    {% for link_1 in linklists[link.handle].links %}
+                                                        <li>
+                                                            {% include 'header-navigation-label' label:link_1.title %}
+                                                            {{ link_1.title | append:label | link_to: link_1.url }}<span class="arrow"></span>
+                                                            {% if linklists[link_1.handle].links.size > 0 %}
+                                                                <ul>
+                                                                    {% for link_2 in linklists[link_1.handle].links %}
+                                                                        <li>
+                                                                            {% include 'header-navigation-label' label:link_2.title %}
+                                                                            {{ link_2.title | append:label | link_to: link_2.url }}
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            {% endif %}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {% when 'columns' %}
+                            <ul>
+                                {% for i in (1..15) %}
+                                    {% capture enable %}nav_col_{{ i }}_yes{% endcapture %}
+                                    {% capture title %}nav_col_{{ i }}_title{% endcapture %}
+                                    {% capture link %}nav_col_{{ i }}_link{% endcapture %}
+                                    {% capture list %}nav_col_{{ i }}_list{% endcapture %}{% assign list = block.settings[list] %}
+                                    {% if block.settings[enable] %}
+                                        {% if block.settings[title] != blank %}
+                                            <li><a {% if block.settings[link] != blank %} href="{{ block.settings[link] }}"{% endif %}>{{  block.settings[title] }}</a><span class="arrow"></span>
+                                                {% if list != blank %}
+                                                    <ul>
+                                                        {% for link in  linklists[list].links %}
+                                                            <li>
+                                                                {% include 'header-navigation-label' label:link.title %}
+                                                                {{ link.title | append:label | link_to: link.url }}
+                                                                {% if linklists[link.handle].links.size > 0 %}<span class="arrow"></span>
+                                                                    <ul>
+                                                                        {% for link_1 in linklists[link.handle].links %}
+                                                                            <li>
+                                                                                {% include 'header-navigation-label' label:link_1.title %}
+                                                                                {{ link_1.title | append:label | link_to: link_1.url }}
+                                                                                {% if linklists[link_1.handle].links.size > 0 %}<span class="arrow"></span>
+                                                                                    <ul>
+                                                                                        {% for link_2 in linklists[link_1.handle].links %}
+                                                                                            <li>
+                                                                                                {% include 'header-navigation-label' label:link_2.title %}
+                                                                                                {{ link_2.title | append:label | link_to: link_2.url }}
+                                                                                            </li>
+                                                                                        {% endfor %}
+                                                                                    </ul>
+                                                                                {% endif %}
+                                                                            </li>
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                                {% endif %}
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                            </li>
+                                        {% else %}
+                                            {% if list != blank %}
+                                                {% for link in  linklists[list].links %}
+                                                    <li>
+                                                        {% include 'header-navigation-label' label:link.title %}
+                                                        {{ link.title | append:label | link_to: link.url }}
+                                                        {% if linklists[link.handle].links.size > 0 %}<span class="arrow"></span>
+                                                            <ul>
+                                                                {% for link_1 in linklists[link.handle].links %}
+                                                                    <li>
+                                                                        {% include 'header-navigation-label' label:link_1.title %}
+                                                                        {{ link_1.title | append:label | link_to: link_1.url }}
+                                                                        {% if linklists[link_1.handle].links.size > 0 %}<span class="arrow"></span>
+                                                                            <ul>
+                                                                                {% for link_2 in linklists[link_1.handle].links %}
+                                                                                    <li>
+                                                                                        {% include 'header-navigation-label' label:link_2.title %}
+                                                                                        {{ link_2.title | append:label | link_to: link_2.url }}
+                                                                                    </li>
+                                                                                {% endfor %}
+                                                                            </ul>
+                                                                        {% endif %}
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                            {% endcase %}
+                        </li>
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>

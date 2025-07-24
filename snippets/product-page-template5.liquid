@@ -1,0 +1,62 @@
+{% assign product_image_size = section.settings.product_image_size %}
+{% assign product_options = settings.product_options %}
+{% if product.metafields.c_f.product_image_size != blank %}{% assign product_image_size = product.metafields.c_f.product_image_size %}{% endif %}
+{% if product.metafields.c_f.product_options != blank %}{% assign product_options = product.metafields.c_f.product_options %}{% endif %}
+{% assign sold_out = true %}
+{% if product.available %}
+    {% assign sold_out = false %}
+{% endif %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+{% endif %}
+<a href="#" class="selected-currency hidden">{{ shop.currency }}</a>
+<div itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="name" content="{{ product.title }}">
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">  	
+    {% if design == 'default' %}{% include 'product-page-design-default' %}{% else %} {% include 'product-page-design-creative' %} {% endif %}
+   
+  {% comment %}{% unless product.metafields.c_f.notabs != blank %}{% include 'product-tabs' %}{% endunless %}{% endcomment %}
+</div>
+  <div class="ebeded_description_pics">
+   
+  <div class="col-md-5">
+
+  </div>
+
+  <div class="col-md-7">
+    <div class="usingEmailBlock">
+    
+<div class="row">
+<div class="col-md-3">
+ {% if product.metafields.custom.image1 != blanks %}
+<a href="{{ section.settings.page_url }}"><img class="metafields" src="{{ product.metafields.custom.image1 | img_url: 'master'}}"></a> {% comment %}<a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image1 | img_url: 'master'}}"><i class="icon icon-zoomin"></i>Zoom</a>{% endcomment %}
+{% endif %}
+     </div>
+<div class="col-md-3">
+     {% if product.metafields.custom.image2 != blanks %}
+<img src="{{ product.metafields.custom.image2 | img_url: 'master' }}"> <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image2 | img_url: 'master' }}"><i class="icon icon-zoomin"></i>Zoom</a>
+{% endif %}
+       </div>
+<div class="col-md-3">
+   {% if product.metafields.custom.image3 != blanks %}
+<img src="{{ product.metafields.custom.image3 | img_url: 'master' }}"> <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image3 | img_url: 'master' }}"><i class="icon icon-zoomin"></i>Zoom</a>
+
+     {% endif %}</div>
+<div class="col-md-3">
+   {% if product.metafields.custom.image4 != blanks %}
+<img src="{{ product.metafields.custom.image4 | img_url: 'master' }}"> <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image4 | img_url: 'master' }}"><i class="icon icon-zoomin"></i>Zoom</a>
+{% endif %}
+     </div>
+  </div>
+</div>
+</div>
+</div>
+<div style="position: absolute; left: -43px; top: -20px;" id="gtx-trans">
+<div class="gtx-trans-icon"></div>
+</div>
+
+{% if section.settings.product_related_enable %}
+   {% include 'related-products' %}
+{% endif %}

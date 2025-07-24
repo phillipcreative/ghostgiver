@@ -1,0 +1,95 @@
+{% if section.settings.enable %}
+  <div class="block   {{ section.settings.block_width }} {{ section.settings.outer_margin }}  full-nopad  full-no-sidemargin">
+      <div class="container">
+          <div class="instagram-title">{{ section.settings.heading }}</div>
+              <div id="instafeed{{ section.id }}" class="instagram-feed js-instagram-feed" data-instafeed='{"limit": "{{ section.settings.insta_limit }}", "accessToken": "{{ section.settings.insta_token }}", "sortBy": "{{ section.settings.insta_sort }}"}'></div>
+      </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+    "name": "Instagram",
+    "class": "index-section",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "enable",
+            "label": "Enable",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type":"select",
+            "id":"block_width",
+            "label":"Width",
+            "options":[
+                {"value":"boxed","label":"Boxed"},
+                {"value":"fullwidth","label":"Fullwidth"},
+                {"value":"global_width","label":"Use global site width"}
+            ],
+            "default":"global_width",
+            "info":"click Save to see changes"
+        },
+        {
+            "type": "select",
+            "id": "outer_margin",
+            "label": "Outer top margin",
+            "options":[
+                {"value":"offset-top-0","label":"None"},
+                {"value":"offset-top-30","label":"30px"},
+                {"value":"offset-top-40","label":"40px"},
+                {"value":"offset-top-50","label":"50px"}
+            ],
+            "default": "offset-top-50"
+        },
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Title",
+            "default":"INSTAGRAM FEED"
+        },
+        {
+            "type": "text",
+            "id": "insta_token",
+            "label": "accessToken",
+            "info": "[how get accessToken read here](https:\/\/www.instagram.com\/developer\/authentication\/) find 'Client-Side (Implicit) Authentication' or [generate here](http://instagram.pixelunion.net/)",
+            "default":"3489650088.1d65fda.fffa13214cd847439dfb6e8639f98b2b"
+        },
+        {
+            "type": "text",
+            "id": "insta_limit",
+            "label": "Limit",
+            "default": "12"
+        },
+        {
+            "type": "select",
+            "id": "insta_sort",
+            "label": "Sort By",
+            "options": [
+                { "value": "none", "label": "none default" },
+                { "value": "most-recent", "label": "Newest to oldest" },
+                { "value": "least-recent", "label": "Oldest to newest" },
+                { "value": "most-liked", "label": "Highest # of likes to lowest" },
+                { "value": "least-liked", "label": "Lowest # likes to highest" },
+                { "value": "most-commented", "label": "Highest # of comments to lowest" },
+                { "value": "least-commented", "label": " Lowest # of comments to highest" },
+                { "value": "random", "label": "Random order" }
+            ],
+            "default": "most-recent"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Instagram feed",
+            "category": "Instagram"
+        }
+    ]
+}
+{% endschema %}

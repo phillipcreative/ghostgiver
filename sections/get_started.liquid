@@ -1,0 +1,123 @@
+{% comment %} Upwork updates 06.16 {% endcomment %}
+{% comment %} <div class="banner-relative Desktop get-started">
+  <img class="bg-main-works " src="{{ section.settings.banner_desktop | img_url: 'master' }}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.page_title }}</div>
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+{% comment %} Upwork updates 06.16 {% endcomment %}
+<div class="custom-banner-wrapper get-started-banner">
+  <img class="custom-banner-image" src="{{ section.settings.banner_desktop | img_url: 'master' }}" alt="Banner">
+
+  <div class="custom-banner-overlay">
+    <div class="custom-banner-content">
+      <h1 class="custom-banner-heading">{{ section.settings.page_title }}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="banner-relative mobile get-started" style="display:none;">
+  <img class="bg-main-works " src="{{ section.settings.banner_mobile | img_url: 'master' }}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.page_title }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content-section get-started-cont" style="background-image: url('{{ section.settings.section_blueimg | img_url: 'master' }}');">
+  <div class="container">
+    <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+    <div class="section-content">{{ section.settings.section_content }}</div>
+
+   <div class="content-blocks get-started-block">
+  {% for block in section.blocks %}
+    {% if forloop.index == 2 %}
+      <div class="or-separator">OR</div>
+    {% endif %}
+    
+    <a href="{{ block.settings.block_link }}" class="block-link">
+      <div class="content-block">
+        <img src="{{ block.settings.block_image | img_url: 'master' }}" alt="{{ block.settings.block_title }}">
+        <h4>{{ block.settings.block_title }}</h4>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Get Started",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_desktop",
+      "label": "Banner Image - Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_mobile",
+      "label": "Banner Image - Mobile"
+    },
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": "Page Title"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "html",
+      "id": "section_content",
+      "label": "Section Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_blueimg",
+      "label": "Content Blue Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "Block Title"
+        },
+        {
+          "type": "url",
+          "id": "block_link",
+          "label": "Block Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Get Started",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,20 @@
+{% if section.settings.shopping_by %}
+    {% if current_tags.size > 0 %}
+        {% assign current_tags_str = current_tags | downcase %}
+        {% assign href = 'href="' | append:collection.url | append:'/' %}
+        <div class="sidebar-block-top">
+            <h3 class="block-title">{{ 'general.theme.shopping_by' | t }}:</h3>
+            <ul class="selected-filters">
+                {% for tag in collection.all_tags %}
+                    {% assign tag_only_dawncase = tag | downcase | append:'"'| prepend:'"' %}
+                    {% assign tag_handle = tag | handle | append:'+' | prepend:'+' %}
+                    {% assign tags_from_href_old = tag | link_to_remove_tag: tag | split:'href="' | last | split:'"' | first | split:'/' | last | prepend:href %}
+                    {% assign tags_from_href_new = tag | link_to_remove_tag: tag | split:'href="' | last | split:'"' | first | split:'/' | last | append:'+' | prepend:'+' | replace:tag_handle,'+' | append :'!_!' | prepend:'!_!' | remove:'+!_!' | remove:'!_!+' | remove:'!_!'  | remove:'++' | prepend:href  %}
+                    {% if current_tags_str contains tag_only_dawncase %}
+                        <li>{{ tag   | link_to_remove_tag: tag | replace:tags_from_href_old,tags_from_href_new |  replace:'">','"  class="selected-filter"><span>' | replace:'</a>','</span><span class="remove"><i class="icon icon-close"></i></span></a>'}}<div class="bg-striped"></div></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endif %}

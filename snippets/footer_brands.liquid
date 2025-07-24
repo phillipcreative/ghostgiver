@@ -1,0 +1,16 @@
+<div class="title">
+  <h4>{{ settings.brands_title }}</h4>
+  <div class="carousel-arrows"></div>
+</div>
+<div class="brand-carousel">
+    {% for i in (1..20) %}
+        {% capture enable %}brand_{{ i }}_yes{% endcapture %}
+        {% capture pic %}brand-{{ i }}.png{% endcapture %}
+        {% capture alt %}brand-{{ i }}_alt{% endcapture %}{% assign alt = settings[alt] %}
+        {% capture link %}brand-{{ i }}_link{% endcapture %}{% assign link = settings[link] %}
+        {% capture link_target %}brand-{{ i }}_link_target{% endcapture %}{% assign link_target = settings[link_target] %}
+        {% if settings[enable] %}
+            {% if settings.brands_linked %}<a href="{{ link }}" title="{{ alt }}" target="{{ link_target }}">{% endif %} <img src="{{ pic | asset_img_url: 'master' }}" alt="{{ alt }}"> {% if settings.brands_linked %}</a>{% endif %}
+        {% endif %}
+    {% endfor %}
+</div>

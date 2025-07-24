@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "how_it_works_collection_eBYkbb": {
+      "type": "How-it-works-collection",
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/Ways_to_Ghostgive_Image_for_Desktop.jpg",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Ways_to_Ghostgive.png",
+        "link_page": "shopify:\/\/collections\/send-cash-via-venmo",
+        "headinmain": "HOW  IT WORKS",
+        "headinSub": "Send Cash (Venmo)",
+        "img_below_head": "shopify:\/\/shop_images\/Mask_Group_94_2x_0354b123-b413-4354-9fbd-712842547dee.png",
+        "enable": true,
+        "block_width": "global_width",
+        "outer_margin": "offset-top-50",
+        "link_1": "",
+        "link_target_1": "_self",
+        "icon1": "shopify:\/\/shop_images\/Mask_Group_91_2x_a0443973-e7b5-4a7a-b29e-fb7310d9a046.png",
+        "cstmclass1": "",
+        "box_1_caption_1": "SET AMOUNT",
+        "box_1_caption_2": "Set the amount of money you would like us to send through Venmo.",
+        "link_2": "",
+        "link_target_2": "_self",
+        "icon2": "shopify:\/\/shop_images\/Mask_Group_93_2x_ea2c918b-8b89-4acd-9176-4cbddf3c91eb.png",
+        "cstmclass2": "",
+        "box_2_caption_1": "ADD ADDRESS",
+        "box_2_caption_2": "Fill in the Venmo address of the recipient.",
+        "link_3": "",
+        "link_target_3": "_self",
+        "icon3": "shopify:\/\/shop_images\/Mask_Group_100_2x_ce89fb49-deb4-47d1-b83e-fb89d521b50d.png",
+        "cstmclass3": "spacing-topp",
+        "box_3_caption_1": "WE VENMO IT",
+        "box_3_caption_2": "After checkout we’ll venmo your recipient the cash amount + instructions to retrieve your anonymous message.",
+        "link_4": "",
+        "link_target_4": "_self",
+        "icon4": "shopify:\/\/shop_images\/Mask_Group_63_2x_dac8ccef-b2b8-4550-a9ee-7aa274d4a456.png",
+        "cstmclass4": "spacing-topp",
+        "box_4_caption_1": "GET NOTIFIED",
+        "box_4_caption_2": "Get real-time confirmation via text\/email when your gift is received, plus a possible thank you from your recipient.",
+        "link_5": "",
+        "link_target_5": "_self",
+        "cstmclass5": "",
+        "box_5_caption_1": "",
+        "box_5_caption_2": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "how_it_works_collection_eBYkbb"
+  ]
+}

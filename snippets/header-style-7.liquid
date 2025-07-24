@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="header-content">
+        <div class="header-top-row">
+            <div class="header-top-left">
+                <div class="header-logo">
+                    {% include 'header-logo' %}
+                </div>
+            </div>
+            <div class="header-top-center">
+                {% if section.settings.social_icons %}{% include 'social-media-links' %}{% endif %}
+            </div>
+            <div class="header-top-right">
+                {% include 'header-search' %}
+                <div class="header-links-wrap">
+                    <div class="header-links header-links-1">
+                        {% include 'header-languages' %}
+                        {% include 'currency-picker' %}
+                    </div>
+                    <div class="header-links header-links-2">
+                        {% include 'wishlist-header' %}
+                        {% include 'header-login-form' %}
+                        {% include 'header-cart' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle-row header-nav-line">
+            <div class="header-middle-left">
+                <div class="navbar">
+                    {% include 'mobile-navigation' %}
+                    {% include 'header-navigation' %}
+                </div>
+            </div>
+            <div class="header-middle-right">
+                <div class="header-custom-text">
+                    {{- section.settings.header_support_time -}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,240 @@
+{% if section.settings.enable %}
+<div class="block {{ section.settings.outer_margin }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="box-icon-sm text-center">
+                    <i class="icon icon-location"></i>
+                    {{ section.settings.address }}
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="box-icon-sm text-center">
+                    <i class="icon icon-phone"></i>
+                    {{ section.settings.phone }}
+                </div>
+            </div>
+            <div class="clearfix visible-sm"></div>
+            <div class="col-sm-6 col-md-3">
+                <div class="box-icon-sm text-center">
+                    <i class="icon icon-close-envelope"></i>
+                    {{ section.settings.email }}
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="box-icon-sm text-center">
+                    <i class="icon icon-clock"></i>
+                    {{ section.settings.time }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% if section.settings.enable_map %}
+<div class="block {{ section.settings.block_width }} full-no-sidemargin full-nopad offset-top-50">
+    <div class="container">
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSK_nLPUyr7NGihR1MkH5z1COHYFI9SKs"></script>
+        <script type="text/javascript">
+            // When the window has finished loading create our google map below
+            google.maps.event.addDomListener(window, 'load', init);
+
+            function init() {
+                // Basic options for a simple Google Map
+                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions = {
+                    zoom: 14,
+                    scrollwheel: false,
+                    center: new google.maps.LatLng({{ section.settings.latitude }}, {{ section.settings.longitude }}, 13.75),
+
+                    // How you would like to style the map.
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#444444"
+                        }]
+                    }, {
+                        "featureType": "landscape",
+                        "elementType": "all",
+                        "stylers": [{
+                            "color": "#f7f7f7"
+                        }]
+                    }, {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [{
+                            "saturation": -100
+                        }, {
+                            "lightness": 45
+                        }]
+                    }, {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [{
+                            "visibility": "simplified"
+                        }]
+                    }, {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [{
+                            "color": "#ffffff"
+                        }]
+                    }, {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [{
+                            "color": "#e5e5e5"
+                        }, {
+                            "visibility": "on"
+                        }]
+                    }]
+                };
+
+                // Get the HTML DOM element that will contain your map
+                // We are using a div with id="map" seen below in the <body class="boxed">
+                var mapElement = document.getElementById('googleMap');
+
+                // Create the Google Map using our element and options defined above
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                // Let's also add a marker while we're at it
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng({{ section.settings.latitude }}, {{ section.settings.longitude }}),
+                    map: map,
+                    title: 'Seiko'
+                });
+            }
+        </script>
+        <!-- The element that will contain our Google Map. This is used in both the Javascript and CSS above. -->
+        <div id="googleMap" class="google-map"></div>
+    </div>
+</div>
+{% endif %}
+{% endif %}
+{% schema %}
+{
+    "name": "Map",
+    "class": "index-section",
+    "settings": [
+        {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable",
+        "default": true
+        },
+        {
+        "type": "header",
+        "content": "Layout"
+        },
+        {
+        "type":"select",
+        "id":"block_width",
+        "label":"Width",
+        "options":[
+        {"value":"boxed","label":"Boxed"},
+        {"value":"fullwidth","label":"Fullwidth"},
+        {"value":"global_width","label":"Use global site width"}
+        ],
+        "default":"fullwidth",
+        "info":"click Save to see changes"
+        },
+        {
+        "type": "select",
+        "id": "outer_margin",
+        "label": "Outer top margin",
+        "options":[
+        {"value":"offset-top-0","label":"None"},
+        {"value":"offset-top-30","label":"30px"},
+        {"value":"offset-top-40","label":"40px"},
+        {"value":"offset-top-50","label":"50px"}
+        ],
+        "default": "offset-top-50"
+        },
+        {
+        "type": "header",
+        "content": "General"
+        },
+        {
+        "type": "textarea",
+        "id": "address",
+        "label": "Address",
+        "default": "<p>Adress: 8901 Marmora Road, Glasgow D04 64 GR, New York</p>"
+        },
+        {
+        "type": "textarea",
+        "id": "phone",
+        "label": "Phone",
+        "default": "<p><b>Phone:</b> 9823984244</p> <p><b>Phone:</b> 6543954265</p>"
+        },
+        {
+        "type": "textarea",
+        "id": "email",
+        "label": "Phone",
+        "default": "<p><b>Email:</b> <a href='mailto:Banita@example.com'>Banitafax@example.com</a></p> <p><b>FAX:</b> <a href='mailto:Banita@example.com'>Banitafax@example.com</a></p>"
+        },
+        {
+        "type": "textarea",
+        "id": "time",
+        "label": "Work time",
+        "default": "<p><b>Hours:</b> 7 Days a week from 09:00 am to 7:00 pm</p>"
+        },
+        {
+        "type": "header",
+        "content": "GPS Coordinates"
+        },
+        {
+        "type": "checkbox",
+        "id": "enable_map",
+        "label": "Enable map",
+        "default": true
+        },
+        {
+        "type": "paragraph",
+        "content": "DD (decimal degrees)"
+        },
+        {
+        "type": "paragraph",
+        "content": "get gps coordinates by address here [https://www.gps-coordinates.net](https://www.gps-coordinates.net)"
+        },
+        {
+        "type": "text",
+        "id": "latitude",
+        "label": "Latitude",
+        "default": "40.7232814",
+        "info":"ex. 40.7232814"
+        },
+        {
+        "type": "text",
+        "id": "longitude",
+        "label": "Longitude",
+        "default": "-74.00161000000003",
+        "info":"ex. -74.00161000000003"
+        }
+    ],
+    "presets": [
+    {
+        "name": "Map",
+        "category": "Contact"
+    }
+]
+}
+{% endschema %}

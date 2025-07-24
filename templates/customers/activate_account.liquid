@@ -1,0 +1,36 @@
+<div class="block">
+  <div class="container">
+    <div class="title center">
+      <h1>{{ 'customer.activate_account.title' | t }}</h1>
+    </div>
+  </div>
+</div>
+<p class="text-center">{{ 'customer.activate_account.subtext' | t }}</p>
+<br>
+<div class="block">
+  <div class="container">
+    <div class="form-card">
+
+        {% comment %}
+      	<p>This form must use 'activate_customer_password'</p>
+        {% endcomment %}
+      
+        {% form 'activate_customer_password' %}
+
+        {{ form.errors | default_errors }}
+
+        <label for="CustomerPassword">{{ 'customer.activate_account.password' | t }}</label>
+        <input class="form-control input-lg" type="password" value="" name="customer[password]" id="CustomerPassword">
+
+        <label for="CustomerPasswordConfirmation">{{ 'customer.activate_account.password_confirm' | t }}</label>
+        <input class="form-control input-lg" type="password" value="" name="customer[password_confirmation]" id="CustomerPasswordConfirmation">
+
+        <div class="d-flex">
+          <div><input type="submit" class="btn" value="{{ 'customer.activate_account.submit' | t }}"></div>
+          <div style="margin-left: auto !important;"><input type="submit" class="btn btn-alt" name="decline" value="{{ 'customer.activate_account.cancel' | t }}"></div>
+        </div>
+      
+        {% endform %}
+
+  </div>
+</div>

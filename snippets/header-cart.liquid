@@ -1,0 +1,129 @@
+<!--
+  Next, you will pick the product to be added automatically - replace product-2 with the url portion of said product
+-->
+{% assign product_to_add_auto = all_products['personalized-written-audio-or-video-message'] %}
+
+<!-- assign custom gift card -->
+{% assign product_gift_card = all_products['gift-card-voucher-new'] %}
+{% assign gift_card_id = product_gift_card.id %}
+{% assign variant_id = product_to_add_auto.variants.first.id %}
+
+{% assign digital_gift_card_ids = all_products['gift-card-voucher-new'].variants | map: 'id' | join: ', ' %}
+
+{% unless template == 'cart' or settings.catalog_mode %}
+  <div class="header-link dropdown-link header-cart header-cart-holder {% if cart.item_count == 0 %}header-cart-empty{% endif %}">
+    <a href="/cart">
+      <i class="icon icon-cart"></i>
+      <span class="badge">{{ cart.item_count }}</span>
+    </a>
+    <div class="dropdown-container right">
+      <div class="minicart">
+        <div class="minicart-title">
+          <span>
+            {{ 'cart.general.title' | t }} (<span class="title_count">{{ cart.item_count }}</span>)</span>
+        </div>
+        <div class="minicart-content">
+          <p
+            class="empty-text"
+            {% if cart.item_count > 0 %}
+            style="display: none"
+            {% endif %}>
+            {{ 'general.theme.no_items_in_cart' | t }}
+          </p>
+          <ul class="minicart-product-items">
+            {% for item in cart.items %}
+              <li class="minicart-product-item">
+                <div class="minicart-product-row">
+                  {% if digital_gift_card_ids contains item.id %}
+                    <a
+                      class="minicart-product-item-photo"
+                      href="{{ item.url }}"
+                      title="{{ item.title | escape }}">
+                      <img src="{{ item.properties._Image }}" alt="{{ item.title | escape }}">
+                    </a>
+                  {% else %}
+                    <a
+                      class="minicart-product-item-photo"
+                      href="{{ item.url }}"
+                      title="{{ item.title | escape }}">
+                      <img src="{{ item | img_url: 'grande' }}" alt="{{ item.title | escape }}">
+                    </a>
+                  {% endif %}
+                  <div class="minicart-product-item-details">
+                    <div class="minicart-product-item-info">
+                      <h2 class="product-title">
+                        <a href="{{ item.url }}" title="{{ item.title }}">{{ item.product.title }}</a>
+                      </h2>
+
+                      {% unless item.variant.title contains 'Default' %}
+                        <div class="options_title">
+                          {{ item.variant.title }}
+                        </div>
+                      {% endunless %}
+                      <div class="options_title">
+                        {% assign propertySize = item.properties | size %}
+                        {% if propertySize > 0 %}
+                          {% for p in item.properties %}
+                            {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                            {% unless p.last == blank or first_character_in_key == '_' %}
+                              {{ p.first }}:
+                              {% if p.last contains '/uploads/' %}
+                                <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                              {% else %}
+                                {{ p.last -}}
+                                <br>
+                              {% endif %}
+                            {% endunless %}
+                          {% endfor %}
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="minicart-product-item-qty">
+                      <label class="label">{{ 'cart.label.quantity' | t }}</label>
+                      <span>{{ item.quantity }}</span>
+                    </div>
+                    <div class="minicart-product-item-price">
+                      <div class="product-price">{{ item.price | money }}</div>
+                    </div>
+                    <div class="minicart-product-item-actions">
+                      {% if item.id != variant_id and item.id != 44236446269617 and item.id != 44398982234289 %}
+                        <a
+                          data-variant-id="{{ item.variant_id }}"
+                          data-line-number="{{ forloop.index }}"
+                          title="{{ 'cart.general.remove' | t }}"
+                          class="icon icon-trash-alt js-minicart-remove-item"></a>
+                      {% endif %}
+                    {% comment %} <a href="{{ item.url }}" title="{{ 'general.theme.edit' | t }}" class="icon icon-pencil"></a> {% endcomment %}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+
+          <div
+            class="info"
+            {% if cart.item_count == 0 %}
+            style="display: none"
+            {% endif %}>
+            <div class="minicart-total">
+              {{ 'cart.general.subtotal' | t }}
+              <span class="price">{{ cart.total_price | money }}</span>
+              {% if cart.total_discounts > 0 %}
+                {% assign savings = cart.total_discounts | money %}
+                <small class="cart-subtotal__savings">{{ 'cart.general.savings_html' | t: price: savings }}</small>
+              {% endif %}
+            </div>
+
+            {% comment %} <div class="minicart-text">{{ settings.cart_subtitle }}</div> {% endcomment %}
+            <div class="minicart-actions">
+              <a href="/cart" class="btn btn-alt">
+                {{ 'general.theme.view_and_edit_cart' | t }}</a>
+            {% comment %} <a class="btn" href="/checkout"> {{ 'general.theme.go_to_checkout' | t }} </a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endunless %}

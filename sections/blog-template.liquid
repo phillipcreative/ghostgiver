@@ -1,0 +1,303 @@
+{% comment %} Upwork Updates 06.16  {% endcomment %}
+{% comment %} <div class="banner-relative Desktop">
+  <img class="bg-main-works" src="{{section.settings.imgbanner_blog | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername_blog }}</div>
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+{% comment %} Upwork Updates 06.16  {% endcomment %}
+<div class="custom-banner-wrapper">
+  <img class="custom-banner-image" src="{{section.settings.imgbanner_blog | img_url: 'master'}}" alt="Banner">
+
+  <div class="custom-banner-overlay">
+    <div class="custom-banner-content">
+      <h1 class="custom-banner-heading">{{ section.settings.bannername_blog }}</h1>
+    </div>
+  </div>
+</div>
+
+
+    <div class="banner-relative mobile"  style="display:none ">
+       
+  <img class="bg-main-works " src="{{section.settings.imgbanner_mobile | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername_blog }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="global_width_ct">
+{% paginate blog.articles by section.settings.posts_per_page %}
+{% assign image_size = 'master' %}
+{% case section.settings.posts_per_row %}
+  {% when '2' %}
+    {% if section.settings.sidebar %}
+        {%- assign image_size = '600x330' -%}
+    {% else %}
+        {%- assign image_size = '915x504' -%}
+    {% endif %}
+  {% when '3' %}
+    {% if section.settings.sidebar %}
+        {%- assign image_size = '435x240' -%}
+    {% else %}
+        {%- assign image_size = '600x330' -%}
+    {% endif %}
+  {% when '4' %}
+     {% if section.settings.sidebar %}
+         {%- assign image_size = '290x160' -%}
+     {% else %}
+         {%- assign image_size = '435x240' -%}
+     {% endif %}
+{% endcase %}
+<div class="block {{ section.settings.block_width }} block--no-preload ">
+    <div class="container">
+        <!-- Page Title -->
+        <div class="page-title">
+            <div class="text-center">
+                <h2>
+                    {% if current_tags %}
+                        {{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}
+                    {% else %}
+                        {{ blog.title }}
+                    {% endif %}
+                </h2>
+            </div>
+            <div class="text-wrapper">
+                <p class="text-center">{{ section.settings.description }}</p>
+            </div>
+        </div>
+        <!-- /Page Title -->
+        <!-- Two columns -->
+        <!-- Center column -->
+        <div class="row aside-wrap">
+            {% if section.settings.sidebar %}{% assign left_col="col-md-8" %}{% else %}{% assign left_col="col-md-12" %}{% endif %}
+            <div class="{{ left_col }}">
+                <div class="blog-grid-{{ section.settings.posts_per_row }}">
+                    {% for article in blog.articles %}
+                        <div class="blog-post">
+                            {% if article.image %}
+                                {% assign image_alt = article.title | escape %}
+                                <div class="blog-photo">
+                                    {{ article | img_url:image_size | img_tag: image_alt, "article__image" | link_to: article.url }}
+                                </div>
+                            {% endif %}
+                            <div class="blog-content">
+                                <h2 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+
+
+             
+
+
+                              
+                              <div class="blog-meta">
+                                    <div class="pull-left">
+                                        {% if article.tags.size > 0 %}
+                                        <div class="span wrap">
+                                            <ul class="tags-inline">
+                                                {% for tag in article.tags %}
+                                                    <li><a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %} <span class="meta-sep"></span> {% endunless %}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                        {% endif %}
+                                        <span>{{ "general.theme.author" | t }} {{ article.author }}</span>
+                                        {% if blog.comments_enabled? %}
+                                            <span><a href="{{ article.url | append:"#comments" }}">{{ article.comments.size }} {{ "general.theme.comments" | t }}</a></span>
+                                        {% endif %}
+                                        <span class="last"><time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: "month_day_year" }}</time></span>
+                                    </div>
+                                    <div class="pull-right">
+                                        {% if settings.social_sharing_blog %}
+                                            {% capture share %}{{ "general.theme.share" | t }}{% endcapture %}
+                                            {% include "social-sharing" position:"left", title:share %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                             
+                                <div class="blog-text">
+                                    {% if article.excerpt.size > 0 %}
+                                        {{ article.excerpt }}
+                                    {% else %}
+                                        <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+                                    {% endif %}
+                                </div>
+                                <a href="{{ article.url }}" class="btn">{{ "blogs.article.read_more" | t }}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if paginate.pages > 1 %}
+                    <div class="text-center">
+                        {% include "pagination-custom" %}
+                    </div>
+                {% endif %}
+
+            </div>
+            <!-- /Center column -->
+            {% if section.settings.sidebar %}
+                <!-- Right column -->
+                <div class="col-md-4">
+                    {% include "blog-sidebar" %}
+                </div>
+                <!-- /Right column -->
+            {% endif %}
+        </div>
+
+        <!-- /Two columns -->
+    </div>
+</div>
+{% endpaginate %}
+</div>
+
+<style>
+  .share-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.share-button {
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.share-options {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.share-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.share-options ul li {
+  padding: 10px;
+}
+
+.share-options ul li a {
+  text-decoration: none;
+  color: #007bff;
+  display: block;
+}
+
+.share-options ul li:hover {
+  background-color: #f1f1f1;
+}
+</style>
+
+                              
+{% schema %}
+{
+"name": "Blog page",
+"settings": [
+    {
+        "type":"image_picker",
+        "id":"imgbanner_blog",
+        "label":"Add image Banner"
+      },
+    {
+        "type":"image_picker",
+        "id":"imgbanner_mobile",
+        "label":"Add image Banner for Mobile"
+      },
+      {
+        "type":"html",
+        "id":"bannername_blog",
+        "label":"Enter Heading Of Banner"
+      },
+{
+"type": "paragraph",
+"content": "[Documentation](http://big-skins.com/banita/shopify/manuals/#Blog)"
+},
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"global_width",
+"info":"click Save to see changes"
+},
+{
+        "type": "select",
+        "label": "Posts per page",
+        "id":"posts_per_page",
+        "options":[
+            { "value": "1", "label": "1" },
+            { "value": "2", "label": "2" },
+            { "value": "3", "label": "3" },
+            { "value": "4", "label": "4" },
+            { "value": "5", "label": "5" },
+            { "value": "6", "label": "6" },
+            { "value": "7", "label": "7" },
+            { "value": "8", "label": "8" },
+            { "value": "9", "label": "9" },
+            { "value": "10", "label": "10" },
+            { "value": "11", "label": "11" },
+            { "value": "12", "label": "12" },
+            { "value": "13", "label": "13" },
+            { "value": "14", "label": "14" },
+            { "value": "15", "label": "15" },
+            { "value": "16", "label": "16" },
+            { "value": "17", "label": "17" },
+            { "value": "18", "label": "18" },
+            { "value": "19", "label": "19" },
+            { "value": "20", "label": "20" }
+        ],
+        "default":"5"
+    },
+    {
+        "type": "select",
+        "label": "Posts per row",
+        "id":"posts_per_row",
+        "options":[
+            { "value": "1", "label": "1" },
+            { "value": "2", "label": "2" },
+            { "value": "3", "label": "3" },
+            { "value": "4", "label": "4" }
+        ],
+        "default":"1"
+    },
+    {
+        "type": "checkbox",
+        "id": "sidebar",
+        "label": "Sidebar",
+        "default": true
+    },
+{
+"type": "header",
+"content": "General"
+},
+    {
+        "type": "html",
+        "id": "description",
+        "label": "Description",
+        "default": "Your Shopify store comes with a built-in blogging engine. Blogs are great for content that you’ll be updating regularly. They’re also best if you want to encourage feedback on an article, because people can post comments on your blog posts."
+    }
+]
+}
+{% endschema %}

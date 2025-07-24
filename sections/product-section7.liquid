@@ -1,0 +1,339 @@
+{% include 'product-page-template8' design : 'default' %}
+{% schema %}
+{
+    "name": "Product page",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },{
+            "type": "paragraph",
+            "content": "[Documentation](http://big-skins.com/banita/shopify/manuals/#Product)"
+        },
+        {
+            "type": "select",
+            "id": "product_image_size",
+            "label": "Product Image size. Full width 12",
+            "options": [
+                { "value": "5", "label": "medium  (column grid 5\/12)" },
+                { "value": "6", "label": "large  (column grid 6\/12)" },
+                { "value": "7", "label": "large+  (column grid 7\/12)" }
+            ],
+            "default": "5"
+        },
+        {
+            "type": "checkbox",
+            "id": "dynamic_checkout_button",
+            "label": "Dynamic checkout button",
+            "info":"you can read about it [here](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "zoom",
+            "label": "Zoom main photo",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "product_prev_next",
+            "label": "Prev Next products",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "product_sku",
+            "label": "Show SKU",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_label_new",
+            "label": "Show Label New",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_label_sale",
+            "label": "Show Label Sale",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "product_rating",
+            "label": "Show rating stars",
+            "default": true,
+            "info":"[install reviews app](http://big-skins.com/banita/shopify/manuals/#ProductReviewsApp)"
+        },
+        {
+            "type": "checkbox",
+            "id": "product_availability",
+            "label": "Show availability",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "product_inventory_count",
+            "label": "Show Inventory Count",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "list",
+            "label": "Show list block (green)",
+            "default": true
+        },
+        {
+            "type": "textarea",
+            "id": "list_content",
+            "label": "List content",
+            "default": "<p><i class='icon-check-square'></i> 90% Positive Customer feedback</p><p><i class='icon-check-square'></i> 100+ Items bought</p>",
+            "info":"it is described how to set up individually such block for each product [in doc](http://big-skins.com/banita/shopify/manuals/#CustomBlock1) using metafields"
+        },
+       {
+            "type": "checkbox",
+            "id": "pricetext_line",
+            "label": "Show list block (pink)",
+            "default": false
+        },
+      {
+            "type": "textarea",
+            "id": "pricetext",
+            "label": "List content",
+            "default": "<p><b>+ AMOUNT OF GIFT CARD YOU CHOOSE</b></p>"
+        },
+        {
+            "type": "checkbox",
+            "id": "shipping",
+            "label": "Show shipping block (gray)",
+            "default": true
+        },
+        {
+            "type": "textarea",
+            "id": "shipping_content",
+            "label": "Shipping content",
+            "default": "<h5>FREE SHIPPING</h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.</p>",
+            "info":"it is described how to set up individually such block for each product [in doc](http://big-skins.com/banita/shopify/manuals/#CustomBlock2) using metafields"
+        },
+{
+"type": "checkbox",
+"id": "safe_checkout_image_yes",
+"label": "Safe checkout image",
+"default": true
+},
+{
+"type": "image_picker",
+"id": "safe_checkout_image",
+"label": "Safe checkout image"
+},
+
+        {
+            "type": "header",
+            "content": "Tabs"
+        },
+        {
+            "type": "select",
+            "id": "tabs_float",
+            "label": "Alignment tabs",
+            "options": [
+                { "value": "left", "label": "Left" },
+                { "value": "center", "label": "Center" },
+                { "value": "right", "label": "Right" }
+            ],
+            "default": "left"
+        },
+        {
+            "type": "checkbox",
+            "id": "product_tab_1",
+            "label": "Product tab Description",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "product_tab_title_1",
+            "label": "Product tab Description title",
+            "default": "Description"
+        },
+        {
+            "type": "checkbox",
+            "id": "product_tab_2",
+            "label": "Product tab 2",
+            "default": false
+        },
+        {
+            "type": "text",
+            "id": "product_tab_title_2",
+            "label": "Product tab 2 title"
+        },
+        {
+            "type": "page",
+            "id": "product_tab_content_2",
+            "label": "Product tab content from the page"
+        },
+        {
+            "type": "checkbox",
+            "id": "product_tab_3",
+            "label": "Product tab 3",
+            "default": false
+        },
+        {
+            "type": "text",
+            "id": "product_tab_title_3",
+            "label": "Product tab 3 title"
+        },
+        {
+            "type": "page",
+            "id": "product_tab_content_3",
+            "label": "Product tab content from the page"
+        },
+        {
+            "type": "checkbox",
+            "id": "product_tab_4",
+            "label": "Product tab tags",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "product_tab_title_4",
+            "label": "Product tab tags title",
+            "default": "Assigned tags"
+        },
+        {
+            "type": "checkbox",
+            "id": "product_tab_5",
+            "label": "Product tab reviews",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "product_tab_title_5",
+            "label": "Product tab reviews title",
+            "default": "Reviews"
+        },
+        {
+            "type": "header",
+            "content": "Related Products"
+        },
+        {
+            "type": "checkbox",
+            "id": "product_related_enable",
+            "label": "Show related products",
+            "default": true
+        },
+        {
+            "type": "paragraph",
+            "content": "Layout"
+        },
+        {
+            "type":"select",
+            "id":"block_width",
+            "label":"Width",
+            "options":[
+                {"value":"boxed","label":"Boxed"},
+                {"value":"fullwidth","label":"Fullwidth"},
+                {"value":"global_width","label":"Use global site width"}
+            ],
+            "default":"global_width",
+            "info":"click Save to see changes"
+        },
+        {
+            "type": "select",
+            "id": "outer_margin",
+            "label": "Outer top margin",
+            "options":[
+                {"value":"offset-top-0","label":"None"},
+                {"value":"offset-top-30","label":"30px"},
+                {"value":"offset-top-40","label":"40px"},
+                {"value":"offset-top-50","label":"50px"}
+            ],
+            "default": "offset-top-50"
+        },
+        {
+            "type": "paragraph",
+            "content": "General"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "More from this collection"
+        },
+        {
+            "id": "limit",
+            "type": "text",
+            "label": "Products limit",
+            "info":"if there is no limit keep the space empty else try to reduce limit for better perfomance and enable 'View all' button",
+            "default":"7"
+        },
+        {
+            "type": "select",
+            "id": "show_view_all",
+            "label": "Show 'Show all' button",
+            "options":[
+                {"value":"none","label":"None"},
+                {"value":"bottom","label":"Under carousel"},
+                {"value":"left","label":"Near carousel title"},
+                {"value":"right","label":"Near arrows"}
+            ],
+            "default": "none"
+        },
+        {
+            "type": "paragraph",
+            "content": "Products per row:"
+        },
+        {
+            "type": "select",
+            "id": "per_row_desctop",
+            "label": "Desktop > 1201px",
+            "default": "4",
+            "options": [
+                { "value": "3", "label": "3" },
+                { "value": "4", "label": "4" },
+                { "value": "5", "label": "5" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "per_row_tablet_land",
+            "label": "994 - 1201px (tablet landscape)",
+            "default": "4",
+            "options": [
+                { "value": "3", "label": "3" },
+                { "value": "4", "label": "4" },
+                { "value": "5", "label": "5" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "per_row_tablet_port",
+            "label": "770 - 993px (tablet portrait)",
+            "default": "3",
+            "options": [
+                { "value": "3", "label": "3" },
+                { "value": "4", "label": "4" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "per_row_mobile_land",
+            "label": "482 - 769px (mobile landscape)",
+            "default": "3",
+            "options": [
+                { "value": "2", "label": "2" },
+                { "value": "3", "label": "3" },
+                { "value": "4", "label": "4" }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "per_row_mobile_port",
+            "label": "< 481 (mobile portrait)",
+            "default": "1",
+            "options": [
+                { "value": "1", "label": "1" },
+                { "value": "2", "label": "2" }
+            ]
+        }
+    ]
+}
+{% endschema %}

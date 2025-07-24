@@ -1,0 +1,12 @@
+{% assign activeItem = '' %}
+{% case template %}
+    {% when 'index' %}
+        {% if link == shop.url %}
+            {% assign activeItem = 'menu-current' %}
+        {% endif %}
+    {% when 'collection' %}
+        {% if link == collection.url %}
+            {% assign activeItem = 'menu-current' %}
+        {% endif %}
+{% endcase %}
+{{ activeItem }}

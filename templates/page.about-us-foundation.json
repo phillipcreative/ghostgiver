@@ -1,0 +1,44 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "about_us_foundation_Bm8Bwx": {
+      "type": "about-us-foundation",
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/Group_46236.png",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Group_46144.png",
+        "bannername": "About US",
+        "bg_image": "shopify:\/\/shop_images\/Group_42333_2x_0ab9c60f-e500-43a4-a771-c6cb42cfaef6.jpg",
+        "tab1_name": "WHOOO WE ARE",
+        "link_whoweare": "\/pages\/about-us",
+        "tab2_name": "FOUNDATION",
+        "img_ghos_foundation": "shopify:\/\/shop_images\/Group_42516_2x_c17da315-bd98-40b1-bfd5-cbdf8ba11234.png",
+        "img_ghost_right": "shopify:\/\/shop_images\/People-in-Circle.png",
+        "text_left": "<p>When we see a need, we like to do something about it. That’s why we created the Ghost Giver Foundation—because some challenges need more than banana bread or a bouquet. Our Foundation ghostgives can help lift a burden, serve a community, or even change a life. <\/p>\n\n<p>We also think you should know how much good your donation did and get to share in all the feel-good moments right along with us. So, when we give on your behalf, we’ll let you know what we did and, of course, any special thanks we get.<\/p>",
+        "poins_head": "THERE ARE THREE WAYS TO GIVE, OR AS WE LIKE TO SAY, “GHOST FOR GOOD.”",
+        "point1_head": "1. When you purchase, we donate",
+        "point1_text": "A portion of every Ghost Giver purchase goes straight to the Ghost Giver Foundation.",
+        "btn_poit1_url": "shopify:\/\/pages\/get-started",
+        "point1_btn_text": "Shop",
+        "point2_head": "2. Round up!",
+        "point2_text": "At checkout you can round up your purchase to the nearest dollar. The difference will be donated to the Ghost Giver Foundation.",
+        "btn_poit2_url": "shopify:\/\/pages\/get-started",
+        "point2_btn_text": "Shop",
+        "point3_head": "3. Donate cash through Venmo",
+        "point3_text": "Want to give a little more? You can send funds directly to the Ghost Giver Foundation through Venmo. Please send donations to @ghostgiver and include the hashtag #ghostforgood",
+        "btn_poit3_url": "",
+        "point3_btn_text": "Venmo Donation"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about_us_foundation_Bm8Bwx"
+  ]
+}

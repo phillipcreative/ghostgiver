@@ -1,0 +1,148 @@
+{% if section.settings.enable %}
+<div class="block {{ section.settings.block_width }} {{ section.settings.outer_margin }}">
+    <div class="container">
+        <div class="title">
+            <h2>{{ section.settings.heading }}</h2>
+            <div class="carousel-arrows"></div>
+        </div>
+        {% case section.settings.style %}
+        {% when 'grid' %}
+        <div class="brand-grid">
+            {% when 'carousel' %}
+            <div class="brand-carousel" data-slick='{"slidesToShow": 6, "slidesToScroll": 1, "responsive":[{ "breakpoint": 768, "settings": {"slidesToShow": 3} }]}'>
+                {% endcase %}
+                {% for block in section.blocks %}
+                    {% if block.settings.enable %}
+                        <a   href="{{ block.settings.link }}" target="{{ block.settings.link_target }}"  title="{{ block.settings.title }}" class="brand-item"><img class="product-image-photo" src="{% if block.settings.image %}{{ block.settings.image | img_url:'master' }}{% endif %}{% if block.settings.image == blank %}{{ 'brand-02.png'  | asset_url }}{% endif %}" alt="{{ block.settings.title }}"></a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% schema %}
+{
+"name": "Brands",
+"settings": [
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"global_width",
+"info":"click Save to see changes"
+},
+{
+"type": "select",
+"id": "outer_margin",
+"label": "Outer top margin",
+"options":[
+{"value":"offset-top-0","label":"None"},
+{"value":"offset-top-30","label":"30px"},
+{"value":"offset-top-40","label":"40px"},
+{"value":"offset-top-50","label":"50px"}
+],
+"default": "offset-top-50"
+},
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "text",
+"id": "heading",
+"label": "Heading",
+"default": "Parthners"
+},
+{
+    "type": "select",
+    "id": "style",
+    "label": "Style",
+    "options": [
+        {"value":"carousel","label":"Carousel"},
+        {"value":"grid","label":"Grid"}
+    ],
+    "default":"carousel"
+}
+],
+"blocks": [
+{
+"type": "brand",
+"name": "Brand",
+"settings": [
+{
+"type":"checkbox",
+"id":"enable",
+"label":"Enable",
+"default":true
+},
+{
+"type": "text",
+"id": "title",
+"label": "Name",
+"default": "Bigsteps"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image",
+"info":"recommended size 183x134px"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Slide link"
+},
+{
+"type": "select",
+"id": "link_target",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+}
+]
+}
+],
+"presets": [{
+"name": "Brands",
+"category": "Brands",
+"blocks": [
+{
+"type": "brand"
+},
+{
+"type": "brand"
+},
+{
+"type": "brand"
+},
+{
+"type": "brand"
+},
+{
+"type": "brand"
+},
+{
+"type": "brand"
+}
+]
+}]
+}
+{% endschema %}

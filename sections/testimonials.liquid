@@ -1,0 +1,142 @@
+{% if section.settings.enable %}
+    <div class="block testimonials-style-{{ section.settings.style }} {{ section.settings.block_width }} {{ section.settings.outer_margin }}">
+        <div class="container">
+            <h2 class="text-center">{{ section.settings.title }}</h2>
+            <div class="testimonials js-testimonial-slider" {% if section.settings.style == '3' or  section.settings.style == '4'  %}data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "responsive":[{ "breakpoint": 992, "settings": {"slidesToShow": 2} },{ "breakpoint": 768, "settings": {"slidesToShow": 1} }]}'{% endif %}>
+                {% for block in section.blocks %}
+                    <div class="testimonial">
+                        <div class="testimonial-inside">
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-photo"><img src="{% if block.settings.image %}{{ block.settings.image | img_url:'master' }}{% endif %}{% if block.settings.image == blank %}{{ 'avatar.png'  | asset_url }}{% endif %}" alt="{{ block.settings.author }}"></div>
+                                <div>
+                                    <div class="testimonial-author-name"><a>{{ block.settings.author }}</a></div>
+                                    <div class="testimonial-author-subname">{{ block.settings.prof }}</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                {{ block.settings.testimonial }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% schema %}
+{
+"name": "Testimonials",
+"class": "index-section",
+"settings": [
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullboxed","label":"Fullboxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"global_width",
+"info":"click Save to see changes"
+},
+{
+"type": "select",
+"id": "outer_margin",
+"label": "Outer top margin",
+"options":[
+{"value":"offset-top-0","label":"None"},
+{"value":"offset-top-30","label":"30px"},
+{"value":"offset-top-40","label":"40px"},
+{"value":"offset-top-50","label":"50px"}
+],
+"default": "offset-top-50"
+},
+{
+"type": "select",
+"id": "style",
+"label": "Style",
+"options":[
+{"value":"1","label":"Testimonials 1"},
+{"value":"2","label":"Testimonials 2"},
+{"value":"3","label":"Testimonials 3"},
+{"value":"4","label":"Testimonials 4"}
+],
+"default": "1"
+},
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Testimonials"
+}
+],
+"blocks": [
+{
+"type": "testimonial",
+"name": "Testimonial",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Author pic",
+"info": "keep empty to use default avatar, recommended 100x100px"
+},
+{
+"type": "text",
+"id": "author",
+"label":"Author",
+"default":"John Doe"
+},
+{
+"type": "text",
+"id": "prof",
+"label":"Profession",
+"default":"designer"
+},
+{
+"type": "richtext",
+"id": "testimonial",
+"label":"Testimonial",
+"default":"<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Testimonials",
+"category": "Text",
+"blocks": [
+{
+"type": "testimonial"
+},
+{
+"type": "testimonial"
+},
+{
+"type": "testimonial"
+},
+{
+"type": "testimonial"
+}
+]
+}
+]
+}
+{% endschema %}

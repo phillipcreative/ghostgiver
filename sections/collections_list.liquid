@@ -1,0 +1,173 @@
+{% if section.settings.enable %}
+  {% assign miss = 'Empty Category,Ajax Attributes Filter - static,Featured Home Page,Featured products,Grid Previews Big,Header - 2,Header - 3,Header - 4,Header - 5,Header - 6,Latest,Megamenu animation - None,Megamenu animation - Slidetop,New Arrivals,New devices only,No ajax Attributes Filter,No Left column,Only New - Men,Only New - Women,Only Sale - Men,Only Sale - Women,Products per row 2,Products per row 3,Products per row 4,Products per row 5,Sale devices only' | split: ',' %}
+  <div class="block {{ section.settings.block_width }} {{ section.settings.outer_margin }}">
+    <div class="container">
+      {% if section.settings.heading != blank %}
+        <div class="title">
+          <h2>{{ section.settings.heading }}</h2>
+          {% if section.settings.show_view_all == "left" or section.settings.show_view_all == "right" %}
+            <span class="show-more text-{{ section.settings.show_view_all }} hidden-xs">
+              <a href="/collections" title="All collections">{{ 'general.theme.show_all' | t }} +</a>
+            </span>
+          {% endif %}
+          <div class="carousel-arrows"></div>
+        </div>
+      {% endif %}
+      <div class="row collections-grid">
+        {% for collection in collections limit: section.settings.limit %}
+          {% unless collection.handle == 'frontpage' %}
+            {% assign featured = collection.handle %}
+            {% capture collection_title %}{{ collections[featured].title | escape }}{% endcapture %}
+            {% assign flag = 0 %}
+            {% for check in miss %}
+              {% assign a = check | handle %}{% assign b = collection_title | handle %}{% if a == b %}
+                {% assign flag = 1 %}{% endif %}
+            {% endfor %}
+            {% if flag == 0 %}
+              <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+                <a href="{{ collections[featured].url }}" class="collection-item">
+                  <div class="collection-item-photo">
+                    {% if collections[featured].image %}
+                      {{ collections[featured].image.src | img_url: 'large' | img_tag: collection_title }}
+                    {% else %}
+                      {{ collections[featured].products.first.featured_image | img_url: 'large' | img_tag: collection_title }}
+                    {% endif %}
+                  </div>
+                  <div class="collection-item-title">
+                    {{ collection.title }}
+                  </div>
+                </a>
+              </div>
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+  {
+    "name": "All collections list",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable Carousel",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "block_width",
+        "label": "Width",
+        "options": [
+          {
+            "value": "boxed",
+            "label": "Boxed"
+          }, {
+            "value": "fullwidth",
+            "label": "Fullwidth"
+          }, {
+            "value": "global_width",
+            "label": "Use global site width"
+          }
+        ],
+        "default": "global_width",
+        "info": "click Save to see changes"
+      },
+      {
+        "type": "select",
+        "id": "outer_margin",
+        "label": "Outer top margin",
+        "options": [
+          {
+            "value": "offset-top-0",
+            "label": "None"
+          }, {
+            "value": "offset-top-30",
+            "label": "30px"
+          }, {
+            "value": "offset-top-40",
+            "label": "40px"
+          }, {
+            "value": "offset-top-50",
+            "label": "50px"
+          }
+        ],
+        "default": "offset-top-50"
+      }, {
+        "type": "header",
+        "content": "General"
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Collections List"
+      }, {
+        "id": "limit",
+        "type": "text",
+        "label": "Collections limit",
+        "info": "if no limit keep empty, for better perfomance try reduce limit and enable 'View all' button",
+        "default": "8"
+      }, {
+        "type": "select",
+        "id": "show_view_all",
+        "label": "Show 'Show all' button",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          }, {
+            "value": "bottom",
+            "label": "Under grid"
+          }, {
+            "value": "left",
+            "label": "Near title"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "header",
+        "content": "Collections per row:"
+      }, {
+        "type": "select",
+        "id": "per_row_desctop",
+        "label": "Desctop",
+        "default": "4",
+        "options": [
+          {
+            "value": "3",
+            "label": "3"
+          }, {
+            "value": "4",
+            "label": "4"
+          }
+        ]
+      }, {
+        "type": "select",
+        "id": "per_row_mobile_port",
+        "label": "< 481 (mobile portrait)",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          }, {
+            "value": "2",
+            "label": "2"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "All collections list",
+        "category": "Products"
+      }
+    ]
+  }
+{% endschema %}

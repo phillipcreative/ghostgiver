@@ -1,0 +1,35 @@
+<div class="container ">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    {% if section.settings.social_icons %}
+                        <div class="footer-social">
+                            {% include 'social-media-links' %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="footer-col footer-col-center">
+                    {{ section.settings.support_time }}
+                </div>
+                <div class="footer-col">
+                    {% if section.settings.show_methods_of_payment %}
+                        {% include 'footer_payments' %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-middle">
+        <div class="container">
+            {% if section.settings.show_instagram %}
+                {% include 'instagram-widget' limit:12 %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer-bot">
+        <div class="container">
+            <div class="footer-copyright"> {{ section.settings.copyright }} </div>
+        </div>
+    </div>
+</div>

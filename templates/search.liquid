@@ -1,0 +1,36 @@
+{% paginate search.results by 16 %}
+    {{search |  json}}
+<div class="block  block--no-preload global_width">
+    <div class="container">
+        <div class="title center">
+            <h1>{% if search.results_count == 0 %}{{ 'general.search.title' | t }}{% else %}{{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}{% endif %}</h1>
+        </div>
+    </div>
+</div>
+<div class="block offset-top-0 global_width">
+    <div class="container">
+        <div class="search-page-search-form">
+            <div class="header-search ">
+                <form  action="/search">
+                    <input name="q" class="search-input" placeholder="{{ 'general.theme.search_here' | t }}" type="text" value="{{ search.terms | escape }}">
+                    <input class="search-submit" type="submit" value="">
+                    <span class="search-icon"><i class="icon icon-magnify"></i></span>
+                </form>
+            </div>
+        </div>
+        <div class="text-center">{% if search.performed and search.results_count == 0 %} <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p> {% endif %}</div>
+        {% if search.performed %}
+            <div class="product-listing">
+                <div class="product-items products-grid data-to-show-4  data-to-show-lg-4 data-to-show-md-3 data-to-show-sm-2 data-to-show-xs-2">
+                    {% for item in search.results %}
+                        {% if item.object_type == 'product' %}
+                            {% include 'product-card', image_size:'large', product: item %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% if paginate.pages > 1 %}<div class="offset-top-50">{% include 'pagination-custom' %}</div>{% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endpaginate %}

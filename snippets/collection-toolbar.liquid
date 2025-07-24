@@ -1,0 +1,60 @@
+{% assign collection_left_sidebar = settings.collection_left_sidebar %}{% if collection_left_sidebar %}{% assign collection_left_sidebar = 1 %}{% endif %}
+{% if collection.description contains 'collection-left-sidebar-0' %}{% assign collection_left_sidebar = 0 %}{% endif %}
+<!-- Filter Row -->
+<div class="filter-row {% if settings.collection_toolbar_position == 'sidebar' and collection_left_sidebar != 0 %}only-mobile{% endif %}">
+  <div class="row">
+    <div class="col-xs-8 col-sm-5 col-lg-5 col-left">
+      <div class="filter-button">
+        <a href="#" class="btn filter-col-toggle"><i class="icon icon-filter"></i><span>{{ 'collections.toolbar.filter' | t }}</span></a>
+      </div>
+      <div class="form-label">{{ 'collections.sorting.title' | t }}:</div>
+      <div class="select-wrapper-sm">
+      {% comment %}  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+        <select class="form-control input-sm SortBy sort-by-js"  name="sort_by">
+          <option value="manual" {% if sort_by contains "manual" %} selected="selected"{% endif %}>{{ 'collections.sorting.featured' | t }}</option>
+          <option value="best-selling"{% if sort_by contains "best-selling" %} selected="selected"{% endif %}>{{ 'collections.sorting.best_selling' | t }}</option>
+          <option value="title-ascending" {% if sort_by contains "title-ascending"  %}selected="selected"{% endif %}>{{ 'collections.sorting.az' | t }}</option>
+          <option value="title-descending" {% if sort_by contains "title-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.za' | t }}</option>
+          <option value="price-ascending" {% if sort_by contains "price-ascending" %} selected="selected"{% endif %}>{{ 'collections.sorting.price_ascending' | t }}</option>
+          <option value="price-descending" {% if sort_by contains "price-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.price_descending' | t }}</option>
+          <option value="created-descending" {% if sort_by contains "created-descending" %} selected="selected"{% endif %}>{{ 'collections.sorting.date_descending' | t }}</option>
+          <option value="created-ascending" {% if sort_by contains "created-ascending" %} selected="selected"{% endif %}>{{ 'collections.sorting.date_ascending' | t }}</option>
+        </select>
+        {% endcomment %}
+
+          <!-- <select id="dropdown" onchange="navigateToLink(this)">
+                      <option value="">Choose Option</option>
+                      <option value="/collections/free-printable-cards">Free Printable Cards</option>
+                      <option value="/collections/printed-cards-envelopes">Physical Cards & Envelopes</option>
+                      <option value="/collections/gifts">Gifts</option>
+                    </select> -->
+  <select id="dropdown" onchange="navigateToLink(this)">
+                      <option value="">Choose Option</option>
+                      <option value="/collections/free-printable-cards">Free Printable Cards</option>
+                      <option value="/collections/printed-cards-envelopes">Physical Cards & Envelopes</option>
+                      <option value="/collections/gifts">Gifts</option>
+                      <option value="/collections/digital-gift-card-via-text">Digital Gift Card (via Text)</option>
+                      <option value="/collections/digital-gift-card-via-email">Digital Gift Card (via Email)</option>
+      <option value="/collections/individual-code-via-e-tailers">Ghost Code (via E-tailers)</option>
+                      <!-- <option value="/collections/send-cash-via-venmo">Send Cash (via Venmo)</option> -->
+                    
+                    </select>
+      </div>
+    </div>
+    <div class="col-sm-4 col-lg-3 hidden-xs">
+      {% assign t_item =  'general.theme.item' | t %}
+      {% assign t_items = 'general.theme.items_c' | t %}
+      <div class="items-total">{{ 'general.theme.total' | t }} {{ paginate.items }} {{ paginate.items | pluralize: t_item, t_items }}</div>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-lg-4 col-right hidden-xs">
+      <div class="view-mode">
+        {% unless settings.collection_listing_only_default %}
+        <a href="#" class="grid-view"><i class="icon icon-th"></i></a>
+        <a href="#" class="list-view"><i class="icon icon-th-list"></i></a>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+  <div class="bg-striped"></div>
+</div>
+<!-- /Filter Row -->

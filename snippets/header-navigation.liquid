@@ -1,0 +1,312 @@
+{% if section.settings.default_navigation != blank %} {% if
+linklists[section.settings.default_navigation].links.size > 0 %}
+<div
+  class="megamenu  unvisible {{
+    section.settings.dropdown_animation
+  }} {% if section.settings.blackout %}blackout{% endif %}"
+>
+  <ul class="nav">
+    {% for link in linklists[section.settings.default_navigation].links %}
+    <li
+      class="simple-dropdown {%if link.active%}superactive{%endif%} title-{{
+        link.title | handle
+      }} {% include 'header-navigation-active' link:link.url %}"
+    >
+      {% include 'header-navigation-label' label: link.title %}
+      {{ link.title | append : label | link_to : link.url }}
+      {% if linklists[link.handle].links.size > 0 %}
+      <div class="sub-menu">
+        <ul class="category-links">
+          {% for link_1 in linklists[link.handle].links %} {% unless
+          link_1.title contains "Venmo1" %}
+          <li>
+            {% include 'header-navigation-label' label: link_1.title %}
+            {{ link_1.title | append : label | link_to : link_1.url }}
+            {% if linklists[link_1.handle].links.size > 0 %}
+            <ul class="sub-level">
+              {% for link_2 in linklists[link_1.handle].links %}
+              <li>
+                {% include 'header-navigation-label' label: link_2.title %}
+                {{ link_2.title | append : label | link_to : link_2.url }}
+                {% if linklists[link_2.handle].links.size > 0 %}
+                <ul class="sub-level">
+                  {% for link_3 in linklists[link_2.handle].links %}
+                  <li>
+                    {% include 'header-navigation-label' label: link_3.title %}
+                    {{ link_3.title | append : label | link_to : link_3.url }}
+                    {% if linklists[link_3.handle].links.size > 0 %}
+                    <ul class="sub-level">
+                      {% for link_4 in linklists[link_3.handle].links %}
+                      <li>
+                        {% include 'header-navigation-label' label: link_4.title
+                        %}
+                        {{
+                          link_4.title | append : label | link_to : link_4.url
+                        }}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endunless %} {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %} {% else if section.blocks.size > 0 %}
+<div
+  class="megamenu  unvisible {{
+    section.settings.dropdown_animation
+  }} {% if section.settings.blackout %}blackout{% endif %}"
+>
+  <ul class="nav">
+    {% for block in section.blocks %} {% if block.settings.enable %} {% if
+    block.settings.assign_to == 'header' or block.settings.assign_to == 'both'
+    %}
+    <li
+      class="{% case block.type %}{% when 'tree' %}simple{% when 'columns' %}mega{% endcase %}-dropdown title-{{
+        block.settings.title | handle
+      }} {% include 'header-navigation-active' link:block.settings.link %}"
+    >
+      <a
+        {%
+        if
+        block.settings.link
+        !="blank"
+        %}
+        href="{{ block.settings.link }}"
+        {%
+        endif
+        %}
+        >{{ block.settings.title }}{% if block.settings.label != blank %}
+        <span class="{{ block.settings.label_color }}">{{
+          block.settings.label
+        }}</span>
+        {% endif %}
+      </a>
+      {% case block.type %} {% when 'tree' %} {% assign list =
+      block.settings.dropdown_list %} {% if list != blank %}
+      <div class="sub-menu">
+        <ul class="category-links">
+          {% for link in linklists[list].links %} {% unless link.title contains
+          "Venmo1" %}
+          <li>
+            {% include 'header-navigation-label' label: link.title %} {% if
+            link.title contains 'Grid Editor' or link.title contains
+            'Documentation' or link.title contains 'Online support' %}
+            {{ link.title | append: label | link_to: link.url | replace: '<a', '<a target="_blank" ' }}
+            {% else %}
+            {{ link.title | append : label | link_to : link.url }}
+            {% endif %} {% if linklists[link.handle].links.size > 0 %}
+            <ul class="sub-level">
+              {% for link_1 in linklists[link.handle].links %}
+              <li>
+                {% include 'header-navigation-label' label: link_1.title %}
+                {{ link_1.title | append : label | link_to : link_1.url }}
+                {% if linklists[link_1.handle].links.size > 0 %}
+                <ul class="sub-level">
+                  {% for link_2 in linklists[link_1.handle].links %}
+                  <li>
+                    {% include 'header-navigation-label' label: link_2.title %}
+                    {{ link_2.title | append : label | link_to : link_2.url }}
+                    {% if linklists[link_2.handle].links.size > 0 %}
+                    <ul class="sub-level">
+                      {% for link_3 in linklists[link_2.handle].links %}
+                      <li>
+                        {% include 'header-navigation-label' label: link_3.title
+                        %}
+                        {{
+                          link_3.title | append : label | link_to : link_3.url
+                        }}
+                        {% if linklists[link_3.handle].links.size > 0 %}
+                        <ul class="sub-level">
+                          {% for link_4 in linklists[link_3.handle].links %}
+                          <li>
+                            {% include 'header-navigation-label' label:
+                            link_4.title %}
+                            {{
+                              link_4.title
+                                | append : label
+                                | link_to : link_4.url
+                            }}
+                          </li>
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endunless %} {% endfor %}
+        </ul>
+      </div>
+      {% endif %} {% when 'columns' %}
+      <div
+        class="sub-menu {% if block.settings.boxed %}sub-menu--boxed{% endif %}"
+      >
+        <div class="container">
+          <div class="sub-menu-inside">
+            {% if block.settings.left_col_yes and block.settings.left_col_html
+            != blank %}
+            <div
+              class="megamenu-left width-{{
+                block.settings.left_col_html_width
+              }}"
+            >
+              <div class="image-wrapper">
+                {{ block.settings.left_col_html }}
+              </div>
+            </div>
+            {% endif %} {% if block.settings.right_col_yes and
+            block.settings.right_col_html != blank %}
+            <div
+              class="megamenu-right width-{{
+                block.settings.right_col_html_width
+              }}"
+            >
+              <div class="image-wrapper">
+                {{ block.settings.right_col_html }}
+              </div>
+            </div>
+            {% endif %}
+            <div
+              class="megamenu-categories column-{{
+                block.settings.columns_in_row
+              }}"
+            >
+              {% if block.settings.top_row_yes and block.settings.top_row_html
+              != blank %}
+              <div class="megamenu-top">
+                {{ block.settings.top_row_html }}
+              </div>
+              {% endif %} {% for i in (1..15) %} {% capture enable %}nav_col_{{
+                i
+              }}_yes{% endcapture %} {% capture preview %}nav_col_{{
+                i
+              }}_preview{% endcapture %} {% capture title %}nav_col_{{
+                i
+              }}_title{% endcapture %} {% capture link %}nav_col_{{ i }}_link{%
+              endcapture %} {% capture list %}nav_col_{{ i }}_list{% endcapture
+              %} {% assign list = block.settings[list] %} {% if
+              block.settings[enable] %}
+              <div
+                class="col {% if block.settings.limit != blank %}truncateList{% endif %}"
+                data-list-items="{{ block.settings.limit }}"
+              >
+                {% if block.settings[preview] != blank %}
+                <a
+                  class="category-image"
+                  {%
+                  if
+                  block.settings[link]
+                  !="blank"
+                  %}
+                  href="{{ block.settings[link] }}"
+                  {%
+                  endif
+                  %}
+                  ><img
+                    src="{{ block.settings[preview] | img_url : 'master' }}"
+                    alt="{{ block.settings[title] }}"
+                  />{% if block.settings[link] != blank %}
+                  <span class="btn-wrap">
+                    <span class="btn btn--transp">{{
+                      "general.theme.view" | t
+                    }}</span>
+                  </span>
+                  {% endif %}
+                </a>
+                {% endif %} {% if block.settings[title] != blank %}
+                <div
+                  class="category-title {% if block.settings[preview] != blank and list == blank %}text-center{% endif %} {% if block.settings.title_border %}title-border{% endif %}"
+                >
+                  <a
+                    {%
+                    if
+                    block.settings[link]
+                    !="blank"
+                    %}
+                    class="{% include 'header-navigation-active' link:block.settings[link] %}"
+                    href="{{ block.settings[link] }}"
+                    {%
+                    endif
+                    %}
+                    >{{ block.settings[title] }}</a
+                  >
+                  {% if block.settings.limit != blank %}
+                  <span class="view-all">
+                    <span class="all">
+                      <i class="icon-plus"></i>
+                    </span>
+                    <span class="less">
+                      <i class="icon-minus"></i>
+                    </span>
+                  </span>
+                  {% endif %}
+                </div>
+                {% endif %} {% if list != blank %}
+                <ul class="category-links">
+                  {% for link in linklists[list].links %} {% unless link.title
+                  contains "Venmo1" %}
+                  <li {% if link.active %} class="active" {% endif %}>
+                    {% include 'header-navigation-label' label: link.title %}
+                    {{ link.title | append : label | link_to : link.url }}
+                    {% if linklists[link.handle].links.size > 0 %}
+                    <ul class="sub-level">
+                      {% for link_1 in linklists[link.handle].links %}
+                      <li {% if link.active %} class="active" {% endif %}>
+                        {{ link_1.title | link_to : link_1.url }}
+                        {% if linklists[link_1.handle].links.size > 0 %}
+                        <ul class="sub-level">
+                          {% for link_2 in linklists[link_1.handle].links %}
+                          <li>
+                            {{ link_2.title | link_to : link_2.url }}
+                          </li>
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </li>
+                  {% endunless %} {% endfor %}
+                </ul>
+                {% endif %}
+              </div>
+              {% endif %} {% endfor %} {% if block.settings.btm_row_yes and
+              block.settings.btm_row_html != blank %}
+              <div class="megamenu-bottom">
+                {{ block.settings.btm_row_html }}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endcase %}
+    </li>
+    {% endif %} {% endif %} {% endfor %}
+  </ul>
+</div>
+{% endif %}

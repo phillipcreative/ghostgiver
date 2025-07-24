@@ -1,0 +1,13 @@
+<form class="search-form white" action="/search" method="get">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group input-group-lg">
+                <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="form-control" aria-label="{{ 'general.search.placeholder' | t }}">
+
+                <div class="input-group-btn">
+                    <button type="submit" class="btn">{{ 'general.search.submit' | t }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

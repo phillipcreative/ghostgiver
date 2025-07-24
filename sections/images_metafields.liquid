@@ -1,0 +1,47 @@
+
+
+  <div class="col-md-9">
+<div class="row">
+<div class="col-md-3">
+   {% if product.metafields.custom.image1 != blanks %}
+<img class="metafields" src="{{ product.metafields.custom.image1 | img_url: 'master'}}"> <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image1 | img_url: 'master'}}"><i class="icon icon-zoomin"></i>Zoom</a>
+{% endif %}
+     </div>
+<div class="col-md-3">
+     {% if product.metafields.custom.image2 != blanks %}
+<img src="{{ product.metafields.custom.image2 | img_url: 'master' }}"> <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image2 | img_url: 'master' }}"><i class="icon icon-zoomin"></i>Zoom</a>
+{% endif %}
+       </div>
+<div class="col-md-3">
+   {% if product.metafields.custom.image3 != blanks %}
+<img src="{{ product.metafields.custom.image3 | img_url: 'master' }}"> <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image3 | img_url: 'master' }}"><i class="icon icon-zoomin"></i>Zoom</a>
+
+     {% endif %}</div>
+<div class="col-md-3">
+   {% if product.metafields.custom.image4 != blanks %}
+<img src="{{ product.metafields.custom.image4 | img_url: 'master' }}"> <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image4 | img_url: 'master' }}"><i class="icon icon-zoomin"></i>Zoom</a>
+{% endif %}
+     </div>
+</div>
+</div>
+<div style="position: absolute; left: -43px; top: -20px;" id="gtx-trans">
+<div class="gtx-trans-icon"></div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Images Metafields",
+"settings": [
+     
+      
+     
+
+    ],
+  "presets":[
+    {
+      "name":"Images Metafields"
+    }
+  ]
+}
+{% endschema %}

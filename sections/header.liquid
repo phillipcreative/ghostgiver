@@ -1,0 +1,970 @@
+{% assign style = section.settings.style %}
+{% if template contains 'home-page-' %}{% assign style = template | split:'home-page-' %}{% assign style = style | last %}{% endif %}
+{% if style == '8' or  style == '9' %}{% assign style = '4' %}{% endif %}
+{% assign style_file = 'header-style-' | append:style %}
+{% include 'spy-navigation' %}
+{% if style == '1' %}
+    {% unless section.settings.logo_bg_color contains '0,0,0,0' %}
+    <style>
+        .page-header-variant-1 .header-logo, .page-header-variant-1 .header-sticky.is-sticky .header-logo-sticky-holder {
+            background: {{ section.settings.logo_bg_color }};
+        }
+    </style>
+    {% endunless %}
+{% endif %}
+{% assign header_width = section.settings.block_width %}
+{% include 'demo-header-with'  %}
+<header class="page-header  page-header-variant-{{ style }} {% if style == '1' and section.settings.logo_bg_yes %}logo-no-bg{% endif %} {% if style == '2' and template == 'index'  %}transparent{% endif %} {% if template contains 'home-page-2' %}transparent{% endif %}  {{ header_width }} {{ section.settings.sticky }} {{ section.settings.sticky_behavior }}">
+    {% include style_file %}
+    <div class="header-sticky">
+        <div class="container">
+            <div class="header-logo-sticky-holder">
+                {%- assign logo_sticky = section.settings.logo_sticky -%}
+                {%- assign logo_max_width = section.settings.logo_max_width -%}
+                {% include 'demo-header-logo-sticky-image' %}
+                <a href="{{ shop.url }}" title="{{ shop.name }}"><img src="{% if logo_sticky != blank %}{{ logo_sticky | img_url: image_size }}{% else %}{{ 'logo.png' | asset_url }}{% endif %}"  alt='{{ shop.name }}'/></a>
+            </div>
+            <div class="header-nav-sticky-holder"></div>
+            <div class="header-links">
+                <div class="header-cart-sticky-holder dropdown-link header-link header-cart"></div>
+            </div>
+        </div>
+    </div>
+    <div id="blackOut"></div>
+</header>
+{% schema %}
+    {
+        "name": "Header",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Layout"
+            },
+            {
+                "type":"select",
+                "id":"block_width",
+                "label":"Width",
+                "options":[
+                    {"value":"boxed","label":"Boxed"},
+                    {"value":"fullwidth","label":"Fullwidth"},
+                    {"value":"global_width","label":"Use global site width"}
+                ],
+                "default":"fullwidth",
+                "info":"click Save to see changes"
+            },
+            {
+                "type": "select",
+                "id": "style",
+                "label": "Style",
+                "options": [
+                    { "value": "1", "label": "Header 1 (Default)" },
+                    { "value": "2", "label": "Header 2 (Fixed)" },
+                    { "value": "3", "label": "Header 3 (Central Logo)" },
+                    { "value": "4", "label": "Header 4" },
+                    { "value": "5", "label": "Header 5" },
+                    { "value": "6", "label": "Header 6" },
+                    { "value": "7", "label": "Header 7" }
+                ],
+                "default": "1",
+                "info":"Header 2 has fixed mode only for home page, we advice to use Header 2 only if next widget is slider/banner"
+            },
+            {
+                "type": "header",
+                "content": "Logo"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "Logo image"
+            },
+            {
+                "type": "text",
+                "id": "logo_max_width",
+                "label": "Custom logo width (in pixels)",
+                "default": "210"
+            },
+            {
+                "type": "checkbox",
+                "id": "languages",
+                "label": "Show languages",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "currencies",
+                "label": "Show currencies",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "header_search",
+                "label": "Show Search",
+                "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "login_box",
+                "label": "Show Login Box",
+                "default": true
+            },
+            {
+                "type": "textarea",
+                "id": "header_support_time",
+                "label": "Support time",
+                "default": "<span><i class='icon icon-clock'></i>Mon-Fri: 8:30am-7:30pm</span> <span><i class='icon icon-phone'></i> +7 849 55 4267</span>",
+                "info": "example html code you can get in doc"
+            },
+          {
+            "type": "header",
+            "content": "Sticky header"
+          },
+          {
+            "type": "select",
+            "id": "sticky",
+            "label": "Show",
+            "default": "sticky",
+            "options": [
+              {
+                "value": "sticky",
+                "label": "Yes"
+              },
+              {
+                "value": "no-sticky",
+                "label": "No"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "sticky_behavior",
+            "label": "Sticky behavior",
+            "default": "smart",
+            "options": [
+              {
+                "value": "always",
+                "label": "Always - shows on scrolling"
+              },
+              {
+                "value": "smart",
+                "label": "Smart - shows on scrolling top"
+              }
+            ]
+          },
+
+          {
+            "type": "image_picker",
+            "id": "logo_sticky",
+            "label": "Sticky Logo",
+            "info": "by default main header logo"
+          },
+            {
+                "type": "header",
+                "content": "Only For Style 1"
+            },
+            {
+                "type": "checkbox",
+                "id": "logo_bg_yes",
+                "label": "Hide Logo Background",
+                "default": false
+            },
+            {
+                "type":"color",
+                "id": "logo_bg_color",
+                "label": "Logo Background",
+                "default": "#000000"
+            },
+            {
+                "type": "header",
+                "content": "Only For Style 6"
+            },
+            {
+                "type": "textarea",
+                "id": "header_info",
+                "label": "Shipping links",
+                "default": "<div class='col-xs-4'><a href='#' class='shop-feature-sm'> <div class='shop-feature-icon'><i class='icon-creditcard'></i></div> <div class='shop-feature-text'> Original <br>brands </div> </a> </div> <div class='col-xs-4'> <a href='#' class='shop-feature-sm'> <div class='shop-feature-icon'><i class='icon-car'></i></div> <div class='shop-feature-text'> Free <br>shipping </div> </a> </div> <div class='col-xs-4'> <a href='#' class='shop-feature-sm'> <div class='shop-feature-icon'><i class='icon-exchange'></i></div> <div class='shop-feature-text'> Original <br>product </div> </a> </div>",
+                "info": "example html code you can get in doc"
+            },
+            {
+                "type": "header",
+                "content": "Only For Style 7"
+            },
+            {
+                "type": "checkbox",
+                "id": "social_icons",
+                "label": "Social media",
+                "default": false,
+                "info":"config in General Settings / Social media"
+            },
+            {
+                "type": "header",
+                "content": "Navigation"
+            },
+{
+"type": "paragraph",
+"content": "[Documentation](http://big-skins.com/banita/shopify/manuals/#SetupNavigation)"
+},
+{
+"type": "checkbox",
+"id": "blackout",
+"default": true,
+"label": "Enable dark overlay on hover"
+},
+{
+"type": "select",
+"id": "dropdown_animation",
+"default": "fadein",
+"label": "Appearing style",
+"options": [
+{ "value": "none-animation", "label": "None" },
+{ "value": "fadein", "label": "Fade" },
+{ "value": "slidetop", "label": "Slide" }
+]
+},
+{
+                "type": "paragraph",
+                "content": "You can choose default Shopify dropdown navigation from selectbox or create Megamenu dropdowns with our sections constructor"
+            },
+            {
+                "type":"link_list",
+                "id":"default_navigation",
+                "label":"Default navigation",
+                "info":"if you select 'None' then the Megamenu that is based on sections will be enabled",
+                "default":"main-menu"
+            },
+          {
+                "type":"link_list",
+                "id":"sidebar_navigation",
+                "label":"Sidebar navigation",
+                "default":"main-menu"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "tree",
+                "name": "Navigation Item - Simple",
+                "settings": [
+                    {
+                        "type":"checkbox",
+                        "id":"enable",
+                        "label":"Enable",
+                        "default":true
+                    },
+                    {
+                        "type": "select",
+                        "id": "assign_to",
+                        "label": "Show in:",
+                        "options": [
+                            { "value": "header", "label": "Header only" },
+                            { "value": "spy", "label": "Spy menu only" },
+                            { "value": "both", "label": "Both" }
+                        ],
+                        "default": "header",
+                        "info":"spy menu can be enable in General Settings / Navigation"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title",
+                        "default":"Item"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Url"
+                    },
+                    {
+                        "type": "text",
+                        "id": "label",
+                        "label": "Label",
+                        "info":"1st level items only"
+                    },
+                    {
+                        "type": "select",
+                        "id": "label_color",
+                        "label": "Label color",
+                        "options": [
+                            { "value": "menu-label", "label": "Color 1" },
+                            { "value": "menu-label-alt", "label": "Color 2" }
+                        ],
+                        "default": "menu-label",
+                        "info":"change color in General Settings/Colors"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"dropdown_list",
+                        "label":"Dropdown navigation"
+                    }
+                ]
+            },
+            {
+                "type": "columns",
+                "name": "Navigation Item - Columns",
+                "settings": [
+                    {
+                        "type":"checkbox",
+                        "id":"enable",
+                        "label":"Enable",
+                        "default":true
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"boxed",
+                        "label":"Apply Boxed mode",
+                        "default":true,
+                        "info":"by default width of the dropdown equals to header width, but if you have fullwidth header and you want boxed dropdown you can apply boxed mode specially for the current item"
+                    },
+                    {
+                        "type": "select",
+                        "id": "assign_to",
+                        "label": "Show in:",
+                        "options": [
+                            { "value": "header", "label": "Header only" },
+                            { "value": "spy", "label": "Spy menu only" },
+                            { "value": "both", "label": "Both" }
+                        ],
+                        "default": "header",
+                        "info":"spy menu can be enabled in General Settings / Navigation"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title",
+                        "default":"Item"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"title_border",
+                        "label":"Title bottom border",
+                        "default":true
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Url"
+                    },
+                    {
+                        "type": "text",
+                        "id": "label",
+                        "label": "Label",
+                        "info":"1st level items only"
+                    },
+                    {
+                        "type": "select",
+                        "id": "label_color",
+                        "label": "Label color",
+                        "options": [
+                            { "value": "menu-label", "label": "Color 1" },
+                            { "value": "menu-label-alt", "label": "Color 2" }
+                        ],
+                        "default": "menu-label",
+                        "info":"change color in General Settings/Colors"
+                    },
+                    {
+                        "type": "select",
+                        "id": "columns_in_row",
+                        "label": "Columns in one row",
+                        "options": [
+                            { "value": "2", "label": "2" },
+                            { "value": "3", "label": "3" },
+                            { "value": "4", "label": "4" },
+                            { "value": "5", "label": "5" },
+                            { "value": "6", "label": "6" }
+                        ],
+                        "default": "4"
+                    },
+                    {
+                        "type": "text",
+                        "id": "limit",
+                        "label": "Limited visible links in columns",
+                        "info":"set empty or write number"
+                    },
+                    {
+                        "type":"header",
+                        "content":"Navigation's columns"
+                    },
+                    {
+                        "type":"header",
+                        "content":"Column 1"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_1_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_1_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_1_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_1_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_1_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 2"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_2_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_2_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_2_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_2_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_2_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 3"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_3_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_3_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_3_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_3_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_3_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 4"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_4_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_4_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_4_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_4_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_4_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 5"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_5_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_5_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_5_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_5_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_5_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 6"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_6_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_6_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_6_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_6_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_6_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 7"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_7_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_7_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_7_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_7_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_7_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 8"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_8_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_8_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_8_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_8_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_8_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 9"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_9_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_9_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_9_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_9_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_9_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 10"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_10_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_10_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_10_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_10_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_10_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 11"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_11_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_11_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_11_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_11_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_11_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 12"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_12_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_12_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_12_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_12_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_12_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 13"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_13_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_13_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_13_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_13_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_13_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 14"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_14_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_14_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_14_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_14_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_14_list",
+                        "label":"Navigation"
+                    },
+                                        {
+                        "type":"header",
+                        "content":"Column 15"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"nav_col_15_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"nav_col_15_preview",
+                        "label":"Preview",
+                        "info":"268x207 px"
+                    },
+                    {
+                        "type":"text",
+                        "id":"nav_col_15_title",
+                        "label":"Title",
+                        "default":"Column title"
+                    },
+                    {
+                        "type":"url",
+                        "id":"nav_col_15_link",
+                        "label":"Url",
+                        "info":"for preview and title"
+                    },
+                    {
+                        "type":"link_list",
+                        "id":"nav_col_15_list",
+                        "label":"Navigation"
+                    },
+                    {
+                        "type":"header",
+                        "content":"Left Column"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"left_col_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"textarea",
+                        "id":"left_col_html",
+                        "label":"Html"
+                    },
+                    {
+                        "type": "select",
+                        "id": "left_col_html_width",
+                        "label": "Width",
+                        "options": [
+                            { "value": "20", "label": "20%" },
+                            { "value": "25", "label": "25%" },
+                            { "value": "33", "label": "33%" },
+                            { "value": "40", "label": "40%" }
+                        ],
+                        "default": "25"
+                    },
+                    {
+                        "type":"header",
+                        "content":"Right Column"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"right_col_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"textarea",
+                        "id":"right_col_html",
+                        "label":"Html",
+                        "info":"generate banners [here](http://frontend.big-skins.com/banita/banners-generator)"
+                    },
+                    {
+                        "type": "select",
+                        "id": "right_col_html_width",
+                        "label": "Width",
+                        "options": [
+                            { "value": "20", "label": "20%" },
+                            { "value": "25", "label": "25%" },
+                            { "value": "33", "label": "33%" },
+                            { "value": "40", "label": "40%" }
+                        ],
+                        "default": "25"
+                    },
+                    {
+                        "type":"header",
+                        "content":"Top Row"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"top_row_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"textarea",
+                        "id":"top_row_html",
+                        "label":"Html",
+                        "info":"generate banners [here](http://frontend.big-skins.com/banita/banners-generator)"
+                    },
+                    {
+                        "type":"header",
+                        "content":"Bottom Row"
+                    },
+                    {
+                        "type":"checkbox",
+                        "id":"btm_row_yes",
+                        "label":"Enable",
+                        "default":false
+                    },
+                    {
+                        "type":"textarea",
+                        "id":"btm_row_html",
+                        "label":"Html"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

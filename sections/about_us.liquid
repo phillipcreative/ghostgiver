@@ -1,0 +1,410 @@
+
+<!-- Upwork Update 06.16 -->
+{% comment %} <div class="banner-custom-wrapper banner-relative Desktop">
+  <img class="bg-main-works" src="{{ section.settings.imgbanner | img_url: 'master' }}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert" data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+<!-- Upwork Update 06.16 -->
+<div class="custom-banner-wrapper">
+  <img class="custom-banner-image" src="{{ section.settings.imgbanner | img_url: 'master' }}" alt="Banner">
+
+  <div class="custom-banner-overlay">
+    <div class="custom-banner-content">
+      <h1 class="custom-banner-heading">{{ section.settings.bannername }}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="banner-relative mobile" style="display:none;">
+  <img class="bg-main-works " src="{{section.settings.imgbanner_mobile | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="about_us" style="background-image: url('{{ section.settings.bg_image |img_url:"master" }} ');">
+  <div class="container">
+    <div class="row">
+      <div class="tabs">
+        <ul id="tabs-nav">
+          <li>
+            <a class="active" href="javascript:void(0)">{{ section.settings.tab1_name }}</a>
+          </li>
+          <li>
+            <a href="{{ section.settings.link_foundation }}">{{ section.settings.tab2_name }}</a>
+          </li>
+        </ul>
+
+        <div id="tabs-content">
+          <div id="tab1" class="tab-content first">
+            <img src="{{ section.settings.img_ghost | img_url:'master' }}">
+            <h2>{{ section.settings.heading_ghost }}</h2>
+            <p>
+              {{ section.settings.text_ghost }}
+            </p>
+            <div class="right_text_img_left">
+              <div class="text_right">
+                <h2>{{ section.settings.text_right_heading }}</h2>
+
+                <p>
+                  {{ section.settings.text_right_text }}
+                </p>
+                <div class="threepoint_bellowtext">
+                  <h2>{{ section.settings.text_point }}</h2>
+                  <p><img src="{{ section.settings.point1_img | img_url:'master' }}">{{ section.settings.point1 }}</p>
+                  <p><img src="{{ section.settings.point2_img | img_url:'master' }}">{{ section.settings.point2 }}</p>
+                  <p><img src="{{ section.settings.point3_img | img_url:'master' }}">{{ section.settings.point3 }}</p>
+                </div>
+              </div>
+              <div class="img_left">
+                <img src="{{ section.settings.left_image | img_url:'master' }}">
+              </div>
+            </div>
+            <div class="anonymous">
+              <img src="{{ section.settings.anonymous | img_url:'master' }}">
+              <h2>{{ section.settings.heading_anonymous }}</h2>
+              <p>
+                {{ section.settings.text_anonymous }}
+              </p>
+            </div>
+            <div class="ghost_someone">
+              <img src="{{ section.settings.ghost_someone | img_url:'master' }}">
+              <h2>{{ section.settings.heading_ghost_someone }}</h2>
+              <p>
+                {{ section.settings.text_ghost_someone }}
+              </p>
+              <img src="{{ section.settings.ghost_someone_bellow_image | img_url:'master' }}">
+              <p>
+                {{ section.settings.ghost_someone_bellow_text }}
+              </p>
+
+
+                          <div class="custom_btn">
+              <p>{{ section.settings.text_btn }}</p>
+              <div class="btn1">
+                <a class="btn btn-purple" href="{{ section.settings.button_link1 }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36.953" height="36.951" viewBox="0 0 36.953 36.951">
+                    <path id="gear" d="M48.441,37.6c-.963.368-.738,1.124-.337,2.528s.459,2.74-.551,3.747c-.2.176-.391.35-.578.534a.2.2,0,0,1-.033.021c-1.069.963-2.406.834-3.785.353s-2.122-.751-2.542.189-.138.3-.811,1.812c-.008.015-.012.025-.02.044-.678,1.511-.4.878-.811,1.809s.272,1.319,1.552,2.026,2.244,1.6,2.254,3.012c-.017.265-.024.532-.025.8,0,.021-.013.032-.013.054-.072,1.436-1.11,2.29-2.427,2.925s-2.033.971-1.664,1.932.116.3.708,1.855a.23.23,0,0,0,.016.043c.588,1.552.342.9.707,1.853s1.126.742,2.53.337,2.733-.456,3.743.548c.175.2.349.4.537.582.012.014.011.024.024.038.956,1.065.832,2.406.349,3.78s-.748,2.123.188,2.545.3.132,1.814.813l.027.014.015,0c1.511.677.878.391,1.813.811s1.315-.274,2.024-1.554S54.753,68.8,56.17,68.8c.257.016.517.026.774.024.028,0,.038.016.067.016,1.43.075,2.289,1.113,2.921,2.427S60.9,73.3,61.865,72.93s.307-.119,1.856-.71l.025-.008a.055.055,0,0,0,.017-.007c1.548-.591.9-.348,1.856-.708s.74-1.124.334-2.529-.46-2.747.563-3.755h0c.191-.172.381-.341.562-.52.014-.015.025-.012.042-.027,1.066-.958,2.4-.831,3.784-.349s2.122.748,2.541-.19.133-.3.816-1.81a.258.258,0,0,1,.01-.027c0-.007,0-.013.007-.016.676-1.514.391-.88.81-1.814s-.272-1.317-1.552-2.024-2.259-1.612-2.258-3.036c.015-.254.024-.5.024-.759a.609.609,0,0,0,.016-.071c.075-1.433,1.112-2.287,2.429-2.919s2.029-.973,1.665-1.935-.12-.306-.708-1.857c0-.01-.006-.015-.011-.026a.038.038,0,0,0-.007-.016c-.593-1.55-.345-.9-.708-1.857s-1.124-.737-2.531-.332-2.75.458-3.752-.563h0c-.171-.191-.339-.38-.518-.559-.013-.015-.013-.027-.026-.042-.961-1.064-.833-2.4-.35-3.783s.747-2.121-.189-2.542L64.8,37.319a.3.3,0,0,1-.038-.015s0,0,0,0c-1.514-.68-.882-.392-1.814-.811s-1.318.273-2.024,1.551S59.3,40.3,57.881,40.3c-.253-.016-.509-.023-.768-.022-.027,0-.035-.016-.063-.016-1.436-.075-2.293-1.11-2.925-2.428s-.972-2.028-1.932-1.664-.284.11-1.9.725C48.749,37.483,49.4,37.237,48.441,37.6Zm15.247,14.41a7.127,7.127,0,1,1-9.2-4.12A7.127,7.127,0,0,1,63.688,52.008Z" transform="translate(-38.553 -36.074)" fill="#fff"/>
+                  </svg>
+
+                  {{ section.settings.button_name1 -}}
+                </a>
+              </div>
+              <div class="btn2">
+                <a class=" btn btn-purple" href="{{ section.settings.button_link2 }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="31.431" height="37.877" viewBox="0 0 31.431 37.877">
+                    <g id="GIFT" transform="translate(-8.8 -0.1)">
+                      <rect id="Rectangle_18792" data-name="Rectangle 18792" width="11.939" height="16.822" transform="translate(10.86 21.156)" fill="#fff"/>
+                      <rect id="Rectangle_18793" data-name="Rectangle 18793" width="11.939" height="16.822" transform="translate(26.194 21.156)" fill="#fff"/>
+                      <rect id="Rectangle_18794" data-name="Rectangle 18794" width="14.037" height="7.934" transform="translate(8.8 11.315)" fill="#fff"/>
+                      <rect id="Rectangle_18795" data-name="Rectangle 18795" width="14.037" height="7.934" transform="translate(26.194 11.315)" fill="#fff"/>
+                      <path id="Path_65342" data-name="Path 65342" d="M36.98,10.056l5.531-4.387-4.844-.076L37.59.748,31.258,8.683,24.468.1l-.076,4.692L19.7,4.868l6.561,5.188Z" transform="translate(-6.742)" fill="#fff"/>
+                    </g>
+                  </svg>
+                  {{ section.settings.button_name2 -}}
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us",
+"settings": [
+      {
+        "type":"image_picker",
+        "id":"imgbanner",
+        "label":"Add image Banner"
+      },
+   {
+        "type":"image_picker",
+        "id":"imgbanner_mobile",
+        "label":"Add image Banner for mobile"
+      },
+      {
+        "type":"html",
+        "id":"bannername",
+        "label":"Enter Heading Of Banner"
+      }
+  ,
+    {
+        "type":"image_picker",
+        "id":"bg_image",
+        "label":"Add a background image of banner bellow "
+      }
+
+  ,
+      {
+        "type":"text",
+        "id":"tab1_name",
+        "label":"Enter Tab 1 Heading"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"tab2_name",
+        "label":"Enter Tab 2 Heading"
+      },
+    {
+        "type":"url",
+        "id":"link_foundation",
+        "label":"Enter Tab 2 Url"
+      },
+  
+      {
+        "type":"image_picker",
+        "id":"img_ghost",
+        "label":"Add Image of Tab 1"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"heading_ghost",
+        "label":"Add  Heading of Ghost  "
+      }
+  ,
+      {
+        "type":"html",
+        "id":"text_ghost",
+        "label":"Add Text of tab 1  "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"text_right_heading",
+        "label":"Add Heading Text right "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"text_right_text",
+        "label":"Enter Text"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"text_point",
+        "label":"Enter Heading of point "
+      }
+  ,
+       {
+        "type":"image_picker",
+        "id":"point1_img",
+        "label":"add a Image of point 1"
+      }
+  ,
+
+      {
+        "type":"html",
+        "id":"point1",
+        "label":"enter text of point1"
+      } ,
+
+       {
+        "type":"image_picker",
+        "id":"point2_img",
+        "label":"add a Image of point 2"
+      }
+  ,
+
+      {
+        "type":"html",
+        "id":"point2",
+        "label":"enter text of point2"
+      } ,
+     {
+        "type":"image_picker",
+        "id":"point3_img",
+        "label":"add a Image of point 1"
+      }
+  ,
+
+      {
+        "type":"html",
+        "id":"point3",
+        "label":"enter text of point1"
+      } ,
+      {
+        "type":"image_picker",
+        "id":"left_image",
+        "label":"Add image of Left "
+      } ,
+  {
+        "type":"image_picker",
+        "id":"anonymous",
+        "label":"Add Image of anonymous section"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"heading_anonymous",
+        "label":"Add  Heading of anonymous section  "
+      }
+  ,
+      {
+        "type":"html",
+        "id":"text_anonymous",
+        "label":"Add Text of anonymous section  "
+      },
+   {
+        "type":"image_picker",
+        "id":"ghost_someone",
+        "label":"Add Image of ghost_someone section"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"heading_ghost_someone",
+        "label":"Add  Heading of ghost_someone section  "
+      }
+  ,
+      {
+        "type":"html",
+        "id":"text_ghost_someone",
+        "label":"Add Text of ghost_someone section  "
+      },
+      {
+        "type":"image_picker",
+        "id":"ghost_someone_bellow_image",
+        "label":"Enter image  ghost_someone_bellow"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"ghost_someone_bellow_text",
+        "label":"Enter Text of ghost_someone_bellow_text"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"text_btn",
+        "label":"Add text line of upper button bellow "
+      } ,
+   {
+"type": "url",
+"id": "button_link1",
+"label": "Add a URL of button1"
+},
+  {
+"type": "text",
+"id": "button_name1",
+"label": "Add a Name of button1"
+},
+  {
+"type": "url",
+"id": "button_link2",
+"label": "Add a URL of button2"
+},
+  {
+"type": "text",
+"id": "button_name2",
+"label": "Add a Name of button2"
+},
+
+    {
+        "type":"image_picker",
+        "id":"img_ghos_foundation",
+        "label":"Add Image of Tab 2"
+      }
+  ,
+      {
+        "type":"image_picker",
+        "id":"img_ghost_right",
+        "label":"Enter Image Right bellow Main image second Tab "
+      }
+  ,  {
+        "type":"html",
+        "id":"text_left",
+        "label":"Add text tab2"
+      }
+  ,  {
+        "type":"text",
+        "id":"poins_head",
+        "label":"Add heading of points Foundation tab"
+      }
+ ,  {
+        "type":"text",
+        "id":"point1_head",
+        "label":"Add heading of point1 Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point1_text",
+        "label":"Add text of point1 Foundation tab"
+      }
+   ,  {
+        "type":"url",
+        "id":"btn_poit1_url",
+        "label":"Add Url of point1 btn Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point1_btn_text",
+        "label":"Add text of btn  point1 Foundation tab"
+      }
+ ,  {
+        "type":"text",
+        "id":"point2_head",
+        "label":"Add heading of point2 Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point2_text",
+        "label":"Add text of point2 Foundation tab"
+      }
+   ,  {
+        "type":"url",
+        "id":"btn_poit2_url",
+        "label":"Add Url of point2 btn Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point2_btn_text",
+        "label":"Add text of btn  point2 Foundation tab"
+      }
+ ,  {
+        "type":"text",
+        "id":"point3_head",
+        "label":"Add heading of point3 Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point3_text",
+        "label":"Add text of point3 Foundation tab"
+      }
+   ,  {
+        "type":"url",
+        "id":"btn_poit3_url",
+        "label":"Add Url of point3 btn Foundation tab"
+      }
+   ,  {
+        "type":"text",
+        "id":"point3_btn_text",
+        "label":"Add text of btn  point3 Foundation tab"
+      }
+
+
+    ],
+  "presets":[
+    {
+      "name":"About Us"
+    }
+  ]
+}
+{% endschema %}

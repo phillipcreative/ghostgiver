@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "we_send_gift_qUBxGC": {
+      "type": "we-send-gift",
+      "blocks": {
+        "collection_block_KJKqMt": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "individual-code-via-e-tailers",
+            "collection_content": "Send anything. You do the ordering. We provide the instructions."
+          }
+        },
+        "collection_block_M6PLGr": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "food-delivery",
+            "collection_content": "Send food. You do the ordering. We provide the instructions."
+          }
+        },
+        "collection_block_ipMEL4": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "physical-cards-envelopes",
+            "collection_content": "Include with gifts of your own. You do the delivering."
+          }
+        },
+        "collection_block_kmyYYJ": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "free-printable-cards-1",
+            "collection_content": "Print for free, add an anonymous note, and give. Great for kids!"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_KJKqMt",
+        "collection_block_M6PLGr",
+        "collection_block_ipMEL4",
+        "collection_block_kmyYYJ"
+      ],
+      "settings": {
+        "banner_desktop": "shopify:\/\/shop_images\/get-started.png",
+        "banner_mobile": "shopify:\/\/shop_images\/Mask_Group_37_a382572f-442d-4982-9ce8-1c82ebe223bd.png",
+        "page_title": "Get Started",
+        "section_heading": "CHOOSE HOW YOU’D LIKE TO SEND",
+        "section_content": "From digital options to physical products, we've got you covered.",
+        "section_blueimg": "shopify:\/\/shop_images\/Group_39360_2x_2dfe7f7a-0716-42b4-8cca-0d76c0cb4119.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "we_send_gift_qUBxGC"
+  ]
+}

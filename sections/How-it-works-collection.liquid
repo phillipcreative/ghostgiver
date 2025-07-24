@@ -1,0 +1,464 @@
+{% comment %} <div class="banner-relative Desktop">
+  <img class="bg-main-works " src="{{section.settings.imgbanner | img_url: 'master'}}">
+
+</div>
+
+<div class="banner-relative mobile" style="display:none">
+  <img class="bg-main-works " src="{{section.settings.imgbanner_mobile | img_url: 'master'}}">
+
+</div> {% endcomment %}
+
+{% comment %} Upwork Update 06.16 {% endcomment %}
+<div class="custom-banner-wrapper ways-to-ghost">
+  <img class="custom-banner-image" src="{{settings.imgbanner | img_url: 'master'}}" alt="Banner">
+
+  <div class="custom-banner-overlay">
+    <div class="custom-banner-content">
+      <h1 class="custom-banner-heading">Ways to ghostgive</h1>
+    </div>
+  </div>
+</div>
+
+    <div class="banner-relative mobile"  style="display:none ">
+       
+  <img class="bg-main-works " src="{{settings.imgbanner_mobile | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">Ways to ghostgive</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="block {{ section.settings.block_width }} offset-top-negative-100">
+    <div class="container">
+
+      <div class="btn_cstm_heading_coll">
+        <div class="btn_cstm_coll">
+          <a href="{{ section.settings.link_page }}"><i style="font-size:24px" class="fa">&#xf104;</i> Back</a>
+      
+        </div>
+      <div class="head_cst_col">
+      <h2 class="pink_text_head">{{ section.settings.headinmain }}</h2>
+         <h3>{{ section.settings.headinSub }}</h3>
+        <div class="im_col_ho">
+            <img  src="{{section.settings.img_below_head | img_url: 'master'}}">
+        </div>
+      </div>
+      </div>
+        <div class="row row-flex-sm no-gutter promo-box-row">
+            <div class="col-sm-4">
+                <a {% if section.settings.link_1 %}href="{{ section.settings.link_1 }}"  target="{{ section.settings.link_target_1 }}"{% endif %} class="promo-box text-center">
+                 <span class="count">1</span>
+                  <div class="promo-box-icon">          
+                      
+           {%if section.settings.icon1 != blank%}
+             <img src="{{section.settings.icon1 | img_url: 'grande'}}">
+          	{%else%}
+          <img src="https://dummyimage.com/250x100">
+          	{%endif%}
+                  </div>
+                    <h3 class="promo-box-title {{ section.settings.cstmclass1 }}">{{ section.settings.box_1_caption_1 }}</h3>
+                    <div class="promo-box-text">{{ section.settings.box_1_caption_2 }}</div>
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <a {% if section.settings.link_2 %}href="{{ section.settings.link_2 }}"  target="{{ section.settings.link_target_2 }}"{% endif %} class="promo-box text-center">
+                 <span class="count">2</span>
+                  <div class="promo-box-icon">    
+                            
+           {%if section.settings.icon2 != blank%}
+             <img src="{{section.settings.icon2 | img_url: 'grande'}}">
+          	{%else%}
+          <img src="https://dummyimage.com/250x100">
+          	{%endif%}
+                  </div>
+                    <h3 class="promo-box-title {{ section.settings.cstmclass2 }}">{{ section.settings.box_2_caption_1 }}</h3>
+                    <div class="promo-box-text">{{ section.settings.box_2_caption_2 }}</div>
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <a {% if section.settings.link_3 %}href="{{ section.settings.link_3 }}"  target="{{ section.settings.link_target_3 }}"{% endif %} class="promo-box text-center">
+                    <span class="count">3</span>
+                   <div class="promo-box-icon">      
+                          
+           {%if section.settings.icon3 != blank%}
+             <img src="{{section.settings.icon3 | img_url: 'grande'}}">
+          	{%else%}
+          <img src="https://dummyimage.com/250x100">
+          	{%endif%}
+                  </div>
+                    <h3 class="promo-box-title {{ section.settings.cstmclass3 }}">{{ section.settings.box_3_caption_1 }}</h3>
+                    <div class="promo-box-text">{{ section.settings.box_3_caption_2 }}</div>
+                            
+                </a>
+             
+            </div>
+
+               
+        </div>
+
+<div class="row row-flex-sm no-gutter promo-box-row row2">
+    {% if section.settings.icon4 !=blank %}
+        <div class="col-sm-4">
+                <a {% if section.settings.link_4 %}href="{{ section.settings.link_4 }}"  target="{{ section.settings.link_target_4 }}"{% endif %} class="promo-box text-center">
+                    <span class="count">4</span>
+                   <div class="promo-box-icon">      
+                          
+           {%if section.settings.icon4 != blank%}
+             <img src="{{section.settings.icon4 | img_url: 'grande'}}">
+          	{%else%}
+          <img src="https://dummyimage.com/250x100">
+          	{%endif%}
+                  </div>
+                    <h3 class="promo-box-title {{ section.settings.cstmclass4 }}">{{ section.settings.box_4_caption_1 }}</h3>
+                    <div class="promo-box-text">{{ section.settings.box_4_caption_2 }}</div>
+                            
+                </a>
+             
+            </div>
+  {% endif %}
+  {% if section.settings.icon5 !=blank %}
+               <div class="col-sm-4">
+                <a {% if section.settings.link_5 %}href="{{ section.settings.link_5 }}"  target="{{ section.settings.link_target_5 }}"{% endif %} class="promo-box text-center">
+                    <span class="count">5</span>
+                   <div class="promo-box-icon">      
+                          
+           {%if section.settings.icon5 != blank%}
+             <img src="{{section.settings.icon5 | img_url: 'grande'}}">
+          	{%else%}
+          <img src="https://dummyimage.com/250x100">
+          	{%endif%}
+                  </div>
+                    <h3 class="promo-box-title {{ section.settings.cstmclass5 }}">{{ section.settings.box_5_caption_1 }}</h3>
+                    <div class="promo-box-text">{{ section.settings.box_5_caption_2 }}</div>
+                            
+                </a>
+             
+            </div>
+  {% endif %}
+</div>
+ 
+     
+    </div>
+</div>
+
+
+<style>
+  .btn-custom{
+ background: #193e5a;
+    color: white;
+    outline: 0;
+    border-radius: 10px;
+    border: 0;
+    padding: 2px 10px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .info-extra img{
+  display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .bg-custom{
+    background: url('{{'texture2.jpg' | asset_url}}');
+    background-repeat: no-repeat;
+        background-size: contain;
+  }
+</style>
+{% schema %}
+{
+"name": "How it works collection",
+"class": "index-section bg-custom collec_how-it-works",
+"settings": [
+  {
+"type": "image_picker",
+"id": "imgbanner",
+"label": "Add a Banner Image"
+},
+    {
+"type": "image_picker",
+"id": "imgbanner_mobile",
+"label": "Add a mobile Banner Image"
+},
+  
+    {
+"type": "url",
+"id": "link_page",
+"label": "Add a url"
+},
+    {
+"type": "text",
+"id": "headinmain",
+"label": "Add a Main Heading "
+},
+    {
+"type": "text",
+"id": "headinSub",
+"label": "Add a Sub Heading "
+},
+      {
+"type": "image_picker",
+"id": "img_below_head",
+"label": "Add a Image bellow Heading "
+},
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"global_width",
+"info":"click Save to see changes"
+},
+{
+"type": "select",
+"id": "outer_margin",
+"label": "Outer top margin",
+"options":[
+{"value":"offset-top-0","label":"None"},
+{"value":"offset-top-30","label":"30px"},
+{"value":"offset-top-40","label":"40px"},
+{"value":"offset-top-50","label":"50px"}
+],
+"default": "offset-top-50"
+},
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "header",
+"content": "Info Box 1"
+},
+{
+"type": "url",
+"id": "link_1",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_1",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon1",
+"label": "Icon"
+},
+   {
+"type": "text",
+"id": "cstmclass1",
+"label": "Add cstm class if need space spacing-topp"
+},
+{
+"type": "text",
+"id": "box_1_caption_1",
+"label": "Caption 1",
+"default":"FREE SHIPPING"
+},
+
+{
+"type": "html",
+"id": "box_1_caption_2",
+"label": "Caption 2",
+"default":"Free shipping on all orders over $199"
+},
+{
+"type": "header",
+"content": "Info Box 2"
+},
+{
+"type": "url",
+"id": "link_2",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_2",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon2",
+"label": "Icon"
+},
+   {
+"type": "text",
+"id": "cstmclass2",
+"label": "Add cstm class if need space spacing-topp"
+},
+{
+"type": "text",
+"id": "box_2_caption_1",
+"label": "Caption 1",
+"default":"MONEY BACK"
+},
+
+{
+"type": "textarea",
+"id": "box_2_caption_2",
+"label": "Caption 2",
+"default":"100% money back guarantee"
+},
+{
+"type": "header",
+"content": "Info Box 3"
+},
+{
+"type": "url",
+"id": "link_3",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_3",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon3",
+"label": "Icon"
+},
+   {
+"type": "text",
+"id": "cstmclass3",
+"label": "Add cstm class if need space spacing-topp"
+},
+{
+"type": "text",
+"id": "box_3_caption_1",
+"label": "Caption 1",
+"default":"ONLINE SUPPORT"
+},
+
+{
+"type": "textarea",
+"id": "box_3_caption_2",
+"label": "Caption 2",
+"default":"Service support fast 24/7"
+},
+  {
+"type": "header",
+"content": "Info Box 4"
+},
+{
+"type": "url",
+"id": "link_4",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_4",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon4",
+"label": "Icon"
+},
+  {
+"type": "text",
+"id": "cstmclass4",
+"label": "Add cstm class if need space spacing-topp"
+},
+{
+"type": "text",
+"id": "box_4_caption_1",
+"label": "Caption 1",
+"default":"ONLINE SUPPORT"
+},
+
+{
+"type": "textarea",
+"id": "box_4_caption_2",
+"label": "Caption 2",
+"default":"Service support fast 24/7"
+},
+  {
+"type": "header",
+"content": "Info Box 5"
+},
+{
+"type": "url",
+"id": "link_5",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_5",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon5",
+"label": "Icon"
+},
+  {
+"type": "text",
+"id": "cstmclass5",
+"label": "Add cstm class if need space spacing-topp"
+},
+{
+"type": "text",
+"id": "box_5_caption_1",
+"label": "Caption 1"
+},
+
+{
+"type": "textarea",
+"id": "box_5_caption_2",
+"label": "Caption 2"
+}
+  
+  
+],
+"presets": [
+{
+"name": "How it works collection",
+"category": "Text"
+}
+]
+}
+{% endschema %}

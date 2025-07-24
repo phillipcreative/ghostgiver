@@ -1,0 +1,236 @@
+{% paginate collection.products by section.settings.products_per_page %}
+{% assign products_per_row = section.settings.collections_products_per_row %}
+{% assign products_per_row_mobile = section.settings.collections_per_row_mobile %}
+{% assign grid_products_view = section.settings.collections_products_view %}
+{% assign collection_left_sidebar = settings.collection_left_sidebar %}{% if collection_left_sidebar %}{% assign collection_left_sidebar = 1 %}{% endif %}
+{% if collection.description contains 'products-per-row-2' %}{% assign products_per_row = '2' %}{% endif %}
+{% if collection.description contains 'products-per-row-3' %}{% assign products_per_row = '3' %}{% endif %}
+{% if collection.description contains 'products-per-row-4' %}{% assign products_per_row = '4' %}{% endif %}
+{% if collection.description contains 'products-per-row-5' %}{% assign products_per_row = '5' %}{% endif %}
+<!-- Center column -->
+<div class="aside">
+
+{% if template.suffix == 'FREE-PRINTABLE-CARDS' or template.suffix == 'Physical-Cards' or template.suffix == 'Demo-Coll' or template.suffix == 'Digital-Gift-Cards' or template.suffix == 'digital_gift_card_viatext'  or template.suffix == 'digital_gift_card(viaemail)' or template.suffix == 'ghost_code_(via-e-tailers)' or template.suffix == 'send_cash(via_venmo)' %}
+
+  <div class="custom-main-img-contant-coll-main-wrap">
+    <div class="image-btn-wrap">
+    <div class="custom-coll-img-main">
+      {% assign collection_image = collection.metafields.custom.collection_image_description_.value %}
+    <img src="{{ collection_image | img_url : 'master' }}">
+    </div>
+
+        <div class="custom-but-work-example-main">
+           <div class="how-it-work-custm">
+               {% assign coll_link = collection.metafields.custom.how_it_works_link.value.url %}
+             <a href="{{ coll_link }}">{{ section.settings.custm_name_how_it_work }}</a>
+           </div>
+           <div class="example-custm">
+                {% assign coll_link1 = collection.metafields.custom.example_btn_url.value.url %}
+             <a href="{{ coll_link1 }}">{{ section.settings.custm_name_example }}</a>
+
+           </div>
+        </div>
+    </div>
+    <div class="custm-but-cont-head">
+    {% if section.settings.collections_title %}
+        <!-- Page Title -->
+        <h2 class="text-center">{{ collection.title }} {% if collection.metafields.custom.product_via.value!=blank  %}
+                  {{ collection.metafields.custom.product_via.value }}
+                  {% endif %}</h2>
+        <!-- /Page Title -->
+    {% endif %}
+    {% if collection.description != blank %}
+        {% if  collection.description contains '|[config]|'%}
+            {% assign desc = collection.description | split:'|[config]|' %}
+            {% if desc.size > 1 %}<div class="description">{{ desc | last }}</div> {% endif %}
+        {% else %}
+            <div class="collection-desc-text">{{ collection.description }}</div><br /> 
+        {% endif %}
+    {% endif %}
+      {% if collection.metafields.custom.bold_content.value!=blank  %}
+     <div class="product-custom">
+                        <div class="green-box">
+                            <p><b>{{ collection.metafields.custom.bold_content.value }}</b></p>
+                        </div>
+                    </div>
+          {% endif %}
+             {% if collection.metafields.custom.amount_content.value != blank %}
+        <div class="price-sec">
+          {{ collection.metafields.custom.give_it_try_button_url.value.price | money_with_currency }}
+          <div class="pink-box">
+            <p><b>+ {{ collection.metafields.custom.amount_content.value }}</b></p>
+          </div>
+        </div>
+      {% elsif collection.metafields.custom.amount_content.value == blank and collection.metafields.custom.bold_content.value != blank %}
+        <div class="price-sec">
+          <span>{{ collection.metafields.custom.give_it_try_button_url.value.price | money_with_currency }}</span>
+        </div>
+      {% endif %}
+
+       {% if collection.metafields.custom.give_it_try_button_url.value.url != blank %}
+
+          {% assign give_ustry_link = collection.metafields.custom.give_it_try_button_url.value.url %}
+          {% assign give_ustry_name = collection.metafields.custom.give_it_try_button_name.value %}
+          {% assign featured_product = collection.metafields.custom.add_to_cart_product.value %}
+          {% assign featured_product_handle = featured_product.handle %}
+
+
+      {% if featured_product_handle != '' %}
+        <div class="product-actions-btn custom-collection-atc">
+          <button class="btn btn-lg js-add-to-cart-product-page" data-product-handle="{{ featured_product.handle }}" data-variant-id="{{ featured_product.selected_or_first_available_variant.id }}" title="Add to Cart">Continue</button>
+        </div>
+      {% else %}
+        <div class="give_us_try_cs">
+        <a href="{{ give_ustry_link }}">{{ give_ustry_name }}</a>
+        </div>
+      {% endif %}
+
+         {% comment %} <form method="post" action="/cart/add" class="col-add-cart">
+      <input type="hidden" name="id" value="{{ collection.metafields.custom.give_it_try_button_url.value.selected_or_first_available_variant.id }}" />
+      <input type="submit" value="Add to cart" class="btn" />
+    </form> {% endcomment %}
+      {% endif %}
+   <div class="custom-but-work-example-main" style="display:none">
+     {% if section.settings.custm_url_how_it_work != blank %}
+   <div class="how-it-work-custm">
+       {% assign coll_link = collection.metafields.custom.how_it_works_link.value.url %}
+   <a href="/pages/how-it-work-physical-cards-and-envelopes">{{ section.settings.custm_name_how_it_work }}</a>
+   </div>
+       {% endif %}
+     {% if section.settings.custm_url_example != blank %}
+    <div class="example-custm">
+   <a href="{{ section.settings.custm_url_example }}">{{ section.settings.custm_name_example }}</a>
+   </div>
+       {% endif %}
+   </div>
+
+      {% if template.suffix != 'ghost_code_(via-e-tailers)' and template.suffix != 'digital_gift_card_viatext' and template.suffix != 'digital_gift_card(viaemail)' and template.suffix != 'send_cash(via_venmo)'%}
+
+    <div class="product-listing">
+        {% if collection.products.size > 0 %}
+            {% if settings.collection_sort_enable %}
+                {% include 'collection-toolbar' %}
+            {% endif %}
+            <div class="product-items products-{{ settings.collection_listing_style }} collection-handle-{{ collection.handle }} data-to-show-{{ products_per_row }}  data-to-show-lg-{{ products_per_row }} data-to-show-md-3 data-to-show-sm-{{ products_per_row_mobile }} data-to-show-xs-{{ products_per_row_mobile }}">
+                {% for product in collection.products %}
+                    {% include 'product-card' image_size:'large' %}
+                {% endfor %}
+            </div>
+
+            <div class="text-center offset-top-70 d-flex flex-center" style="display:none">
+                <div class="show_more_wrapper">
+                    {% unless paginate.pages == paginate.current_page  %}
+                    {% assign show = section.settings.products_per_page | plus:0 %}
+                    {% assign page = paginate.current_page | plus:0 %}
+                    {% assign show_text = show %}
+                    {% assign pages_times_show = paginate.current_page | times:show %}
+                    {% assign left = collection.products_count | minus:pages_times_show %}
+                    {% if show >= left %}{% assign show_text = left %}{% assign remove_show_more = 1 %}{% endif %}
+                    {% assign t_item =  'general.theme.item' | t %}
+                    {% assign t_items = 'general.theme.items_c' | t %}
+                    <a href="{{ paginate.next.url }}" class="btn show_more">{{ 'general.theme.show_more' | t }} +{{ show_text }} {{ paginate.items | pluralize: t_item, t_items }}<div class="bg-striped"></div></a>
+                    {% endunless %}
+                </div>
+                {% if paginate.pages > 1 %}
+                    <div class="items-total"> {% include 'pagination-custom' %}</div>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="listing-info">{{ 'general.theme.no_products' | t }}</div>
+            <div class="listing-info-icon"><i class="icon-box"></i></div>
+        {% endif %}
+    </div>
+  {% endif %}
+    </div>
+  </div>
+
+  {% endif %}
+
+
+</div>
+<!-- /Center column -->
+{% endpaginate %}
+{% schema %}
+{
+    "name": "Products content",
+  "class": "collect-sect",
+    "settings": [
+      {
+        "type":"url",
+        "id":"custm_url_how_it_work",
+        "label":"how it work"
+      },
+       {
+        "type":"text",
+        "id":"custm_name_how_it_work",
+        "label":"how it work"
+      },
+       {
+        "type":"url",
+        "id":"custm_url_example",
+        "label":"example"
+      },
+       {
+        "type":"text",
+        "id":"custm_name_example",
+        "label":"example"
+      },
+
+
+
+{
+"type": "paragraph",
+"content": "[Documentation](http://big-skins.com/banita/shopify/manuals/#Collection)"
+},
+{
+            "type": "header",
+            "content": "Layout"
+        },
+        {
+            "type": "select",
+            "id": "collections_products_per_row",
+            "label": "Products per row in desctop",
+            "options": [
+                { "value": "2", "label": "2" },
+                { "value": "3", "label": "3" },
+                { "value": "4", "label": "4" }
+            ],
+            "default": "3"
+        },
+        {
+            "type": "select",
+            "id": "collections_per_row_mobile",
+            "label": "Products per row in mobile",
+            "options": [
+                { "value": "1", "label": "1" },
+                { "value": "2", "label": "2" }
+            ],
+            "default": "1"
+        },
+        {
+        "type": "select",
+        "id": "products_per_page",
+        "label": "Default Count of products per page",
+        "options": [
+        { "value": "12", "label": "12" },
+        { "value": "18", "label": "18" },
+        { "value": "36", "label": "36" },
+        { "value": "50", "label": "All" }
+        ],
+        "default": "12"
+        },
+        {
+            "type": "checkbox",
+            "id": "collections_title",
+            "label": "Show heading",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "collections_description",
+            "label": "Enable collection description",
+            "default": true
+        }
+    ]
+}
+{% endschema %}

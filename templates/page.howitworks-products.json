@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "how_it_works_collection_AYYx3h": {
+      "type": "How-it-works-collection",
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/Ways_to_Ghostgive_Image_for_Desktop_1.jpg",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Ways_to_Ghostgive.png",
+        "link_page": "shopify:\/\/collections\/gifts",
+        "headinmain": "HOW IT WORKS",
+        "headinSub": "Gifts (Shipped)",
+        "img_below_head": "shopify:\/\/shop_images\/Group_42719_2x_70fd5b90-d647-4711-a903-e7ce8d946e04.png",
+        "enable": true,
+        "block_width": "global_width",
+        "outer_margin": "offset-top-50",
+        "link_1": "",
+        "link_target_1": "_self",
+        "icon1": "shopify:\/\/shop_images\/Mask_Group_65_2x_7fd49066-2013-485a-bdff-b64433fbea9d.png",
+        "cstmclass1": "spacing-topp",
+        "box_1_caption_1": "PURCHASE",
+        "box_1_caption_2": "Find the product you would like to ghostgive and click on ADD TO CART to purchase.",
+        "link_2": "",
+        "link_target_2": "_self",
+        "icon2": "shopify:\/\/shop_images\/Mask_Group_67_2x_c9955452-c3b4-46af-ac94-78daba7d8369.png",
+        "cstmclass2": "spacing-topp",
+        "box_2_caption_1": "WE DELIVER",
+        "box_2_caption_2": "We’ll send your ghost gift with a card + envelope that includes instructions to access your anonymous message.",
+        "link_3": "",
+        "link_target_3": "_self",
+        "icon3": "shopify:\/\/shop_images\/Mask_Group_63_2x_e8b5f0e4-130e-4b26-a320-e3c406341ee2.png",
+        "cstmclass3": "spacing-topp",
+        "box_3_caption_1": "GET NOTIFIED",
+        "box_3_caption_2": "Get real-time confirmation via text\/email when your gift is received, plus a possible thank you from your recipient.",
+        "link_4": "",
+        "link_target_4": "_self",
+        "cstmclass4": "",
+        "box_4_caption_1": "ONLINE SUPPORT",
+        "box_4_caption_2": "Service support fast 24\/7",
+        "link_5": "",
+        "link_target_5": "_self",
+        "cstmclass5": "",
+        "box_5_caption_1": "",
+        "box_5_caption_2": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "how_it_works_collection_AYYx3h"
+  ]
+}

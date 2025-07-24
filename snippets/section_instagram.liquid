@@ -1,0 +1,24 @@
+{{ 'instafeed.min.js' | asset_url | script_tag }}
+<script type="text/javascript">
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: 'self',
+        accessToken: '{{ settings.insta_token }}',
+        limit:{{ settings.insta_limit }},
+        sortBy: '{{ settings.insta_sort }}',
+        resolution:'low_resolution',
+
+    });
+    userFeed.run();
+</script>
+<div class="block fullwidth full-nopad">
+    <div class="container">
+        <div class="instagramm-feed-full"  id="instafeed"></div>
+        {% if settings.ig_home_widget %}
+        <div class="instagramm-title">{{ settings.ig_home_widget_text }}</div>
+        {% endif %}
+    </div>
+</div>
+
+
+

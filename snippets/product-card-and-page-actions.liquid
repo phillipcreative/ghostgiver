@@ -1,0 +1,12 @@
+<a href="{{ product.url }}" class="product-item-external" title="{{ 'general.theme.go_to_product_page' | t }}" tabindex="0"> <i class="icon icon-external-link"></i></a>
+<a href="/cart" title="{{ 'general.theme.view_and_edit_cart' | t }}" class="product-item-cart hidden"><i class="icon icon-cart"><span></span></i></a>
+{% unless settings.catalog_mode %}{% include 'wishlist-product' %}{% endunless %}
+{% if settings.social_sharing_products %}
+    <div class="share-button  share-button--{{ position }}">
+        <span class="toggle"></span>
+        <div class="social-list-wrap">
+        {% include 'social-sharing-links' %}
+            <span class="share-caret"></span>
+        </div>
+    </div>
+{% endif %}

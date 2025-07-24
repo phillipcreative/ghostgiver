@@ -1,0 +1,119 @@
+{% if product.title contains 'Huawei Y5 Gold' %}
+<style>
+  .gallery-bottom {
+    width: 100%;
+  }
+  .gallery-bottom .main-image {
+    width: 100%;
+    float: none;
+  }
+  .gallery-bottom .main-image-holder {
+      margin-bottom: 0;
+  }
+  .gallery-bottom .product-previews-wrapper {
+    width: 100%;
+    float: none;
+  }
+  .product-previews-carousel.carousel-horizontal .slick-slide {
+    text-align: center;
+    margin: 0;
+  }
+  .product-icons-wrap {
+      clear: both;
+      height: 25px;
+      margin-bottom: 10px;
+  }
+  .product-previews-carousel.carousel-horizontal .slick-next, .product-previews-carousel.carousel-horizontal .slick-prev {
+      bottom: auto;
+      top: calc(50% - 18px);
+      height: 36px;
+      width: 36px;
+  }
+  .product-previews-carousel.carousel-horizontal .slick-prev:before {
+      content: "\e923";
+  }
+    .product-previews-carousel.carousel-horizontal .slick-next:before {
+      content: "\e922";
+  }
+  .product-previews-carousel.carousel-horizontal a.active:after {
+    width: calc(100% - 2px);
+  }
+</style>
+<div class="gallery-bottom">
+  <div class="main-image main-image--slide js-main-image--slide id_{{ product.id }}">
+    {% assign featured_image = product.featured_image %}
+    <div class="main-image-holder {% if section.settings.zoom %}js-main-image-zoom{% endif %}" data-zoomtype="inner"> <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}"  class="zoom" data-zoom-image="{{ featured_image | img_url: '1024x1024' }}">
+      {% if product.images.size > 1 %}
+      <div class="main-image-next slick-next js-main-image-next">{{ 'general.theme.next_preview' | t }}</div>
+      <div class="main-image-prev slick-prev js-main-image-prev">{{ 'general.theme.prev_preview' | t }}</div>
+      {% endif %}
+    </div>
+    <div class="product-icons-wrap">
+      {% if product.metafields.c_f.video != blank %} <a href="{{ product.metafields.c_f.video }}" class="video-link"><i class="icon icon-film"></i>Video</a> {% endif %}
+      <a href="{{ featured_image | img_url: '1024x1024' }}" class="zoom-link {% if product.images.size < 2 %} disable-gallery{% endif %}"><i class="icon icon-zoomin"></i>Zoom</a>
+    </div>
+  </div>
+  {% if product.images.size > 1 %}
+  {% for image in product.images %}
+  <!--gallery buffer-->
+  <img alt="" src="{{ image.src | img_url: '1024x1024' }}" style="display: none" />
+  {% endfor %}
+  <div class="product-previews-wrapper">
+    <div class="product-previews-carousel carousel-horizontal" id="previewsGallery{% if quick_view == 'yes' %}Modal{% endif %}{{ product.id }}"
+         data-slick='{
+                     "vertical": false, 
+                     "slidesToShow": 5, 
+                     "responsive": [{
+                     	"breakpoint": 1201,
+                     	"settings": {
+                     		"slidesToShow": 5
+                         }
+                      },{
+                     	"breakpoint": 993,
+                     	"settings": {
+                     		"slidesToShow": 4
+                     	}
+                     },{
+                     	"breakpoint": 769,
+                     	"settings": {
+                     		"slidesToShow": 4
+                     	}
+                     },{
+                     	"breakpoint": 576,
+                     	"settings": {
+                     		"slidesToShow": 3
+                     	}
+                     }] 
+         			}'>
+      {% for image in product.images %}
+      <a href="#" data-image="{{ image.src | img_url: '1024x1024' }}" data-zoom-image="{{ image.src | img_url: '1024x1024' }}"><img src="{{ image.src | img_url: 'medium' }}" alt="" /></a>
+      {% endfor %}
+    </div>
+  </div>  </div>
+{% endif %}
+{% else %}
+<div class="main-image main-image--slide js-main-image--slide   id_{{ product.id }}">
+  {% assign featured_image = product.featured_image %}
+  <div class="main-image-holder {% if section.settings.zoom %}js-main-image-zoom{% endif %}" data-zoomtype="inner"> <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}"  class="zoom" data-zoom-image="{{ featured_image | img_url: '1024x1024' }}">
+    {% if product.images.size > 1 %}
+    <div class="main-image-next slick-next js-main-image-next">{{ 'general.theme.next_preview' | t }}</div>
+    <div class="main-image-prev slick-prev js-main-image-prev">{{ 'general.theme.prev_preview' | t }}</div>
+    {% endif %}
+  </div>
+  {% if product.metafields.c_f.video != blank %} <a href="{{ product.metafields.c_f.video }}" class="video-link"><i class="icon icon-film"></i>Video</a> {% endif %}
+  <!-- <a href="{{ featured_image | img_url: '1024x1024' }}" class="zoom-link {% if product.images.size < 2 %} disable-gallery{% endif %}"><i class="icon icon-zoomin"></i>Zoom</a> -->
+</div>
+{% if product.images.size > 1 %}
+{% for image in product.images %}
+<!--gallery buffer-->
+<img alt="" src="{{ image.src | img_url: '1024x1024' }}" style="display: none" />
+{% endfor %}
+<div class="product-previews-wrapper">
+  <div class="product-previews-carousel" id="previewsGallery{% if quick_view == 'yes' %}Modal{% endif %}{{ product.id }}">
+    {% for image in product.images %}
+    <a href="#" data-image="{{ image.src | img_url: '1024x1024' }}" data-zoom-image="{{ image.src | img_url: '1024x1024' }}"><img src="{{ image.src | img_url: 'medium' }}" alt="" /></a>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+{% endif %}

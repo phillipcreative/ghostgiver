@@ -1,0 +1,20 @@
+<div class="block boxed">
+  <div class="container">
+    <div class="form-card">
+      <h3>{{ 'customer.register.title' | t }}</h3>
+      {% form 'create_customer', class:"account-create" %}
+      {{ form.errors | default_errors }}
+        <label>{{  'customer.register.first_name' | t }}<span class="required">*</span></label>
+        <input type="text" class="form-control input-lg" name="customer[first_name]" id="FirstName" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+        <label>{{ 'customer.register.last_name' | t }}<span class="required">*</span></label>
+        <input class="form-control input-lg" type="text" name="customer[last_name]" id="LastName" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+        <label>{{ 'customer.register.email' | t }}<span class="required">*</span></label>
+        <input class="form-control input-lg" type="email" name="customer[email]" id="Email" placeholder="{{ 'customer.register.email' | t }}" {% if form.errors contains "email" %} class="error"{% elsif form.email %} value="{{ form.email }}"{% endif %}  >
+        <label>{{ 'customer.register.password' | t }}<span class="required">*</span></label>
+        <input class="form-control input-lg" type="password" name="customer[password]" id="CreatePassword" placeholder="{{ 'customer.register.password' | t }}" {% if form.errors contains "password" %} class="error"{% endif %}>
+        <div><button class="btn btn-lg">{{ 'customer.register.submit' | t }}</button><span class="required-text">* Required Fields</span></div>
+        <div class="back">or <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }} <i class="icon icon-undo"></i></a></div>
+      {% endform %}
+    </div>
+  </div>
+</div>

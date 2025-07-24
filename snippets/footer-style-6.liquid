@@ -1,0 +1,25 @@
+<div class="footer-top">
+    <div class="container">
+        <div class="footer-logo">
+            {% include 'footer-logo' %}
+        </div>
+        {% if section.settings.social_icons %}
+            <div class="footer-social">
+                {% include 'social-media-links' %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+<div class="footer-middle">
+    <div class="container">
+        {{ section.settings.support_time }}
+        {% if section.settings.newsletter %}{% include 'newsletter-inline' %}{% endif %}
+    </div>
+</div>
+<div class="footer-bot">
+    <div class="container">
+        <div class="footer-copyright">
+            {{ section.settings.copyright }}
+        </div>
+    </div>
+</div>

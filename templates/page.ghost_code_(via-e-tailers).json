@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "how_it_works_collection_dYryFy": {
+      "type": "How-it-works-collection",
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/Ways_to_Ghostgive_Image_for_Desktop.jpg",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Ways_to_Ghostgive.png",
+        "link_page": "shopify:\/\/collections\/individual-code-via-e-tailers",
+        "headinmain": "HOW  IT WORKS",
+        "headinSub": "Food Delivery (DoorDash, etc.)",
+        "img_below_head": "shopify:\/\/shop_images\/Mask_Group_78_2x_33942b99-a5e4-4efb-9fe4-784b8db79f1b.png",
+        "enable": true,
+        "block_width": "global_width",
+        "outer_margin": "offset-top-50",
+        "link_1": "",
+        "link_target_1": "_self",
+        "icon1": "shopify:\/\/shop_images\/Mask_Group_60_2x_0c06a80d-79cd-421c-b4d0-918691fc1a72.png",
+        "cstmclass1": "",
+        "box_1_caption_1": "PURCHASE",
+        "box_1_caption_2": "Get a ghost code by clicking on ADD TO CART to purchase.",
+        "link_2": "",
+        "link_target_2": "_self",
+        "icon2": "shopify:\/\/shop_images\/Mask_Group_61_2x_e35596f1-aec3-490b-849a-4fa895defb9b.png",
+        "cstmclass2": "",
+        "box_2_caption_1": "FIND GIFT",
+        "box_2_caption_2": "Find a gift on any E-tailer site that allows you to add a personal message to the gift.",
+        "link_3": "",
+        "link_target_3": "_self",
+        "icon3": "shopify:\/\/shop_images\/Mask_Group_98_2x_aef54d08-4390-4904-8cd7-5ab71f5654a2.png",
+        "cstmclass3": "",
+        "box_3_caption_1": "INSTRUCTIONS",
+        "box_3_caption_2": "After you check out we’ll provide you with instructions + ghost code.",
+        "link_4": "",
+        "link_target_4": "_self",
+        "icon4": "shopify:\/\/shop_images\/Mask_Group_62_2x_0c3fcc31-41ec-4fed-a9ed-0a1b918e746a.png",
+        "cstmclass4": "",
+        "box_4_caption_1": "CUT & PASTE",
+        "box_4_caption_2": "Cut & paste instructions + ghost code into the gift message box on E-tailers checkout page.",
+        "link_5": "",
+        "link_target_5": "_self",
+        "icon5": "shopify:\/\/shop_images\/Mask_Group_63_2x_48a8f789-e0c7-4b7e-aa9f-ddf8728529ae.png",
+        "cstmclass5": "spacing-topp",
+        "box_5_caption_1": "GET NOTIFIED",
+        "box_5_caption_2": "Get real-time confirmation via text email when your gift is received, plus a possible thank you from your recipient."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "how_it_works_collection_dYryFy"
+  ]
+}

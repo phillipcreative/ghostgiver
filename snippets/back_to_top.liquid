@@ -1,0 +1,8 @@
+<a class="btn btn-invert back-to-top back-to-top-mobile js-back-to-top-mobile" href="#">
+	<i class="icon icon-angle-up"></i> {{ 'general.theme.to_top' | t }}
+</a>
+{% if settings.back_to_top_desctop %}
+    <a class="back-to-top back-to-top-desktop js-back-to-top-desktop" href="#" title="{{ 'general.theme.to_top' | t }}" data-return="{{ 'general.theme.to_back' | t }}">
+        <i class="icon icon-angle-up"></i>
+    </a>
+{% endif %}

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="header-logo">
+        {% include 'header-logo' %}
+    </div>
+    <div class="header-content">
+        <div class="header-top-row">
+            <div class="header-top-right">
+                <div class="header-links header-links-1">
+                    {% include 'header-languages' %}
+                    {% include 'currency-picker' %}
+                </div>
+                <div class="header-links header-links-2">
+                    {% include 'wishlist-header' %}
+                    {% include 'header-login-form' %}
+                    {% include 'header-cart' %}
+                </div>
+            </div>
+            <div class="header-top-left">
+                <div class="header-custom-text">
+                    {{- section.settings.header_support_time -}}
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            {% include 'mobile-navigation' %}
+            {% include 'header-navigation' %}
+            {% include 'header-search' %}
+        </div>
+    </div>
+</div>

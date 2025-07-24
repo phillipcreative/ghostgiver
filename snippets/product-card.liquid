@@ -1,0 +1,164 @@
+{% unless mode == 'empty' %}
+    {% assign on_sale = false %}
+    {% if product.compare_at_price > product.price %}
+        {% assign on_sale = true %}
+    {% endif %}
+
+    {% assign sold_out = true %}
+    {% if product.available %}
+        {% assign sold_out = false %}
+    {% endif %}
+
+    {% unless grid_image_width %}
+      {%- assign grid_image_width = '300x300' -%}
+    {% endunless %}
+    {%- assign grid_image_scale = '2' -%}
+    {% if settings.previews_height_yes and settings.previews_height != blank %}
+        {%- assign grid_image_scale = '1' -%}
+        {% assign grid_image_width = 'x' | append:settings.previews_height %}
+        {% endif %}
+
+        {% assign free_printable_cards = "" %}
+        {% for prod in collections["free-printable-cards"].products %}
+            {% for variant in prod.variants %}
+                {% assign free_printable_cards = free_printable_cards | append: variant.id | append: "," %}
+            {% endfor %}
+        {% endfor %}
+
+        <div class="product-item {% if sold_out %}product-item--not-available{% endif %} product-id-{{ product.selected_or_first_available_variant.id }}">
+            <div class="product-item-inside">
+                <!-- Product Photo -->
+                <div class="product-item-photo-holder">
+                    <!-- Product Label -->
+                    {% if on_sale and settings.show_label_sale %}
+                        <div class="product-item-label label-sale">
+                            <span>-{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by:product.compare_at_price | times: 100 | divided_by: 100 | floor }}%</span>
+                        </div>
+                    {% endif %}
+                    {% assign new = 0 %}
+                    {% for tag in product.tags %}{% if tag == 'new' or tag == 'New'  %}{% assign new = 1 %}{% endif %} {% endfor %}
+                    {% if new == 1 and settings.show_label_new %}<div class="product-item-label label-new"><span>{{ 'general.theme.new' | t }}</span></div>{% endif %}
+                    {% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity < 1 and product.selected_or_first_available_variant.inventory_policy == "continue" %}<div class="product-item-label label-preorder"><i class="icon-preorder"></i><span>{{ 'general.theme.preorder_label' | t }}</span></div>{% endif %}
+                    {% if sold_out %}
+                        <a href="{{ product.url | within: collection }}" class="product-item-not-available">
+                            <span class="vert-wrapper"><span class="vert"><span class="text">{{ 'products.product.sold_out' | t }}</span></span></span>
+                        </a>
+                    {% endif %}
+
+                    {% if settings.show_quick_view %}<a href="{{ product.url }}{% if template == 'search' %}&{% else %}?{% endif %}view=quick-view" title="{{ 'general.theme.quick_view' | t }}" class="quick-view-link quick-view-btn" data-toggle="modal" data-target="#quickView"><i class="icon-eye"></i></a>{% endif %}
+
+                    {% if product.images.size > 1 and settings.carousels_show_yes %}
+                        <!-- product inside carousel -->
+                        <div class="carousel-inside slide" data-ride="carousel" data-interval="false">
+                            <div class="carousel-inner" role="listbox">
+                                {% for image in product.images  limit:3 %}
+                                    <div class="product-item-photo item {% if forloop.first == true %}active{% endif %}"><a title="{{ product.title }}" href="{{ product.url | within: collection }}"><img class="product-image-photo" {% if settings.carousels_lazy_loading and carousel contains 'yes'  %}data-lazy{% else %}src{% endif %}="{{ image.src  | img_url: grid_image_width, scale: grid_image_scale  }}" alt=""></a></div>
+                                {% endfor %}
+                            </div>
+                            <a class="carousel-control next"></a> <a class="carousel-control prev"></a>
+                        </div>
+                        <!-- /product inside carousel -->
+                    {% else %}
+                        <div class="product-item-photo">
+                            <a title="{{ product.title }}" href="{{ product.url | within: collection }}"><img  class="product-image" {% if settings.carousels_lazy_loading and carousel contains 'yes'  %}data-lazy{% else %}src{% endif %}="{{ product.featured_image.src | img_url: grid_image_width, scale: grid_image_scale }}" alt="{{ product.featured_image.alt | escape }}"></a>
+                        </div>
+                    {% endif %}
+                    <!-- /product main photo  -->
+                    {% if product.metafields.c_f.countdown != blank %}
+                        <div class="countdown-box">
+                            <div class="countdown-wrapper">
+                                <div class="countdown-title">{{ 'general.theme.countdown_to' | t }}</div>
+                                <div class="countdown" data-countdown="{{  product.metafields.c_f.countdown }}"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <!-- /Product Photo -->
+                <!-- Product Details -->
+                <div class="product-item-details">
+                    {% if settings.product_options == 'swatches' and settings.product_previews_colors  %}
+                        <!-- Color Swatch -->
+                        {% assign has_color = false %}
+                        {% assign index_color = 0 %}
+                        {% for option in product.options %}
+                            {% capture downcased_option %}{{ option | downcase }}{% endcapture %}
+                            {% if downcased_option contains 'color' %}
+                                {% assign has_color = true %}
+                                {% assign index_color = forloop.index0 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if has_color %}
+                            {% assign colors_count = 0 %}
+                            <ul class="color-swatch hidden-device">
+                                {% assign colors = '' %}
+                                {% for variant in product.variants %}
+                                    {% capture color %}{{ variant.options[index_color] }}{% endcapture %}
+                                    {% capture wrapped_color %},{{ color }},{% endcapture %}
+                                    {% unless colors contains wrapped_color %}
+                                    {% assign colors_count = colors_count | plus: 1 %}
+                                    {% if colors_count < 9 %}
+                                        <li> <a data-image="{{ variant.image.src | img_url: grid_image_width, scale: grid_image_scale }}" href="#" data-tooltip="{{ color }}"><img src="{% if settings.product_previews_colors_variants %}{{ variant.image.src |  img_url: 'small'}}{% else %}{{ color | handle | prepend: 'color-' | append: '.png' | file_url | downcase }}{% endif %}" alt=""></a></li>
+                                    {% endif %}
+                                    {% capture colors %}{{ colors }}{{ wrapped_color }}{% endcapture %}
+                                    {% endunless %}
+                                {% endfor %}
+                            </ul>
+                            <!-- /Color Swatch -->
+                        {% endif %}
+                    {% endif %}
+
+                    <div class="product-item-name"><a title="{{ product.title }}" href="{{ product.url | within: collection }}" class="product-item-link">{{ product.title }}</a></div>
+                    {% if product.metafields.c_f.introtext != blank %}
+                        <div class="product-item-description">{{ product.metafields.c_f.introtext  | strip_html | truncate:200 }}</div>
+                    {% endif %}
+
+
+                  <div class="text_below_title">
+                    <p>{{ product.metafields.custom.title_bellow_text }}</p>
+                  </div>
+                    <div class="price-box">{% capture price %}{{ product.price | money }}{% endcapture %}
+                        <span class="price-container">
+                            <span class="price-wrapper ">
+                                {% if on_sale %}
+                                    <span class="old-price">{{ product.compare_at_price | money }}</span>
+                                {% endif %}
+                                <span class="special-price"> {% if product.price_varies %}{{ 'products.general.from_html' | t: price: price }}{% else %}{{ price }}{% endif %}</span>
+                            </span>
+                        </span>
+                    </div>
+                    {% unless sold_out %}
+                    <div class="product-item-rating hidden-device"><span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span></div>
+                    <div class="product-item-actions">
+                        <div class="actions-left">
+                            {% if product.options.size >= 1 or product.metafields.c_f.line_properties != blank %}
+                                {% if product.options[0] contains 'Title' and product.metafields.c_f.line_properties == blank %}
+                                    {% if free_printable_cards contains product.selected_or_first_available_variant.id %}
+                                        {% include 'product-card-download-pdf' %}
+                                    {% else %}
+                                        {% include 'product-card-add-to-cart-button' %}
+                                    {% endif %}
+                                    {% else %}
+                                        {% include 'product-card-add-to-cart-button' %}
+                                    {% comment %} {% unless settings.catalog_mode %}<a class="btn quick-view-link add-to-cart"  href="{{ product.url }}{% if template == 'search' %}&{% else %}?{% endif %}view=quick-view"><span>{{ 'general.theme.select_options' | t }}</span> </a>{% endunless %} {% endcomment %}
+                                {% endif %}
+                            {% else %}
+                                {% if free_printable_cards contains product.selected_or_first_available_variant.id %}
+                                    {% include 'product-card-download-pdf' %}
+                                {% else %}
+                                    {% include 'product-card-add-to-cart-button' %}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="actions-right">
+                            {% include 'product-card-and-page-actions'  position:'right'%}
+                        </div>
+                    </div>
+                    {% endunless %}
+                </div>
+                <!-- /Product Details -->
+            </div>
+        </div>
+
+{% else %}
+    NONE
+{% endunless %}

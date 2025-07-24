@@ -1,0 +1,11 @@
+{% capture status %}{{ 'general.theme.download_pdf' | t }}{% endcapture %}
+
+<form method="get" action="{{ product.url | within: collection }}">
+  <button
+    class="btn"
+    data-product-handle="{{ product.handle }}"
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+    title="{{ status }}">
+    <span>{{ status }}</span>
+  </button>
+</form>

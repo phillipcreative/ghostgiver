@@ -1,0 +1,70 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "about_us_7enMUz": {
+      "type": "about_us",
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/Group_46236.png",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Group_46144.png",
+        "bannername": "About US",
+        "bg_image": "shopify:\/\/shop_images\/Group_42333_2x_0ab9c60f-e500-43a4-a771-c6cb42cfaef6.jpg",
+        "tab1_name": "WHOOO WE ARE",
+        "tab2_name": "FOUNDATION",
+        "link_foundation": "shopify:\/\/pages\/foundation-new",
+        "img_ghost": "shopify:\/\/shop_images\/Group_39368_2x_fdd3c19f-4fa3-48ae-9962-e48ddacc6382.png",
+        "heading_ghost": "ABOUT US",
+        "text_ghost": "You’ve probably heard of ghosting—the act of disappearing mysteriously and without explanation from someone’s life. And maybe you’ve even been ghosted? Don’t feel bad—we have, too! And to be honest, it’s a real bummer. That’s where Ghost Giver comes in. We’re out to flip the script on ghosting as we know it and bring a little fun and kindness (or a lot!) back into the world, one anonymous “ghostgive” at a time.",
+        "text_right_heading": "SO, WHAT EXACTLY IS GHOST GIVER?",
+        "text_right_text": "So glad you asked! We like to think we’re bringing back the magic art of anonymous giving by making it fun—like, really fun. From uplifting surprises like our “Got It” confirmations to thoughtful thank yous, we’re basically a one-stop shop for do-gooding.",
+        "text_point": "We’ll help you ghostgive with:",
+        "point1_img": "shopify:\/\/shop_images\/ghost-icon.png",
+        "point1": "Fun, free <a href=\"\/pages\/ways-to-ghostgive\">options<\/a> to get you started.",
+        "point2_img": "shopify:\/\/shop_images\/ghost-icon.png",
+        "point2": "Plenty of  <a href=\"\/collections\">products<\/a> to help you give.",
+        "point3_img": "shopify:\/\/shop_images\/ghost-icon.png",
+        "point3": "Tons of<a href=\"\/blogs\/ghost-stories\">inspiration and ideas.<\/a>",
+        "left_image": "shopify:\/\/shop_images\/Group_42510_2x_bc71210e-36ab-4050-ae22-89733bc099ce.png",
+        "anonymous": "shopify:\/\/shop_images\/Group_42328_2x_26e5bfd7-75ef-43d7-9324-bb1b63e8736b.png",
+        "heading_anonymous": "AND WHY ARE WE ANONYMOUS GIVERS?",
+        "text_anonymous": "Well, we just like to think of ourselves as anti-ghosters. We’re here to help your kindness appear mysteriously and without explanation in someone’s life. Because what’s more delightfully surprising than that?",
+        "ghost_someone": "shopify:\/\/shop_images\/Group_42341_2x_20d191d3-d0fe-487e-af7e-c4042c220ab2.png",
+        "heading_ghost_someone": "Because you can’t have a what without the why, here’s why we do what we do:",
+        "text_ghost_someone": "Every day, opportunities exist to make this world better and brighter. So, Ghost Giver just wants to make it easy and fun to do what humans actually do best—give. Whether it’s a plate of cookies for the new neighbors, a grocery gift card for a mom juggling two jobs and three kids, or something sweet for a complete stranger, we think ghostgiving possibilities are literally endless.",
+        "ghost_someone_bellow_image": "shopify:\/\/shop_images\/Group_39378_2x_94babb8c-b1c6-4fc3-a433-bf1f5605f203.png",
+        "ghost_someone_bellow_text": "And isn’t that what the world needs? A little less ghosting and a little more ghostgiving? A little more uplift for both the giver and the receiver? We think so, and we’re here to help make it happen. We promise it’s not nearly as spooky as it sounds.",
+        "text_btn": "Are you ready to ghost someone the good way?",
+        "button_link1": "shopify:\/\/pages\/how-it-works-new",
+        "button_name1": "HOW IT WORKS",
+        "button_link2": "shopify:\/\/pages\/ways-to-ghostgive",
+        "button_name2": "WAYS TO GHOSTGIVE",
+        "img_ghos_foundation": "shopify:\/\/shop_images\/Group_42516_2x_c17da315-bd98-40b1-bfd5-cbdf8ba11234.png",
+        "img_ghost_right": "shopify:\/\/shop_images\/10.jpg",
+        "text_left": "<p>When we see a need, we like to do something about it. That’s why we created the Ghost Giver Foundation—because some challenges need more than banana bread or a bouquet. Our Foundation ghostgives can help lift a burden, serve a community, or even change a life. <\/p>\n\n<p>We also think you should know how much good your donation did and get to share in all the feel-good moments right along with us. So, when we give on your behalf, we’ll let you know what we did and, of course, any special thanks we get.<\/p>",
+        "poins_head": "THERE ARE THREE WAYS TO GIVE, OR AS WE LIKE TO SAY, “GHOST FOR GOOD.”",
+        "point1_head": "1. When you purchase, we donate",
+        "point1_text": "A portion of every Ghost Giver purchase goes straight to the Ghost Giver Foundation.",
+        "btn_poit1_url": "",
+        "point1_btn_text": "Shop",
+        "point2_head": "2. Round up!",
+        "point2_text": "At checkout you can round up your purchase to the nearest dollar. The difference will be donated to the Ghost Giver Foundation.",
+        "btn_poit2_url": "",
+        "point2_btn_text": "Shop",
+        "point3_head": "3. Donate cash through Venmo",
+        "point3_text": "Want to give a little more? You can send funds directly to the Ghost Giver Foundation through Venmo. Please send donations to @ghostgiver and include the hashtag #ghostforgood",
+        "btn_poit3_url": "",
+        "point3_btn_text": "Venmo Donation"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about_us_7enMUz"
+  ]
+}

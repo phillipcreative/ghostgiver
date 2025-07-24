@@ -1,0 +1,5 @@
+{% if settings.is_demo %}
+    {% unless template contains 'home-page-' %}
+    {% comment %}{% assign header_width = 'fullwidth' %}{% endcomment %}
+    {% endunless %}
+{% endif %}

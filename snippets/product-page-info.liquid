@@ -1,0 +1,241 @@
+{% if quick_view == 'yes' %}
+    {% assign show_label_sale = settings.qv_show_label_sale %}
+    {% assign show_label_new = settings.qv_show_label_new %}
+    {% assign product_sku = settings.product_sku %}
+    {% assign product_availability = settings.product_availability %}
+    {% assign product_inventory_count = settings.product_inventory_count %}
+{% else %}
+    {% assign show_label_sale = section.settings.show_label_sale %}
+    {% assign show_label_new = section.settings.show_label_new %}
+    {% assign product_sku = section.settings.product_sku %}
+    {% assign product_availability = section.settings.product_availability %}
+    {% assign product_inventory_count = section.settings.product_inventory_count %}
+{% endif %}
+
+<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    {% assign variant = product.selected_or_first_available_variant %}
+    <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+    <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+    <div class="product-info-block product-info-block-id-{{ product.id }}">
+        <div class="product-info-top">
+            <!--remove anim-jelly for disable animation-->
+            {% if on_sale or show_label_sale or new == 1 and show_label_new %}
+            <div class="product-labels anim-jelly">
+                {% if on_sale and show_label_sale %}<span class="product-label sale">{{ 'products.product.sale' | t }}</span>{% endif %}
+                {% assign new = 0 %}
+                {% for tag in product.tags %}{% if tag == 'new' or tag == 'New' %}{% assign new = 1 %}{% endif %} {% endfor %}
+                {% if new == 1  and show_label_new %}<span class="product-label new">{{ 'general.theme.new' | t }}</span>{% endif %}
+                {% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity < 1 and product.selected_or_first_available_variant.inventory_policy == "continue" %}<div class="product-label preorder"><i class="icon-preorder"></i><span>{{ 'general.theme.preorder_label' | t }}</span></div>{% endif %}
+            </div>
+            {% endif %}
+            <h1 itemprop="name" class="product-name">{{ product.title }}</h1>
+                <div class="description">
+        <p>{{ product.description }}</p>
+
+                </div>
+
+
+                    
+            <div class="clearfix">
+                {% if product_sku and product.selected_or_first_available_variant.sku.size > 0 %}
+                    <div class="pull-left">
+                        <div class="product-sku">{{ 'general.theme.sku' | t }}: <span>{{ product.selected_or_first_available_variant.sku }}</span></div>
+                    </div>
+                {% endif %}
+                <div class="pull-right">
+                    {% if product_availability %}
+                        <div class="product-availability">
+                            {% assign total=0 %}
+                            {%for variant in product.variants %}
+                                {% capture i %}{{ total | plus:variant.inventory_quantity }}{%endcapture%}
+                                {% assign total = i %}
+                            {%endfor%}
+                            {% capture text_item %}{{ 'general.theme.item' | t }}{% endcapture %}
+                            {% capture text_items %}{{ 'general.theme.items' | t }}{% endcapture %}
+                            {{ 'general.theme.availability' | t }}: <span>
+                                    {% if product.selected_or_first_available_variant.inventory_management == 'shopify' and product.selected_or_first_available_variant.inventory_quantity < 0 and product.selected_or_first_available_variant.inventory_policy == 'continue' %}
+                                        {{ 'general.theme.pre_order' | t }}
+                                    {% else %}
+                                        {% if sold_out %}
+                                            {{ 'products.product.sold_out' | t }}
+                                        {% else %}
+                                            {{ 'general.theme.in_stock' | t }}
+                                        {% endif %}
+                                        {% if product_inventory_count %} {{ total }} {{ total  | pluralize: text_item, text_items }}{% endif %}
+                                    {% endif %}
+                                </span>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="clearfix">
+                {% unless quick_view == 'yes' %}
+                {% if section.settings.product_rating %}
+                    <div class="pull-left">
+                        <div class="rating">
+                            <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endunless %}
+                <div class="pull-right">
+                    <div class="price" itemprop="price" content="{{ product.price | money_without_currency }}">
+                        {% capture price %}{{ product.price | money }}{% endcapture %}
+                        {% if on_sale %}
+                            <span class="old-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+                        {% endif %}
+                        <span class="special-price"> {{ product.selected_or_first_available_variant.price | money }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if product.metafields.c_f.countdown != blank %}
+            <div class="flip-countdown">
+                <div class="countdown-container js-flip-countdown" data-countdown="{{  product.metafields.c_f.countdown }}"></div>
+                {% if product.selected_or_first_available_variant.compare_at_price != blank %}
+                    {% assign percent = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by:product.selected_or_first_available_variant.compare_at_price | times: 100 | divided_by: 100 | floor  %}
+                    <div class="flip-countdown-text"><b>{{ 'general.theme.discount' | t :percent:percent }}</b><br> {{ 'general.theme.have_time_to_buy' | t }}</div>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if product.metafields.c_f.introtext != blank %}
+            {% if product.metafields.c_f.introtext != '-' %}
+                <div class="product-description">{{ product.metafields.c_f.introtext }}</div>
+            {% endif %}
+        {% endif %}
+
+        {% unless quick_view == 'yes' %}
+            {% if product.metafields.c_f.list != blank %}
+                {% if product.metafields.c_f.list != '-' %}
+                    <div class="product-custom">
+                        <div class="green-box 1">
+                            {{ product.metafields.c_f.list }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+            {% if  product.metafields.c_f.list == blank %}
+                {% if section.settings.list %}
+                    <div class="product-custom">
+                        <div class="green-box 11">
+                            {{ section.settings.list_content }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endunless %}
+        {% unless settings.catalog_mode %}
+          
+      {% if product.price > 0 %}
+  <div class="price-sec">
+    {{ product.price | money_with_currency }}
+    {% if section.settings.pricetext_line %}
+                    
+                        <div class="pink-box">
+                            {{ section.settings.pricetext }}
+                        </div>
+                  
+                {% endif %}
+    </div>    
+{% endif %}
+
+        <div class="product-actions product-id-{{ product.selected_or_first_available_variant.id }} {% if product.variants.size == 1 and quick_view == 'yes' %}product-no-options no-border{% endif %}">
+          {% form 'product', product %}
+                {% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity < 1 and product.selected_or_first_available_variant.inventory_policy == "continue" %}
+                <input type="hidden" name="properties[{{ 'general.theme.status' | t }}]" value="{{ 'general.theme.pre_order' | t }}">
+                {% endif %}
+                {% if product.metafields.c_f.line_properties != blank %}
+                    {{ product.metafields.c_f.line_properties }}
+                {% endif %}
+                {% include 'product-options-form' design:'default' %}
+
+              
+                {% if product.available %}
+                <div class="product-actions-row rty">
+                  
+                    <div class="pull-left">
+                        <div class="product-qty">
+                            <div class="qty qty-changer">
+                                <fieldset>
+                                    <input type="text" class="qty-input" name="quantity" value="1" data-min="1" {% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_policy == 'deny' %}data-max="{{ product.selected_or_first_available_variant.inventory_quantity }}"{% endif %}>
+                                    <input type="button" value="+" class="increase">
+                                    <input type="button" value="-" class="decrease">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="product-stock-dynamic {% unless product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_policy == 'deny'  %}hidden{% endunless %} stock-dynamic">{% if product_inventory_count %}max <b>{% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ product.selected_or_first_available_variant.inventory_quantity }}{% endif %}</b> {{ 'general.theme.itemss' | t }}{% endif %}</div>
+                    </div>
+                    <div class="pull-right">
+                        {% capture status %}{{ 'general.theme.add_to_cart' | t }}{% endcapture %}
+                        {% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity < 1 and product.selected_or_first_available_variant.inventory_policy == "continue" %}
+                            {% capture status %}{{ 'general.theme.pre_order' | t }}{% endcapture %}
+                        {% endif %}
+                        <div class="product-actions-btn">
+                                <button class="btn btn-lg js-add-to-cart-product-page" data-product-handle="{{ product.handle }}"  data-variant-id="{{ product.selected_or_first_available_variant.id }}" title="{{ status }}"><span>{{ status }}</span></button>
+                        </div>
+                    </div>
+                    <div class="product-actions-link">
+                        {% if quick_view == 'yes' %}{% assign position = 'bot' %}{% else %}{% assign position = 'right' %}{% endif %}
+                        {% include 'product-card-and-page-actions' position:position %}
+                    </div>
+                  
+                </div>
+                {% if section.settings.dynamic_checkout_button %}
+                    <style>
+                       .shopify-payment-button__more-options {
+                            display: none;
+                        }
+                       .shopify-payment-button__button {
+                           outline: none;
+                           border-radius: 0;
+                           text-transform: uppercase;
+                           background: #d3fbc9;
+                           color: #FFFFFF;
+                           padding: 9px 35px 11px;
+                           font-weight: 500;
+                           line-height: 32px;
+                           border: 0;
+                           color: black;
+                           font-weight: bold;
+                       }
+                       .shopify-payment-button__button--unbranded:hover:not([disabled]){
+                           background: black !important;
+                           color: #FFFFFF !important;
+                       }
+                    </style>
+                    {{ form | payment_button }}
+                    {% if section.settings.safe_checkout_image_yes %}
+                        <br />
+                        <h4>{{ settings.checkout_popup_guaranteed_caption }}</h4>
+                        <img src="{% if section.settings.safe_checkout_image != blank %}{{ section.settings.safe_checkout_image | img_url:'master' }}{% else %}{{ 'guaranteed.png' | asset_url }}{% endif %}" alt="" class="img-responsive">
+                    {% endif %}
+                {% endif %}
+                {% endif %}
+            {% endform %}
+        </div>
+        {% endunless %}
+        {% unless quick_view == 'yes' %}
+            {% if product.metafields.c_f.shipping != blank %}
+                {% if product.metafields.c_f.shipping != '-' %}
+                <div class="product-custom">
+                    <div class="grey-box">
+                        {{ product.metafields.c_f.shipping }}
+                    </div>
+                </div>
+                {% endif %}
+            {% endif %}
+            {% if  product.metafields.c_f.shipping == blank %}
+                {% if section.settings.shipping %}
+                    <div class="product-custom">
+                        <div class="grey-box">
+                            {{ section.settings.shipping_content }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endunless %}
+    </div>
+
+
+  
+</div>

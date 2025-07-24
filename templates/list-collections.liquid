@@ -1,0 +1,85 @@
+{% comment %} <div class="banner-relative">
+  <img class="bg-main-works " src="{{settings.imgbanner | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="banner-relative mobile"  style="display:none ">
+       
+  <img class="bg-main-works " src="{{section.settings.imgbanner_mobile | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+ {% endcomment %}
+
+
+{% assign miss = 'Journal - Women,Exclusive,Deals of the day,Header-7,Tabbed Grid,Empty Category,Ajax Attributes Filter - static,Featured Home Page,Featured products,Grid Previews Big,Header - 2,Header - 3,Header - 4,Header - 5,Header - 6,Latest,Megamenu animation - None,Megamenu animation - Slidetop,New Arrivals,New devices only,No ajax Attributes Filter,No Left column,Only New - Men,Only New - Women,Only Sale - Men,Only Sale - Women,Products per row 2,Products per row 3,Products per row 4,Products per row 5,Sale devices only' | split:',' %}
+<div class="product_list_coll">
+<div class="block block--no-preload global_width">
+    <div class="container">
+ 
+      <div class="block block--no-preload global_width  offset-top-30  block--loaded">
+  <div class="container">
+    <ul class="breadcrumbs">
+      <li><a href="/" title="Home">Home</a></li>
+   <li>
+  
+
+   /
+   <span>Products</span>
+      </li></ul>
+  </div>
+</div>
+      {% assign collection_count = 0 %}
+
+{% for collection in collections %}
+  {% assign collection_count = collection_count | plus: 1 %}
+{% endfor %}
+
+<span>({{ collection_count }} Items)</span>
+
+
+          {% comment %}  <div class="title">
+                <h2>{{ 'collections.general.title' | t }}</h2>
+            </div> {% endcomment %} 
+
+        <div class="row collections-grid">
+            {% for collection in collections %}
+                {% unless collection.handle == 'frontpage' %}
+                {% assign featured = collection.handle %}
+                {% capture collection_title %}{{ collections[featured].title | escape }}{% endcapture %}
+                {% assign flag = 0 %}
+                {% for check in miss %}{% assign a = check | handle %}{% assign b = collection_title | handle %}{% if a == b %}{% assign flag = 1 %}{% endif %}{% endfor %}
+                {% if flag == 0 %}
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+                        <a href="{{ collections[featured].url }}" class="collection-item">
+                            <div class="collection-item-photo">
+                                {% if collections[featured].image %}
+                                    {{ collections[featured].image.src | img_url: 'master' | img_tag: collection_title }}
+                                {% else %}
+                                    {{ collections[featured].products.first.featured_image | img_url: 'master' | img_tag: collection_title }}
+                                {% endif %}
+                            </div>
+                            <div class="collection-item-title">
+                                {{ collection.title }}
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+                {% endunless %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+

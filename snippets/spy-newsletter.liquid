@@ -1,0 +1,22 @@
+{% if settings.newsletter_popup_yes %}
+    <!--Spy Menu -->
+    <div class="spy-newsletter js-spy" data-pause="5000" data-expires="{{ settings.newsletter_popup_expires }}">
+        <div class="spy-newsletter-open js-spy-open"><i class="icon-close-envelope"></i></div>
+        <div class="spy-newsletter-close js-spy-close"><i class="icon-close"></i></div>
+        <div class="spy-newsletter-inside">
+            <div class="newsletter newsletter-popup">
+                <div class="newsletter-text-wrap">
+                    <h2 class="newsletter-title">{{ settings.newsletter_popup_title }}</h2>
+                    <div class="newsletter-text">{{ settings.newsletter_popup_desc }}</div>
+                </div>
+                <div class="newsletter-form-wrap">
+                    {% include 'newsletter-form' %}
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="newsletter" id="newsLetterCheckBox">
+                        <label for="newsLetterCheckBox"> <span class="check"></span> <span class="box"></span> {{ 'general.theme.donot_show' | t }}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

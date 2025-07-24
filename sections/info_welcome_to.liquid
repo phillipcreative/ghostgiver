@@ -1,0 +1,443 @@
+<script>
+
+   document.addEventListener('DOMContentLoaded', function() {
+             const coverImage = document.getElementById('playButton');
+  const video = document.getElementById('video_player');
+
+  coverImage.addEventListener('click', () => {
+    coverImage.style.display = 'none';
+    video.style.display = 'block';
+    video.play();
+  });
+            });
+</script>
+<style>
+#playButton, #video_player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;cursor: pointer;
+      object-fit: cover;
+    }
+
+    #video_player {
+      display: none;
+    }
+  .video_width_section {
+    max-width: 640px;height: 345px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}  .video_width_section video#video_player {
+    max-width: 100%;
+}
+  @media(max-width:767px){
+    .video_width_section {
+
+    height: 191px;
+
+}
+  }
+  </style>
+{% if section.settings.enable %}
+
+    <div class="block fullboxed {{ section.settings.outer_margin }} welcome-txt" style="background-image: url('{{ section.settings.section_bg_image |img_url:"master" }}');  background-repeat: no-repeat;">
+
+        <div class="container info-extra new-video-btn">
+          	{%if section.settings.title_img != blank%}
+             <img src="{{section.settings.title_img | img_url: 'grande'}}">
+
+          	{%endif%}
+
+
+            <h2 class="text-center">{{ section.settings.title }}</h2>
+            <p class="text-center">{{ section.settings.description }}</p>
+
+
+  {% if section.settings.enable_popup %}
+               <a href="javascript:void(0)"class="cstm_popup btn btn-purple"><img style="display:inline-block;margin-right:10px;" width="60" src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_34137.png?v=1744620470" />
+            <img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_34136.png?v=1744620670">
+            </a>
+
+
+
+
+              <section class="popup">
+
+
+
+            <div class="popup__content">
+    <div class="close">
+      <span></span>
+      <span></span>
+    </div>
+<video width="600" CONTROLS  loop playsinline >
+  <source src="https://yougreetingsstoragee.blob.core.windows.net/images/Shopify/Be _a_Ghost_Giver_video.mp4" type="video/mp4" class="video_player" id="video_player">
+  Your browser does not support HTML5 video.
+</video>
+
+  </div>
+</section>
+    {% else %}
+
+    <div class="video_width_section" id="video-{{ section.id }}">
+     {%if section.settings.poster != blank%}
+             <img src="{{section.settings.poster | image_url: width: 1000, height:1000 }}"  id="playButton">
+      {% endif %}
+      {% if section.settings.video != blank %}
+
+
+        {{
+          section.settings.video
+          | video_tag:
+            image_size: '1100x',
+            loop: true,
+                        class:"video_player",
+                         id:"video_player",
+            controls: true,
+         muted:false
+       }}
+
+        {% else %}
+        <video width="700" CONTROLS  loop playsinline class="video_player" id="video_player">
+    <source src="https://yougreetingsstoragee.blob.core.windows.net/images/Shopify/Be _a_Ghost_Giver_video.mp4" type="video/mp4">
+       Your browser does not support HTML5 video.
+</video>
+        {% endif %}
+
+</div>
+    {% endif %}
+
+
+        </div>
+
+
+
+
+    </div>
+
+<div class="block {{ section.settings.block_width }} offset-top-negative-100">
+    <div class="container">
+        <div class="row row-flex-sm no-gutter promo-box-row">
+            <div class="col-sm-4">
+                <a {% if section.settings.link_1 %}href="{{ section.settings.link_1 }}"  target="{{ section.settings.link_target_1 }}"{% endif %} class="promo-box text-center">
+                 <span class="count">1</span>
+                  <div class="promo-box-icon">
+
+           {%if section.settings.icon1 != blank%}
+             <img src="{{section.settings.icon1 | img_url: 'grande'}}">
+          	{%else%}
+          <img src="https://dummyimage.com/250x100">
+          	{%endif%}
+                  </div>
+                    <h3 class="promo-box-title">{{ section.settings.box_1_caption_1 }}</h3>
+                    <div class="promo-box-text">{{ section.settings.box_1_caption_2 }}</div>
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <a {% if section.settings.link_2 %}href="{{ section.settings.link_2 }}"  target="{{ section.settings.link_target_2 }}"{% endif %} class="promo-box text-center">
+                 <span class="count">2</span>
+                  <div class="promo-box-icon">
+
+           {%if section.settings.icon2 != blank%}
+             <img src="{{section.settings.icon2 | img_url: 'grande'}}">
+          	{%else%}
+          <img src="https://dummyimage.com/250x100">
+          	{%endif%}
+                  </div>
+                    <h3 class="promo-box-title">{{ section.settings.box_2_caption_1 }}</h3>
+                    <div class="promo-box-text">{{ section.settings.box_2_caption_2 }}</div>
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <a {% if section.settings.link_3 %}href="{{ section.settings.link_3 }}"  target="{{ section.settings.link_target_3 }}"{% endif %} class="promo-box text-center">
+                    <span class="count">3</span>
+                   <div class="promo-box-icon">
+
+           {%if section.settings.icon3 != blank%}
+             <img src="{{section.settings.icon3 | img_url: 'grande'}}">
+          	{%else%}
+          <img src="https://dummyimage.com/250x100">
+          	{%endif%}
+                  </div>
+                    <h3 class="promo-box-title">{{ section.settings.box_3_caption_1 }}</h3>
+                    <div class="promo-box-text">{{ section.settings.box_3_caption_2 }}</div>
+                                <!-- <button class="btn-custom" onclick="location.href= '/pages/how-it-works';">Learn More</button> -->
+                </a>
+
+            </div>
+        </div>
+      <div class="custom_btn" >
+      <div class="btn1">
+        <a class="btn btn-purple" href="{{ section.settings.button_link1 }}">
+  {% comment %}
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="36.953" height="36.951" viewBox="0 0 36.953 36.951">
+  <path id="gear" d="M48.441,37.6c-.963.368-.738,1.124-.337,2.528s.459,2.74-.551,3.747c-.2.176-.391.35-.578.534a.2.2,0,0,1-.033.021c-1.069.963-2.406.834-3.785.353s-2.122-.751-2.542.189-.138.3-.811,1.812c-.008.015-.012.025-.02.044-.678,1.511-.4.878-.811,1.809s.272,1.319,1.552,2.026,2.244,1.6,2.254,3.012c-.017.265-.024.532-.025.8,0,.021-.013.032-.013.054-.072,1.436-1.11,2.29-2.427,2.925s-2.033.971-1.664,1.932.116.3.708,1.855a.23.23,0,0,0,.016.043c.588,1.552.342.9.707,1.853s1.126.742,2.53.337,2.733-.456,3.743.548c.175.2.349.4.537.582.012.014.011.024.024.038.956,1.065.832,2.406.349,3.78s-.748,2.123.188,2.545.3.132,1.814.813l.027.014.015,0c1.511.677.878.391,1.813.811s1.315-.274,2.024-1.554S54.753,68.8,56.17,68.8c.257.016.517.026.774.024.028,0,.038.016.067.016,1.43.075,2.289,1.113,2.921,2.427S60.9,73.3,61.865,72.93s.307-.119,1.856-.71l.025-.008a.055.055,0,0,0,.017-.007c1.548-.591.9-.348,1.856-.708s.74-1.124.334-2.529-.46-2.747.563-3.755h0c.191-.172.381-.341.562-.52.014-.015.025-.012.042-.027,1.066-.958,2.4-.831,3.784-.349s2.122.748,2.541-.19.133-.3.816-1.81a.258.258,0,0,1,.01-.027c0-.007,0-.013.007-.016.676-1.514.391-.88.81-1.814s-.272-1.317-1.552-2.024-2.259-1.612-2.258-3.036c.015-.254.024-.5.024-.759a.609.609,0,0,0,.016-.071c.075-1.433,1.112-2.287,2.429-2.919s2.029-.973,1.665-1.935-.12-.306-.708-1.857c0-.01-.006-.015-.011-.026a.038.038,0,0,0-.007-.016c-.593-1.55-.345-.9-.708-1.857s-1.124-.737-2.531-.332-2.75.458-3.752-.563h0c-.171-.191-.339-.38-.518-.559-.013-.015-.013-.027-.026-.042-.961-1.064-.833-2.4-.35-3.783s.747-2.121-.189-2.542L64.8,37.319a.3.3,0,0,1-.038-.015s0,0,0,0c-1.514-.68-.882-.392-1.814-.811s-1.318.273-2.024,1.551S59.3,40.3,57.881,40.3c-.253-.016-.509-.023-.768-.022-.027,0-.035-.016-.063-.016-1.436-.075-2.293-1.11-2.925-2.428s-.972-2.028-1.932-1.664-.284.11-1.9.725C48.749,37.483,49.4,37.237,48.441,37.6Zm15.247,14.41a7.127,7.127,0,1,1-9.2-4.12A7.127,7.127,0,0,1,63.688,52.008Z" transform="translate(-38.553 -36.074)" fill="#fff"/>
+</svg>
+  {% endcomment %}
+
+  {{ section.settings.button_name1 }}</a>
+      </div>
+  {% if section.settings.button_link2!=blank %}
+         <div class="btn2">
+            <a class=" btn btn-purple" href="{{ section.settings.button_link2 }}"><svg xmlns="http://www.w3.org/2000/svg" width="31.431" height="37.877" viewBox="0 0 31.431 37.877">
+  <g id="GIFT" transform="translate(-8.8 -0.1)">
+    <rect id="Rectangle_18792" data-name="Rectangle 18792" width="11.939" height="16.822" transform="translate(10.86 21.156)" fill="#fff"/>
+    <rect id="Rectangle_18793" data-name="Rectangle 18793" width="11.939" height="16.822" transform="translate(26.194 21.156)" fill="#fff"/>
+    <rect id="Rectangle_18794" data-name="Rectangle 18794" width="14.037" height="7.934" transform="translate(8.8 11.315)" fill="#fff"/>
+    <rect id="Rectangle_18795" data-name="Rectangle 18795" width="14.037" height="7.934" transform="translate(26.194 11.315)" fill="#fff"/>
+    <path id="Path_65342" data-name="Path 65342" d="M36.98,10.056l5.531-4.387-4.844-.076L37.59.748,31.258,8.683,24.468.1l-.076,4.692L19.7,4.868l6.561,5.188Z" transform="translate(-6.742)" fill="#fff"/>
+  </g>
+</svg>{{ section.settings.button_name2 }}</a>
+      </div>
+{% endif %}
+      </div>
+    </div>
+</div>
+{% endif %}
+
+<style>
+  .btn-custom{
+ background: #193e5a;
+    color: white;
+    outline: 0;
+    border-radius: 10px;
+    border: 0;
+    padding: 2px 10px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .info-extra img{
+  display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .bg-custom{
+    background: url('{{'texture2.jpg' | asset_url}}');
+    background-repeat: no-repeat;
+        background-size: contain;
+  }
+</style>
+{% schema %}
+{
+"name": "Welcome to",
+"class": "index-section bg-custom",
+"settings": [
+  {
+    "type": "video",
+    "id": "video",
+    "label": "video"
+  },
+  {
+            "type": "image_picker",
+            "id": "poster",
+            "label": "Poster"
+          },
+  {
+"type": "checkbox",
+"id": "enable_popup",
+"label": "enable popop"
+},
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+  {
+"type": "image_picker",
+"id": "section_bg_image",
+"label": "Add a Background Image"
+},
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"global_width",
+"info":"click Save to see changes"
+},
+{
+"type": "select",
+"id": "outer_margin",
+"label": "Outer top margin",
+"options":[
+{"value":"offset-top-0","label":"None"},
+{"value":"offset-top-30","label":"30px"},
+{"value":"offset-top-40","label":"40px"},
+{"value":"offset-top-50","label":"50px"}
+],
+"default": "offset-top-50"
+},
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "image_picker",
+"id": "title_img",
+"label": "Image"
+},
+{
+  "type": "text",
+  "id": "title",
+  "label": "Title",
+  "default":"Title"
+},
+{
+"type": "textarea",
+"id": "description",
+"label": "Description",
+"default":"Dolor sit amet, ex eam mundi populo accusamus, aliquam quaestio petentium te cum tacimates, usu cu iudico graeco. Graeci eripuit inimicus vel eu eu mel unum laoreet splendide, cu integre apeirian has"
+},
+{
+"type": "header",
+"content": "Info Box 1"
+},
+{
+"type": "url",
+"id": "link_1",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_1",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon1",
+"label": "Icon"
+},
+{
+"type": "html",
+"id": "box_1_caption_1",
+"label": "Caption 1",
+"default":"FREE SHIPPING"
+},
+
+{
+"type": "textarea",
+"id": "box_1_caption_2",
+"label": "Caption 2",
+"default":"Free shipping on all orders over $199"
+},
+{
+"type": "header",
+"content": "Info Box 2"
+},
+{
+"type": "url",
+"id": "link_2",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_2",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon2",
+"label": "Icon"
+},
+{
+"type": "html",
+"id": "box_2_caption_1",
+"label": "Caption 1",
+"default":"MONEY BACK"
+},
+
+{
+"type": "textarea",
+"id": "box_2_caption_2",
+"label": "Caption 2",
+"default":"100% money back guarantee"
+},
+{
+"type": "header",
+"content": "Info Box 3"
+},
+{
+"type": "url",
+"id": "link_3",
+"label": "Link"
+},
+{
+"type": "select",
+"id": "link_target_3",
+"label": "Link Target",
+"default":"_self",
+"options": [
+{ "value": "_blank", "label": "New page" },
+{ "value": "_self",  "label": "In current page" }
+]
+},
+{
+"type": "image_picker",
+"id": "icon3",
+"label": "Icon"
+},
+{
+"type": "html",
+"id": "box_3_caption_1",
+"label": "Caption 1",
+"default":"ONLINE SUPPORT"
+},
+
+{
+"type": "textarea",
+"id": "box_3_caption_2",
+"label": "Caption 2",
+"default":"Service support fast 24/7"
+},
+  {
+"type": "url",
+"id": "button_link1",
+"label": "Add a URL of button1"
+},
+  {
+"type": "text",
+"id": "button_name1",
+"label": "Add a Name of button1"
+},
+  {
+"type": "url",
+"id": "button_link2",
+"label": "Add a URL of button2"
+},
+  {
+"type": "text",
+"id": "button_name2",
+"label": "Add a Name of button2"
+}
+
+],
+"presets": [
+{
+"name": "Welcome To",
+"category": "Text"
+}
+]
+}
+{% endschema %}

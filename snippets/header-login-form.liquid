@@ -1,0 +1,16 @@
+{% unless settings.catalog_mode %}
+{% if section.settings.login_box %}
+    {% if customer %}
+        <div class="header-link active-link dropdown-link header-account">
+            <a href="#" data-toggle="modal" data-target="#modalLogin"><i class="icon icon-user"></i></a>
+            <ul class="dropdown-container right">
+                <li><a href="/account/logout">{{ 'layout.customer.log_out' | t }}</a></li>
+                <li><a href="/account">{{ 'customer.account.title' | t }}</a></li>
+                {% if settings.wishlist %}<li><a href="/pages/my-wishlist">{{ 'general.theme.wishlist' | t }}</a></li>{% endif %}
+            </ul>
+        </div>
+    {% else %}
+        <div class="header-link header-account"><a href="#" data-toggle="modal" data-target="#modalLogin" title="{{ 'customer.account.title' | t }}"><i class="icon icon-user"></i></a> </div>
+    {% endif %}
+{% endif %}
+{% endunless %}

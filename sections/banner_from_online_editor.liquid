@@ -1,0 +1,174 @@
+{% if section.settings.enable %}
+<style>
+  .img-ct{
+  position:relative;
+  }
+  .banner-caption-ct h1{
+  color:#fff;
+    font-size:35px;
+    margin:0;
+  }
+
+    .banner-caption-ct p{
+      font-weight:500;
+  color:#193e5a;
+    font-size:28px;
+    margin:0;
+  }
+.banner-caption-bt-left {
+    position: absolute;
+    right: 15px;
+    text-align: center;
+    /* top: 0; */
+    z-index: 9;
+    bottom: 0;
+    padding-bottom: 15px;
+}
+
+.banner-caption-bt-right {
+    position: absolute;
+    left: 15px;
+    text-align: center;
+    /* top: 0; */
+    z-index: 9;
+    bottom: 0;
+    padding-bottom: 15px;
+}
+  .banner-caption-ct{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 10px;
+    margin: 0;
+  }
+  .col-content-ct{
+  position:relative;
+  }
+     .banner-caption-bt-right a, .banner-caption-bt-left a{
+       font-weight:500;
+  background: #a7d2ed;
+    color: #1e3d5a;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 25px;
+    display: inline-block;
+    min-width: 110px;
+    text-align: center;
+       text-transform:uppercase;
+  }
+  @media screen and (max-width:768px) {
+        .banner-caption-ct p{
+    font-size:15px;
+  }
+      .banner-caption-ct h1{
+    font-size:20px;
+  }
+  }
+
+.block.global_width.cstm_img2.block--loaded a.btn.btn-purple {
+    text-transform: inherit;
+}
+</style>
+
+<div class="block global_width cstm_img2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="col-content col-content-ct">
+                    <a href="/collections/digital-gift-card-via-text" target="_blank" class="banner-wrap">
+                        <div class="banner style-5 autosize-text image-hover-scale" data-fontratio="5.7">
+                            <!-- <img class="img-ct" src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/hb1.jpg?v=1607325178" alt="Banner" /> -->
+                                   <img class="img-ct" src="{{ section.settings.img1 | img_url:'master' }}" alt="Banner" />
+                          <div class="banner-caption-ct">
+
+                                      <div class="with-us">{{ section.settings.text1 }}</div>
+                              <!-- <p>Only $14.99</p> -->
+                               <a class="btn btn-purple" href="/collections/digital-gift-card">Learn More</a>
+                          </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-content col-content-ct">
+                    <a href="/collections/individual-code-via-e-tailers" target="_blank" class="banner-wrap">
+                        <div class="banner style-6 autosize-text image-hover-scale" data-fontratio="5.7">
+                            <!-- <img class="img-ct" src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/hb2.jpg?v=1607325178" alt="Banner" /> -->
+                           <img class="img-ct" src="{{ section.settings.img2 | img_url:'master' }}" alt="Banner" />
+     						<div class="banner-caption-ct">
+                               <div class="with-us">{{ section.settings.text2 }}</div>
+                               <!-- <p>(Or any other e-tailer)</p> -->
+                                 <a  class="btn btn-purple" href="/collections/individual-code-via-e-tailers" >Learn More</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endif %}
+
+
+
+{% schema %}
+{
+"name": "Banners - Online Editor",
+"class": "index-section",
+"settings": [
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+  {
+"type": "image_picker",
+"id": "img1",
+"label": "Add a Image 1"
+},
+   {
+"type": "html",
+"id": "text1",
+"label": "Add a Text 1"
+},
+    {
+"type": "image_picker",
+"id": "img2",
+"label": "Add a Image 2"
+},  {
+"type": "html",
+"id": "text2",
+"label": "Add a Text 2"
+},
+
+
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Banners From Online Editor"
+},
+{
+"type":"textarea",
+"id":"html",
+"label":"Paste generated html here",
+"info":"generate banners [here](http://frontend.big-skins.com/banita/banners-generator)"
+}
+],
+"presets": [
+{
+"name": "Banners From Online Editor",
+"category": "Banners"
+}
+]
+}
+{% endschema %}

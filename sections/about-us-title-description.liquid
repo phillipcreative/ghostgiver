@@ -1,0 +1,81 @@
+{% if section.settings.enable %}
+    <div class="block inset-50 inset-xs-0 offset  block--no-preload  {{ section.settings.block_width }}  {{ section.settings.outer_margin }}">
+        <div class="container">
+            <h1 class="text-center">{{ section.settings.title }}</h1>
+            <span class="h1-bg">{{ section.settings.bg_text }}</span>
+            <div class="text-wrapper text-center">
+                <p>{{ section.settings.desc }}</p>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% schema %}
+{
+"name": "Title+Description",
+"class": "index-section",
+"settings": [
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+{
+"type": "header",
+"content": "Layout"
+},
+{
+"type":"select",
+"id":"block_width",
+"label":"Width",
+"options":[
+{"value":"boxed","label":"Boxed"},
+{"value":"fullwidth","label":"Fullwidth"},
+{"value":"global_width","label":"Use global site width"}
+],
+"default":"global_width",
+"info":"click Save to see changes"
+},
+{
+"type": "select",
+"id": "outer_margin",
+"label": "Outer top margin",
+"options":[
+{"value":"offset-top-0","label":"None"},
+{"value":"offset-top-30","label":"30px"},
+{"value":"offset-top-40","label":"40px"},
+{"value":"offset-top-50","label":"50px"}
+],
+"default": "offset-top-50"
+},
+{
+"type": "header",
+"content": "General"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default":"About Us"
+},
+{
+"type": "textarea",
+"id": "desc",
+"label": "Short Description",
+"default": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful."
+},
+{
+"type": "text",
+"id": "bg_text",
+"label": "Background text",
+"default": "About Us"
+}
+],
+"presets": [
+{
+"name": "Title+Description",
+"category": "About Us"
+}
+]
+}
+{% endschema %}

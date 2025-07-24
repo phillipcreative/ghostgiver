@@ -1,0 +1,219 @@
+
+<!-- Upwork Update 06 -->
+{% comment %} <div class="banner-relative Desktop ways-to-giver-new">
+  <img class="bg-main-works" src="{{ section.settings.banner_desktop | img_url: 'master' }}" alt="Banner Desktop">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert" data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.page_title }}</div>
+      </div>
+    </div>
+  </div>
+</div>{% endcomment %}
+
+<!-- Upwork Update 06.16 -->
+<div class="custom-banner-wrapper ways-to-ghost">
+  <img class="custom-banner-image" src="{{ section.settings.banner_desktop | img_url: 'master' }}" alt="Banner">
+  <div class="custom-banner-overlay">
+    <div class="custom-banner-content">
+      <h1 class="custom-banner-heading">{{ section.settings.page_title }}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="banner-relative mobile ways-to-giver-new" style="display:none;">
+  <img class="bg-main-works" src="{{ section.settings.banner_mobile | img_url: 'master' }}" alt="Banner Mobile">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert" data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.page_title }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-section ways-to-giver-new-cont">
+  <div class="container">
+      <div class="heading-content-get">
+    <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+    <div class="section-content">{{ section.settings.section_content }}</div>
+    </div>
+  </div>
+    <div class="content-blocks ways-to-giver-new-block">
+      <div class="combine-first-block">
+        <div class="container">
+        <div class="collection-heading-subh">
+          <h3>{{ section.settings.collection_title }}</h3>
+          <p>{{ section.settings.collection_subheading }}</p>
+        </div>
+        <div class="give-with-wrap">
+      {% for block in section.blocks %}
+        {% if block.type == 'collection_block' %}
+          {% assign collection = block.settings.collection %}
+          {% if collections[collection] %}
+            <div class="gift-cart-new-coll">
+            <a href="{{ collections[collection].url }}" class="block-link">
+              <div class="content-block">
+                {% if collections[collection].image %}
+                  <div class="img-box-coll">
+                  <img src="{{ collections[collection].image | img_url: 'medium' }}" alt="{{ collections[collection].title }}">
+                  </div>
+                {% endif %}
+                <div class="content-box-coll">
+                <h4>{{ collections[collection].title }}</h4>
+                  {% if collection.metafields.custom.product_via.value!=blank  %}
+                  <span>{{ collection.metafields.custom.product_via.value }}</span>
+                  {% endif %}
+                {% if block.settings.collection_content != blank %}
+                  <p>{{ block.settings.collection_content }}</p>
+                {% endif %}
+                </div>
+              </div>
+            </a>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+        </div>
+        </div>
+    </div>
+    <div class="or-sepretor"><span>OR</span></div>
+      <div class="combine-2nd-block">
+        <div class="container">
+        <div class="collection-heading-subh">
+          <h3>{{ section.settings.collection_title2 }}</h3>
+          <p>{{ section.settings.collection_subheading2 }}</p>
+        </div>
+       <div class="give-with-wrap">
+      {% for block in section.blocks %}
+        {% if block.type == 'collection_block2' %}
+          {% assign collection = block.settings.collection2 %}
+          {% if collections[collection] %}
+            <div class="gift-cart-new-coll">
+            <a href="{{ collections[collection].url }}" class="block-link">
+              <div class="content-block">
+                {% if collections[collection].image %}
+                  <div class="img-box-coll">
+                  <img src="{{ collections[collection].image | img_url: 'medium' }}" alt="{{ collections[collection].title }}">
+                  </div>
+                {% endif %}
+                <div class="content-box-coll">
+                <h4>{{ collections[collection].title }}</h4>
+                  {% if collection.metafields.custom.product_via.value!=blank  %}
+                  <span>{{ collection.metafields.custom.product_via.value }}</span>
+                  {% endif %}
+                {% if block.settings.collection_content2 != blank %}
+                  <p>{{ block.settings.collection_content2 }}</p>
+                {% endif %}
+                </div>
+              </div>
+            </a>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ways To Ghost Giver",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_desktop",
+      "label": "Banner Image - Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_mobile",
+      "label": "Banner Image - Mobile"
+    },
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": "Page Title"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "html",
+      "id": "section_content",
+      "label": "Section Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_blueimg",
+      "label": "Background Image (Content Section)"
+    },
+    {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection Heading"
+        },
+      {
+          "type": "text",
+          "id": "collection_subheading",
+          "label": "Collection Subheading"
+        },
+    {
+          "type": "text",
+          "id": "collection_title2",
+          "label": "Collection Heading"
+        },
+      {
+          "type": "text",
+          "id": "collection_subheading2",
+          "label": "Collection Subheading"
+        }
+  ],
+  "blocks": [
+    {
+      "type": "collection_block",
+      "name": "We Send the Gift",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Product Collection"
+        },
+        {
+          "type": "html",
+          "id": "collection_content",
+          "label": "Collection Description"
+        }
+      ]
+    },
+    {
+      "type": "collection_block2",
+      "name": "You Send the Gift",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection2",
+          "label": "Select Product Collection"
+        },
+        {
+          "type": "html",
+          "id": "collection_content2",
+          "label": "Collection Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Ways To Ghost Giver",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

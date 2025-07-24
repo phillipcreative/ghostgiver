@@ -1,0 +1,422 @@
+<div class="banner-relative Desktop test123">
+  <img class="bg-main-works " src="{{section.settings.imgbanner | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="banner-relative mobile" style="display:none">
+  <img class="bg-main-works " src="{{section.settings.imgbanner_mobile | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container info-extra">
+  <p class="text-center">{{ section.settings.description }}</p>
+  <div class="point1">
+    <div class="promo-box-icon">
+      {% if section.settings.icon1 != blank %}
+        <img src="{{section.settings.icon1 | img_url: 'grande'}}">
+      {% else %}
+        <img src="https://dummyimage.com/250x100">
+      {% endif %}
+    </div>
+    <div class="custom-section-piont">
+    <h2 class="promo-box-title">{{ section.settings.box_1_caption_1 }}</h2>
+     <p>{{ section.settings.point1_text }}</p>
+
+    <a
+      {% if section.settings.link_1 %}
+        href="{{ section.settings.link_1 }}"
+      {% endif %}
+      class="promo-box text-center"
+    >
+      {{- section.settings.point_btn1 -}}
+    </a>
+    </div>
+  </div>
+
+  <div class="point1">
+    <div class="promo-box-icon">
+      {% if section.settings.icon2 != blank %}
+        <img src="{{section.settings.icon2 | img_url: 'grande'}}">
+      {% else %}
+        <img src="https://dummyimage.com/250x100">
+      {% endif %}
+    </div>
+    <div class="custom-section-piont">
+    <h2 class="promo-box-title">{{ section.settings.box_2_caption_2 }}</h2>
+    <p>{{ section.settings.point2_text }}</p>
+
+    <a
+      {% if section.settings.link_2 %}
+        href="{{ section.settings.link_2 }}"
+      {% endif %}
+      class="promo-box text-center"
+    >
+      {{- section.settings.point_btn2 -}}
+    </a>
+    </div>
+  </div>
+    <div class="point1">
+    <div class="promo-box-icon">
+      {% if section.settings.icon3 != blank %}
+        <img src="{{section.settings.icon3 | img_url: 'grande'}}">
+      {% else %}
+        <img src="https://dummyimage.com/250x100">
+      {% endif %}
+    </div>
+      <div class="custom-section-piont">
+    <h2 class="promo-box-title">{{ section.settings.box_3_caption_3 }}</h2>
+      <p>{{ section.settings.point3_text }}</p>
+
+    <a
+      {% if section.settings.link_3 %}
+        href="{{ section.settings.link_3 }}"
+      {% endif %}
+      class="promo-box text-center"
+    >
+      {{- section.settings.point_btn3 -}}
+    </a>
+      </div>
+  </div>
+
+  <div class="point1">
+    <div class="promo-box-icon">
+      {% if section.settings.icon4 != blank %}
+        <img src="{{section.settings.icon4 | img_url: 'grande'}}">
+      {% else %}
+        <img src="https://dummyimage.com/250x100">
+      {% endif %}
+    </div>
+      <div class="custom-section-piont">
+    <h2 class="promo-box-title">{{ section.settings.box_4_caption_4}}</h2>
+      <p>{{ section.settings.point4_text }}</p>
+
+    <a
+      {% if section.settings.link_4 %}
+        href="{{ section.settings.link_4 }}"
+      {% endif %}
+      class="promo-box text-center"
+    >
+      {{- section.settings.point_btn4 -}}
+    </a>
+      </div>
+  </div>
+
+  <div class="point1">
+    <div class="promo-box-icon">
+      {% if section.settings.icon5 != blank %}
+        <img src="{{section.settings.icon5 | img_url: 'grande'}}">
+      {% else %}
+        <img src="https://dummyimage.com/250x100">
+      {% endif %}
+    </div>
+      <div class="custom-section-piont">
+    <h2 class="promo-box-title">{{ section.settings.box_5_caption_5 }}</h2>
+      <p>{{ section.settings.point5_text }}</p>
+
+    <a
+      {% if section.settings.link_5 %}
+        href="{{ section.settings.link_5 }}"
+      {% endif %}
+      class="promo-box text-center"
+    >
+      {{- section.settings.point_btn5 -}}
+    </a>
+      </div>
+  </div>
+
+  <div class="point1">
+    <div class="promo-box-icon">
+      {% if section.settings.icon6 != blank %}
+        <img src="{{section.settings.icon6 | img_url: 'grande'}}">
+      {% else %}
+        <img src="https://dummyimage.com/250x100">
+      {% endif %}
+    </div>
+      <div class="custom-section-piont">
+    <h2 class="promo-box-title">{{ section.settings.box_6_caption_6 }}</h2>
+      <p>{{ section.settings.point6_text }}</p>
+
+    <a
+      {% if section.settings.link_6 %}
+        href="{{ section.settings.link_6 }}"
+      {% endif %}
+      class="promo-box text-center"
+    >
+      {{- section.settings.point_btn6 -}}
+    </a>
+      </div>
+  </div>
+
+<!--  <div class="point1">
+    <div class="promo-box-icon">
+      {% if section.settings.icon7 != blank %}
+        <img src="{{section.settings.icon7 | img_url: 'grande'}}">
+      {% else %}
+        <img src="https://dummyimage.com/250x100">
+      {% endif %}
+    </div>
+      <div class="custom-section-piont">
+    <h2 class="promo-box-title">{{ section.settings.box_7_caption_7 }}</h2>
+      <p>{{ section.settings.point7_text }}</p>
+
+    <a
+      {% if section.settings.link_7 %}
+        href="{{ section.settings.link_7 }}"
+      {% endif %}
+      class="promo-box text-center"
+    >
+      {{- section.settings.point_btn7 -}}
+    </a>
+      </div>
+  </div> -->
+</div>
+{% schema %}
+{
+  "name": "Ways To Ghostgive",
+"settings": [
+      {
+        "type":"image_picker",
+        "id":"imgbanner",
+        "label":"Add image Banner"
+      },
+     {
+        "type":"image_picker",
+        "id":"imgbanner_mobile",
+        "label":"Add image Banner for Mobile"
+      },
+      {
+        "type":"text",
+        "id":"bannername",
+        "label":"Enter Heading Of Banner"
+      },
+      {
+        "type":"html",
+        "id":"description",
+        "label":"Add  Text Bellow Banner"
+      }
+  ,
+      {
+        "type":"image_picker",
+        "id":"icon1",
+        "label":"Add icon Image Point 1  "
+      },
+      {
+        "type":"text",
+        "id":"box_1_caption_1",
+        "label":"add a Heading of point 1"
+      }
+  ,
+      {
+        "type":"text",
+        "id":"point1_text",
+        "label":"add a Text of point 1"
+      }
+  ,
+      {
+        "type":"url",
+        "id":"link_1",
+        "label":"Add a link Point 1 button "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"point_btn1",
+        "label":"Add text button Point1 "
+      }
+    ,
+      {
+        "type":"image_picker",
+        "id":"icon2",
+        "label":"Add icon Image Point 2"
+      },
+      {
+        "type":"text",
+        "id":"box_2_caption_2",
+        "label":"add a heading of point 2"
+      }
+  ,
+    
+      {
+        "type":"text",
+        "id":"point2_text",
+        "label":"add a Text of point 2"
+      },
+      {
+        "type":"url",
+        "id":"link_2",
+        "label":"Add a link Point 2 button "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"point_btn2",
+        "label":"Add text button Point 2 "
+      }
+    ,
+      {
+        "type":"image_picker",
+        "id":"icon3",
+        "label":"Add icon Image Point 3  "
+      },
+      {
+        "type":"text",
+        "id":"box_3_caption_3",
+        "label":"add a Text of point 3"
+      }
+  ,
+    
+      {
+        "type":"text",
+        "id":"point3_text",
+        "label":"add a Text of point 3"
+      },
+      {
+        "type":"url",
+        "id":"link_3",
+        "label":"Add a link Point 3 button "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"point_btn3",
+        "label":"Add text button Point 3 "
+      },
+//
+
+     {
+        "type":"image_picker",
+        "id":"icon4",
+        "label":"Add icon Image Point 4  "
+      },
+      {
+        "type":"html",
+        "id":"box_4_caption_4",
+        "label":"add a Text of point 4"
+      }
+  ,
+    
+      {
+        "type":"text",
+        "id":"point4_text",
+        "label":"add a Text of point 4"
+      },
+      {
+        "type":"url",
+        "id":"link_4",
+        "label":"Add a link Point 4 button "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"point_btn4",
+        "label":"Add text button Point 4 "
+      },
+
+   {
+        "type":"image_picker",
+        "id":"icon5",
+        "label":"Add icon Image Point 5 "
+      },
+      {
+        "type":"html",
+        "id":"box_5_caption_5",
+        "label":"add a Text of point 5"
+      }
+  ,
+    
+      {
+        "type":"text",
+        "id":"point5_text",
+        "label":"add a Text of point 5"
+      },
+      {
+        "type":"url",
+        "id":"link_5",
+        "label":"Add a link Point 5 button "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"point_btn5",
+        "label":"Add text button Point 5 "
+      },
+     {
+        "type":"image_picker",
+        "id":"icon6",
+        "label":"Add icon Image Point 6  "
+      },
+      {
+        "type":"html",
+        "id":"box_6_caption_6",
+        "label":"add a Text of point 6"
+      }
+  ,
+    
+      {
+        "type":"text",
+        "id":"point6_text",
+        "label":"add a Text of point 6"
+      },
+      {
+        "type":"url",
+        "id":"link_6",
+        "label":"Add a link Point 6 button "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"point_btn6",
+        "label":"Add text button Point 6 "
+      },
+     {
+        "type":"image_picker",
+        "id":"icon7",
+        "label":"Add icon Image Point 7  "
+      },
+      {
+        "type":"html",
+        "id":"box_7_caption_7",
+        "label":"add a Text of point 7"
+      }
+  ,
+    
+      {
+        "type":"text",
+        "id":"point7_text",
+        "label":"add a Text of point 7"
+      },
+      {
+        "type":"url",
+        "id":"link_7",
+        "label":"Add a link Point 7 button "
+      }
+  ,
+      {
+        "type":"text",
+        "id":"point_btn7",
+        "label":"Add text button Point 7 "
+      }
+
+
+
+  
+
+    ],
+  "presets":[
+    {
+      "name":"Ways To Ghostgive"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,121 @@
+{% if section.settings.enable %}
+    <div class="block newsletter-style-{{ section.settings.style }} {{ section.settings.block_width }} {{ section.settings.outer_margin }}" {% if section.settings.style == '1' and section.settings.bg != blank %}data-bg="{{ section.settings.bg }}"{% endif %} {% if section.settings.style == '2' or section.settings.style == '4' %}data-bg="{% if  section.settings.bg_image != blank  %}{{ section.settings.bg_image | img_url :'master' }}{% else %}{{ 'newsletter-bg-1.jpg' | asset_url }}{% endif %}"{% endif %}>
+        <div class="container">
+            <div class="newsletter">
+                <div class="newsletter-text-wrap">
+                    <h2 class="newsletter-title">{{ section.settings.heading }}</h2>
+                    <div class="newsletter-text">{{ section.settings.desc }}</div>
+                </div>
+                <div class="newsletter-form-wrap">
+                    {% include 'newsletter-form' %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+{% schema %}
+{
+"name": "Subscribe form",
+"class": "index-section",
+"settings": [
+{
+"type": "paragraph",
+"content": "[Documentation](http://big-skins.com/banita/shopify/manuals/#newsletters)"
+},
+    {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable",
+        "default": true
+    },
+    {
+        "type": "header",
+        "content": "Layout"
+    },
+    {
+        "type":"select",
+        "id":"block_width",
+        "label":"Width",
+        "options":[
+            {"value":"boxed","label":"Boxed"},
+            {"value":"fullboxed","label":"Fullboxed"},
+            {"value":"fullwidth","label":"Fullwidth"},
+            {"value":"global_width","label":"Use global site width"}
+        ],
+        "default":"fullwidth",
+        "info":"click Save to see changes"
+    },
+    {
+        "type": "select",
+        "id": "outer_margin",
+        "label": "Outer top margin",
+        "options":[
+            {"value":"offset-top-0","label":"None"},
+            {"value":"offset-top-30","label":"30px"},
+            {"value":"offset-top-40","label":"40px"},
+            {"value":"offset-top-50","label":"50px"}
+        ],
+        "default": "offset-top-50"
+    },
+    {
+        "type": "select",
+        "id": "style",
+        "label": "Style",
+        "options":[
+            {"value":"1","label":"Style 1 (bg color)"},
+            {"value":"2","label":"Style 2 (bg image)"},
+            {"value":"3","label":"Style 3 (no bg)"},
+            {"value":"4","label":"Style 4 (bg image)"}
+        ],
+        "default": "1"
+    },
+    {
+        "type": "header",
+        "content": "General"
+    },
+    {
+        "type": "paragraph",
+        "content": "Method of newsletter subscription you can config in Theme Settings / General / Newsletter"
+    },
+
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Title",
+        "default": "Newsletter subscription. Section with 4 styles"
+    },
+    {
+        "type": "text",
+        "id": "desc",
+        "label": "Description",
+        "default": "You have ability enable mailchimp newsletter subscription or default shopify form."
+    },
+{
+"type": "header",
+"content": "Style 1"
+},
+    {
+        "type": "color",
+        "id": "bg",
+        "label": "Bg color",
+        "default":"#f9f9f9"
+    },{
+"type": "header",
+"content": "Style 2,4"
+},
+    {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Bg color"
+    }
+
+],
+"presets": [
+{
+"name": "Subscribe Form",
+"category": "Newsletter"
+}
+]
+}
+{% endschema %}

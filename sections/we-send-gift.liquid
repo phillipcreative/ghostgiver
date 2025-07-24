@@ -1,0 +1,138 @@
+{% comment %} Upwork Update 06.16 {% endcomment %}
+{% comment %} <div class="banner-relative Desktop get-started-sub">
+  <img class="bg-main-works" src="{{ section.settings.banner_desktop | img_url: 'master' }}" alt="Banner Desktop">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert" data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.page_title }}</div>
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+{% comment %} Upwork Update 06.16 {% endcomment %}
+<div class="custom-banner-wrapper get-started-banner">
+  <img class="custom-banner-image" src="{{ section.settings.banner_desktop | img_url: 'master' }}" alt="Banner">
+
+  <div class="custom-banner-overlay">
+    <div class="custom-banner-content">
+      <h1 class="custom-banner-heading">{{ section.settings.page_title }}</h1>
+    </div>
+  </div>
+</div>
+
+
+<div class="banner-relative mobile get-started-sub" style="display:none;">
+  <img class="bg-main-works" src="{{ section.settings.banner_mobile | img_url: 'master' }}" alt="Banner Mobile">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert" data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.page_title }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-section get-started-sub-cont" style="background-image: url('{{ section.settings.section_blueimg | img_url: 'master' }}');">
+  <div class="container">
+    <div class="main-body-get">
+    <div class="back-btn"><a href="/pages/get-started">Back</a></div>
+      <div class="heading-content-get">
+    <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+    <div class="section-content">{{ section.settings.section_content }}</div>
+      </div>
+    </div>
+    <div class="content-blocks get-started-sub-block">
+      {% for block in section.blocks %}
+        {% if block.type == 'collection_block' %}
+          {% assign collection = block.settings.collection %}
+          {% if collections[collection] %}
+            <div class="gift-cart-new-coll">
+            <a href="{{ collections[collection].url }}" class="block-link">
+              <div class="content-block">
+                {% if collections[collection].image %}
+                  <div class="image-box-new">
+                  <img src="{{ collections[collection].image | img_url: 'medium' }}" alt="{{ collections[collection].title }}">
+                  </div>
+                {% endif %}
+                <div class="content-box-new">
+                <h4>{{ collections[collection].title }}</h4>
+                  {% if collection.metafields.custom.product_via.value!=blank  %}
+                  <span>{{ collection.metafields.custom.product_via.value }}</span>
+                  {% endif %}
+                {% if block.settings.collection_content != blank %}
+                  <p>{{ block.settings.collection_content }}</p>
+                {% endif %}
+                   </div>
+              </div>
+            </a>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Get Started Sub",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_desktop",
+      "label": "Banner Image - Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_mobile",
+      "label": "Banner Image - Mobile"
+    },
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": "Page Title"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "html",
+      "id": "section_content",
+      "label": "Section Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_blueimg",
+      "label": "Background Image (Content Section)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_block",
+      "name": "Collection Block",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Product Collection"
+        },
+         {
+          "type": "html",
+          "id": "collection_content",
+          "label": "Collection Discription"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Get Started Sub",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

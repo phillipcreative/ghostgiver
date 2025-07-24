@@ -1,0 +1,20 @@
+<div class="custom-html">
+  <div class="container">
+  {{ section.settings.html }}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Custom HTML",
+    "settings": [
+      {
+        "type":"html",
+        "id":"html",
+        "label":"HTML"
+      }
+    ],
+    "presets":[{
+      "name":"Custom HTML"
+    }]
+  }
+{% endschema %}

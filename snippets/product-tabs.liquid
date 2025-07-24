@@ -1,0 +1,78 @@
+<div class="block global_width">
+    <div class="container">
+        <!-- Nav tabs -->
+        <ul class="nav-tabs product-tab {{ section.settings.tabs_float }}-tabs" role="tablist">
+            {% for i in (1..5) %}
+                {% capture tab_yes %}product_tab_{{ i }}{% endcapture %}
+                {% capture tab_title %}product_tab_title_{{ i }}{% endcapture %}
+                {% capture tab_content %}product_tab_content_{{ i }}{% endcapture %}
+                {% if section.settings[tab_yes] %}<li {% if forloop.first  %}class="active"{% endif %}><a href="#Tab{{ tab_title }}" role="tab" data-toggle="tab">{{ section.settings[tab_title] }}</a></li>{% endif %}
+            {% endfor %}
+            {% for i in (1..10) %}
+                {% capture title %}custom_tab_title_{{ i }}{% endcapture %}
+                {% if product.metafields.c_f[title] != blank %}<li class=""><a href="#Tab_{{ i }}" role="tab" data-toggle="tab">{{ product.metafields.c_f[title] }}</a></li>{% endif %}
+            {% endfor %}
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            {% for i in (1..5) %}
+                {% capture tab_yes %}product_tab_{{ i }}{% endcapture %}
+                {% capture tab_title %}product_tab_title_{{ i }}{% endcapture %}
+                {% capture tab_content %}product_tab_content_{{ i }}{% endcapture %}
+                {% if section.settings[tab_yes] %}
+                    <div role="tabpanel" class="tab-pane {% if forloop.first  %}active{% endif %}" id="Tab{{ tab_title }}">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#Tab{{ tab_title }}" href="#TabCollapse{{ tab_title }}" {% unless forloop.first  %}class="collapsed"{% endunless %}>
+                                        {{ section.settings[tab_title] }}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="TabCollapse{{ tab_title }}" class="panel-collapse collapse {% if forloop.first  %}in{% endif %}">
+                                <div class="panel-body">
+                                    {% if i == 1 %}<!--description-->
+                                    {{ product.description }}
+                                    {% elsif i == 4 %}<!--Tags-->
+                                    <ul class="tags">
+                                        {% for tag in product.tags %}
+                                            <li><a href="/collections/all/{{ tag | handle }}"><span class="value"><span>{{ tag }}</span></span></a></li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% elsif i == 5 %}<!--Review-->
+                                    <div id="shopify-product-reviews" data-id="{{product.id}}">
+                                        {{ product.metafields.spr.reviews }}</div>
+                                    {% else %}
+                                        {{ pages[section.settings[tab_content]].content }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% for i in (1..10) %}
+                {% capture content %}custom_tab_content_{{ i }}{% endcapture %}
+                {% capture title %}custom_tab_title_{{ i }}{% endcapture %}
+                {% if product.metafields.c_f[content] != blank %}
+                    <div role="tabpanel" class="tab-pane " id="Tab_{{ i }}">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#Tab_{{ i }}" href="#TabCollapse{{ i }}" class="collapsed">
+                                        {{ product.metafields.c_f[title] }}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="TabCollapse{{ i }}" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {{ product.metafields.c_f[content] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

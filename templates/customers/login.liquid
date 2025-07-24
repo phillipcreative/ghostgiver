@@ -1,0 +1,107 @@
+<div class="block boxed">
+  <div class="container">
+    <div class="note form-success" id="ResetSuccess" style="display:none;">
+      {{ 'customer.recover_password.success' | t }}<br /><br />
+    </div>
+    <div class="row row-eq-height">
+      {% comment %}
+      If a user has successfully requested a new password, the form.posted_successfully? variable
+      is set to true within the 'recover_customer_password' form only. Within that form you'll see
+      us assign a variable 'reset_success' to true, which is used in JS to show our success message.
+      {% endcomment %}
+
+      <div class="col-sm-6">
+        <div class="form-card">
+          <h4>{{ 'general.theme.new_customer' | t }}</h4>
+          <p>{{ 'general.theme.new_customer_desc' | t }}</p>
+          <div><a class="btn btn-lg" href="/account/register"><i class="icon icon-user"></i><span>{{ 'layout.customer.create_account' | t }}</span></a></div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-card">
+
+          {% form 'customer_login', class:"account-create", id:"customer_login_main" %}
+            <h4>{{ 'customer.login.title' | t }}</h4>
+            <p>{{ 'general.theme.customer_desc' | t }}</p>
+            {{ form.errors | default_errors }}
+            <label>{{ 'customer.login.email' | t }}<span class="required">*</span></label>
+            <input class="form-control input-lg" type="email" name="customer[email]" id="CustomerEmail" placeholder="{{ 'customer.login.email' | t }}"{% if form.errors contains "email" %} class="error"{% endif %}   autofocus>
+            {% if form.password_needed %}
+            <label>{{ 'customer.login.password' | t }}<span class="required">*</span></label>
+            {% endif %}
+            <input  class="form-control input-lg" type="password" value="" name="customer[password]" id="CustomerPassword" placeholder="{{ 'customer.login.password' | t }}" {% if form.errors contains "password" %} class="error"{% endif %}>
+            <div><button class="btn btn-lg" type="submit">{{  'customer.login.sign_in' | t }}</button><span class="required-text">* Required Fields</span></div>
+            {% if form.password_needed %}
+            <div class="back"><a href="#" onclick="showRecoverPasswordForm();return false;">{{ 'customer.login.forgot_password' | t }}</a></div>
+            {% endif %}
+          {% endform %}
+
+          <div id="RecoverPasswordForm" style="display: none;">
+
+              <h4 class="section-header__title">{{ 'customer.recover_password.title' | t }}</h4>
+            <p>{{ 'customer.recover_password.subtext' | t }}</p>
+
+            {% comment %}
+            This form must use 'recover_customer_password'
+            {% endcomment %}
+            {% form 'recover_customer_password' %}
+
+            {{ form.errors | default_errors }}
+
+            {% comment %}
+            form.posted_successfully? is true only inside this form, but we want
+            to show a success message outside of it. To do so, set the variable
+            reset_success to true, then use JS to show our success message above.
+            {% endcomment %}
+            {% if form.posted_successfully? %}
+              {% assign reset_success = true %}
+            {% endif %}
+
+            <label>{{  'customer.recover_password.email' | t }}</label>
+            <input class="form-control input-lg" type="email" value="" name="email" id="RecoverEmail" placeholder="{{ 'customer.recover_password.email' | t }}"  >
+
+            <p>
+              <input type="submit" class="btn btn-lg" value="{{ 'customer.recover_password.submit' | t }}">
+            </p>
+            <a href="#" onclick="hideRecoverPasswordForm();return false;">{{ 'customer.recover_password.cancel' | t }}</a>
+            {% endform %}
+
+          </div>
+
+
+          {% if shop.checkout.guest_login %}
+            <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+            {% form 'guest_login' %}
+            <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+            {% endform %}
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /*
+    Show/hide the recover password form when requested.
+  */
+  function showRecoverPasswordForm() {
+    $('#RecoverPasswordForm').show();
+    $('#customer_login_main').hide();
+  }
+
+  function hideRecoverPasswordForm() {
+    $('#RecoverPasswordForm').hide();
+    $('#customer_login_main').show();
+  }
+
+  // Allow deep linking to the recover password form
+  if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+
+  // reset_success is only true when the reset form is
+  {% if reset_success %}
+    document.getElementById('ResetSuccess').style.display = 'block';
+  {% endif %}
+</script>

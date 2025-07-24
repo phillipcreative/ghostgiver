@@ -1,0 +1,36 @@
+{% if collection %}
+    {% for prod in collection.products %}
+        {% if prod.handle == product.handle %}
+            {% assign curr_prod_index = forloop.index0 %}
+        {% endif %}
+    {% endfor %}
+    {% assign max = collection.products.size | minus:1 %}
+    {% assign prev=curr_prod_index | minus:1 %}
+    {% if prev == -1 %}{% assign prev = max %}{% endif %}
+    {% assign next=curr_prod_index | plus:1 %}
+    {% if next > max %}{% assign next = 0 %}{% endif %}
+    {% assign prev_product=collection.products[prev] %}
+    {% assign next_product=collection.products[next] %}
+    <li class="product-nav">
+        <i class="icon icon-angle-left"></i>
+        <a href="{{ prev_product.url | within: collection}}" class="product-nav-prev">{{ 'homepage.breadcrumbs.prev_product' | t }}
+            <span class="product-nav-preview">
+            <span class="image">
+              <img src="{{ prev_product.featured_image | img_url: 'compact' }}" alt="{{ prev_product.title }}">
+              <span class="price"> {{ prev_product.price | money }}</span></span>
+              <span class="name">{{ prev_product.title }}</span>
+            </span>
+        </a>
+        /
+        <a href="{{ next_product.url | within: collection }}" class="product-nav-next">{{ 'homepage.breadcrumbs.next_product' | t }}
+            <span class="product-nav-preview">
+                <span class="image">
+                    <img src="{{ next_product.featured_image | img_url: 'compact' }}" alt="{{ next_product.title }}">
+                    <span class="price">{{ next_product.price | money }}</span>
+                </span>
+                <span class="name">{{ next_product.title }}</span>
+            </span>
+        </a>
+        <i class="icon icon-angle-right"></i>
+    </li>
+{% endif %}

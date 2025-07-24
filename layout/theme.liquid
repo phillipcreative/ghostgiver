@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- [if IE 9]> <html class="ie9 no-js" lang="{{ shop.locale }}"  itemscope itemtype="http://schema.org/WebPage"> <![endif] -->
+<!-- [if (gt IE 9)|!(IE)]><! -->
+<html
+  class="no-js"
+  lang="{{ shop.locale }}"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <!-- <![endif] -->
+  <head>
+    {% include 'head' %}
+    {{
+      content_for_header
+    }}
+  </head>
+  <body
+    class="{{ collection.title }}{{ page.title }} page-{{ template }} {{
+      template.suffix
+    }} {% if settings.boxed %}boxed{% else %}fullwidth{% endif %}  {% if settings.ajax_cart %}ajax_cart{% endif %} {% if settings.rtl or template contains 'rtl' %}rtl{% endif %} {% if settings.rounded %}rounded{% endif %} {% if settings.megamenu_spy_navigation %}has-spymenu{% endif %} {% if settings.checkout_popup %}checkout-popup{% endif %} {{
+      settings.loader
+    }} {% if settings.previews_height_yes %}equal-height{% endif %} "
+  >
+    {% if settings.loader == 'body-loader' %}
+    <div class="bodyLoader js-bodyloader"></div>
+    {% endif %} {% section 'topline' %} {% section 'header' %}
+    <main class="page-main">
+      {% assign printed_card_envelope_ids =
+      collections["printed-cards-envelopes"].products | map: 'variants' | map:
+      'id' | join: ', ' %} {% assign gift_ids = collections["gifts"].products |
+      map: 'variants' | map: 'id' | join: ', ' %} {% assign
+      gift_card_via_email_ids =
+      collections["digital-gift-card-via-email"].products | map: 'variants' |
+      map: 'id' | join: ', ' %} {% assign gift_card_via_text_ids =
+      collections["digital-gift-card-via-text"].products | map: 'variants' |
+      map: 'id' | join: ', ' %} {% assign send_cash_via_venmo_ids =
+      collections["send-cash-via-venmo"].products | map: 'variants' | map: 'id'
+      | join: ', ' %} {% assign individual_code_via_e_tailers =
+      collections["individual-code-via-e-tailers"].products | map: 'variants' |
+      map: 'id' | join: ', ' %} {% assign digital_gift_card_ids =
+      all_products['gift-card-voucher-new'].variants | map: 'id' | join: ', ' %}
+
+      <script>
+        //All Global Varibles
+        if (window.location.pathname === '/collections/send-cash-via-venmo' || window.location.pathname === '/collections/send-cash-via-venmo-1') {
+          window.location.href = '/404';
+        }
+        let $printedCardEnvelopeIds = [{{ printed_card_envelope_ids }}];
+        let $giftIds = [{{ gift_ids }}];
+        let $giftCardViaTextIds = [{{ gift_card_via_text_ids }}];
+        let $giftCardViaEmailIds = [{{ gift_card_via_email_ids }}];
+        let $personalizedWrittenAudioVideoMessageId = 44236113313969;
+        let $digitalGiftCardIds = [{{ digital_gift_card_ids }}];
+        let $sendCashViaVenmoIds = [{{ send_cash_via_venmo_ids }}];
+        let $individualCodeViaETailers = [{{ individual_code_via_e_tailers }}];
+        let $digitalGiftCardProcessingFeeId = 44236446269617;
+        let $venmoProcessingFeeId = 44398982234289;
+      </script>
+
+      <div id="printedCardsEnvelopes" style="display: none">
+        {{ printed_card_envelope_ids }}
+      </div>
+      <div id="giftIds" style="display: none">{{ gift_ids }}</div>
+
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %} {% include 'before_body_end' %}
+  </body>
+</html>

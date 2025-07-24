@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "how_it_works_Pxrmdq": {
+      "type": "how-it-works",
+      "settings": {
+        "imgbanner": "shopify:\/\/shop_images\/HOW_IT_WORKS_aa3c97d2-01c3-4085-8c5b-e3bbdb071375.jpg",
+        "imgbanner_mobile": "shopify:\/\/shop_images\/Group_46143_168053a9-229b-4f6c-bfd5-1fa3f203373b.png",
+        "bannername": "How it Works",
+        "bg_image": "shopify:\/\/shop_images\/Group_39360_2x_2dfe7f7a-0716-42b4-8cca-0d76c0cb4119.png",
+        "bannerbelow_heading_text2": "PICK A PERSON",
+        "bannerbelow_heading_text3": "First, choose who’s getting your ghostgive. Whether it’s your favorite aunt, best friend, quirky co-worker, or perfect stranger, it can be anybody! You can even give to an entire organization if you want to. Got a favorite local hotspot? Send a surprise to the entire staff. Know a deserving family that could use some help? Ghost them!",
+        "image1_step1": "shopify:\/\/shop_images\/Group_42579_2x_172a4b30-8d6f-40a2-af53-de4646f6e6aa.png",
+        "bg_img_step2": "shopify:\/\/shop_images\/Down_Arrow_2x_d65a80d0-2f82-4b9c-a73f-d97123712168.png",
+        "textimage2_step1": "CHOOSE YOUR GIVE",
+        "heading_step2": "CHOOSE YOUR GIVE",
+        "text_step2": "Next, decide what to give and how you’d like to ghostgive it. Do it on your own or through our website; it’s entirely up to you. From dropping off freshly baked banana bread at a neighbor’s house to sending a digital gift card, we’ve got you covered. We can even help you ghostgive through Amazon (and other e-tailers).",
+        "text_step2_1": "To see ways you can help you ghostgive, visit our <span><a href=\"\/pages\/ways-to-ghostgive\">WAYS TO GHOSTGIVE <\/a><\/span>page. Or, to see what others are doing to get ideas, visit our <span><a href=\"\/blogs\/ghost-stories\">GHOST STORIES <\/a> <\/span> page.",
+        "img_step2_1": "shopify:\/\/shop_images\/3_702cea9d-d50e-4b19-8b42-d16ee17cb1cb.png",
+        "img_step2_2": "shopify:\/\/shop_images\/2_24b488d0-03b9-4eec-affc-fd26d018105d.png",
+        "img_step2_3": "shopify:\/\/shop_images\/1_96b5353d-bad8-4a98-94ad-e5bb432a38a8.png",
+        "bg_img_step3": "shopify:\/\/shop_images\/Down_Arrow_2x_76698432-42f6-4f0d-8dd1-85eceedb03f5.png",
+        "heading_step3": "ADD A GHOST GIVER CARD",
+        "text_step3": "Add a Ghost Giver card so your recipient knows they got GHOSTED…the good way. You can download and print our<a href=\"\/collections\/free-printable-cards\"> free cards<\/a> or purchase our <a href=\"\/collections\/printed-cards-envelopes\">physical cards and envelopes<\/a>. The difference between the two is that with our physical cards, you can include a digital message (written, audio, or video), get real-time confirmation, and a possible thank you—which makes it super fun.",
+        "img_step3": "shopify:\/\/shop_images\/Card_and_Envelope.png",
+        "bg_img_step4": "shopify:\/\/shop_images\/Down_Arrow_2x_76698432-42f6-4f0d-8dd1-85eceedb03f5.png",
+        "heading_step4": "KNOW THEY “GOT IT”",
+        "text_step4": "When you ghostgive directly through us (Ghost Giver cards or ghostgiver.com), your recipient can retrieve your anonymous message, and you can know that they “got it.” When they visit <a target=\"_new\" href=\"https:\/\/message.ghostgiver.com\"> message.ghostgiver.com<\/a> and enter their code, you’ll get a confirmation text and email (if they didn’t uncheck the box!).",
+        "img_step4": "shopify:\/\/shop_images\/thumb_Group_42675.png",
+        "bg_img_step5": "shopify:\/\/shop_images\/Down_Arrow_2x_76698432-42f6-4f0d-8dd1-85eceedb03f5.png",
+        "heading_step5": "GET A THANK YOU",
+        "text_step5": "Not only do you get delivery confirmation, but also a little extra—the chance to get a thank you! After the recipient reads, listens to, or watches their anonymous message, we ask them if they’d like to send a thank you message to the sender (that’s YOU!). If they choose to do so, you’ll get another text and email.",
+        "img_step5": "shopify:\/\/shop_images\/THANK_YOU_2_2x_af228d6e-32f9-462b-885c-b32a678a9994.png",
+        "textbelow_step": "READY? LET’S GHOST!",
+        "ghostgive_img": "shopify:\/\/shop_images\/GHOST_ICON_2x_92a10deb-b4b3-4c9b-bb9b-083b1bbb05a4.png",
+        "text1below_step": "Ways to Ghostgive"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "how_it_works_Pxrmdq"
+  ]
+}
