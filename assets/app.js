@@ -4285,7 +4285,7 @@
                 console.log('🎁 Using cached gift card data - no API call needed');
                 // Filter and paginate the cached data
                 const filteredProducts = filterAndPaginateProducts(allCachedProducts, productName, productDescription, pageNumber, pageSize);
-                renderGiftCards(filteredProducts, pageNumber);
+                renderGiftCards(filteredProducts, pageNumber, productName || productDescription);
                 return;
               }
             }
@@ -4313,7 +4313,7 @@
 
                 // Filter and paginate the data for current request
                 const filteredProducts = filterAndPaginateProducts(products.data, productName, productDescription, pageNumber, pageSize);
-                renderGiftCards(filteredProducts, pageNumber);
+                renderGiftCards(filteredProducts, pageNumber, productName || productDescription);
               },
               error: function (e) {
                 console.log('❌ API request failed - attempting to use expired cache');
@@ -4322,7 +4322,7 @@
                 if (allCachedProducts) {
                   console.warn('Using expired cached data due to API failure');
                   const filteredProducts = filterAndPaginateProducts(allCachedProducts, productName, productDescription, pageNumber, pageSize);
-                  renderGiftCards(filteredProducts, pageNumber);
+                  renderGiftCards(filteredProducts, pageNumber, productName || productDescription);
                 } else {
                   console.error('Failed to fetch gift cards and no cached data available');
                   $("#modalGiftCardSelection1").html('<div class="gift-card"><p>Unable to load gift cards. Please try again later.</p></div>');
@@ -4357,7 +4357,7 @@
           }
 
           // Separate function to render gift cards
-          function renderGiftCards(products, pageNumber) {
+          function renderGiftCards(products, pageNumber, searchTerm = "") {
             let productsHtml = products.products.map((s) => {
               let i = s.id.trim();
               let content = `<div class="voucher-card egifter-card" style="
@@ -4403,7 +4403,31 @@
 
             //console.log(productsHtml);
 
-            let productsContainer = ` <div class="gift-card">
+            // Show clear search button only if there's an active search
+            const clearSearchHtml = searchTerm ? `
+              <div class="clear-search-container" style="margin: auto; margin-top: 10px; text-align: center;">
+                <button id="clear-search-btn" class="btn-clear-search" style="
+                    background: #f8f9fa;
+                    border: 1px solid #dee2e6;
+                    border-radius: 4px;
+                    padding: 8px 16px;
+                    color: #000000;
+                    font-weight: bold;
+                    cursor: pointer;
+                    font-size: 14px;
+                    line-height: normal;
+                    border: 1px solid;
+                ">
+                  <i class="fa fa-times" style="margin-right: 5px;"></i>
+                  Clear Search
+                </button>
+              </div>
+            ` : '';
+
+            // Show no results message if no products found
+            let productsContainer;
+            if (products.products.length === 0 && searchTerm) {
+              productsContainer = ` <div class="gift-card">
 	<div class="header-sec">
 		<h1 class="heading">Select a Gift card</h1>
 		<p class="sub-heading">(You'll choose dollar amount on next screen)</p>
@@ -4413,12 +4437,40 @@
 			<h2 class="box-heading">Featured Cards</h2>
 
 			<div class="search-box">
-				<input type="text" name="" id="gift-search-bar" placeholder="Search for brands or products" class="search-input" />
+				<input type="text" name="" id="gift-search-bar" placeholder="Search for brands or products" class="search-input" value="${searchTerm}" />
 				<button class="btn-search" id="gift-search-btn">
 					<i class="icon icon-magnify"></i>
 					</button>
 					</div>
+					${clearSearchHtml}
 
+		</div>
+		<div class="box-body" style="text-align: center; padding: 40px 20px;">
+			<p style="font-size: 18px; color: #666; margin-bottom: 20px;">There are no results but clear search to find other awesome gift ideas!</p>
+		</div>
+		<div class="box-footer">
+			<button class="btn-prev" id="btn-prev">Prev</button>
+			<button class="btn-next" id="btn-next">Next</button>
+		</div>
+	</div>
+</div>`;
+            } else {
+              productsContainer = ` <div class="gift-card">
+	<div class="header-sec">
+		<h1 class="heading">Select a Gift card</h1>
+		<p class="sub-heading">(You'll choose dollar amount on next screen)</p>
+	</div>
+	<div class="box-fluid">
+		<div class="box-header">
+			<h2 class="box-heading">Featured Cards</h2>
+
+			<div class="search-box">
+				<input type="text" name="" id="gift-search-bar" placeholder="Search for brands or products" class="search-input" value="${searchTerm}" />
+				<button class="btn-search" id="gift-search-btn">
+					<i class="icon icon-magnify"></i>
+					</button>
+					</div>
+					${clearSearchHtml}
 
 		</div>
 		<div class="box-body">
@@ -4431,8 +4483,18 @@
 		</div>
 	</div>
 </div>`;
+            }
+
             $("#modalGiftCardSelection1").empty();
             $("#modalGiftCardSelection1").append(productsContainer);
+
+            // Preserve focus and cursor position in search input
+            const searchInput = document.getElementById("gift-search-bar");
+            if (searchInput) {
+              const cursorPosition = window.lastSearchCursorPosition || searchInput.value.length;
+              searchInput.focus();
+              searchInput.setSelectionRange(cursorPosition, cursorPosition);
+            }
 
             // Update button states based on pagination data
             const $btnPrev = $("#btn-prev");
@@ -4467,6 +4529,41 @@
               }
               GetGiftCards(1, 20, value, value);
             });
+
+            // Add Enter key functionality to search bar
+            $("#gift-search-bar").on("keydown", function (e) {
+              if (e.key === "Enter") {
+                let value = this.value.trim();
+                if (value.length == 0) {
+                  return;
+                }
+                GetGiftCards(1, 20, value, value);
+              }
+            });
+
+            // Add real-time search functionality
+            let searchTimeout;
+            $("#gift-search-bar").on("input", function () {
+              let value = this.value.trim();
+              let cursorPosition = this.selectionStart;
+
+              // Clear previous timeout
+              clearTimeout(searchTimeout);
+
+              // Set a new timeout to delay the search
+              searchTimeout = setTimeout(function() {
+                // Store cursor position before search
+                window.lastSearchCursorPosition = cursorPosition;
+                GetGiftCards(1, 20, value, value);
+              }, 300); // 300ms delay to avoid too many API calls
+            });
+
+            // Add clear search functionality
+            $("#clear-search-btn").on("click", function () {
+              document.getElementById("gift-search-bar").value = "";
+              GetGiftCards(1, 20, "", "");
+            });
+
             $("#btn-next").on("click", function () {
               // Only proceed if button is not disabled
               if (!$(this).is(":disabled")) {
