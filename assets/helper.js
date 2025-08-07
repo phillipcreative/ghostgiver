@@ -506,6 +506,21 @@ if ($("body").hasClass("ajax_cart")) {
     $form = _this.closest("form");
     // addToCart(_this, $form);
     let variantId = _this.data("variant-id");
+
+    // Check for packaging upsell container and checkbox
+    let $packagingContainer = $(".packaging-upsell-container");
+    let $packagingCheckbox = $("#packaging-upsell-checkbox");
+    let packagingVariantId = $packagingContainer.length ? $packagingContainer.data("variant") : null;
+    let shouldAddPackaging = $packagingContainer.length && $packagingCheckbox.is(":checked") && packagingVariantId;
+
+    // Debug logging
+    console.log("Packaging container found:", $packagingContainer.length > 0);
+    console.log("Packaging checkbox checked:", $packagingCheckbox.is(":checked"));
+    console.log("Packaging variant ID:", packagingVariantId);
+    console.log("Should add packaging:", shouldAddPackaging);
+    console.log("Packaging container data:", $packagingContainer.data());
+    console.log("Packaging checkbox element:", $packagingCheckbox[0]);
+
     let categoryArrays = [
       $printedCardEnvelopeIds,
       $giftIds,
@@ -605,45 +620,144 @@ if ($("body").hasClass("ajax_cart")) {
               locales.adding +
               "</span>"
           );
+
+        // Add main product to cart
         CartJS.addItem(
           $("input[name=id]", $form).val(),
           $("[name=quantity]", $form).val(),
           line_properties,
           {
             success: function (data, textStatus, jqXHR) {
-              if ($(".js-add-to-cart-product-page").length) {
-                if ($("body").hasClass("checkout-popup")) {
-                  setTimeout(function () {
-                    _this.html(
-                      "<i class='icon icon-check'></i><span>" +
-                        locales.added +
-                        "</span>"
-                    );
-                    showCheckoutModal();
-                  }, 1000);
-                  setTimeout(function () {
-                    _this.removeClass("btn-loading").removeClass("disabled");
-                    _this.html("<span>" + _this.attr("title") + "</span>");
-                  }, 1000);
-                } else {
-                  setTimeout(function () {
-                    _this.removeClass("btn-loading").removeClass("disabled");
+              // If packaging upsell should be added, add it as well
+              if (shouldAddPackaging) {
+                console.log("Attempting to add packaging product with variant ID:", packagingVariantId);
+                CartJS.addItem(
+                  packagingVariantId,
+                  1,
+                  {},
+                  {
+                    success: function (packagingData, packagingTextStatus, packagingJqXHR) {
+                      console.log("Packaging product added successfully:", packagingData);
+                      // Both products added successfully
+                      if ($(".js-add-to-cart-product-page").length) {
+                        if ($("body").hasClass("checkout-popup")) {
+                          setTimeout(function () {
+                            _this.html(
+                              "<i class='icon icon-check'></i><span>" +
+                                locales.added +
+                                "</span>"
+                            );
+                            showCheckoutModal();
+                          }, 1000);
+                          setTimeout(function () {
+                            _this.removeClass("btn-loading").removeClass("disabled");
+                            _this.html("<span>" + _this.attr("title") + "</span>");
+                          }, 1000);
+                        } else {
+                          setTimeout(function () {
+                            _this.removeClass("btn-loading").removeClass("disabled");
 
-                    $(
-                      ".product-item-cart span",
-                      ".product-actions.product-id-" + variantId
-                    ).html(CartJS.cart.item_count);
-                    $(
-                      ".product-item-cart",
-                      ".product-actions.product-id-" + variantId
-                    ).removeClass("hidden");
-                  }, 1000);
-                  setTimeout(function () {
-                    _this.html("<span>" + _this.attr("title") + "</span>");
-                  }, 1000);
-                  setTimeout(function () {
-                    $(".toggleStack").click();
-                  }, 1000);
+                            $(
+                              ".product-item-cart span",
+                              ".product-actions.product-id-" + variantId
+                            ).html(CartJS.cart.item_count);
+                            $(
+                              ".product-item-cart",
+                              ".product-actions.product-id-" + variantId
+                            ).removeClass("hidden");
+                          }, 1000);
+                          setTimeout(function () {
+                            _this.html("<span>" + _this.attr("title") + "</span>");
+                          }, 1000);
+                          setTimeout(function () {
+                            $(".toggleStack").click();
+                          }, 1000);
+                        }
+                      }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                      console.log("Failed to add packaging product. Error details:", {
+                        jqXHR: jqXHR,
+                        textStatus: textStatus,
+                        errorThrown: errorThrown
+                      });
+                      // Main product added but packaging failed
+                      if ($(".js-add-to-cart-product-page").length) {
+                        if ($("body").hasClass("checkout-popup")) {
+                          setTimeout(function () {
+                            _this.html(
+                              "<i class='icon icon-check'></i><span>" +
+                                locales.added +
+                                "</span>"
+                            );
+                            showCheckoutModal();
+                          }, 1000);
+                          setTimeout(function () {
+                            _this.removeClass("btn-loading").removeClass("disabled");
+                            _this.html("<span>" + _this.attr("title") + "</span>");
+                          }, 1000);
+                        } else {
+                          setTimeout(function () {
+                            _this.removeClass("btn-loading").removeClass("disabled");
+
+                            $(
+                              ".product-item-cart span",
+                              ".product-actions.product-id-" + variantId
+                            ).html(CartJS.cart.item_count);
+                            $(
+                              ".product-item-cart",
+                              ".product-actions.product-id-" + variantId
+                            ).removeClass("hidden");
+                          }, 1000);
+                          setTimeout(function () {
+                            _this.html("<span>" + _this.attr("title") + "</span>");
+                          }, 1000);
+                          setTimeout(function () {
+                            $(".toggleStack").click();
+                          }, 1000);
+                        }
+                      }
+                      console.error("Failed to add packaging product:", errorThrown);
+                    },
+                  }
+                );
+              } else {
+                // Only main product was added
+                console.log("Packaging not added - shouldAddPackaging condition not met");
+                if ($(".js-add-to-cart-product-page").length) {
+                  if ($("body").hasClass("checkout-popup")) {
+                    setTimeout(function () {
+                      _this.html(
+                        "<i class='icon icon-check'></i><span>" +
+                          locales.added +
+                          "</span>"
+                      );
+                      showCheckoutModal();
+                    }, 1000);
+                    setTimeout(function () {
+                      _this.removeClass("btn-loading").removeClass("disabled");
+                      _this.html("<span>" + _this.attr("title") + "</span>");
+                    }, 1000);
+                  } else {
+                    setTimeout(function () {
+                      _this.removeClass("btn-loading").removeClass("disabled");
+
+                      $(
+                        ".product-item-cart span",
+                        ".product-actions.product-id-" + variantId
+                      ).html(CartJS.cart.item_count);
+                      $(
+                        ".product-item-cart",
+                        ".product-actions.product-id-" + variantId
+                      ).removeClass("hidden");
+                    }, 1000);
+                    setTimeout(function () {
+                      _this.html("<span>" + _this.attr("title") + "</span>");
+                    }, 1000);
+                    setTimeout(function () {
+                      $(".toggleStack").click();
+                    }, 1000);
+                  }
                 }
               }
             },
@@ -764,7 +878,7 @@ function cartPopupUpdate() {
           locales.remove +
           '" class="icon icon-trash-alt js-minicart-remove-item" data-line-number="' +
           line_item +
-          '"></a> </div> </div> </div> </li>';
+          '"></a> </div> </div> </li>';
       }
       $updated_list = $updated_list + $item;
       line_item = line_item + 1;

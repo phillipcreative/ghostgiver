@@ -35,7 +35,7 @@
                 </div>
 
 
-                    
+
             <div class="clearfix">
                 {% if product_sku and product.selected_or_first_available_variant.sku.size > 0 %}
                     <div class="pull-left">
@@ -125,18 +125,18 @@
             {% endif %}
         {% endunless %}
         {% unless settings.catalog_mode %}
-          
+
       {% if product.price > 0 %}
   <div class="price-sec">
     {{ product.price | money_with_currency }}
     {% if section.settings.pricetext_line %}
-                    
+
                         <div class="pink-box">
                             {{ section.settings.pricetext }}
                         </div>
-                  
+
                 {% endif %}
-    </div>    
+    </div>
 {% endif %}
 
         <div class="product-actions product-id-{{ product.selected_or_first_available_variant.id }} {% if product.variants.size == 1 and quick_view == 'yes' %}product-no-options no-border{% endif %}">
@@ -149,10 +149,15 @@
                 {% endif %}
                 {% include 'product-options-form' design:'default' %}
 
-              
+
+                {% comment %} Packaging Upsell {% endcomment %}
+                {% if section.settings.packaging_upsell %}
+                  {% include 'packaging-upsell' %}
+                {% endif %}
+
                 {% if product.available %}
                 <div class="product-actions-row rty">
-                  
+
                     <div class="pull-left">
                         <div class="product-qty">
                             <div class="qty qty-changer">
@@ -178,7 +183,7 @@
                         {% if quick_view == 'yes' %}{% assign position = 'bot' %}{% else %}{% assign position = 'right' %}{% endif %}
                         {% include 'product-card-and-page-actions' position:position %}
                     </div>
-                  
+
                 </div>
                 {% if section.settings.dynamic_checkout_button %}
                     <style>
@@ -237,5 +242,5 @@
     </div>
 
 
-  
+
 </div>

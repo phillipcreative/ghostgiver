@@ -1,4 +1,13 @@
-{
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
   "current": {
     "boxed": true,
     "loader": "none-loader",
@@ -7,14 +16,14 @@
     "rounded": false,
     "back_to_top_desctop": true,
     "wishlist": false,
-    "coming_soon_date": "2017\/12\/31",
+    "coming_soon_date": "2017/12/31",
     "ajax_cart": true,
     "checkout_popup": true,
-    "favicon": "shopify:\/\/shop_images\/Group_42577_2x_54a22ff1-5d12-4c70-902f-a1aeb9df565b.png",
-    "imgbanner": "shopify:\/\/shop_images\/WAYS_TO_GHOSTGIVE_5121d2ee-e0fa-476c-8f55-467f037301c2.png",
-    "imgbanner_mobile": "shopify:\/\/shop_images\/Group_46145_7c3148e9-5267-4f00-9639-b12d6eba8a93.png",
-    "imgbanner_PRODUCTS": "shopify:\/\/shop_images\/MASK_2x_6b1a4aaf-5049-440a-b056-8a8c2226fdde.png",
-    "imgbanner_PRODUCT_MOBILE": "shopify:\/\/shop_images\/thumb_PRODUCTS_-_Mobile_Image.png",
+    "favicon": "shopify://shop_images/Group_42577_2x_54a22ff1-5d12-4c70-902f-a1aeb9df565b.png",
+    "imgbanner": "shopify://shop_images/WAYS_TO_GHOSTGIVE_5121d2ee-e0fa-476c-8f55-467f037301c2.png",
+    "imgbanner_mobile": "shopify://shop_images/Group_46145_7c3148e9-5267-4f00-9639-b12d6eba8a93.png",
+    "imgbanner_PRODUCTS": "shopify://shop_images/MASK_2x_6b1a4aaf-5049-440a-b056-8a8c2226fdde.png",
+    "imgbanner_PRODUCT_MOBILE": "shopify://shop_images/thumb_PRODUCTS_-_Mobile_Image.png",
     "bannername": "Products",
     "collection_block_width": "boxed",
     "collection_outer_margin": "offset-top-30",
@@ -27,7 +36,7 @@
     "collections_filter_shopping_by": true,
     "megamenu_dark": true,
     "megamenu_style": "fadein",
-    "labels": "Women:sale:alt;Men:new;Sales:-15%;Cell Phones:iPhone 5\/5s\/6\/6s:alt;Sale:-10%:alt;Ajax Attributes Filter - collapsed fixed:new in shopify;Configurable swatches - Clever:new in shopify;Product:NEW FEATURES:alt;Listing:NEW FEATURES:alt;Journal:new look;Test link 2:my label;Test link 3:blue label:alt;Banners \/ Grid Editor:EXCLUSIVE:alt;Hoodies:-15%:alt;Tees:new;Pants:sale:alt;Empty Category:0 items;Empty category:0 items;Dropdown level 2-2:test2;Dropdown level 3-1:test3;Dropdown level 4-1:test4",
+    "labels": "Women:sale:alt;Men:new;Sales:-15%;Cell Phones:iPhone 5/5s/6/6s:alt;Sale:-10%:alt;Ajax Attributes Filter - collapsed fixed:new in shopify;Configurable swatches - Clever:new in shopify;Product:NEW FEATURES:alt;Listing:NEW FEATURES:alt;Journal:new look;Test link 2:my label;Test link 3:blue label:alt;Banners / Grid Editor:EXCLUSIVE:alt;Hoodies:-15%:alt;Tees:new;Pants:sale:alt;Empty Category:0 items;Empty category:0 items;Dropdown level 2-2:test2;Dropdown level 3-1:test3;Dropdown level 4-1:test4",
     "megamenu_spy_navigation": true,
     "megamenu_spy_navigation_enable": false,
     "megamenu_spy_navigation_open_when": "1600",
@@ -62,7 +71,7 @@
     "cart_title_1": "FREE SHIPPING",
     "cart_text_1": "Spend $50.00 more and get free shipping or join Nike+ for free shipping on every order, every time. *Excludes gift cards.",
     "cart_title_2": "NEED HELP?",
-    "cart_text_2": "<a href=\"#\">How is my order secure?<\/a>\n\t\t\t\t\t\t\t<br><a href=\"#\">What payment methods can I use?<\/a>\n\t\t\t\t\t\t\t<br><a href=\"#\">Using Coke Rewards?<\/a>",
+    "cart_text_2": "<a href=\"#\">How is my order secure?</a>\n\t\t\t\t\t\t\t<br><a href=\"#\">What payment methods can I use?</a>\n\t\t\t\t\t\t\t<br><a href=\"#\">Using Coke Rewards?</a>",
     "checkout_popup_cart": true,
     "checkout_popup_cart_caption": "Previously added products",
     "checkout_popup_upsells": true,
@@ -71,7 +80,7 @@
     "checkout_popup_guaranteed_caption": "Guaranteed safe Checkout",
     "checkout_popup_guaranteed_image": "",
     "newsletter_mailchimp_yes": false,
-    "newsletter_action": "\/\/myshopify.us13.list-manage.com\/subscribe\/post?u=d981bdb0feb8dfab6170ae9b9&amp;id=47040fbf5f",
+    "newsletter_action": "//myshopify.us13.list-manage.com/subscribe/post?u=d981bdb0feb8dfab6170ae9b9&amp;id=47040fbf5f",
     "newsletter_title": "EMAIL ME SPECIAL OFFERS",
     "newsletter_desc": "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is painsome great pleasure.",
     "newsletter_popup_yes": true,
@@ -85,13 +94,13 @@
     "share_pinterest": false,
     "share_fancy": false,
     "share_google": true,
-    "social_twitter_link": "https:\/\/x.com\/ghostthegoodway",
-    "social_facebook_link": "https:\/\/www.facebook.com\/ghostgiver",
-    "social_pinterest_link": "https:\/\/in.pinterest.com\/ghostgiver\/",
-    "social_instagram_link": "https:\/\/www.instagram.com\/ghostgiver",
+    "social_twitter_link": "https://x.com/ghostthegoodway",
+    "social_facebook_link": "https://www.facebook.com/ghostgiver",
+    "social_pinterest_link": "https://in.pinterest.com/ghostgiver/",
+    "social_instagram_link": "https://www.instagram.com/ghostgiver",
     "social_tumblr_link": "",
     "social_snapchat_link": "",
-    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCeWrTq5_YWgPW9q-xVvk1DQ",
+    "social_youtube_link": "https://www.youtube.com/channel/UCeWrTq5_YWgPW9q-xVvk1DQ",
     "social_vimeo_link": "",
     "shop_info_caption_1_text": "Payment option",
     "shop_info_caption_1_icon": "icon-creditcard",
@@ -102,10 +111,10 @@
     "shop_info_caption_3_text": "Secure Transaction",
     "shop_info_caption_3_icon": "icon-cart",
     "shop_info_caption_3_link": "#",
-    "paymenticons1": "shopify:\/\/shop_images\/visa.png",
-    "paymenticons2": "shopify:\/\/shop_images\/mastercard.png",
-    "paymenticons3": "shopify:\/\/shop_images\/Amex.png",
-    "paymenticons5": "shopify:\/\/shop_images\/paypal.png",
+    "paymenticons1": "shopify://shop_images/visa.png",
+    "paymenticons2": "shopify://shop_images/mastercard.png",
+    "paymenticons3": "shopify://shop_images/Amex.png",
+    "paymenticons5": "shopify://shop_images/paypal.png",
     "methods_of_payment_title": "100% SECURE PAYMENT",
     "payments_type": "icons",
     "payments_icons": "pf-visa,pf-mastercard,pf-american-express,pf-apple-pay,pf-paypal,pf-cash-on-delivery",
@@ -212,16 +221,16 @@
     "insta_sort": "most-recent",
     "blog_meta_yes": true,
     "blog_meta_title": "Meta",
-    "blog_meta_list": "<li><a href=\"#\">Log in<\/a><\/li><li><a href=\"#\">Entries RSS<\/a><\/li><li><a href=\"#\">Comments RSS<\/a><\/li><li><a href=\"#\">WordPress.org<\/a><\/li>",
+    "blog_meta_list": "<li><a href=\"#\">Log in</a></li><li><a href=\"#\">Entries RSS</a></li><li><a href=\"#\">Comments RSS</a></li><li><a href=\"#\">WordPress.org</a></li>",
     "blog_archives_yes": true,
     "blog_archives_title": "Archives",
-    "blog_archives_list": "<li><a href=\"#\">February 2015<\/a><\/li><li><a href=\"#\">April 2016<\/a><\/li><li><a href=\"#\">May 2016<\/a><\/li><li><a href=\"#\">Juny 2016<\/a><\/li>",
+    "blog_archives_list": "<li><a href=\"#\">February 2015</a></li><li><a href=\"#\">April 2016</a></li><li><a href=\"#\">May 2016</a></li><li><a href=\"#\">Juny 2016</a></li>",
     "blog_tags_yes": true,
     "blog_instagram_yes": true,
-    "password_page_logo": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "password_page_logo": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
     "password_page_logo_max_width": "210",
     "password_page_info": "Our Site will be launched soon. We will be up and running in:",
-    "password_page_date": "2017\/12\/31",
+    "password_page_date": "2017/12/31",
     "password_page_copyright": "2017 © BigSteps. All Rights Reserved.",
     "show_multiple_currencies": true,
     "currency_format": "money_with_currency_format",
@@ -441,7 +450,7 @@
     "show_out_of_stock": true,
     "is_demo": true,
     "logo_home_page_1": "",
-    "logo_home_page_2": "shopify:\/\/shop_images\/logo_7bafafa8-8efd-475a-9710-03c1829bd4e5.png",
+    "logo_home_page_2": "shopify://shop_images/logo_7bafafa8-8efd-475a-9710-03c1829bd4e5.png",
     "logo_home_page_3": "",
     "logo_home_page_4": "",
     "logo_home_page_5": "",
@@ -449,15 +458,15 @@
     "logo_home_page_7": "",
     "logo_home_page_8": "",
     "logo_home_page_9": "",
-    "logo_sticky_home_page_1": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_2": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_3": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_4": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_5": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_6": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_7": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_8": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
-    "logo_sticky_home_page_9": "shopify:\/\/shop_images\/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_1": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_2": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_3": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_4": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_5": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_6": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_7": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_8": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
+    "logo_sticky_home_page_9": "shopify://shop_images/logo-dark_3191149c-3fe6-451b-8763-0f6af829529a.png",
     "logo_footer_home_page_1": "",
     "logo_footer_home_page_2": "",
     "logo_footer_home_page_3": "",
@@ -465,7 +474,7 @@
     "logo_footer_home_page_5": "",
     "logo_footer_home_page_6": "",
     "logo_footer_home_page_7": "",
-    "logo_footer_home_page_8": "shopify:\/\/shop_images\/logo_4698662d-3477-470d-b58a-69eb9e736c36.png",
+    "logo_footer_home_page_8": "shopify://shop_images/logo_4698662d-3477-470d-b58a-69eb9e736c36.png",
     "logo_footer_home_page_9": "",
     "sections": {
       "header": {
@@ -477,7 +486,7 @@
               "enable": true,
               "assign_to": "header",
               "title": "HOME",
-              "link": "https:\/\/ghostgiver.com\/",
+              "link": "https://ghostgiver.com/",
               "label": "",
               "label_color": "menu-label",
               "dropdown_list": ""
@@ -489,7 +498,7 @@
               "enable": true,
               "assign_to": "header",
               "title": "About Us",
-              "link": "shopify:\/\/pages\/about-us",
+              "link": "shopify://pages/about-us",
               "label": "",
               "label_color": "menu-label",
               "dropdown_list": ""
@@ -501,7 +510,7 @@
               "enable": true,
               "assign_to": "header",
               "title": "How It Works",
-              "link": "shopify:\/\/pages\/how-it-works-new",
+              "link": "shopify://pages/how-it-works-new",
               "label": "",
               "label_color": "menu-label",
               "dropdown_list": ""
@@ -515,18 +524,18 @@
               "assign_to": "header",
               "title": "Ways to Ghostgive",
               "title_border": true,
-              "link": "shopify:\/\/pages\/ways-to-ghostgive",
+              "link": "shopify://pages/ways-to-ghostgive",
               "label": "",
               "label_color": "menu-label-alt",
               "columns_in_row": "2",
               "limit": "",
               "nav_col_1_yes": true,
-              "nav_col_1_preview": "shopify:\/\/shop_images\/Mask_Group_112_2x_e50d5dc4-d7eb-4e17-8ad8-5a877df2e3bd.png",
+              "nav_col_1_preview": "shopify://shop_images/Mask_Group_112_2x_e50d5dc4-d7eb-4e17-8ad8-5a877df2e3bd.png",
               "nav_col_1_title": "WE SEND THE GIFT",
               "nav_col_1_link": "",
               "nav_col_1_list": "we-send-the-gift",
               "nav_col_2_yes": true,
-              "nav_col_2_preview": "shopify:\/\/shop_images\/Mask_Group_111_2x_65759a09-9c00-49cd-aca2-7c96557ee4f3.png",
+              "nav_col_2_preview": "shopify://shop_images/Mask_Group_111_2x_65759a09-9c00-49cd-aca2-7c96557ee4f3.png",
               "nav_col_2_title": "YOU SEND THE GIFT",
               "nav_col_2_link": "",
               "nav_col_2_list": "you-send-the-gift",
@@ -600,7 +609,7 @@
               "enable": true,
               "assign_to": "header",
               "title": "Ghost Stories",
-              "link": "shopify:\/\/blogs\/ghost-stories",
+              "link": "shopify://blogs/ghost-stories",
               "label": "",
               "label_color": "menu-label",
               "dropdown_list": ""
@@ -612,7 +621,7 @@
               "enable": true,
               "assign_to": "header",
               "title": "Get Started",
-              "link": "shopify:\/\/pages\/get-started",
+              "link": "shopify://pages/get-started",
               "label": "",
               "label_color": "menu-label",
               "dropdown_list": ""
@@ -630,7 +639,7 @@
         "settings": {
           "block_width": "boxed",
           "style": "3",
-          "logo": "shopify:\/\/shop_images\/Logo_-_Icon_on_Left_GHOST_GIVER_on_right_with_R.svg",
+          "logo": "shopify://shop_images/Logo_-_Icon_on_Left_GHOST_GIVER_on_right_with_R.svg",
           "logo_max_width": "450",
           "languages": false,
           "currencies": false,
@@ -639,10 +648,10 @@
           "header_support_time": "",
           "sticky": "sticky",
           "sticky_behavior": "smart",
-          "logo_sticky": "shopify:\/\/shop_images\/logo_ghost.png",
+          "logo_sticky": "shopify://shop_images/logo_ghost.png",
           "logo_bg_yes": false,
           "logo_bg_color": "rgba(0,0,0,0)",
-          "header_info": "<div class=\"shop-features\">\n\n<a href=\"#\" class=\"shop-feature-sm\">\n\t<div class=\"shop-feature-icon\"><i class=\"icon-car\"><\/i><\/div>\n\t<div class=\"shop-feature-text\">\n\t\tFree\n\t\t<br>shipping\n\t<\/div>\n<\/a>\n<a href=\"#\" class=\"shop-feature-sm\">\n\t<div class=\"shop-feature-icon\"><i class=\"icon-exchange\"><\/i><\/div>\n\t<div class=\"shop-feature-text\">\n\t\tOriginal\n\t\t<br>product\n\t<\/div>\n<\/a>\n<\/div>",
+          "header_info": "<div class=\"shop-features\">\n\n<a href=\"#\" class=\"shop-feature-sm\">\n\t<div class=\"shop-feature-icon\"><i class=\"icon-car\"></i></div>\n\t<div class=\"shop-feature-text\">\n\t\tFree\n\t\t<br>shipping\n\t</div>\n</a>\n<a href=\"#\" class=\"shop-feature-sm\">\n\t<div class=\"shop-feature-icon\"><i class=\"icon-exchange\"></i></div>\n\t<div class=\"shop-feature-text\">\n\t\tOriginal\n\t\t<br>product\n\t</div>\n</a>\n</div>",
           "social_icons": false,
           "blackout": false,
           "dropdown_animation": "fadein",
@@ -656,17 +665,17 @@
           "block_width": "global_width",
           "outer_margin": "offset-top-50",
           "style": "1",
-          "url_text_img": "shopify:\/\/collections\/digital-gift-card-via-text",
+          "url_text_img": "shopify://collections/digital-gift-card-via-text",
           "gift_card_heading": "Make someone's day. Ghostgive a digital gift card!",
-          "image_gift_card": "shopify:\/\/shop_images\/GIFT_CARDS_2x_90d5f9a3-ad1f-4556-ac28-a7bc28356fa0.png",
+          "image_gift_card": "shopify://shop_images/GIFT_CARDS_2x_90d5f9a3-ad1f-4556-ac28-a7bc28356fa0.png",
           "logo_yes": true,
-          "logo": "shopify:\/\/shop_images\/Group_39362_2x_a35bfc1c-f958-4255-a399-40e850894220.png",
+          "logo": "shopify://shop_images/Group_39362_2x_a35bfc1c-f958-4255-a399-40e850894220.png",
           "logo_max_width": "350",
           "menu_heading1": "PRODUCTS",
           "navigation_1": "footer-products",
           "menu_heading2": "WEBSITE",
           "navigation_2": "footer-website",
-          "twitter_widget_content": "<h4>\n<span style=\"color:#ff358b\">Hurry up! <\/span>Limited Gift Cards!<\/h4><a href=\"https:\/\/help.shopify.com\/manual\/products\/gift-card-products\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/1880\/9649\/files\/gift_card_small_b3560c34-d4f4-44bd-8ff7-ad272a3a7b86.png?15558946316617159827\" alt=\"-25%\"><\/a>",
+          "twitter_widget_content": "<h4>\n<span style=\"color:#ff358b\">Hurry up! </span>Limited Gift Cards!</h4><a href=\"https://help.shopify.com/manual/products/gift-card-products\"><img src=\"https://cdn.shopify.com/s/files/1/1880/9649/files/gift_card_small_b3560c34-d4f4-44bd-8ff7-ad272a3a7b86.png?15558946316617159827\" alt=\"-25%\"></a>",
           "shop_info_yes": false,
           "newsletter": true,
           "show_methods_of_payment": true,
@@ -674,7 +683,7 @@
           "show_instagram": false,
           "social_icons": false,
           "support_time_title": "CONNECT WITH US",
-          "support_time": "<ul> <li>\n<i class=\"icon icon-phone\"><\/i> (385) 576-5237 <\/li> <li>\n<i class=\"icon icon-close-envelope\"><\/i><a href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com<\/a>\n<\/li>\n\n<\/ul>",
+          "support_time": "<ul> <li>\n<i class=\"icon icon-phone\"></i> (385) 576-5237 </li> <li>\n<i class=\"icon icon-close-envelope\"></i><a href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com</a>\n</li>\n\n</ul>",
           "copyright": "2025 © Ghost Giver. All Rights Reserved."
         }
       },
@@ -684,13 +693,13 @@
           "1505066402732": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/GIFT_CARD_LADY_2x_55f8bfd6-93d0-4dd9-80c8-22eb49d51237.png",
-              "image1": "shopify:\/\/shop_images\/GHOST_SOMEONE.png",
+              "image": "shopify://shop_images/GIFT_CARD_LADY_2x_55f8bfd6-93d0-4dd9-80c8-22eb49d51237.png",
+              "image1": "shopify://shop_images/GHOST_SOMEONE.png",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "none",
               "video_id": "_9VUPq3SxOc",
-              "link": "shopify:\/\/products\/backless-mini-dress",
+              "link": "shopify://products/backless-mini-dress",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -743,13 +752,13 @@
           "1505067182406": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/COUCH_MAN_2x_dd81770c-5f6d-4b50-988b-26e671c0dd27.png",
-              "image1": "shopify:\/\/shop_images\/FRIEND.png",
+              "image": "shopify://shop_images/COUCH_MAN_2x_dd81770c-5f6d-4b50-988b-26e671c0dd27.png",
+              "image1": "shopify://shop_images/FRIEND.png",
               "enable": true,
               "bg_v_alignment": "bg-bottom",
               "type": "none",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -802,8 +811,8 @@
           "e06a86ae-bfcc-4257-96b6-3701ade1a4e1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/COWORKER_2x_856f5e70-a90f-42b3-9735-368d44162a0a.png",
-              "image1": "shopify:\/\/shop_images\/CO-WORKER.png",
+              "image": "shopify://shop_images/COWORKER_2x_856f5e70-a90f-42b3-9735-368d44162a0a.png",
+              "image1": "shopify://shop_images/CO-WORKER.png",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "none",
@@ -861,13 +870,13 @@
           "eaece762-7b50-4537-bbdc-d64031a14e8a": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/FAMILY_IN_NEED_2x_f39d171b-c3da-44d1-afab-9de959d9f026.png",
-              "image1": "shopify:\/\/shop_images\/FAMILY.png",
+              "image": "shopify://shop_images/FAMILY_IN_NEED_2x_f39d171b-c3da-44d1-afab-9de959d9f026.png",
+              "image1": "shopify://shop_images/FAMILY.png",
               "enable": true,
               "bg_v_alignment": "bg-bottom",
               "type": "none",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -920,13 +929,13 @@
           "6587d386-227e-4ed8-9961-713ac38a1b12": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/GRANDPARENTS_2x_701668ae-4bed-4219-ba15-81625e253fff.png",
-              "image1": "shopify:\/\/shop_images\/GRANDPARENTS.png",
+              "image": "shopify://shop_images/GRANDPARENTS_2x_701668ae-4bed-4219-ba15-81625e253fff.png",
+              "image1": "shopify://shop_images/GRANDPARENTS.png",
               "enable": true,
               "bg_v_alignment": "bg-bottom",
               "type": "none",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -942,7 +951,7 @@
               "captions_h_alignment": "txt-center",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span class=\"slide-main\">MAKE <\/span><span class=\"slide-sub\">THEIR DAY<\/span><span class=\"slide-info\">(..even if you don't know them)<\/span>",
+              "caption_1": "<span class=\"slide-main\">MAKE </span><span class=\"slide-sub\">THEIR DAY</span><span class=\"slide-info\">(..even if you don't know them)</span>",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1200",
               "caption_1_color": "#ffffff",
@@ -979,13 +988,13 @@
           "79ff83cf-f9e6-4ba3-8bba-875dde21402a": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/DOOR_DITCH_2x_ec0c5229-ee58-404b-ac32-c2a887caddf9.png",
-              "image1": "shopify:\/\/shop_images\/NEIGHBORS.png",
+              "image": "shopify://shop_images/DOOR_DITCH_2x_ec0c5229-ee58-404b-ac32-c2a887caddf9.png",
+              "image1": "shopify://shop_images/NEIGHBORS.png",
               "enable": true,
               "bg_v_alignment": "bg-bottom",
               "type": "none",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -1001,7 +1010,7 @@
               "captions_h_alignment": "txt-center",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span class=\"slide-main\">DO<span class=\"slide-o-icon\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0508\/9994\/3601\/files\/icon-circle.png?v=1608220908\"><\/span>R BELL <\/span><span class=\"slide-sub\">DITCH<\/span><span class=\"slide-info\">(..with purpose!)<\/span>",
+              "caption_1": "<span class=\"slide-main\">DO<span class=\"slide-o-icon\"><img src=\"https://cdn.shopify.com/s/files/1/0508/9994/3601/files/icon-circle.png?v=1608220908\"></span>R BELL </span><span class=\"slide-sub\">DITCH</span><span class=\"slide-info\">(..with purpose!)</span>",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1200",
               "caption_1_color": "#ffffff",
@@ -1038,13 +1047,13 @@
           "1cd361e2-ef9a-4803-a8ea-cd771a4fcadc": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/TEACHER_2x_1bd9f84a-c5c6-46f3-a3c4-81cec416b73f.png",
-              "image1": "shopify:\/\/shop_images\/TEACHER_7f735568-9b16-4c2b-87be-b74508f6ada2.png",
+              "image": "shopify://shop_images/TEACHER_2x_1bd9f84a-c5c6-46f3-a3c4-81cec416b73f.png",
+              "image1": "shopify://shop_images/TEACHER_7f735568-9b16-4c2b-87be-b74508f6ada2.png",
               "enable": true,
               "bg_v_alignment": "bg-bottom",
               "type": "none",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -1060,7 +1069,7 @@
               "captions_h_alignment": "txt-center",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span class=\"slide-main\">SEND SOME <\/span><span class=\"slide-sub\">SPARKLE<\/span><span class=\"slide-info\">(..to brighten a day!)<\/span>",
+              "caption_1": "<span class=\"slide-main\">SEND SOME </span><span class=\"slide-sub\">SPARKLE</span><span class=\"slide-info\">(..to brighten a day!)</span>",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1200",
               "caption_1_color": "#ffffff",
@@ -1097,13 +1106,13 @@
           "1372e9e6-f329-4365-ab78-b1d185d795ca": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/2_WOMEN_2x_af6948d5-e8f6-4f09-9ef4-1d6158e2f300.png",
-              "image1": "shopify:\/\/shop_images\/Ghost_Your_Secret_Crush_-_Mobile_Image_1.png",
+              "image": "shopify://shop_images/2_WOMEN_2x_af6948d5-e8f6-4f09-9ef4-1d6158e2f300.png",
+              "image1": "shopify://shop_images/Ghost_Your_Secret_Crush_-_Mobile_Image_1.png",
               "enable": true,
               "bg_v_alignment": "bg-bottom",
               "type": "none",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -1119,7 +1128,7 @@
               "captions_h_alignment": "txt-center",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span class=\"slide-main\">SEE A <\/span><span class=\"slide-sub\">NEED ?<\/span><span class=\"slide-info\">(..ghost-give a little help)<\/span>",
+              "caption_1": "<span class=\"slide-main\">SEE A </span><span class=\"slide-sub\">NEED ?</span><span class=\"slide-info\">(..ghost-give a little help)</span>",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1200",
               "caption_1_color": "#ffffff",
@@ -1156,13 +1165,13 @@
           "fb4ddfca-361c-4f10-a5e2-e32fe088639c": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/AMAZON_2x_7b2aaf98-0b12-4083-9381-c5f253aabe4c.png",
-              "image1": "shopify:\/\/shop_images\/TOTAL_STRANGER.png",
+              "image": "shopify://shop_images/AMAZON_2x_7b2aaf98-0b12-4083-9381-c5f253aabe4c.png",
+              "image1": "shopify://shop_images/TOTAL_STRANGER.png",
               "enable": true,
               "bg_v_alignment": "bg-bottom",
               "type": "none",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": false,
               "link_button_text": "Shop now",
@@ -1178,7 +1187,7 @@
               "captions_h_alignment": "txt-center",
               "captions_v_alignment": "txt-bottom",
               "caption_1_yes": true,
-              "caption_1": "<span class=\"slide-main\">THANK A <\/span><span class=\"slide-sub\">CO-W<span class=\"slide-o-icon\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0508\/9994\/3601\/files\/icon-circle.png?v=1608220908\"><\/span>RKER<\/span><span class=\"slide-info\">(..for a job well done)<\/span>",
+              "caption_1": "<span class=\"slide-main\">THANK A </span><span class=\"slide-sub\">CO-W<span class=\"slide-o-icon\"><img src=\"https://cdn.shopify.com/s/files/1/0508/9994/3601/files/icon-circle.png?v=1608220908\"></span>RKER</span><span class=\"slide-info\">(..for a job well done)</span>",
               "caption_1_animation": "flipInX",
               "caption_1_delay": "1200",
               "caption_1_color": "#ffffff",
@@ -1247,9 +1256,9 @@
       "collection-section": {
         "type": "collection-section",
         "settings": {
-          "custm_url_how_it_work": "shopify:\/\/pages\/how-it-works-new",
+          "custm_url_how_it_work": "shopify://pages/how-it-works-new",
           "custm_name_how_it_work": "how it works",
-          "custm_url_example": "shopify:\/\/pages\/free-printable-cards-of-example",
+          "custm_url_example": "shopify://pages/free-printable-cards-of-example",
           "custm_name_example": "example",
           "collections_products_per_row": "4",
           "collections_per_row_mobile": "2",
@@ -1272,10 +1281,10 @@
           "product_availability": true,
           "product_inventory_count": true,
           "list": true,
-          "list_content": "<p><b>Each card includes all the set-up instructions to create your anonymous ghostgiving message. <\/b><\/p>",
+          "list_content": "<p><b>Each card includes all the set-up instructions to create your anonymous ghostgiving message. </b></p>",
           "pricetext_line": false,
           "shipping": false,
-          "shipping_content": "<h5>Individual\/Global text block<\/h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.<\/p>",
+          "shipping_content": "<h5>Individual/Global text block</h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.</p>",
           "safe_checkout_image_yes": false,
           "tabs_float": "left",
           "product_tab_1": false,
@@ -1343,12 +1352,12 @@
           "block_width": "fullwidth",
           "color": "",
           "bg_color": "",
-          "caption": "Wanna brighten someone’s day? <b>Ghost Them!<\/b>",
+          "caption": "Wanna brighten someone’s day? <b>Ghost Them!</b>",
           "close": true,
           "button": true,
           "button_style": "btn-alt",
           "button_text": "Learn More",
-          "button_link": "\/pages\/how-it-works-new",
+          "button_link": "/pages/how-it-works-new",
           "expires": "1",
           "developer_mode": "true"
         }
@@ -1359,10 +1368,10 @@
           "enable": true,
           "block_width": "global_width",
           "outer_margin": "offset-top-50",
-          "address": "<p>Adress: 8901 Marmora Road, Glasgow D04 64 GR, New York<\/p>",
-          "phone": "<p><b>Phone:<\/b> 9823984244<\/p> <p><b>Phone:<\/b> 6543954265<\/p>",
-          "email": "<p><b>Email:<\/b> <a href=\"mailto:Banita@example.com\">Banitafax@example.com<\/a><\/p> <p><b>FAX:<\/b> <a href=\"mailto:Banita@example.com\">Banitafax@example.com<\/a><\/p>",
-          "time": "<p><b>Hours:<\/b> 7 Days a week from 09:00 am to 7:00 pm<\/p>",
+          "address": "<p>Adress: 8901 Marmora Road, Glasgow D04 64 GR, New York</p>",
+          "phone": "<p><b>Phone:</b> 9823984244</p> <p><b>Phone:</b> 6543954265</p>",
+          "email": "<p><b>Email:</b> <a href=\"mailto:Banita@example.com\">Banitafax@example.com</a></p> <p><b>FAX:</b> <a href=\"mailto:Banita@example.com\">Banitafax@example.com</a></p>",
+          "time": "<p><b>Hours:</b> 7 Days a week from 09:00 am to 7:00 pm</p>",
           "enable_map": true,
           "latitude": "40.7232814",
           "longitude": "-74.00161000000003"
@@ -1383,12 +1392,12 @@
           "1504207212672": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/102_1f242d5a-74de-4a8e-8b1f-20347a9744d6.jpg",
+              "image": "shopify://shop_images/102_1f242d5a-74de-4a8e-8b1f-20347a9744d6.jpg",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "none",
               "video_id": "_9VUPq3SxOc",
-              "link": "shopify:\/\/products\/backless-mini-dress",
+              "link": "shopify://products/backless-mini-dress",
               "link_target": "_self",
               "link_button_yes": true,
               "link_button_text": "Shop now",
@@ -1441,12 +1450,12 @@
           "1504206770706": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/10_3d385b55-c396-4bb0-9dd0-5065179345ba.jpg",
+              "image": "shopify://shop_images/10_3d385b55-c396-4bb0-9dd0-5065179345ba.jpg",
               "enable": true,
               "bg_v_alignment": "bg-top",
               "type": "none",
               "video_id": "_9VUPq3SxOc",
-              "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+              "link": "shopify://products/cover-up-cotton-tunic",
               "link_target": "_self",
               "link_button_yes": true,
               "link_button_text": "Shop now",
@@ -1499,12 +1508,12 @@
           "1504813731970": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/video_poster.jpg",
+              "image": "shopify://shop_images/video_poster.jpg",
               "enable": true,
               "bg_v_alignment": "bg-middle",
               "type": "background-box",
               "video_id": "zR0Sn-p5FFo",
-              "link": "shopify:\/\/products\/backless-mini-dress",
+              "link": "shopify://products/backless-mini-dress",
               "link_target": "_self",
               "link_button_yes": true,
               "link_button_text": "Shop now",
@@ -1599,7 +1608,7 @@
             "settings": {
               "enable": true,
               "title": "What do I do if my order is damaged in transit or never arrives?",
-              "answer": "We hope that NEVER happens! But if for some reason it does occur, please contact us directly at <a href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com<\/a> and let us know what happened. We want to get you taken care of!"
+              "answer": "We hope that NEVER happens! But if for some reason it does occur, please contact us directly at <a href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com</a> and let us know what happened. We want to get you taken care of!"
             }
           },
           "1504373996834": {
@@ -1615,7 +1624,7 @@
             "settings": {
               "enable": true,
               "title": "What do I do if the code on my card or packing slip doesn't work?",
-              "answer": "Email us at <a href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com<\/a> with the code that isn’t working, and a member of our customer care team will reply shortly."
+              "answer": "Email us at <a href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com</a> with the code that isn’t working, and a member of our customer care team will reply shortly."
             }
           },
           "1504374021920": {
@@ -1631,7 +1640,7 @@
             "settings": {
               "enable": true,
               "title": "My Ghost Giver included a digital gift card. How do I redeem it?",
-              "answer": "If your Ghost Giver included a digital gift card, the screen where you read, listened to, or watched the personal message from your Ghost Giver would have included a notification stating that a digital gift card was included. If it did, you simply enter your email address, and we’ll email you the redemption instructions. A digital gift card was most likely not included if you didn't see a notification.\n<br>\n <br>\nIf you need any additional assistance, please don’t hesitate to contact us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com. <\/a>"
+              "answer": "If your Ghost Giver included a digital gift card, the screen where you read, listened to, or watched the personal message from your Ghost Giver would have included a notification stating that a digital gift card was included. If it did, you simply enter your email address, and we’ll email you the redemption instructions. A digital gift card was most likely not included if you didn't see a notification.\n<br>\n <br>\nIf you need any additional assistance, please don’t hesitate to contact us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com. </a>"
             }
           },
           "1504374055106": {
@@ -1639,7 +1648,7 @@
             "settings": {
               "enable": true,
               "title": "I want to change the shipping address, but my order already shipped!",
-              "answer": "Once an order has shipped, we are limited in what we can do. But if it hasn’t, we’ll happily accommodate your request and change the shipping address. Just email us at  <a href=\"service@ghostgiver.com\">service@ghostgiver.com. <\/a>"
+              "answer": "Once an order has shipped, we are limited in what we can do. But if it hasn’t, we’ll happily accommodate your request and change the shipping address. Just email us at  <a href=\"service@ghostgiver.com\">service@ghostgiver.com. </a>"
             }
           },
           "1504374064476": {
@@ -1663,7 +1672,7 @@
             "settings": {
               "enable": true,
               "title": "Help! I changed my mind. Can I cancel my order?",
-              "answer": "Due to our quick shipping, the time to cancel an order is very short. We might not always be able to cancel, but we’ll try our best. Just email us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com.<\/a>"
+              "answer": "Due to our quick shipping, the time to cancel an order is very short. We might not always be able to cancel, but we’ll try our best. Just email us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com.</a>"
             }
           },
           "item_njNDHB": {
@@ -1671,7 +1680,7 @@
             "settings": {
               "enable": true,
               "title": "My ghostgive didn’t reach its destination. What do I do?",
-              "answer": "We’re sorry to hear that your package didn’t reach its destination. When this happens, the package is routed back to our fulfillment center in Utah, which can take several weeks. If returned, our support team will contact you to discuss the details. \n<br>\nAs a rule, we will: \n\n<p>Refund the box upon receipt minus a 35% restocking fee for the labor, discard perishables and custom items, and then reship to the correct address for a $3-$8 fee, depending on the weight and location.<\/p>\n\n<p>That said, we realize that every situation is unique. Please email us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com <\/a>so we can determine how to best help you.<\/p>"
+              "answer": "We’re sorry to hear that your package didn’t reach its destination. When this happens, the package is routed back to our fulfillment center in Utah, which can take several weeks. If returned, our support team will contact you to discuss the details. \n<br>\nAs a rule, we will: \n\n<p>Refund the box upon receipt minus a 35% restocking fee for the labor, discard perishables and custom items, and then reship to the correct address for a $3-$8 fee, depending on the weight and location.</p>\n\n<p>That said, we realize that every situation is unique. Please email us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com </a>so we can determine how to best help you.</p>"
             }
           },
           "item_tqcaxx": {
@@ -1679,7 +1688,7 @@
             "settings": {
               "enable": true,
               "title": "When is my order considered lost?",
-              "answer": "Our policy is to wait 14 days from the last tracking update before considering a package lost in transit. This allows our shipping partners to work through any possible delays due to COVID-19 precautions, inclement weather, increases in shipping volume, etc. <br><br>\nHowever, once we determine the order is lost, we will happily reship it for you at no additional cost! We appreciate your patience and understanding as our shipping partners work hard to deliver your order!<br><br>\nIf you have any questions regarding your order, feel free to email our Customer Care team at <a href=\"service@ghostgiver.com\">service@ghostgiver.com<\/a>."
+              "answer": "Our policy is to wait 14 days from the last tracking update before considering a package lost in transit. This allows our shipping partners to work through any possible delays due to COVID-19 precautions, inclement weather, increases in shipping volume, etc. <br><br>\nHowever, once we determine the order is lost, we will happily reship it for you at no additional cost! We appreciate your patience and understanding as our shipping partners work hard to deliver your order!<br><br>\nIf you have any questions regarding your order, feel free to email our Customer Care team at <a href=\"service@ghostgiver.com\">service@ghostgiver.com</a>."
             }
           },
           "item_eyrxd6": {
@@ -1687,15 +1696,15 @@
             "settings": {
               "enable": true,
               "title": "My lost order included a gift card. What do I do now?",
-              "answer": "Email us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com<\/a>. with your order number, and a member of our customer care team will look into it and get back to you shortly."
+              "answer": "Email us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com</a>. with your order number, and a member of our customer care team will look into it and get back to you shortly."
             }
           },
           "item_A6KrgX": {
             "type": "item",
             "settings": {
               "enable": true,
-              "title": "I’m shopping for my company\/school. How do I make a bulk order with you?",
-              "answer": "Ghost Giver has fun, affordable solutions for businesses! We have accommodated bulk orders for all kinds of giving. Please contact <a href=\"service@ghostgiver.com\">service@ghostgiver.com<\/a> with more information about your gifting needs, and we’ll route your request to the appropriate person within our organization who can assist you."
+              "title": "I’m shopping for my company/school. How do I make a bulk order with you?",
+              "answer": "Ghost Giver has fun, affordable solutions for businesses! We have accommodated bulk orders for all kinds of giving. Please contact <a href=\"service@ghostgiver.com\">service@ghostgiver.com</a> with more information about your gifting needs, and we’ll route your request to the appropriate person within our organization who can assist you."
             }
           },
           "item_eCb7mT": {
@@ -1703,7 +1712,7 @@
             "settings": {
               "enable": true,
               "title": "I’m interested in collaborating with Ghost Giver. Who do I contact?",
-              "answer": "We would love to consider working with you. Please email <a href=\"service@ghostgiver.com\">service@ghostgiver.com<\/a>, and we’ll route your email to the appropriate person within our organization who can respond to your inquiry."
+              "answer": "We would love to consider working with you. Please email <a href=\"service@ghostgiver.com\">service@ghostgiver.com</a>, and we’ll route your email to the appropriate person within our organization who can respond to your inquiry."
             }
           },
           "item_pzYKib": {
@@ -1711,7 +1720,7 @@
             "settings": {
               "enable": true,
               "title": "Do you have a question we didn’t answer?",
-              "answer": "Email us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com<\/a>, and a customer service agent will respond shortly."
+              "answer": "Email us at <a href=\"service@ghostgiver.com\">service@ghostgiver.com</a>, and a customer service agent will respond shortly."
             }
           }
         },
@@ -1758,7 +1767,7 @@
           "link_3": "",
           "link_target_3": "_self",
           "box_3_caption_1": "ONLINE SUPPORT",
-          "box_3_caption_2": "Service support fast 24\/7"
+          "box_3_caption_2": "Service support fast 24/7"
         }
       },
       "carousels_50_50": {
@@ -1786,7 +1795,7 @@
         "settings": {
           "enable": true,
           "title": "Banners From Online Editor",
-          "html": "<div class=\"block global_width\"><div class=\"container\"><div class=\"row\">\n<div class=\"col-sm-6\"><div class=\"col-content\"><a href=\"#bannerLink\" class=\"banner-wrap\"><div class=\"banner style-5 autosize-text image-hover-scale \" data-fontratio=\"5.7\">\n<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/1323\/8471\/files\/placeholder_1.jpg?7690545741780427304\" alt=\"Banner\"><div class=\"banner-caption text-left\"><div class=\"vert-wrapper\"><div class=\"vert\">\n<div class=\"text-1\">AMAZING<\/div>\n<div class=\"text-2\">Designer jacket<\/div>\n<div class=\"text-3\">-60 OFF<\/div>\n<div class=\"banner-btn text-hover\" data-hover-color=\"#ffffff\" data-hover-bgcolor=\"#24CEFF\" style=\"\"><span>TRY NOW<\/span><\/div>\n<\/div><\/div><\/div>\n<\/div><\/a><\/div><\/div>\n<div class=\"col-sm-6\"><div class=\"col-content\"><a href=\"#bannerLink\" class=\"banner-wrap\"><div class=\"banner style-6 autosize-text image-hover-scale\" data-fontratio=\"5.7\">\n<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/1323\/8471\/files\/placeholder_2.jpg?7690545741780427304\" alt=\"Banner\"><div class=\"banner-caption text-bot text-left\"><div class=\"vert-wrapper\"><div class=\"vert\">\n<div class=\"text-1\">FASHION COLLECTION<\/div>\n<div class=\"text-2\">SUMMER 2017<\/div>\n<\/div><\/div><\/div>\n<\/div><\/a><\/div><\/div>\n<\/div><\/div><\/div>"
+          "html": "<div class=\"block global_width\"><div class=\"container\"><div class=\"row\">\n<div class=\"col-sm-6\"><div class=\"col-content\"><a href=\"#bannerLink\" class=\"banner-wrap\"><div class=\"banner style-5 autosize-text image-hover-scale \" data-fontratio=\"5.7\">\n<img src=\"//cdn.shopify.com/s/files/1/1323/8471/files/placeholder_1.jpg?7690545741780427304\" alt=\"Banner\"><div class=\"banner-caption text-left\"><div class=\"vert-wrapper\"><div class=\"vert\">\n<div class=\"text-1\">AMAZING</div>\n<div class=\"text-2\">Designer jacket</div>\n<div class=\"text-3\">-60 OFF</div>\n<div class=\"banner-btn text-hover\" data-hover-color=\"#ffffff\" data-hover-bgcolor=\"#24CEFF\" style=\"\"><span>TRY NOW</span></div>\n</div></div></div>\n</div></a></div></div>\n<div class=\"col-sm-6\"><div class=\"col-content\"><a href=\"#bannerLink\" class=\"banner-wrap\"><div class=\"banner style-6 autosize-text image-hover-scale\" data-fontratio=\"5.7\">\n<img src=\"//cdn.shopify.com/s/files/1/1323/8471/files/placeholder_2.jpg?7690545741780427304\" alt=\"Banner\"><div class=\"banner-caption text-bot text-left\"><div class=\"vert-wrapper\"><div class=\"vert\">\n<div class=\"text-1\">FASHION COLLECTION</div>\n<div class=\"text-2\">SUMMER 2017</div>\n</div></div></div>\n</div></a></div></div>\n</div></div></div>"
         }
       },
       "brands": {
@@ -1797,7 +1806,7 @@
             "settings": {
               "enable": true,
               "title": "Brand01",
-              "image": "shopify:\/\/shop_images\/brand-square-02.png",
+              "image": "shopify://shop_images/brand-square-02.png",
               "link": "#",
               "link_target": "_self"
             }
@@ -1807,7 +1816,7 @@
             "settings": {
               "enable": true,
               "title": "Brand02",
-              "image": "shopify:\/\/shop_images\/brand-square-06.png",
+              "image": "shopify://shop_images/brand-square-06.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1817,7 +1826,7 @@
             "settings": {
               "enable": true,
               "title": "Brand03",
-              "image": "shopify:\/\/shop_images\/brand-square-01.png",
+              "image": "shopify://shop_images/brand-square-01.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1827,7 +1836,7 @@
             "settings": {
               "enable": true,
               "title": "Brand04",
-              "image": "shopify:\/\/shop_images\/brand-square-03.png",
+              "image": "shopify://shop_images/brand-square-03.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1837,7 +1846,7 @@
             "settings": {
               "enable": true,
               "title": "Brand05",
-              "image": "shopify:\/\/shop_images\/brand-square-05.png",
+              "image": "shopify://shop_images/brand-square-05.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1847,7 +1856,7 @@
             "settings": {
               "enable": true,
               "title": "Brand06",
-              "image": "shopify:\/\/shop_images\/brand-square-04.png",
+              "image": "shopify://shop_images/brand-square-04.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1857,7 +1866,7 @@
             "settings": {
               "enable": true,
               "title": "Brand07",
-              "image": "shopify:\/\/shop_images\/brand-square-07.png",
+              "image": "shopify://shop_images/brand-square-07.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1867,7 +1876,7 @@
             "settings": {
               "enable": true,
               "title": "Brand08",
-              "image": "shopify:\/\/shop_images\/brand-square-09.png",
+              "image": "shopify://shop_images/brand-square-09.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1877,7 +1886,7 @@
             "settings": {
               "enable": true,
               "title": "Brand09",
-              "image": "shopify:\/\/shop_images\/brand-square-08.png",
+              "image": "shopify://shop_images/brand-square-08.png",
               "link": "",
               "link_target": "_self"
             }
@@ -1923,7 +1932,7 @@
               "image": "",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>To take a trivial example, which of us ever undert laborious physical <\/p>"
+              "testimonial": "<p>To take a trivial example, which of us ever undert laborious physical </p>"
             }
           },
           "1504824525170": {
@@ -1932,7 +1941,7 @@
               "image": "",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>To take a trivial example, which of us ever undert laborious physical <\/p>"
+              "testimonial": "<p>To take a trivial example, which of us ever undert laborious physical </p>"
             }
           }
         },
@@ -1974,37 +1983,37 @@
           "1505125852124": {
             "type": "testimonial",
             "settings": {
-              "image": "shopify:\/\/shop_images\/test3.jpg",
+              "image": "shopify://shop_images/test3.jpg",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<\/p>"
+              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
             }
           },
           "1505125864777": {
             "type": "testimonial",
             "settings": {
-              "image": "shopify:\/\/shop_images\/test1.jpg",
+              "image": "shopify://shop_images/test1.jpg",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<\/p>"
+              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
             }
           },
           "1505125866733": {
             "type": "testimonial",
             "settings": {
-              "image": "shopify:\/\/shop_images\/test2.jpg",
+              "image": "shopify://shop_images/test2.jpg",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<\/p>"
+              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
             }
           },
           "1505125867930": {
             "type": "testimonial",
             "settings": {
-              "image": "shopify:\/\/shop_images\/test4.jpg",
+              "image": "shopify://shop_images/test4.jpg",
               "author": "John Doe",
               "prof": "designer",
-              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"<\/p>"
+              "testimonial": "<p>\"But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
             }
           }
         },
@@ -2079,7 +2088,7 @@
           "outer_margin": "offset-top-50",
           "title": "About Us",
           "desc": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.",
-          "html": "<div class=\"box-icon-md\">\n<i class=\"icon icon-medal\"><\/i> <h4>2008<\/h4>\n<\/div> <div class=\"box-icon-md\">\n<i class=\"icon icon-trophy-cup\"><\/i> <h4>2012<\/h4> <\/div> <div class=\"box-icon-md\"> <i class=\"icon icon-medals\"><\/i> <h4>2016<\/h4> <\/div> <div class=\"box-icon-md\"> <i class=\"icon icon-star-cup\"><\/i> <h4>2020<\/h4> <\/div>"
+          "html": "<div class=\"box-icon-md\">\n<i class=\"icon icon-medal\"></i> <h4>2008</h4>\n</div> <div class=\"box-icon-md\">\n<i class=\"icon icon-trophy-cup\"></i> <h4>2012</h4> </div> <div class=\"box-icon-md\"> <i class=\"icon icon-medals\"></i> <h4>2016</h4> </div> <div class=\"box-icon-md\"> <i class=\"icon icon-star-cup\"></i> <h4>2020</h4> </div>"
         }
       },
       "image-with-text": {
@@ -2246,31 +2255,31 @@
       "1509974222766": {
         "type": "info_welcome_to",
         "settings": {
-          "video": "shopify:\/\/files\/videos\/Ghost Giver_Explainer_web.mp4",
-          "poster": "shopify:\/\/shop_images\/Group_46236_74e9ab28-6210-42c6-bc45-f3716dd50976.png",
+          "video": "shopify://files/videos/Ghost Giver_Explainer_web.mp4",
+          "poster": "shopify://shop_images/Group_46236_74e9ab28-6210-42c6-bc45-f3716dd50976.png",
           "enable_popup": false,
           "enable": true,
-          "section_bg_image": "shopify:\/\/shop_images\/Group_39360.png",
+          "section_bg_image": "shopify://shop_images/Group_39360.png",
           "block_width": "global_width",
           "outer_margin": "offset-top-0",
           "title": "Experience the joy of anonymous giving",
           "description": "Send a secret gift and receive a real-time confirmation & thank you message.",
           "link_1": "#",
           "link_target_1": "_self",
-          "icon1": "shopify:\/\/shop_images\/Group_39421_2x_f2e8e064-6ad9-4cd7-b7c2-639f3dd7ee99.png",
+          "icon1": "shopify://shop_images/Group_39421_2x_f2e8e064-6ad9-4cd7-b7c2-639f3dd7ee99.png",
           "box_1_caption_1": "PICK A <br>PERSON",
           "box_1_caption_2": "or family, or organization or whomever",
           "link_2": "#",
           "link_target_2": "_self",
-          "icon2": "shopify:\/\/shop_images\/Group_42731.png",
+          "icon2": "shopify://shop_images/Group_42731.png",
           "box_2_caption_1": "CHOOSE <br>YOUR GIVE",
           "box_2_caption_2": "Select a gift from our site or send your own",
           "link_3": "#",
           "link_target_3": "_self",
-          "icon3": "shopify:\/\/shop_images\/Group_42730.png",
+          "icon3": "shopify://shop_images/Group_42730.png",
           "box_3_caption_1": "KNOW THEY <br>GOT IT",
           "box_3_caption_2": "Get real-time conﬁrmation plus a thank you",
-          "button_link1": "shopify:\/\/pages\/get-started",
+          "button_link1": "shopify://pages/get-started",
           "button_name1": "Get Started!",
           "button_link2": "",
           "button_name2": ""
@@ -2301,10 +2310,10 @@
         "type": "banner_from_online_editor",
         "settings": {
           "enable": true,
-          "img1": "shopify:\/\/shop_images\/Group_42982.png",
-          "text1": "<span class=\"subtext\">GHOSTGIVE A<\/span>\n<h2>GIFT CARD<\/h2>\n<span class=\"bottom-text\">(via text or email)<\/span>",
-          "img2": "shopify:\/\/shop_images\/Group_42983.png",
-          "text2": "<span class=\"subtext\">GHOSTGIVE THROUGH<\/span>\n<h2>AMAZON<\/h2>\n<span class=\"bottom-text\">(or any other e-tailer)<\/span>",
+          "img1": "shopify://shop_images/Group_42982.png",
+          "text1": "<span class=\"subtext\">GHOSTGIVE A</span>\n<h2>GIFT CARD</h2>\n<span class=\"bottom-text\">(via text or email)</span>",
+          "img2": "shopify://shop_images/Group_42983.png",
+          "text2": "<span class=\"subtext\">GHOSTGIVE THROUGH</span>\n<h2>AMAZON</h2>\n<span class=\"bottom-text\">(or any other e-tailer)</span>",
           "title": "Banners From Online Editor",
           "html": ""
         }
@@ -2315,8 +2324,8 @@
           "enable": true,
           "block_width": "boxed",
           "outer_margin": "offset-top-50",
-          "image": "shopify:\/\/shop_images\/Bannerbabies.jpg",
-          "link": "shopify:\/\/products\/cover-up-cotton-tunic",
+          "image": "shopify://shop_images/Bannerbabies.jpg",
+          "link": "shopify://products/cover-up-cotton-tunic",
           "link_target": "_self",
           "captions_h_alignment": "text-left",
           "captions_v_alignment": "text-middle",
@@ -2410,14 +2419,14 @@
       "blog-template": {
         "type": "blog-template",
         "settings": {
-          "imgbanner_blog": "shopify:\/\/shop_images\/GHOST_STORIES.jpg",
-          "imgbanner_mobile": "shopify:\/\/shop_images\/Group_46142.png",
+          "imgbanner_blog": "shopify://shop_images/GHOST_STORIES.jpg",
+          "imgbanner_mobile": "shopify://shop_images/Group_46142.png",
           "bannername_blog": "GHOST STORIES",
           "block_width": "global_width",
           "posts_per_page": "5",
           "posts_per_row": "1",
           "sidebar": false,
-          "description": "<p>Check out stories from ghost givers and receivers just like you! You'll probably laugh. You might happy cry. But\nmostly, we hope you'll be inspired with ghostgiving ideas you can use again and again. Come to read or come\nto share—it's all about the good you can spread with Ghost Giver.<\/p>\n<p>\n(If you have a photo and ghostgiving experience you’d like to share, we’d love to hear from you. Just email us\nat <a class=\"color_purple_cs\" href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com)<\/a><\/p>"
+          "description": "<p>Check out stories from ghost givers and receivers just like you! You'll probably laugh. You might happy cry. But\nmostly, we hope you'll be inspired with ghostgiving ideas you can use again and again. Come to read or come\nto share—it's all about the good you can spread with Ghost Giver.</p>\n<p>\n(If you have a photo and ghostgiving experience you’d like to share, we’d love to hear from you. Just email us\nat <a class=\"color_purple_cs\" href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com)</a></p>"
         }
       },
       "product-section1": {
@@ -2434,9 +2443,9 @@
           "product_availability": true,
           "product_inventory_count": false,
           "list": true,
-          "list_content": "<p><b>Choose the classic card or go big with the 5x7 size (or both!). You'll get all the good vibes from ghostgiving your way.\nThe only thing you won't get is a message or a thank you!<\/b><\/p>",
+          "list_content": "<p><b>Choose the classic card or go big with the 5x7 size (or both!). You'll get all the good vibes from ghostgiving your way.\nThe only thing you won't get is a message or a thank you!</b></p>",
           "shipping": false,
-          "shipping_content": "<h5>FREE SHIPPING<\/h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.<\/p>",
+          "shipping_content": "<h5>FREE SHIPPING</h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.</p>",
           "safe_checkout_image_yes": true,
           "tabs_float": "left",
           "product_tab_1": true,
@@ -2467,12 +2476,20 @@
       "custom_html_6Rf6RY": {
         "type": "custom-html",
         "settings": {
-          "html": "<div class=\"instagram-title\">\n<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"56.381\" height=\"56.277\" viewbox=\"0 0 56.381 56.277\">\n  <path id=\"INSTAGRAM\" d=\"M1047.245,1195.753q-10.8,0-21.6.007a6.377,6.377,0,0,1-3.9-1.155,6.042,6.042,0,0,1-2.672-5.027c-.027-2.094-.013-4.188-.013-6.282q-.005-18.3.007-36.613a11.407,11.407,0,0,1,.206-2.348,6.187,6.187,0,0,1,5.5-4.793c.512-.041,1.025-.052,1.541-.052q20.827,0,41.654.007c.591,0,1.186.007,1.777.055a6.225,6.225,0,0,1,5.636,5.618c.038.471.048.946.048,1.42q.005,20.857,0,41.7c0,.516,0,1.028-.034,1.54a6.132,6.132,0,0,1-6.2,5.914c-7.317.031-14.638.01-21.955.01ZM1064.3,1164.6a17.486,17.486,0,0,1-15.194,20.222,16.86,16.86,0,0,1-12.833-3.824c-5.144-4.25-7.028-9.81-6.162-16.394H1025.4v1.244q.011,10.305.021,20.61a6.694,6.694,0,0,0,.052.946,1.945,1.945,0,0,0,1.585,1.695,6.521,6.521,0,0,0,1.3.1q18.923,0,37.847-.006a7.267,7.267,0,0,0,1.063-.059,1.968,1.968,0,0,0,1.77-1.654,4.924,4.924,0,0,0,.093-1.056q0-10.367,0-20.734c0-.34-.048-.681-.082-1.09Zm-27.865,2.985a10.782,10.782,0,1,0,10.75-10.79,10.766,10.766,0,0,0-10.75,10.79m23.417-17.189h0c0,.829-.028,1.658.007,2.486a1.979,1.979,0,0,0,2,2.18,48.059,48.059,0,0,0,5.213,0,1.956,1.956,0,0,0,2.012-2.067q.1-2.542,0-5.089a2.025,2.025,0,0,0-2.022-2.08c-1.733-.083-3.479-.09-5.213,0a2.05,2.05,0,0,0-2,2.207c-.031.787,0,1.578,0,2.365\" transform=\"translate(-1019.056 -1139.49)\" fill=\"#fff\"><\/path>\n<\/svg><h2>FOLLOW US ON INSTAGRAM  @GHOSTGIVER<\/h2>\n<\/div>\n<div id=\"insta-feed\"><\/div>"
+          "html": "<div class=\"instagram-title\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"56.381\" height=\"56.277\" viewbox=\"0 0 56.381 56.277\">\n  <path id=\"INSTAGRAM\" d=\"M1047.245,1195.753q-10.8,0-21.6.007a6.377,6.377,0,0,1-3.9-1.155,6.042,6.042,0,0,1-2.672-5.027c-.027-2.094-.013-4.188-.013-6.282q-.005-18.3.007-36.613a11.407,11.407,0,0,1,.206-2.348,6.187,6.187,0,0,1,5.5-4.793c.512-.041,1.025-.052,1.541-.052q20.827,0,41.654.007c.591,0,1.186.007,1.777.055a6.225,6.225,0,0,1,5.636,5.618c.038.471.048.946.048,1.42q.005,20.857,0,41.7c0,.516,0,1.028-.034,1.54a6.132,6.132,0,0,1-6.2,5.914c-7.317.031-14.638.01-21.955.01ZM1064.3,1164.6a17.486,17.486,0,0,1-15.194,20.222,16.86,16.86,0,0,1-12.833-3.824c-5.144-4.25-7.028-9.81-6.162-16.394H1025.4v1.244q.011,10.305.021,20.61a6.694,6.694,0,0,0,.052.946,1.945,1.945,0,0,0,1.585,1.695,6.521,6.521,0,0,0,1.3.1q18.923,0,37.847-.006a7.267,7.267,0,0,0,1.063-.059,1.968,1.968,0,0,0,1.77-1.654,4.924,4.924,0,0,0,.093-1.056q0-10.367,0-20.734c0-.34-.048-.681-.082-1.09Zm-27.865,2.985a10.782,10.782,0,1,0,10.75-10.79,10.766,10.766,0,0,0-10.75,10.79m23.417-17.189h0c0,.829-.028,1.658.007,2.486a1.979,1.979,0,0,0,2,2.18,48.059,48.059,0,0,0,5.213,0,1.956,1.956,0,0,0,2.012-2.067q.1-2.542,0-5.089a2.025,2.025,0,0,0-2.022-2.08c-1.733-.083-3.479-.09-5.213,0a2.05,2.05,0,0,0-2,2.207c-.031.787,0,1.578,0,2.365\" transform=\"translate(-1019.056 -1139.49)\" fill=\"#fff\"></path>\n</svg><h2>FOLLOW US ON INSTAGRAM  @GHOSTGIVER</h2>\n</div>\n<div id=\"insta-feed\"></div>"
         }
       },
       "product-section2": {
         "type": "product-section2",
         "settings": {
+          "packaging_upsell": true,
+          "packaging_upsell_product": "ice-packaging",
+          "packaging_upsell_title": "Warm Weather Alert",
+          "packaging_upsell_description": "Chocolate, caramels, and gelatin-based gummies can melt when exposed to heat above 75°F. To help protect your gift in transit, we recommend adding insulated packaging and an ice pack when shipping to warm destinations.",
+          "checkbox_text": "Yes, please include insulated packaging and an ice pack with this order.",
+          "button_url": "",
+          "section_background_color": "#1f3d5b",
+          "section_text_color": "#ffffff",
           "product_image_size": "5",
           "dynamic_checkout_button": false,
           "zoom": true,
@@ -2484,7 +2501,8 @@
           "product_availability": true,
           "product_inventory_count": false,
           "list": true,
-          "list_content": "<p><b>We'll give you all the\nset-up instructions for\nyour anonymous\nmessage after\ncheckout.<\/b><\/p>",
+          "list_content": "<p><b>We'll give you all the\nset-up instructions for\nyour anonymous\nmessage after\ncheckout.</b></p>",
+          "pricetext_line": false,
           "shipping": true,
           "shipping_content": "",
           "safe_checkout_image_yes": true,
@@ -2517,7 +2535,7 @@
       "product-section3": {
         "type": "product-section3",
         "settings": {
-          "page_url": "shopify:\/\/pages\/how-it-works-digital-gift-cardviatext",
+          "page_url": "shopify://pages/how-it-works-digital-gift-cardviatext",
           "product_image_size": "5",
           "dynamic_checkout_button": false,
           "zoom": true,
@@ -2529,11 +2547,11 @@
           "product_availability": true,
           "product_inventory_count": false,
           "list": true,
-          "list_content": "<p><b>We’ll give you all the set-up instructions for your anonymous message after checkout. <\/b><\/p>",
+          "list_content": "<p><b>We’ll give you all the set-up instructions for your anonymous message after checkout. </b></p>",
           "pricetext_line": true,
-          "pricetext": "<p><b>+ AMOUNT OF GIFT CARD YOU CHOOSE<\/b><\/p>",
+          "pricetext": "<p><b>+ AMOUNT OF GIFT CARD YOU CHOOSE</b></p>",
           "shipping": true,
-          "shipping_content": "<h5>FREE SHIPPING<\/h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.<\/p>",
+          "shipping_content": "<h5>FREE SHIPPING</h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.</p>",
           "safe_checkout_image_yes": false,
           "tabs_float": "left",
           "product_tab_1": true,
@@ -2564,7 +2582,7 @@
       "product-section4": {
         "type": "product-section4",
         "settings": {
-          "page_url": "shopify:\/\/pages\/how-it-works-digital-gift-cardviaemail",
+          "page_url": "shopify://pages/how-it-works-digital-gift-cardviaemail",
           "product_image_size": "5",
           "dynamic_checkout_button": false,
           "zoom": true,
@@ -2576,11 +2594,11 @@
           "product_availability": true,
           "product_inventory_count": false,
           "list": true,
-          "list_content": "<p><b>We’ll give you all the set-up instructions for your anonymous message after checkout. <\/b><\/p>",
+          "list_content": "<p><b>We’ll give you all the set-up instructions for your anonymous message after checkout. </b></p>",
           "pricetext_line": true,
-          "pricetext": "<p><b>+ AMOUNT OF GIFT CARD YOU CHOOSE<\/b><\/p>",
+          "pricetext": "<p><b>+ AMOUNT OF GIFT CARD YOU CHOOSE</b></p>",
           "shipping": true,
-          "shipping_content": "<h5>FREE SHIPPING<\/h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.<\/p>",
+          "shipping_content": "<h5>FREE SHIPPING</h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.</p>",
           "safe_checkout_image_yes": false,
           "tabs_float": "left",
           "product_tab_1": true,
@@ -2611,7 +2629,7 @@
       "product-section5": {
         "type": "product-section5",
         "settings": {
-          "page_url": "shopify:\/\/pages\/how-it-works-ghost-code-via-e-tailers",
+          "page_url": "shopify://pages/how-it-works-ghost-code-via-e-tailers",
           "product_image_size": "5",
           "dynamic_checkout_button": false,
           "zoom": true,
@@ -2623,11 +2641,11 @@
           "product_availability": true,
           "product_inventory_count": false,
           "list": true,
-          "list_content": "<p><b>We’ll give you all the set-up instructions for your anonymous message after checkout. <\/b><\/p>",
+          "list_content": "<p><b>We’ll give you all the set-up instructions for your anonymous message after checkout. </b></p>",
           "pricetext_line": true,
           "pricetext": "",
           "shipping": true,
-          "shipping_content": "<h5>FREE SHIPPING<\/h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.<\/p>",
+          "shipping_content": "<h5>FREE SHIPPING</h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.</p>",
           "safe_checkout_image_yes": false,
           "tabs_float": "left",
           "product_tab_1": true,
@@ -2669,9 +2687,9 @@
           "product_availability": true,
           "product_inventory_count": false,
           "list": false,
-          "list_content": "<p><i class=\"icon-check-square\"><\/i> 90% Positive Customer feedback<\/p><p><i class=\"icon-check-square\"><\/i> 100+ Items bought<\/p>",
+          "list_content": "<p><i class=\"icon-check-square\"></i> 90% Positive Customer feedback</p><p><i class=\"icon-check-square\"></i> 100+ Items bought</p>",
           "shipping": true,
-          "shipping_content": "<h5>FREE SHIPPING<\/h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.<\/p>",
+          "shipping_content": "<h5>FREE SHIPPING</h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.</p>",
           "safe_checkout_image_yes": true,
           "tabs_float": "left",
           "product_tab_1": true,
@@ -2702,7 +2720,7 @@
       "product-section6": {
         "type": "product-section6",
         "settings": {
-          "page_url": "shopify:\/\/pages\/how-it-works-send-cash-via-venmo",
+          "page_url": "shopify://pages/how-it-works-send-cash-via-venmo",
           "product_image_size": "5",
           "dynamic_checkout_button": false,
           "zoom": true,
@@ -2714,11 +2732,11 @@
           "product_availability": true,
           "product_inventory_count": false,
           "list": true,
-          "list_content": "<p><b>Each card includes all the set-up instructions to create your anonymous ghostgiving message.\n\n<\/b><\/p>",
+          "list_content": "<p><b>Each card includes all the set-up instructions to create your anonymous ghostgiving message.\n\n</b></p>",
           "pricetext_line": true,
-          "pricetext": "<p><b> + CASH\nAMOUNT YOU CHOOSE TO\nVENMO<\/b><\/p>",
+          "pricetext": "<p><b> + CASH\nAMOUNT YOU CHOOSE TO\nVENMO</b></p>",
           "shipping": false,
-          "shipping_content": "<h5>FREE SHIPPING<\/h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.<\/p>",
+          "shipping_content": "<h5>FREE SHIPPING</h5><p>Spend $50.00 more and get free shipping or join Bike+ for free shipping on every order, every time. *Excludes gift cards.</p>",
           "safe_checkout_image_yes": false,
           "tabs_float": "left",
           "product_tab_1": false,
@@ -2752,127 +2770,127 @@
           "slide_eYkdxF": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/GIFT_CARD_LADY.png",
-              "mobile_image": "shopify:\/\/shop_images\/Group_-1.png",
+              "desktop_image": "shopify://shop_images/GIFT_CARD_LADY.png",
+              "mobile_image": "shopify://shop_images/Group_-1.png",
               "heading": "GHOST",
               "heading2": "SOMEONE!",
               "heading_subheading": "..the good way",
               "content": "Make someone’s day by surprising",
               "content2": "them with an anonymous gift.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           },
           "slide_mKepxa": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/COUCH_MAN_f46968b0-35d7-4916-a649-4e3c18509ca7.png",
-              "mobile_image": "shopify:\/\/shop_images\/TEACHER_2.png",
+              "desktop_image": "shopify://shop_images/COUCH_MAN_f46968b0-35d7-4916-a649-4e3c18509ca7.png",
+              "mobile_image": "shopify://shop_images/TEACHER_2.png",
               "heading": "GHOST A",
               "heading2": "FRIEND",
               "heading_subheading": "...the good way",
               "content": "Show appreciation for a friend with a",
               "content2": "thoughtful gift and a kind message.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           },
           "slide_eMEjq6": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/COWORKER.png",
-              "mobile_image": "shopify:\/\/shop_images\/Group_46112v.png",
+              "desktop_image": "shopify://shop_images/COWORKER.png",
+              "mobile_image": "shopify://shop_images/Group_46112v.png",
               "heading": "GHOST A",
               "heading2": "CO-WORKER",
               "heading_subheading": "...the good way",
               "content": "Make a colleague's day with an anonymous",
               "content2": "gift and a little encouragement.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           },
           "slide_nTyT7H": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/FAMILY_IN_NEED.png",
-              "mobile_image": "shopify:\/\/shop_images\/Group_-3.png",
+              "desktop_image": "shopify://shop_images/FAMILY_IN_NEED.png",
+              "mobile_image": "shopify://shop_images/Group_-3.png",
               "heading": "GHOST A",
               "heading2": "FAMILY IN NEED",
               "heading_subheading": "...the good way",
               "content": "Offer kindness and support to a family in",
               "content2": "need with a heartfelt anonymous gift.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           },
           "slide_ygq3zq": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/GRANDPARENTS_e86f6c2a-eb7b-4bf8-91c0-3682319a3a1f.png",
-              "mobile_image": "shopify:\/\/shop_images\/Group_-4.png",
+              "desktop_image": "shopify://shop_images/GRANDPARENTS_e86f6c2a-eb7b-4bf8-91c0-3682319a3a1f.png",
+              "mobile_image": "shopify://shop_images/Group_-4.png",
               "heading": "GHOST YOUR",
               "heading2": "GRANDPARENTS",
               "heading_subheading": "...the good way",
               "content": "Send a loving, anonymous surprise",
               "content2": "to your grandparents to show you care.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           },
           "slide_pt4n6M": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/DOOR_DITCH.png",
-              "mobile_image": "shopify:\/\/shop_images\/Group_-5.png",
+              "desktop_image": "shopify://shop_images/DOOR_DITCH.png",
+              "mobile_image": "shopify://shop_images/Group_-5.png",
               "heading": "GHOST YOUR",
               "heading2": "NEIGHBORS",
               "heading_subheading": "...the good way",
               "content": "Delight your neighbors with",
               "content2": "an unexpected act of kindness.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           },
           "slide_LjHFrm": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/TEACHER_1.png",
-              "mobile_image": "shopify:\/\/shop_images\/Group_-6.png",
+              "desktop_image": "shopify://shop_images/TEACHER_1.png",
+              "mobile_image": "shopify://shop_images/Group_-6.png",
               "heading": "GHOST A",
               "heading2": "TEACHER",
               "heading_subheading": "...the good way",
               "content": "Surprise your favorite teacher with an",
               "content2": "anonymous gift and a thank-you message.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           },
           "slide_Bc7CVJ": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/2_WOMEN_d7126246-63e0-423c-8f8e-466ca550d4a1.png",
-              "mobile_image": "shopify:\/\/shop_images\/Group_-7.png",
+              "desktop_image": "shopify://shop_images/2_WOMEN_d7126246-63e0-423c-8f8e-466ca550d4a1.png",
+              "mobile_image": "shopify://shop_images/Group_-7.png",
               "heading": "GHOST YOUR",
               "heading2": "SECRET CRUSH",
               "heading_subheading": "...the good way",
               "content": "Send a mysterious and sweet anonymous",
               "content2": "gift to brighten your secret crush's day.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           },
           "slide_XMz9tw": {
             "type": "slide",
             "settings": {
-              "desktop_image": "shopify:\/\/shop_images\/AMAZON_ccd42e0c-0f8c-4af2-9760-93262464ae2e.png",
-              "mobile_image": "shopify:\/\/shop_images\/Group_-8.png",
+              "desktop_image": "shopify://shop_images/AMAZON_ccd42e0c-0f8c-4af2-9760-93262464ae2e.png",
+              "mobile_image": "shopify://shop_images/Group_-8.png",
               "heading": "GHOST A TOTAL",
               "heading2": "STRANGER",
               "heading_subheading": "...the good way",
               "content": "Spread kindness by anonymously",
               "content2": "surprising a stranger with an unexpected gift.",
               "button_text": "Get Started!",
-              "button_link": "shopify:\/\/pages\/get-started"
+              "button_link": "shopify://pages/get-started"
             }
           }
         },
@@ -2895,42 +2913,42 @@
           "collection_jdqUNB": {
             "type": "collection",
             "settings": {
-              "image_collect": "shopify:\/\/shop_images\/Group_42814_2x_7f683bf3-2d0d-4654-ba91-2ddd46b8686d.png",
-              "linktext": "<p>GIFTS (SHIPPED)<\/p>",
-              "url": "shopify:\/\/collections\/gifts"
+              "image_collect": "shopify://shop_images/Group_42814_2x_7f683bf3-2d0d-4654-ba91-2ddd46b8686d.png",
+              "linktext": "<p>GIFTS (SHIPPED)</p>",
+              "url": "shopify://collections/gifts"
             }
           },
           "collection_6QBDw6": {
             "type": "collection",
             "settings": {
-              "image_collect": "shopify:\/\/shop_images\/Navy_Blue_Pink_Foil__1.png",
-              "linktext": "<p>PHYSICAL CARDS & <br\/>ENVELOPES<\/p>",
-              "url": "shopify:\/\/collections\/printed-cards-envelopes"
+              "image_collect": "shopify://shop_images/Navy_Blue_Pink_Foil__1.png",
+              "linktext": "<p>PHYSICAL CARDS & <br/>ENVELOPES</p>",
+              "url": "shopify://collections/printed-cards-envelopes"
             }
           },
           "collection_PCtW4i": {
             "type": "collection",
             "settings": {
-              "image_collect": "shopify:\/\/shop_images\/Mask_Group_79_2x_c616d8e4-fb84-4aea-9803-26d672cb5bec.png",
-              "linktext": "<p>CASH (VENMO)<\/p>",
-              "url": "shopify:\/\/collections\/send-cash"
+              "image_collect": "shopify://shop_images/Mask_Group_79_2x_c616d8e4-fb84-4aea-9803-26d672cb5bec.png",
+              "linktext": "<p>CASH (VENMO)</p>",
+              "url": "shopify://collections/send-cash"
             }
           },
           "collection_8xDPxn": {
             "type": "collection",
             "settings": {
-              "image_collect": "shopify:\/\/shop_images\/Mask_Group_114_2x_3a074ded-0898-40b6-900b-6f73ccf3f14a.png",
-              "linktext": "<p>ONLINE RETAILERS<\/p><p>(AMAZON, ETC.)<\/p>",
-              "url": "shopify:\/\/collections\/individual-code-via-e-tailers"
+              "image_collect": "shopify://shop_images/Mask_Group_114_2x_3a074ded-0898-40b6-900b-6f73ccf3f14a.png",
+              "linktext": "<p>ONLINE RETAILERS</p><p>(AMAZON, ETC.)</p>",
+              "url": "shopify://collections/individual-code-via-e-tailers"
             }
           },
           "collection_ArYDUQ": {
             "type": "collection",
             "disabled": true,
             "settings": {
-              "image_collect": "shopify:\/\/shop_images\/Group_42814_2x_7f683bf3-2d0d-4654-ba91-2ddd46b8686d.png",
-              "linktext": "<p>GIFTS<\/p>",
-              "url": "shopify:\/\/collections\/gifts"
+              "image_collect": "shopify://shop_images/Group_42814_2x_7f683bf3-2d0d-4654-ba91-2ddd46b8686d.png",
+              "linktext": "<p>GIFTS</p>",
+              "url": "shopify://collections/gifts"
             }
           }
         },
@@ -2972,17 +2990,17 @@
     ],
     "blocks": {
       "1232542678405107163": {
-        "type": "shopify:\/\/apps\/instafeed\/blocks\/head-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5",
         "disabled": false,
         "settings": {}
       },
       "8805290842666283141": {
-        "type": "shopify:\/\/apps\/shareiteffect-more-referrals\/blocks\/sie-widget\/96237ecd-1dfc-47ca-9a70-835fcac9e2fc",
+        "type": "shopify://apps/shareiteffect-more-referrals/blocks/sie-widget/96237ecd-1dfc-47ca-9a70-835fcac9e2fc",
         "disabled": true,
         "settings": {
           "sie-discount": 10,
           "ardHashtag": "ghostgiver",
-          "redirectLink": "https:\/\/ghostgiver.com"
+          "redirectLink": "https://ghostgiver.com"
         }
       }
     }

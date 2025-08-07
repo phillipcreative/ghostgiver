@@ -1,0 +1,35 @@
+{{ 'packaging-upsell.css' | asset_url | stylesheet_tag }}
+
+<div class="block boxed packaging-upsell-container" data-variant="{{ section.settings.packaging_upsell_product.selected_or_first_available_variant.id }}">
+  <div class="packaging-upsell-content" style="background-color: {{ section.settings.section_background_color }};">
+    <div class="heading-content">
+      <h2>{% include 'sun-icon' %} {{ section.settings.packaging_upsell_title }}</h2>
+      <p>{{ section.settings.packaging_upsell_description }}</p>
+    </div>
+    <div class="bottom-content">
+      <div class="packaging-upsell-content-checkbox">
+        <div class="packaging-upsell-content-checkbox-label">
+          <input type="checkbox" id="packaging-upsell-checkbox" name="packaging-upsell-checkbox" value="1">
+          <label for="packaging-upsell-checkbox">{{ section.settings.checkbox_text }}</label>
+        </div>
+
+        <span class="packaging-upsell-content-price">Cost: {{ section.settings.packaging_upsell_product.price | money }}</span>
+        <a href="">Why This Matters</a>
+      </div>
+
+      <div class="packaging-upsell-content-icon">
+        {% include 'box-icon' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .packaging-upsell-content-checkbox a,
+  .packaging-upsell-content-price,
+  .packaging-upsell-content-checkbox label,
+  .packaging-upsell-content h2,
+  .packaging-upsell-content p {
+    color: {{ section.settings.section_text_color }} !important;
+  }
+</style>

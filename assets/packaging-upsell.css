@@ -1,0 +1,182 @@
+.packaging-upsell-container {
+  margin-top: 0px !important;
+}
+
+.packaging-upsell-content {
+  width: 100%;
+  padding: 25px 36px;
+  border-radius: 9px;
+  margin-bottom: 4rem;
+}
+
+.packaging-upsell-content h2 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  margin-bottom: 11px !important;
+}
+
+.packaging-upsell-content h2 svg {
+  width: 39px;
+  height: 39px;
+}
+
+.packaging-upsell-content p {
+  font-weight: 400 !important;
+  margin-bottom: 32px !important;
+  line-height: 24px !important;
+  font-size: 20px !important;
+}
+
+.product-block .product-info-block .product-actions {
+  border: 0px !important;
+}
+
+.packaging-upsell-content-checkbox label {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif !important;
+  color: #ffffff !important;
+  font-size: 22px !important;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.packaging-upsell-content-checkbox {
+  /* max-width: 420px; */
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding-left: 3.5rem;
+}
+
+.packaging-upsell-content-icon {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.packaging-upsell-content-checkbox-label,
+.bottom-content {
+  display: flex;
+}
+
+.packaging-upsell-content-checkbox-label {
+  position: relative;
+}
+
+.packaging-upsell-content-checkbox a {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif !important;
+  font-size: 20px !important;
+  text-decoration: underline !important;
+  text-transform: uppercase !important;
+  line-height: normal !important;
+  font-weight: bold;
+}
+
+.packaging-upsell-content-price {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: normal !important;
+  margin: 1rem 0 !important;
+}
+
+#packaging-upsell-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 39px;
+  height: 39px;
+  background-color: #252525;
+  border: none;
+  border-radius: 2px;
+  margin: 0px !important;
+  position: absolute;
+  left: -53px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+#packaging-upsell-checkbox:checked {
+  background-color: #2C2C2C;
+}
+
+#packaging-upsell-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 6px;
+  width: 10px;
+  height: 23px;
+  border: 3px solid #FFFFFF;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+#packaging-upsell-checkbox:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#packaging-upsell-checkbox:focus {
+  outline: none;
+}
+
+/* MODAL */
+.mdlchk .modal-content .mdlchk-row {
+  padding: 30px;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 550px) {
+  .packaging-upsell-content {
+    padding: 25px 18px;
+  }
+
+  .packaging-upsell-content p {
+    font-size: 17px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .packaging-upsell-content-checkbox label {
+    font-size: 17px !important;
+    line-height: 21px !important;
+  }
+
+  .packaging-upsell-content-checkbox a,
+  .packaging-upsell-content-price {
+    font-size: 19px !important;
+  }
+
+  .packaging-upsell-content-icon {
+    align-items: flex-start;
+  }
+
+  #packaging-upsell-checkbox {
+    width: 29px;
+    height: 29px;
+    left: -43px;
+  }
+
+  .packaging-upsell-content-checkbox {
+    padding-left: 44px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .packaging-upsell-content-checkbox a, .packaging-upsell-content-price {
+    font-size: 16px !important;
+  }
+
+  .packaging-upsell-content h2 {
+    font-size: 20px !important;
+  }
+
+  .packaging-upsell-content p {
+    font-size: 15px !important;
+  }
+}
