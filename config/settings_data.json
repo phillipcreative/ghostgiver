@@ -2487,7 +2487,7 @@
           "packaging_upsell_title": "Warm Weather Alert",
           "packaging_upsell_description": "Chocolate, caramels, and gelatin-based gummies can melt when exposed to heat above 75°F. To help protect your gift in transit, we recommend adding insulated packaging and an ice pack when shipping to warm destinations.",
           "checkbox_text": "Yes, please include insulated packaging and an ice pack with this order.",
-          "button_url": "",
+          "packaging_upsell_button_url": "shopify://pages/warm-weather-shipping-information",
           "section_background_color": "#1f3d5b",
           "section_text_color": "#ffffff",
           "product_image_size": "5",

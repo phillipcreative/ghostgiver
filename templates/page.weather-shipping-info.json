@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_content_RBmBFP": {
+      "type": "rich-text-content",
+      "blocks": {
+        "paragraph_w6EeE3": {
+          "type": "paragraph",
+          "settings": {
+            "enable": true,
+            "content": "<p>Gifting sweet treats in warmer weather takes a little extra care. <strong>Chocolate, caramels, and gelatin-based gummies</strong> are heat-sensitive and may melt or lose their shape when temperatures rise above 75°F. Even with fast shipping, a gift may spend time in a warm delivery truck or be left outside on a sunny porch. </p><p>To help preserve the quality of the gift, we offer an optional insulated shipping upgrade that includes:</p><ul><li>A cold pack to help maintain a safe temperature</li><li>An insulated thermal liner for longer-lasting protection</li><li>Greater peace of mind that the gift will arrive in great condition</li></ul><p>This upgrade is highly recommended when shipping to warmer climates or during hot seasons — especially in states like California, Texas, Florida, Arizona, or the Southeast.</p>"
+          }
+        },
+        "divider_JAYzLr": {
+          "type": "divider",
+          "settings": {
+            "enable": true,
+            "margin": 20
+          }
+        },
+        "paragraph_P9PeHF": {
+          "type": "paragraph",
+          "settings": {
+            "enable": true,
+            "content": "<p><strong>What to Know Before Sending a Gift</strong></p><ul><li>Cold packs generally stay effective for 24–48 hours. We recommend shipping to an address where someone will be available to accept the package. </li><li>Without this upgrade, we cannot guarantee the condition of heat-sensitive gifts upon arrival. </li><li>Melted, sticky, or deformed items are not eligible for replacement or refund unless insulated shipping is selected.</li><li>For destinations over 90°F, overnight or expedited shipping is strongly recommended.</li></ul>"
+          }
+        },
+        "divider_xFhyJg": {
+          "type": "divider",
+          "settings": {
+            "enable": true,
+            "margin": 20
+          }
+        },
+        "paragraph_9infaP": {
+          "type": "paragraph",
+          "settings": {
+            "enable": true,
+            "content": "<p><strong>What to Know Before Sending a Gift</strong></p><ul><li>Cold packs generally stay effective for 24–48 hours. We recommend shipping to an address where someone will be available to accept the package. </li><li>Without this upgrade, we cannot guarantee the condition of heat-sensitive gifts upon arrival. </li><li>Melted, sticky, or deformed items are not eligible for replacement or refund unless insulated shipping is selected.</li><li>For destinations over 90°F, overnight or expedited shipping is strongly recommended.</li></ul>"
+          }
+        },
+        "divider_Khig4a": {
+          "type": "divider",
+          "settings": {
+            "enable": true,
+            "margin": 20
+          }
+        },
+        "table_Y7Hc3t": {
+          "type": "table",
+          "settings": {
+            "enable": true,
+            "table_title": "Suggested Shipping Guidelines",
+            "table_title_level": "3",
+            "table_data": "Destination Temperature|Recommended Method|Add Insulated Shipping?||Below 75°F|Standard shipping|Optional||75°F-89°F|2-Day or Priority Shipping|Recommended||90°F+|Overnight shipping|Strongly recommended"
+          }
+        },
+        "divider_j8zCCj": {
+          "type": "divider",
+          "settings": {
+            "enable": true,
+            "margin": 20
+          }
+        },
+        "paragraph_F6zhnF": {
+          "type": "paragraph",
+          "settings": {
+            "enable": true,
+            "content": "<p><strong>Keep the Surprise Sweet — Not Melted</strong></p><p></p><p>If the gift is for a birthday, celebration, or any special occasion, we want it to arrive in the best possible shape. Choosing insulated packaging and a cold pack helps ensure your thoughtful gesture is received the way it was intended — fresh, intact, and ready to enjoy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "paragraph_w6EeE3",
+        "divider_JAYzLr",
+        "paragraph_P9PeHF",
+        "divider_xFhyJg",
+        "paragraph_9infaP",
+        "divider_Khig4a",
+        "table_Y7Hc3t",
+        "divider_j8zCCj",
+        "paragraph_F6zhnF"
+      ],
+      "name": "Weather Information",
+      "settings": {
+        "enable": true,
+        "block_width": "global_width",
+        "outer_margin": "offset-top-50",
+        "main_title": "Warm Weather Shipping Information",
+        "title_color": "#6f42c1",
+        "subtitle": "(Or how to help your gift arrive looking as good as it should!)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_content_RBmBFP"
+  ]
+}

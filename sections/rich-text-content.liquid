@@ -1,0 +1,439 @@
+{% if section.settings.enable %}
+  <div class="block {{ section.settings.block_width }} {{ section.settings.outer_margin }} warm-weather-info-wrapper">
+    <div class="container">
+      <div class="rich-text-content">
+        {% if section.settings.main_title != blank %}
+          <h1 class="rich-text-main-title">{{ section.settings.main_title }}</h1>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <p class="rich-text-subtitle">{{ section.settings.subtitle }}</p>
+        {% endif %}
+
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'paragraph' %}
+              {% if block.settings.enable %}
+                <div class="rich-text-paragraph">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+
+            {% when 'heading' %}
+              {% if block.settings.enable %}
+                <h{{ block.settings.heading_level }} class="rich-text-heading" style="color: {{ block.settings.heading_color }};">
+                  {{ block.settings.heading_text }}
+                </h{{ block.settings.heading_level }}>
+              {% endif %}
+
+            {% when 'bullet_list' %}
+              {% if block.settings.enable %}
+                <div class="rich-text-bullet-list">
+                  {% assign items = block.settings.list_items | split: '|' %}
+                  <ul>
+                    {% for item in items %}
+                      {% if item != blank %}
+                        <li>{{ item }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+
+            {% when 'table' %}
+              {% if block.settings.enable %}
+                <div class="rich-text-table">
+                  {% if block.settings.table_title != blank %}
+                    <h{{ block.settings.table_title_level }} class="rich-text-table-title">
+                      {{ block.settings.table_title }}
+                    </h{{ block.settings.table_title_level }}>
+                  {% endif %}
+
+                  <table class="rich-text-table-content">
+                    {% assign rows = block.settings.table_data | split: '||' %}
+                    {% for row in rows %}
+                      {% if row != blank %}
+                        {% assign cells = row | split: '|' %}
+                        <tr>
+                          {% for cell in cells %}
+                            {% if forloop.first %}
+                              <th>{{ cell }}</th>
+                            {% else %}
+                              <td>{{ cell }}</td>
+                            {% endif %}
+                          {% endfor %}
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                  </table>
+                </div>
+              {% endif %}
+
+            {% when 'divider' %}
+              {% if block.settings.enable %}
+                <div class="rich-text-divider"></div>
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<style>
+  .warm-weather-info-wrapper {
+    padding: 0px 50px;
+  }
+
+  .rich-text-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  .rich-text-main-title {
+    text-align: center;
+    font-size: 44px;
+    font-weight: bold;
+    color: #AF59D7;
+    margin: 0 auto !important;
+    margin-bottom: 20px !important;
+    letter-spacing: normal !important;
+    line-height: normal !important;
+    text-transform: unset !important;
+    max-width: 100%;
+    font-weight: 900;
+  }
+
+  .rich-text-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 60px;
+    font-weight: bolder;
+    font-size: 24px !important;
+  }
+
+  .rich-text-heading {
+    font-weight: bold;
+    margin: 30px 0 15px 0;
+  }
+
+  .rich-text-paragraph {
+    margin-bottom: 20px;
+  }
+
+  .rich-text-paragraph p {
+    font-weight: normal !important;
+    margin-bottom: 10px;
+    margin-bottom: 30px;
+  }
+
+  .rich-text-paragraph p,
+  .rich-text-paragraph ul li {
+    line-height: 29px !important;
+    font-size: 24px !important;
+  }
+
+  .rich-text-paragraph ul {
+    margin-bottom: 30px;
+  }
+
+  .rich-text-paragraph ul li {
+    margin-bottom: 1.5rem;
+  }
+
+  .rich-text-bullet-list {
+    margin: 20px 0;
+  }
+
+  .rich-text-table {
+    margin: 30px 0;
+  }
+
+  .rich-text-table-title {
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .rich-text-table-content {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .rich-text-table-content th,
+  .rich-text-table-content td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid transparent;
+    font-size: 24px !important;
+    font-weight: normal !important;
+  }
+
+  .rich-text-divider {
+    border-top: 1px solid #000000;
+    margin: 70px 0;
+  }
+
+  .rich-text-table-content tbody tr:first-child th,
+  .rich-text-table-content tbody tr:first-child td{
+    font-weight: bold !important;
+  }
+
+  @media (max-width: 550px) {
+    .rich-text-main-title {
+      font-size: 2rem;
+    }
+
+    .rich-text-table-content {
+      font-size: 0.9rem;
+    }
+
+    .rich-text-subtitle {
+      margin-bottom: 30px;
+    }
+
+    .warm-weather-info-wrapper {
+      padding: 0px 20px;
+    }
+
+    .warm-weather-info-wrapper .container {
+      padding: 0px !important;
+      margin-top: 0px !important;
+    }
+
+    .rich-text-paragraph ul {
+      padding-left: 15px;
+    }
+
+    .rich-text-divider {
+      margin: 40px 0;
+    }
+
+    .rich-text-paragraph ul li {
+      margin-bottom: 1rem;
+    }
+
+    .rich-text-subtitle,
+    .rich-text-paragraph p, .rich-text-paragraph ul li,
+    .rich-text-table-content th, .rich-text-table-content td {
+      font-size: 18px !important;
+      line-height: 24px !important;
+    }
+
+    .rich-text-table-content th, .rich-text-table-content td {
+      font-size: 12px !important;
+      line-height: 16px !important;
+      padding: 5px 2px;
+    }
+
+    .rich-text-paragraph ul li {
+      font-size: 16px !important;
+    }
+
+    .rich-text-paragraph p {
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Weather Information",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "block_width",
+      "label": "Width",
+      "options": [
+        {"value": "boxed", "label": "Boxed"},
+        {"value": "fullwidth", "label": "Fullwidth"},
+        {"value": "global_width", "label": "Use global site width"}
+      ],
+      "default": "global_width"
+    },
+    {
+      "type": "select",
+      "id": "outer_margin",
+      "label": "Outer top margin",
+      "options": [
+        {"value": "offset-top-0", "label": "None"},
+        {"value": "offset-top-30", "label": "30px"},
+        {"value": "offset-top-40", "label": "40px"},
+        {"value": "offset-top-50", "label": "50px"}
+      ],
+      "default": "offset-top-50"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Warm Weather Shipping Information"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#6f42c1"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "(Or how to help your gift arrive looking as good as it should!)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable",
+          "label": "Enable",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Add your paragraph content here. You can use <strong>bold text</strong> and <em>italic text</em> as needed.</p>"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable",
+          "label": "Enable",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "heading_text",
+          "label": "Heading Text",
+          "default": "Section Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_level",
+          "label": "Heading Level",
+          "options": [
+            {"value": "2", "label": "H2"},
+            {"value": "3", "label": "H3"},
+            {"value": "4", "label": "H4"}
+          ],
+          "default": "3"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "type": "bullet_list",
+      "name": "Bullet List",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable",
+          "label": "Enable",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "list_items",
+          "label": "List Items (separate with |)",
+          "default": "First bullet point|Second bullet point|Third bullet point",
+          "info": "Use | to separate each bullet point"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "name": "Table",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable",
+          "label": "Enable",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "table_title",
+          "label": "Table Title",
+          "default": "Suggested Shipping Guidelines"
+        },
+        {
+          "type": "select",
+          "id": "table_title_level",
+          "label": "Title Level",
+          "options": [
+            {"value": "3", "label": "H3"},
+            {"value": "4", "label": "H4"}
+          ],
+          "default": "3"
+        },
+        {
+          "type": "textarea",
+          "id": "table_data",
+          "label": "Table Data",
+          "default": "Destination Temperature|Recommended Method|Add Insulated Shipping?||Below 75°F|Standard shipping|Optional||75°F-89°F|2-Day or Priority Shipping|Recommended||90°F+|Overnight shipping|Strongly recommended",
+          "info": "Use | to separate columns and || to separate rows. First row will be headers."
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable",
+          "label": "Enable",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "margin",
+          "label": "Margin",
+          "min": 10,
+          "max": 50,
+          "step": 5,
+          "default": 20,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Weather Information"
+    }
+  ]
+}
+{% endschema %}

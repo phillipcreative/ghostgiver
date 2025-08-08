@@ -628,13 +628,40 @@ if ($("body").hasClass("ajax_cart")) {
           line_properties,
           {
             success: function (data, textStatus, jqXHR) {
+              // Get main product title for packaging line item
+              var mainProductTitle = "";
+
+              // Try to get the product title from the button's data attribute
+              if (_this.data("product-title")) {
+                mainProductTitle = _this.data("product-title");
+              } else if (_this.data("product-name")) {
+                mainProductTitle = _this.data("product-name");
+              } else {
+                // Fallback: try to get from form or page
+                var $productTitle = $form.find("[name='product-title']").val() ||
+                                   $form.find("[name='product_name']").val() ||
+                                   $(".product-info-block h1").text().trim() ||
+                                   $(".product-title").text().trim();
+                if ($productTitle) {
+                  mainProductTitle = $productTitle;
+                }
+              }
+
+              console.log("Main product title for packaging:", mainProductTitle);
+
               // If packaging upsell should be added, add it as well
               if (shouldAddPackaging) {
                 console.log("Attempting to add packaging product with variant ID:", packagingVariantId);
+
+                // Create packaging line item properties with main product info
+                var packagingProperties = {
+                  "purchased with": mainProductTitle
+                };
+
                 CartJS.addItem(
                   packagingVariantId,
                   1,
-                  {},
+                  packagingProperties,
                   {
                     success: function (packagingData, packagingTextStatus, packagingJqXHR) {
                       console.log("Packaging product added successfully:", packagingData);

@@ -3326,8 +3326,16 @@
               mainId = parseInt(mainId, 10),
               priceFunction = priceFunction,
               mainPrd = {},
+              packagingProducts = [],
               trunk = windowW > 1200 ? 24 : 18;
+
+            // Get packaging product handle from settings
+            var packagingProductHandle = "ice-packaging";
+
             $.each(dataCart.cart.items, function (i, item) {
+              // Check if this is a packaging product
+              var isPackagingProduct = item.handle === packagingProductHandle;
+
               if (dataCart.cart.items[i].id != mainId) {
                 var _title = item.title;
                 if (_title.length > trunk)
@@ -3409,6 +3417,13 @@
                   item.quantity +
                   '" data-min="1">';
               }
+
+              // Store packaging products for modal display
+              if (isPackagingProduct) {
+                packagingProducts.push({
+                  title: item.title
+                });
+              }
             });
             currencyUpdate();
             $.when(dataCart).then(function () {
@@ -3419,11 +3434,33 @@
                 $lastCarousel.addClass("hidden-carousel");
                 $lastCarouselTab.closest(".title").hide();
               }
+
+              // Update main product display
               $(".js-mdlchk-row").attr("data-product-id", mainPrd.id);
               $(".js-mdlchk-prd-photo").html(mainPrd.photo);
-              $(".js-mdlchk-prd-title").html(mainPrd.title);
+
+              // Add packaging info to the title if packaging products exist
+              var titleWithPackaging = mainPrd.title;
+              if (packagingProducts.length > 0) {
+                var packagingTitles = packagingProducts.map(function(packaging) {
+                  return packaging.title;
+                }).join(", ");
+                titleWithPackaging = mainPrd.title + ' + ' + packagingTitles;
+              }
+              $(".js-mdlchk-prd-title").html(titleWithPackaging);
+
               $(".js-mdlchk-prd-qty").html(mainPrd.qty);
               $(".js-mdlchk-prd-price").html(mainPrd.price);
+
+              // Add packaging products to modal if they exist
+              if (packagingProducts.length > 0) {
+                var packagingTitles = packagingProducts.map(function(packaging) {
+                  return packaging.title;
+                }).join(", ");
+
+                // Insert packaging info after the main product info
+                $(".js-mdlchk-prd-price").after(packagingInfo);
+              }
             });
             $(".js-mdlchk-prd-total").html(
               '<span class="money">' +
