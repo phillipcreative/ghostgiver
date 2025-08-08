@@ -4261,360 +4261,69 @@
             $(this).off("shown.bs.modal");
           });
 
-          /*---------------------MODAL GiftCard-----------------------------*/
+          // Gift card functions moved to gift-cards.js for better performance and pre-loading
 
-          // Helper function to check if cached data is still valid
-          function isCachedDataValid(cacheKey, expirationDays = 7) {
-            const cached = localStorage.getItem(cacheKey);
-            if (!cached) return false;
+          function addDigitalCard(modalFor, firstName, lastName) {
+            ;
+            var id = $("#add_bag").attr("data-id");
+            let giftId = document.getElementById("productId").value;
+            let giftImage = document.getElementById("productImage").value;
+            let contact;
+            if (
+              $("#modalGiftCardSelection").data("modalFor") ==
+              "digital-gift-card-via-email"
+            )
+              contact = $("#email-address").val();
+            else if (
+              $("#modalGiftCardSelection").data("modalFor") ==
+              "digital-gift-card-via-text"
+            )
+              contact = $("#cell-phone").val();
 
-            try {
-              const data = JSON.parse(cached);
-              const now = new Date().getTime();
-              const expirationTime = data.timestamp + (expirationDays * 24 * 60 * 60 * 1000);
-
-              return now < expirationTime;
-            } catch (e) {
-              return false;
+            if (id.length !== 0) {
+              $.ajax({
+                type: "POST",
+                url: "/cart/add.js",
+                dataType: "json",
+                data: {
+                  id: id,
+                  properties: {
+                    _GiftCard: true,
+                    _SplMsg: false,
+                    _SortIndex: 1,
+                    _Id: giftId,
+                    _Image: giftImage,
+                    _For: modalFor,
+                    _Contact: contact,
+                    _FirstName: firstName,
+                    _LastName: lastName,
+                  },
+                },
+                success: function (r) {
+                  $.ajax({
+                    type: "POST",
+                    url: "/cart/add.js",
+                    dataType: "json",
+                    data: {
+                      id: 44236446269617,
+                    },
+                    success: function (r) {
+                      window.location.href = "/cart";
+                    },
+                    error: function () { },
+                  });
+                },
+                error: function () { },
+              });
             }
           }
 
-          // Helper function to get cached data
-          function getCachedData(cacheKey) {
-            try {
-              const cached = localStorage.getItem(cacheKey);
-              return cached ? JSON.parse(cached).data : null;
-            } catch (e) {
-              return null;
-            }
-          }
-
-          // Helper function to cache data
-          function cacheData(cacheKey, data) {
-            try {
-              const cacheObject = {
-                data: data,
-                timestamp: new Date().getTime()
-              };
-              localStorage.setItem(cacheKey, JSON.stringify(cacheObject));
-            } catch (e) {
-              console.warn('Failed to cache data:', e);
-            }
-          }
-
-          async function GetGiftCards(
-            pageNumber = 1,
-            pageSize = 20,
-            productName = "",
-            productDescription = ""
-          ) {
-            // Use a single cache key for all gift card data per session
-            const cacheKey = `giftCards_all_data`;
-
-            // Check if we have valid cached data
-            if (isCachedDataValid(cacheKey)) {
-              const allCachedProducts = getCachedData(cacheKey);
-              if (allCachedProducts) {
-                console.log('🎁 Using cached gift card data - no API call needed');
-                // Filter and paginate the cached data
-                const filteredProducts = filterAndPaginateProducts(allCachedProducts, productName, productDescription, pageNumber, pageSize);
-                renderGiftCards(filteredProducts, pageNumber, productName || productDescription);
-                return;
-              }
-            }
-
-            console.log('🚀 Making initial API request for gift cards...');
-            //get giftcards
-            //filter on  "denominationType": and values
-            let existingPriceList = [10, 25, 50, 100, 200, 500];
-            let stageUrl = "https://localhost:7242/api/EGifter/GetProducts?";
-            let productionUrl =
-              "https://yourgreetings-server.azurewebsites.net/api/EGifter/GetProducts?";
-
-            // Fetch a larger dataset to cache everything at once
-            let url = `${productionUrl}pageIndex=1&pageSize=500&productName=&productDescription=`;
-
-            $.ajax({
-              method: "GET",
-              async: false,
-              url: url,
-              dataType: "json",
-              success: function (products) {
-                console.log('✅ API request successful - caching gift card data');
-                // Cache ALL the gift card data
-                cacheData(cacheKey, products.data);
-
-                // Filter and paginate the data for current request
-                const filteredProducts = filterAndPaginateProducts(products.data, productName, productDescription, pageNumber, pageSize);
-                renderGiftCards(filteredProducts, pageNumber, productName || productDescription);
-              },
-              error: function (e) {
-                console.log('❌ API request failed - attempting to use expired cache');
-                // If API fails, try to use cached data even if expired
-                const allCachedProducts = getCachedData(cacheKey);
-                if (allCachedProducts) {
-                  console.warn('Using expired cached data due to API failure');
-                  const filteredProducts = filterAndPaginateProducts(allCachedProducts, productName, productDescription, pageNumber, pageSize);
-                  renderGiftCards(filteredProducts, pageNumber, productName || productDescription);
-                } else {
-                  console.error('Failed to fetch gift cards and no cached data available');
-                  $("#modalGiftCardSelection1").html('<div class="gift-card"><p>Unable to load gift cards. Please try again later.</p></div>');
-                }
-              },
-            });
-          }
-
-          // Helper function to filter and paginate products
-          function filterAndPaginateProducts(allProducts, productName, productDescription, pageNumber, pageSize) {
-            let filteredProducts = allProducts;
-
-            // Apply search filter if provided
-            if (productName || productDescription) {
-              const searchTerm = (productName || productDescription).toLowerCase();
-              filteredProducts = allProducts.filter(product =>
-                product.name.toLowerCase().includes(searchTerm) ||
-                (product.description && product.description.toLowerCase().includes(searchTerm))
-              );
-            }
-
-            // Apply pagination
-            const startIndex = (pageNumber - 1) * pageSize;
-            const endIndex = startIndex + pageSize;
-
-            return {
-              products: filteredProducts.slice(startIndex, endIndex),
-              totalCount: filteredProducts.length,
-              currentPage: pageNumber,
-              totalPages: Math.ceil(filteredProducts.length / pageSize)
-            };
-          }
-
-          // Separate function to render gift cards
-          function renderGiftCards(products, pageNumber, searchTerm = "") {
-            let productsHtml = products.products.map((s) => {
-              let i = s.id.trim();
-              let content = `<div class="voucher-card egifter-card" style="
-				position: relative;">
-				<a href = "#" onclick="clickvoucher('${s.id}','${JSON.stringify(
-                s.denominations
-              ).toString()}','${s.denominationType}','${s.media.faceplates[0].path
-                }')">
-		<img src="${s.media.faceplates[0].path}" alt="" class="voucher-img" />
-
-		<div class="voucher-card-footer">
-			<p class="voucher-name">
-				${s.name}
-			</p>
-
-		</div>
-		</a>
-		<div class= "d-none" id="${s.id}">
-			<div id = "redemptionNote" class="d-none">${s.redemptionNote}</div>
-			<div id = "terms" class="d-none">${s.terms}</div>
-			</div>
-		<button onclick="openterms('${s.id}')" class="tooltip1" style="
-			position: absolute;
-			top: 0;
-			right: 0;
-			/* padding: 0.5rem; */
-			background: black;
-			border-radius: 50%;
-			height: 25px;
-			width: 25px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin: 0.25rem;
-		" class=""><i class="fa fa-info-circle" style="
-			color: white;
-		"></i>
-			</button>
-	</div>`;
-              //console.log(s.id, s.denominations);
-              return content;
-            });
-
-            //console.log(productsHtml);
-
-            // Show clear search button only if there's an active search
-            const clearSearchHtml = searchTerm ? `
-              <div class="clear-search-container" style="margin: auto; margin-top: 10px; text-align: center;">
-                <button id="clear-search-btn" class="btn-clear-search" style="
-                    background: #f8f9fa;
-                    border: 1px solid #dee2e6;
-                    border-radius: 4px;
-                    padding: 8px 16px;
-                    color: #000000;
-                    font-weight: bold;
-                    cursor: pointer;
-                    font-size: 14px;
-                    line-height: normal;
-                    border: 1px solid;
-                ">
-                  <i class="fa fa-times" style="margin-right: 5px;"></i>
-                  Clear Search
-                </button>
-              </div>
-            ` : '';
-
-            // Show no results message if no products found
-            let productsContainer;
-            if (products.products.length === 0 && searchTerm) {
-              productsContainer = ` <div class="gift-card">
-	<div class="header-sec">
-		<h1 class="heading">Select a Gift card</h1>
-		<p class="sub-heading">(You'll choose dollar amount on next screen)</p>
-	</div>
-	<div class="box-fluid">
-		<div class="box-header">
-			<h2 class="box-heading">Featured Cards</h2>
-
-			<div class="search-box">
-				<input type="text" name="" id="gift-search-bar" placeholder="Search for brands or products" class="search-input" value="${searchTerm}" />
-				<button class="btn-search" id="gift-search-btn">
-					<i class="icon icon-magnify"></i>
-					</button>
-					</div>
-					${clearSearchHtml}
-
-		</div>
-		<div class="box-body" style="text-align: center; padding: 40px 20px;">
-			<p style="font-size: 18px; color: #666; margin-bottom: 20px;">There are no results but clear search to find other awesome gift ideas!</p>
-		</div>
-		<div class="box-footer">
-			<button class="btn-prev" id="btn-prev">Prev</button>
-			<button class="btn-next" id="btn-next">Next</button>
-		</div>
-	</div>
-</div>`;
-            } else {
-              productsContainer = ` <div class="gift-card">
-	<div class="header-sec">
-		<h1 class="heading">Select a Gift card</h1>
-		<p class="sub-heading">(You'll choose dollar amount on next screen)</p>
-	</div>
-	<div class="box-fluid">
-		<div class="box-header">
-			<h2 class="box-heading">Featured Cards</h2>
-
-			<div class="search-box">
-				<input type="text" name="" id="gift-search-bar" placeholder="Search for brands or products" class="search-input" value="${searchTerm}" />
-				<button class="btn-search" id="gift-search-btn">
-					<i class="icon icon-magnify"></i>
-					</button>
-					</div>
-					${clearSearchHtml}
-
-		</div>
-		<div class="box-body">
-			${productsHtml.join("")}
-
-		</div>
-		<div class="box-footer">
-			<button class="btn-prev" id="btn-prev">Prev</button>
-			<button class="btn-next" id="btn-next">Next</button>
-		</div>
-	</div>
-</div>`;
-            }
-
-            $("#modalGiftCardSelection1").empty();
-            $("#modalGiftCardSelection1").append(productsContainer);
-
-            // Preserve focus and cursor position in search input
-            const searchInput = document.getElementById("gift-search-bar");
-            if (searchInput) {
-              const cursorPosition = window.lastSearchCursorPosition || searchInput.value.length;
-              searchInput.focus();
-              searchInput.setSelectionRange(cursorPosition, cursorPosition);
-            }
-
-            // Update button states based on pagination data
-            const $btnPrev = $("#btn-prev");
-            const $btnNext = $("#btn-next");
-
-            // Disable prev button if on first page
-            if (products.currentPage <= 1) {
-              $btnPrev.attr("disabled", "true").addClass("disabled");
-            } else {
-              $btnPrev.removeAttr("disabled").removeClass("disabled");
-            }
-
-            // Disable next button if on last page or no more data
-            if (products.currentPage >= products.totalPages || products.products.length === 0) {
-              $btnNext.attr("disabled", "true").addClass("disabled");
-            } else {
-              $btnNext.removeAttr("disabled").removeClass("disabled");
-            }
-
-            // $('.egifter-card').on('click', function(e){
-            // 	;
-            // 	e.preventDefault();
-            // 	console.log(e);
-            // })
-
-            $("#gift-search-btn").on("click", function () {
-              let value = document
-                .getElementById("gift-search-bar")
-                .value.trim();
-              if (value.length == 0) {
-                return;
-              }
-              GetGiftCards(1, 20, value, value);
-            });
-
-            // Add Enter key functionality to search bar
-            $("#gift-search-bar").on("keydown", function (e) {
-              if (e.key === "Enter") {
-                let value = this.value.trim();
-                if (value.length == 0) {
-                  return;
-                }
-                GetGiftCards(1, 20, value, value);
-              }
-            });
-
-            // Add real-time search functionality
-            let searchTimeout;
-            $("#gift-search-bar").on("input", function () {
-              let value = this.value.trim();
-              let cursorPosition = this.selectionStart;
-
-              // Clear previous timeout
-              clearTimeout(searchTimeout);
-
-              // Set a new timeout to delay the search
-              searchTimeout = setTimeout(function() {
-                // Store cursor position before search
-                window.lastSearchCursorPosition = cursorPosition;
-                GetGiftCards(1, 20, value, value);
-              }, 300); // 300ms delay to avoid too many API calls
-            });
-
-            // Add clear search functionality
-            $("#clear-search-btn").on("click", function () {
-              document.getElementById("gift-search-bar").value = "";
-              GetGiftCards(1, 20, "", "");
-            });
-
-            $("#btn-next").on("click", function () {
-              // Only proceed if button is not disabled
-              if (!$(this).is(":disabled")) {
-                var i = pageNumber + 1;
-                GetGiftCards(i, 20);
-              }
-            });
-            $("#btn-prev").on("click", function () {
-              // Only proceed if button is not disabled
-              if (!$(this).is(":disabled")) {
-                if (pageNumber === 1) {
-                  return;
-                }
-                var i = pageNumber - 1;
-                GetGiftCards(i, 20);
-              }
-            });
-          }
+          // modal text count
+          $(document).on("input", "#venmo-message", function () {
+            const max = 200;
+            const len = $(this).val().length;
+            $("#message-count").text(`${len}/${max}`);
+          });
         });
       },
       {},
@@ -4728,66 +4437,3 @@ function openterms(id) {
 function closeDisclaimer() {
   $("#termModal").remove();
 }
-
-function addDigitalCard(modalFor, firstName, lastName) {
-  ;
-  var id = $("#add_bag").attr("data-id");
-  let giftId = document.getElementById("productId").value;
-  let giftImage = document.getElementById("productImage").value;
-  let contact;
-  if (
-    $("#modalGiftCardSelection").data("modalFor") ==
-    "digital-gift-card-via-email"
-  )
-    contact = $("#email-address").val();
-  else if (
-    $("#modalGiftCardSelection").data("modalFor") ==
-    "digital-gift-card-via-text"
-  )
-    contact = $("#cell-phone").val();
-
-  if (id.length !== 0) {
-    $.ajax({
-      type: "POST",
-      url: "/cart/add.js",
-      dataType: "json",
-      data: {
-        id: id,
-        properties: {
-          _GiftCard: true,
-          _SplMsg: false,
-          _SortIndex: 1,
-          _Id: giftId,
-          _Image: giftImage,
-          _For: modalFor,
-          _Contact: contact,
-          _FirstName: firstName,
-          _LastName: lastName,
-        },
-      },
-      success: function (r) {
-        $.ajax({
-          type: "POST",
-          url: "/cart/add.js",
-          dataType: "json",
-          data: {
-            id: 44236446269617,
-          },
-          success: function (r) {
-            window.location.href = "/cart";
-          },
-          error: function () { },
-        });
-      },
-      error: function () { },
-    });
-  }
-}
-
-
-// modal text count
-$(document).on("input", "#venmo-message", function () {
-  const max = 200;
-  const len = $(this).val().length;
-  $("#message-count").text(`${len}/${max}`);
-});

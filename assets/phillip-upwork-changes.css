@@ -1584,6 +1584,15 @@ body.modal-open .modal .modal-dialog {
   max-width: 1000px !important;
 }
 
+.gift-card-text {
+  text-align: center;
+}
+
+#btn-prev[disabled],
+#btn-next[disabled] {
+  opacity: 0.3 !important;
+}
+
 @media only screen and (max-width: 950px) {
   body.modal-open .modal .modal-dialog {
     width: 95% !important;
