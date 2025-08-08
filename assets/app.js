@@ -3418,11 +3418,17 @@
                   '" data-min="1">';
               }
 
-              // Store packaging products for modal display
+              // Store packaging products for modal display (only unique ones)
               if (isPackagingProduct) {
-                packagingProducts.push({
-                  title: item.title
+                // Check if this packaging product is already in the array
+                var existingPackaging = packagingProducts.find(function(pkg) {
+                  return pkg.title === item.title;
                 });
+                if (!existingPackaging) {
+                  packagingProducts.push({
+                    title: item.title
+                  });
+                }
               }
             });
             currencyUpdate();
@@ -3451,16 +3457,6 @@
 
               $(".js-mdlchk-prd-qty").html(mainPrd.qty);
               $(".js-mdlchk-prd-price").html(mainPrd.price);
-
-              // Add packaging products to modal if they exist
-              if (packagingProducts.length > 0) {
-                var packagingTitles = packagingProducts.map(function(packaging) {
-                  return packaging.title;
-                }).join(", ");
-
-                // Insert packaging info after the main product info
-                $(".js-mdlchk-prd-price").after(packagingInfo);
-              }
             });
             $(".js-mdlchk-prd-total").html(
               '<span class="money">' +
