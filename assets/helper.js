@@ -616,9 +616,7 @@ if ($("body").hasClass("ajax_cart")) {
           .addClass("disabled")
           .blur()
           .html(
-            '<i class="icon icon-spinner3 spin"></i><span>' +
-              locales.adding +
-              "</span>"
+            '<span>Adding...</span>'
           );
 
         // Add main product to cart
