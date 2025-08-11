@@ -653,7 +653,8 @@ if ($("body").hasClass("ajax_cart")) {
 
                 // Create packaging line item properties with main product info
                 var packagingProperties = {
-                  "purchased with": mainProductTitle
+                  "purchased with": mainProductTitle,
+                  "_main_product_id": variantId
                 };
 
                 CartJS.addItem(
@@ -1047,28 +1048,88 @@ $(document).on("click", "a.js-minicart-remove-item", function (e) {
 
 //cart
 $(document).on("click", "a.js-cart-remove-item", function (e) {
-  if ($digitalGiftCardIds.includes($(this).data("variantId"))) {
-    CartJS.removeItemById($(this).data("variantId"), {
+  var mainProductVariantId = $(this).data("variantId");
+  var mainProductLineNumber = $(this).data("line-number");
+
+  // Check if there's a packaging product associated with this main product
+  var packagingItemToRemove = null;
+  var packagingLineNumber = null;
+  if (CartJS.cart.items) {
+    for (var i = 0; i < CartJS.cart.items.length; i++) {
+      var item = CartJS.cart.items[i];
+      if (item.properties && item.properties._main_product_id &&
+          item.properties._main_product_id == mainProductVariantId) {
+        packagingItemToRemove = item;
+        packagingLineNumber = i + 1; // Line numbers are 1-indexed
+        break;
+      }
+    }
+  }
+
+  if ($digitalGiftCardIds.includes(mainProductVariantId)) {
+    CartJS.removeItem(mainProductLineNumber, {
       success: function (data, textStatus, jqXHR) {
-        CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
-          success: function (data, textStatus, jqXHR) {
-            removePersonalizedAudioVideoFromCart(data);
-          },
-        });
+        // Remove packaging product if it exists
+        if (packagingItemToRemove && packagingLineNumber) {
+          CartJS.removeItem(packagingLineNumber, {
+            success: function (packagingData, packagingTextStatus, packagingJqXHR) {
+              CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
+                success: function (data, textStatus, jqXHR) {
+                  removePersonalizedAudioVideoFromCart(data);
+                },
+              });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.error("Failed to remove packaging product:", errorThrown);
+              CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
+                success: function (data, textStatus, jqXHR) {
+                  removePersonalizedAudioVideoFromCart(data);
+                },
+              });
+            },
+          });
+        } else {
+          CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
+            success: function (data, textStatus, jqXHR) {
+              removePersonalizedAudioVideoFromCart(data);
+            },
+          });
+        }
       },
       error: function (jqXHR, textStatus, errorThrown) {
         $("#modalError .modal-body p").text(errorThrown);
         $("#modalError").modal("show");
       },
     });
-  } else if ($sendCashViaVenmoIds.includes($(this).data("variantId"))) {
-    CartJS.removeItemById($(this).data("variantId"), {
+  } else if ($sendCashViaVenmoIds.includes(mainProductVariantId)) {
+    CartJS.removeItem(mainProductLineNumber, {
       success: function (data, textStatus, jqXHR) {
-        CartJS.removeItemById($venmoProcessingFeeId, {
-          success: function (data, textStatus, jqXHR) {
-            removePersonalizedAudioVideoFromCart(data);
-          },
-        });
+        // Remove packaging product if it exists
+        if (packagingItemToRemove && packagingLineNumber) {
+          CartJS.removeItem(packagingLineNumber, {
+            success: function (packagingData, packagingTextStatus, packagingJqXHR) {
+              CartJS.removeItemById($venmoProcessingFeeId, {
+                success: function (data, textStatus, jqXHR) {
+                  removePersonalizedAudioVideoFromCart(data);
+                },
+              });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.error("Failed to remove packaging product:", errorThrown);
+              CartJS.removeItemById($venmoProcessingFeeId, {
+                success: function (data, textStatus, jqXHR) {
+                  removePersonalizedAudioVideoFromCart(data);
+                },
+              });
+            },
+          });
+        } else {
+          CartJS.removeItemById($venmoProcessingFeeId, {
+            success: function (data, textStatus, jqXHR) {
+              removePersonalizedAudioVideoFromCart(data);
+            },
+          });
+        }
       },
       error: function (jqXHR, textStatus, errorThrown) {
         $("#modalError .modal-body p").text(errorThrown);
@@ -1076,9 +1137,22 @@ $(document).on("click", "a.js-cart-remove-item", function (e) {
       },
     });
   } else {
-    CartJS.removeItemById($(this).data("variantId"), {
+    CartJS.removeItem(mainProductLineNumber, {
       success: function (data, textStatus, jqXHR) {
-        removePersonalizedAudioVideoFromCart(data);
+        // Remove packaging product if it exists
+        if (packagingItemToRemove && packagingLineNumber) {
+          CartJS.removeItem(packagingLineNumber, {
+            success: function (packagingData, packagingTextStatus, packagingJqXHR) {
+              removePersonalizedAudioVideoFromCart(packagingData);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.error("Failed to remove packaging product:", errorThrown);
+              removePersonalizedAudioVideoFromCart(data);
+            },
+          });
+        } else {
+          removePersonalizedAudioVideoFromCart(data);
+        }
       },
       error: function (jqXHR, textStatus, errorThrown) {
         $("#modalError .modal-body p").text(errorThrown);

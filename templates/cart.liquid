@@ -192,7 +192,7 @@
                   {% comment %} {% if item.id != {{variant_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.product.title != "Digital Gift Card"%}
                     <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="icon icon-close-2 js-minicart-remove-item"></a>
                   {% endif %} {% endcomment %}
-                  {% if item.id != {{variant_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != 44398982234289 %}
+                  {% if item.id != {{variant_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != 44398982234289  and item.id != 46103888789681 %}
                     <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-variant-id="{{ item.variant_id }}" data-line-number="{{ forloop.index }}" title="{{ 'cart.general.remove' | t }}" class="icon icon-close-2 js-cart-remove-item"></a>
                   {% endif %}
                 </div>
