@@ -2268,7 +2268,7 @@
           "link_target_1": "_self",
           "icon1": "shopify://shop_images/Group_39421_2x_f2e8e064-6ad9-4cd7-b7c2-639f3dd7ee99.png",
           "box_1_caption_1": "PICK A <br>PERSON",
-          "box_1_caption_2": "or family, or organization or whomever",
+          "box_1_caption_2": "or family, or organization or whoever",
           "link_2": "#",
           "link_target_2": "_self",
           "icon2": "shopify://shop_images/Group_42731.png",
@@ -2424,9 +2424,9 @@
           "bannername_blog": "GHOST STORIES",
           "block_width": "global_width",
           "posts_per_page": "5",
-          "posts_per_row": "1",
+          "posts_per_row": "2",
           "sidebar": false,
-          "description": "<p>Check out stories from ghost givers and receivers just like you! You'll probably laugh. You might happy cry. But\nmostly, we hope you'll be inspired with ghostgiving ideas you can use again and again. Come to read or come\nto share—it's all about the good you can spread with Ghost Giver.</p>\n<p>\n(If you have a photo and ghostgiving experience you’d like to share, we’d love to hear from you. Just email us\nat <a class=\"color_purple_cs\" href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com)</a></p>"
+          "description": "<p>Check out stories from ghost givers and receivers just like you! You'll probably laugh. You might happy cry. But\nmostly, we hope you'll be inspired with ghostgiving ideas you can use again and again. Come to read or come\nto share—it's all about the good you can spread with Ghost Giver.</p>\n<p>\nIf you have a photo and ghostgiving experience you’d like to share, we’d love to hear from you. Just email us\nat <a class=\"color_purple_cs\" href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com</a></p>"
         }
       },
       "product-section1": {
@@ -2915,7 +2915,8 @@
             "settings": {
               "image_collect": "shopify://shop_images/Group_42814_2x_7f683bf3-2d0d-4654-ba91-2ddd46b8686d.png",
               "linktext": "<p>GIFTS (SHIPPED)</p>",
-              "url": "shopify://collections/gifts"
+              "url": "shopify://collections/gifts",
+              "hide_block_on_mobile": false
             }
           },
           "collection_6QBDw6": {
@@ -2923,7 +2924,8 @@
             "settings": {
               "image_collect": "shopify://shop_images/Navy_Blue_Pink_Foil__1.png",
               "linktext": "<p>PHYSICAL CARDS & <br/>ENVELOPES</p>",
-              "url": "shopify://collections/printed-cards-envelopes"
+              "url": "shopify://collections/printed-cards-envelopes",
+              "hide_block_on_mobile": true
             }
           },
           "collection_PCtW4i": {
@@ -2931,7 +2933,8 @@
             "settings": {
               "image_collect": "shopify://shop_images/Mask_Group_79_2x_c616d8e4-fb84-4aea-9803-26d672cb5bec.png",
               "linktext": "<p>CASH (VENMO)</p>",
-              "url": "shopify://collections/send-cash"
+              "url": "shopify://collections/send-cash",
+              "hide_block_on_mobile": false
             }
           },
           "collection_8xDPxn": {
@@ -2939,7 +2942,8 @@
             "settings": {
               "image_collect": "shopify://shop_images/Mask_Group_114_2x_3a074ded-0898-40b6-900b-6f73ccf3f14a.png",
               "linktext": "<p>ONLINE RETAILERS</p><p>(AMAZON, ETC.)</p>",
-              "url": "shopify://collections/individual-code-via-e-tailers"
+              "url": "shopify://collections/individual-code-via-e-tailers",
+              "hide_block_on_mobile": true
             }
           },
           "collection_ArYDUQ": {
@@ -2948,7 +2952,8 @@
             "settings": {
               "image_collect": "shopify://shop_images/Group_42814_2x_7f683bf3-2d0d-4654-ba91-2ddd46b8686d.png",
               "linktext": "<p>GIFTS</p>",
-              "url": "shopify://collections/gifts"
+              "url": "shopify://collections/gifts",
+              "hide_block_on_mobile": false
             }
           }
         },

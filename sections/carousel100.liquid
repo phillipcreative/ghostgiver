@@ -24,7 +24,7 @@
           <div class="products-grid singel_carsuls products-carousel data-to-show-lg-{{ section.settings.per_row_desctop_2 }} data-to-show-md-2 data-to-show-sm-3 data-to-show-xs-{{ section.settings.per_row_mobile_port_2 }}" data-slick='{"slidesToShow": {{ section.settings.per_row_desctop_2 }}, "slidesToScroll": 1, "responsive": [{"breakpoint": 1200,"settings": {"slidesToShow": 2}}, {"breakpoint": 992,"settings": {"slidesToShow": 2}}, {"breakpoint": 768,"settings": {"slidesToShow": 2}}, {"breakpoint": 480,"settings": {"slidesToShow": {{ section.settings.per_row_mobile_port_2 }}}}] }'>
              {% for block in section.blocks  limit: product_limit_2%}  
         {% if block.type == 'collection' %}
-    <div class="product-item">
+    <div class="product-item {% if block.settings.hide_block_on_mobile %}hide-mobile{% endif %}">
             <div class="product-item-inside">
                 <!-- Product Photo -->
                 <div class="product-item-photo-holder">
@@ -64,6 +64,13 @@
     </div>
   </div>
 {% endif %}
+
+
+<script>
+  
+</script>
+
+
 {% schema %}
   {
     "name": "1 carousels per row (2+2)",
@@ -273,10 +280,16 @@
           "type": "richtext",
           "label": "text"
         },
-    {
+      {
         "id": "url",
         "type": "url",
         "label": "Add link"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_block_on_mobile",
+        "label": "Hide On Mobile",
+        "default": false
       }
       ]
     }
