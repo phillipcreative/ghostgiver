@@ -1082,7 +1082,7 @@ body.ie .jarallax {
   .header-nav-line {
     position: relative;
   }
-  .header-nav-line:after {
+  /* .header-nav-line:after {
     content: '';
     position: absolute;
     top: 0;
@@ -1090,7 +1090,7 @@ body.ie .jarallax {
     left: -100%;
     right: -100%;
     z-index: -1;
-  }
+  } */
 }
 .header-sticky {
   z-index: 3;
@@ -1534,8 +1534,9 @@ body.fixed .header-topline {
   content: '';
   position: absolute;
   top: 0;
-  left: -50%;
-  width: 200%;
+  left: 0;
+  margin: auto;
+  width: 100% !important;
   height: 100%;
   z-index: -1;
   background: #24ceff;
@@ -4568,7 +4569,7 @@ body.hdr-sticky .spy-menu {
   .spy-newsletter.active {
     left: 0;
   }
-  
+
     .spy-donation.active {
     left: 0;
   }
@@ -4751,7 +4752,7 @@ body.hdr-sticky .spy-donation {
   .newsletter.newsletter-popup .newsletter-title {
     font-size: 24.6px;
   }
-  
+
 }
 .newsletter.newsletter-popup .input-wrap {
   margin-bottom: 35px;
@@ -8145,7 +8146,7 @@ body .page-footer .footer-social i.icon.icon-circled,
   text-align: center;
 }
 .product-item .product-item-photo > a{
- 
+
 }
 .product-item .product-item-photo {
   position: relative;
@@ -16126,7 +16127,7 @@ a.shop-feature-sm:hover .shop-feature-text {
   transform: rotate(65deg);
 }
 @media screen and (max-width: 768px) {
-  
+
   .spy-donation img{
   display:none;
   }
@@ -17298,12 +17299,12 @@ textarea + .errors {
   background: #af59d7;
 }
 @media screen and (max-width: 991px) {
-  
-  
+
+
   .page-header:not(.transparent) a:not(.btn){
   color:#193e5a !important;
   }
-  
+
   .slick-prev,
   .slick-next {
     margin-top: -12px;
@@ -17333,7 +17334,7 @@ letter-spacing:0;
  font-family: 'HelveticaLight' !important;
 font-weight: 600;
   letter-spacing:3px;
-  
+
 }
 
 .slide-info{
@@ -17357,15 +17358,15 @@ font-weight: 400;
     max-width: 40px;
     top: -5px;
 }
-  
+
   .slide-sub{
 
   letter-spacing:2px;
-  
+
 }
 }
 @media screen and (max-width: 991px) {
-  
+
     .slide-o-icon img {
     max-width: 29px;
     top: -5px;
@@ -17373,14 +17374,14 @@ font-weight: 400;
     .slide-sub{
 
   letter-spacing:2px;
-  
+
 }
-  
+
 
 }
 
 @media screen and (max-width: 767px) {
-  
+
     .slide-o-icon img {
     max-width: 25px;
     top: -4px;
@@ -17388,13 +17389,13 @@ font-weight: 400;
     .slide-sub{
 
   letter-spacing:1px;
-  
+
 }
 
 }
 
 @media screen and (max-width: 490px) {
-  
+
     .slide-o-icon img {
     max-width: 20px;
     top: -2px;
@@ -17402,8 +17403,7 @@ font-weight: 400;
     .slide-sub{
 
   letter-spacing:1px;
-  
+
 }
 
-} 
-
+}

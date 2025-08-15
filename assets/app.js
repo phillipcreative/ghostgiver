@@ -4142,8 +4142,9 @@
               <div class="gift-card text-center">
                 <h3 class="giftcard-heading">WRITE YOUR ANONYMOUS MESSAGE</h3>
                 <p class="venmo-subheading">
-                  The message you draft below will be included with the cash we send to your recipient.
-                  Please note that if they have their Venmo account set to "Public", anyone their Venmo friends can see it.
+                  The message you write below will be included with the cash we
+                  send. Please note that if they have their Venmo account set to
+                  "Public," all of their Venmo friends can see it.
                 </p>
 
                 <form id="anonymous-message-form" class="d-flex flex-column align-items-center">
@@ -4152,13 +4153,13 @@
                       <textarea
                         id="venmo-message"
                         class="form-control"
-                        maxlength="200"
+                        maxlength="250"
                         rows="4"
                         style="width: 100%; padding: 1rem; font-size: 1.2rem;"
-                        maxlength="200"
-                        placeholder="Type your message here... (200 character limit)"
+                        maxlength="250"
+                        placeholder="Type your message here... (250 character limit)"
                       ></textarea>
-                    <span id="message-count" style="position: absolute; bottom: 10px; right: 15px; color: #aaa; font-size: 1rem;">0/20</span>
+                    <span id="message-count" style="position: absolute; bottom: 10px; right: 15px; color: #aaa; font-size: 1rem;">0/250</span>
                   </div>
                   <p class="comply-text">If message includes content that does not comply with our <a href="/policies/terms-of-service" target="_blank">Terms of Use</a>, it will not be sent.</p>
 
@@ -4320,7 +4321,7 @@
 
           // modal text count
           $(document).on("input", "#venmo-message", function () {
-            const max = 200;
+            const max = 250;
             const len = $(this).val().length;
             $("#message-count").text(`${len}/${max}`);
           });
