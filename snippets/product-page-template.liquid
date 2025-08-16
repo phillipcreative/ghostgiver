@@ -75,6 +75,8 @@
   <div class="gtx-trans-icon"></div>
 </div>
 
-{% if section.settings.product_related_enable %}
-  {% include 'related-products' %}
-{% endif %}
+<div class="related-products-container">
+  {% if section.settings.product_related_enable %}
+    {% include 'related-products' %}
+  {% endif %}
+</div>

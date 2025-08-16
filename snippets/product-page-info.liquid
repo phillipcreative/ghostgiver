@@ -176,7 +176,7 @@
                             {% capture status %}{{ 'general.theme.pre_order' | t }}{% endcapture %}
                         {% endif %}
                         <div class="product-actions-btn">
-                                <button class="btn btn-lg js-add-to-cart-product-page" data-product-handle="{{ product.handle }}"  data-variant-id="{{ product.selected_or_first_available_variant.id }}" title="{{ status }}"><span>{{ status }}</span></button>
+                                <button class="btn btn-lg js-add-to-cart-product-page" data-product-handle="{{ product.handle }}"  data-variant-id="{{ product.selected_or_first_available_variant.id }}" title="{{ status }}">{{ status }}</button>
                         </div>
                     </div>
                     <div class="product-actions-link">

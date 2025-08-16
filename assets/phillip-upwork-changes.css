@@ -673,9 +673,24 @@ div.with-us span.subtext {
     padding: 0px 10px 0px 0px !important;
   }
 
+  .related-products-container .products-carousel.slick-initialized .product-item {
+    padding: 0px !important;
+  }
+
   body.page-index .block.global_width.offset-top-50.offset-side.block--loaded h2 {
     font-size: 20px !important;
     top: unset;
+  }
+
+  .related-products-container .title h2 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    top: 0px;
+    font-size: 20px !important;
+    padding-right: 10px;
   }
 }
 
@@ -1960,12 +1975,18 @@ body.Get.Started main.page-main {
     gap: 0px;
   }
 
+  .content-section.get-started-cont .content-blocks.get-started-block .content-block img {
+    margin-bottom: 10px;
+  }
+
   body.Get.Started.page-page\.get-started.get-started.boxed .content-blocks.get-started-block .or-separator {
-    margin-top: auto;
+    font-size: 30px;
+    margin: 20px 0px 22px 0px !important;
   }
 
   .content-section.get-started-cont .content-blocks.get-started-block .content-block h4 {
-    margin-top: 10px !important;
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
   }
 
   .content-blocks.get-started-block .content-block h4 {
@@ -2153,7 +2174,7 @@ body.You.Send.The.Gift .main-body-get .heading-content-get {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-center: center;
+  align-items: center;
 }
 
 .product-block .product-info-block .product-custom {
@@ -2693,6 +2714,11 @@ p:empty {
     display: none !important;
   }
 
+  .related-products-container .title .carousel-arrows,
+  .related-products-container .product-item.hide-mobile {
+    display: flex !important;
+  }
+
   .title .show-more {
     display: block !important;
   }
@@ -2736,4 +2762,41 @@ p:empty {
 
 .header-topline-inside:before {
   width: 100% !important;
+}
+
+
+/* ==================================================== */
+                /* GIFT CARD MODAL  */
+/* ==================================================== */
+
+@media only screen and (max-width: 767px) {
+  #modalVenmoCash1 #giftImage {
+    margin: auto !important;
+    max-width: 150px;
+    margin-bottom: 15px !important;
+  }
+
+  #modalVenmoCash1 .giftcard-subheading {
+    text-align: center !important;
+  }
+
+  #modalVenmoCash1 .gift-btn-gray {
+    margin-bottom: 0px;
+  }
+
+  #modalVenmoCash1 .gift-btn-gray,
+  #modalVenmoCash1 .gift-btn-gold {
+    max-width: 225px;
+  }
+}
+
+/* ==================================================== */
+                  /* CART PAGE  */
+/* ==================================================== */
+
+
+@media only screen and (max-width: 991px) {
+  .cart-table .table-row .price {
+    display: none;
+  }
 }
