@@ -37,6 +37,8 @@
 {% assign digital_gift_card_processing_fee_id = digital_gift_card_processing_fee.variants.first.id %}
 {% assign venmo_processing_fee_id = all_products['venmo-processing-fee'].variants.first.id %}
 
+{% assign insulated_variant_id = all_products['ice-packaging'].variants.first.id %}
+
 {% unless cart.item_count == 0 or product_to_add_auto.empty? or product_to_add_auto.variants.first.available == false %}
   <!--
     By default it is the 1st variant of the product that is taken into account and added automatically - if you want to change that, then modify "product_to_add_auto.variants.first.id" by the identifier of the variant that you will find in the variants editor of your product
@@ -47,7 +49,7 @@
     <div class="block  block--no-preload global_width">
       <div class="container">
         <div class="title center">
-          <h1 class="dark-pink">Shopping Cart</h1>
+          <h1 class="dark-pink title-cart">Shopping Cart</h1>
           </div>
           <form action="/cart" method="post" novalidate class="cart white">
           <div class="cart-table">
@@ -78,12 +80,12 @@
             {% for item in cart.items %}
 
               <div
-                class="table-row"
+                class="table-row {% if item.id == variant_id %} designated-product{% endif %}"
                 {% if item.id == {{variant_id}} %}
-                  style="background: #fde9fc; padding: 0.5rem 0;"
+                  style="background: #fde9fc; padding: 1rem 0;"
                 {% endif %}
                 {% if item.id == {{digital_gift_card_processing_fee_id}} or item.id == {{venmo_processing_fee_id}} or digital_gift_card_ids contains item.id %}
-                  style="padding: 0.5rem 0;"
+                  style="padding: 1rem 0;"
                 {% endif %}
               >
               <div class="photo">
@@ -143,35 +145,38 @@
                   {{ item.price | money }}
                 </div>
                 <div class="qty qty-changer">
-                  <fieldset>
-                    {% if item.id != {{variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}} %}
-                      {% unless digital_gift_card_ids contains item.id or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
-                        <input type="button" value="&#x2212;" class="decrease">
-                      {% endunless %}
-                    {% endif %}
-                    <input
-                      type="text"
-                      class="qty-input"
-                      name="updates[]"
-                      id="updates_{{ item.id }}"
-                      value="{{ item.quantity }}"
-                      data-min="0"
-                      {% if item.id == {{variant_id}} %}
-                        readonly
-                        style="padding: inherit;"
-                      {% endif %}
-                      {% if item.id == {{gift_card_id}} or item.id == {{digital_gift_card_processing_fee_id}} or digital_gift_card_ids contains item.id or item.id == {{venmo_processing_fee_id}} or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
-                        readonly
-                        style="padding: inherit;"
-                      {% endif %}
-                    >
+                  {% if item.id == insulated_variant_id %}
 
-                    {% if item.id != {{variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}}%}
-                      {% unless digital_gift_card_ids contains item.id or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
-                        <input type="button" value="+" class="increase">
-                      {% endunless %}
-                    {% endif %}
+                    {% else %}
+                  <fieldset>
+                      {% if item.id != {{variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}} %}
+                        {% unless digital_gift_card_ids contains item.id or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
+                          <input type="button" value="&#x2212;" class="decrease">
+                        {% endunless %}
+                      {% endif %}
+                      <input
+                        type="text"
+                        class="qty-input"
+                        name="updates[]"
+                        id="updates_{{ item.id }}"
+                        value="{{ item.quantity }}"
+                        data-min="0"
+                        {% if item.id == {{variant_id}} %}
+                          readonly
+                          style="padding: inherit;"
+                        {% endif %}
+                        {% if item.id == {{gift_card_id}} or item.id == {{digital_gift_card_processing_fee_id}} or digital_gift_card_ids contains item.id or item.id == {{venmo_processing_fee_id}} or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
+                          readonly
+                          style="padding: inherit;"
+                        {% endif %}
+                      >
+                      {% if item.id != {{variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}}%}
+                        {% unless digital_gift_card_ids contains item.id or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
+                          <input type="button" value="+" class="increase">
+                        {% endunless %}
+                      {% endif %}
                   </fieldset>
+                {% endif %}
                 </div>
                 <div class="subtotal">
                   {% if item.original_line_price != item.line_price %}

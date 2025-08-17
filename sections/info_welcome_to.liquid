@@ -4,11 +4,34 @@
              const coverImage = document.getElementById('playButton');
   const video = document.getElementById('video_player');
 
-  coverImage.addEventListener('click', () => {
-    coverImage.style.display = 'none';
-    video.style.display = 'block';
-    video.play();
-  });
+  if (coverImage && video) {
+    coverImage.addEventListener('click', () => {
+      coverImage.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    });
+  }
+
+  // Pause/play video based on viewport visibility
+  if (video) {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (video.paused && video.style.display !== 'none') {
+              video.play();
+            }
+          } else {
+            if (!video.paused) {
+              video.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(video);
+  }
             });
 </script>
 <style>
@@ -72,7 +95,7 @@
       <span></span>
       <span></span>
     </div>
-<video width="600" CONTROLS  loop playsinline >
+<video width="600" CONTROLS  playsinline >
   <source src="https://yougreetingsstoragee.blob.core.windows.net/images/Shopify/Be _a_Ghost_Giver_video.mp4" type="video/mp4" class="video_player" id="video_player">
   Your browser does not support HTML5 video.
 </video>
@@ -92,7 +115,6 @@
           section.settings.video
           | video_tag:
             image_size: '1100x',
-            loop: true,
                         class:"video_player",
                          id:"video_player",
             controls: true,
@@ -100,7 +122,7 @@
        }}
 
         {% else %}
-        <video width="700" CONTROLS  loop playsinline class="video_player" id="video_player">
+        <video width="700" CONTROLS playsinline class="video_player" id="video_player">
     <source src="https://yougreetingsstoragee.blob.core.windows.net/images/Shopify/Be _a_Ghost_Giver_video.mp4" type="video/mp4">
        Your browser does not support HTML5 video.
 </video>

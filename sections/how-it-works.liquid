@@ -1,16 +1,16 @@
 <style>
   .banner-relative{
-  
+
   position:relative;
   }
-  
+
   .pt-0{
   padding-top:20px !important;
   }
   p {
     line-height: 1.5 !important;;
 }
-  
+
   .banner-overlay-text{
     width: 100%;
     top: 0;
@@ -19,9 +19,9 @@
     z-index: 3;
     position: absolute;
   }
-  
-  
-  
+
+
+
   .bs-content{
     display: table;
     padding: 0.25em 0.4em;
@@ -43,17 +43,17 @@
     align-items: flex-start !important;
     justify-content: flex-end !important;
 }
-  
+
     .right-banner {
     -ms-flex-align: end !important;
     align-items: flex-end !important;
     justify-content: flex-end !important;
 }
-  
+
   .bs-vert{
     font-size:100px;
   }
-  
+
   .bs-vert{
     display: -moz-flex;
     display: -ms-flex;
@@ -63,7 +63,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
 }
- 
+
   .banner-overlay-text .container {
       padding: 15px;
     display: -moz-flex;
@@ -81,13 +81,13 @@
     height: 100%;
         padding-bottom: 40px;
   }
-  
+
   .img-responsive-ct{
     max-width: 185px;
     position: relative;
     top: -15px;
   }
-  
+
     @media (min-width: 1500px){
 .banner-overlay-text .container {
     padding-left: 0!important;
@@ -99,63 +99,53 @@
     width: 1250px;
 }
 }
-  
+
  @media screen and (max-width: 1199px){
 .bs-vert {
     font-size: 80px;
 }
  }
-  
+
   @media screen and (max-width: 991px){
 .bs-vert {
     font-size: 60px;
 }
   }
-  
-  
+
+
   @media (max-width: 1499px) and (min-width: 992px){
 .banner-overlay-text .container {
     max-width: 1250px!important;
     padding-left: 55px!important;
     padding-right: 55px!important;
-  
+
 }
   }
-  
-  
-  
+
+
+
   @media screen and (max-width: 767px){
 .bs-vert {
     font-size: 50px;
 }
   }
-  
+
   @media screen and (max-width: 768px) {
 
-    
+
       .banner-overlay-text .container {
             padding-bottom: 20px;
       }
-    
-    
+
+
 }
-  
+
   @media screen and (max-width: 490px){
 .bs-vert {
     font-size: 40px;
 }
   }
 </style>
-
-<!-- Upwork Update 06.16 -->
-<!-- <div class="banner-relative Desktop"><img class="bg-main-works " src="{{section.settings.imgbanner | img_url: 'master'}}">
-   <div class="banner-overlay-text">
-      <div class="container right-banner">
-      <div class="bs-vert " data-aos-delay="10000000" >
-      <div class="bs-content">{{ section.settings.bannername }}</div>
-                    </div> </div>  </div></div> -->
-
-<!-- Upwork Update 06.16 -->
 <div class="custom-banner-wrapper">
   <img class="custom-banner-image" src="{{ section.settings.imgbanner | img_url: 'master' }}" alt="Banner">
 
@@ -175,10 +165,10 @@
       <div class="bs-vert " data-aos-delay="10000000" >
       <div class="bs-content">{{ section.settings.bannername }}</div>
                     </div> </div>  </div></div>
-                    
+
 <div class="bg-works"  style="background-image: url('{{ section.settings.bg_image |img_url:"master" }} ');">
   <div class="container">
-  
+
 </div>
     <div class="container">
 <div class="row item-banner">
@@ -192,11 +182,11 @@
             <div class="col-xs-6 col-md-6 nopadding">
                 <img class="img-responsive img-sec2" src="{{ section.settings.image1_step1 |img_url: 'master'}}" />
             </div>
-          
+
         </div>
     </div>
 
- 
+
 
     <div class="col-md-12">
         <img class="img-responsive" src="{{ section.settings.bg_img_step2 |img_url: 'master'}}" />
@@ -222,7 +212,7 @@
         </div>
     </div>
 </div>
-      
+
 <div class="row item-banner">
     <div class="col-md-12">
         <span class="step-bagde"><span class="step-circle">3</span></span>
@@ -238,8 +228,8 @@
             <img class="img-responsive" src="{{ section.settings.bg_img_step4 | img_url: 'master' }}" />
         </div>
     </div>
-</div>      
-      
+</div>
+
     <div class="row item-banner">
     <div class="col-md-12">
         <span class="step-bagde"><span class="step-circle">4</span></span>
@@ -255,8 +245,8 @@
             <img class="img-responsive" src="{{ section.settings.bg_img_step5 | img_url: 'master' }}" />
         </div>
     </div>
-</div>    
-      
+</div>
+
     <div class="row item-banner">
     <div class="col-md-12">
         <span class="step-bagde"><span class="step-circle">5</span></span>
@@ -278,25 +268,25 @@
         </div>
     </div>
 </div>
-     
 
 
-  
+
+
        <!-- <div class="row item-banner">
 
               <div class="col-md-12 text-center">
        <span class="step-heading" style="margin-top:50px;margin-bottom:20px" >{{ section.settings.textbelow_step }}</span>
-     
+
                 <a href="/pages/ways-to-ghostgive" class="btn-velvey"><img  src="{{ section.settings.ghostgive_img | img_url: 'master' }}" /> {{ section.settings.text1below_step }}</a>
-        
+
       </div>
-      
+
     </div> -->
 </div>
 
 
 <style>
-  
+
   .btn-velvey{
       background: #193e5a;
     display: block;
@@ -331,9 +321,9 @@
     display:block;
     padding:50px 0;
     padding-bottom: 8px;
-    
+
   }
-  
+
   .step-heading{
     display: block;
     font-size: 26px;
@@ -346,8 +336,8 @@
     padding-top:0;
     padding-bottom: 8px;
 }
-   
-  
+
+
     .step-info{
     display:block;
     font-size: 16px;
@@ -357,19 +347,19 @@
   .normal-letter{
     padding-top:20px;
   font-size:13px;
-  } 
+  }
   .big-letter{
   font-size:30px;
     color: #db8f16;
     line-height:1;
   }
-  
+
   .bg-main-works{
       max-width: 100%;
     margin: 0 auto;
     display: block;
   }
-  
+
   .item-banner img{
   margin:0 auto;
   }
@@ -393,12 +383,12 @@
     margin: 50px auto;
     text-align: center;
   }
-  
+
   .mobile-show{
   display:none !important;
   }
   .bg-works{
-  
+
     background-repeat: no-repeat;
         background-size: contain;
   }
@@ -406,13 +396,13 @@
         .mobile-hide{
   display:none !important;
   }
-      
+
         .mobile-show{
   display:block !important;
   }
 }
     @media screen and (max-width: 768px) {
-      
+
       .img-small{
          max-width: 200px;
       }
@@ -425,10 +415,10 @@
     top: -8px;
   }
         .step-heading{
-    
+
 
 }
-   
+
   .bg-works-contain{
   display: block;
     width: 100%;
@@ -445,11 +435,11 @@
       padding: 10px 20px;
       }
 }
-  
+
 </style>
 {% schema %}
 
-  
+
 {
   "name": "How It Works",
 "settings": [
@@ -474,7 +464,7 @@
         "id":"bg_image",
         "label":"Add a background image of banner bellow "
       }
- 
+
   ,
       {
         "type":"text",
@@ -529,19 +519,19 @@
         "label":"Enter Text 2 of Step2"
       }
   ,
-  
+
       {
         "type":"image_picker",
         "id":"img_step2_1",
         "label":"Add image of  Step2"
       } ,
-  
+
       {
         "type":"image_picker",
         "id":"img_step2_2",
         "label":"Add image of  Step2"
       } ,
-  
+
       {
         "type":"image_picker",
         "id":"img_step2_3",
@@ -596,7 +586,7 @@
         "id":"bg_img_step5",
         "label":"Add Background image of  Step5"
       } ,
-  
+
       {
         "type":"text",
         "id":"heading_step5",
@@ -614,7 +604,7 @@
         "id":"img_step5",
         "label":"Add image of  Step5"
       },
-    
+
       {
         "type":"text",
         "id":"textbelow_step",
