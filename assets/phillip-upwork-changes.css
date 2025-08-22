@@ -2908,3 +2908,19 @@ html, body {
 #modalCheckout .text-center.d-sm-flex.flex-wrap.align-items-center.flex-sm-wrap {
   justify-content: space-between;
 }
+
+@media only screen and (max-width: 990px) {
+  .mdlchk .qty-changer input[type=button].decrease,
+  .mdlchk .qty-changer input[type=button] {
+    top: 15px;
+  }
+
+  .mdlchk .qty-changer {
+    padding-right: 20px;
+  }
+
+  .mdlchk .qty-changer input[type=button] {
+    width: 22px;
+    height: 24px;
+  }
+}
