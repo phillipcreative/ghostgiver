@@ -33,36 +33,36 @@
   <div class="col-md-5"></div>
 
   <div class="col-md-7">
-    <div class="usingEmailBlock">
+    <div class="usingEmailBlock product-template-main">
       <div class="row">
         <div class="col-md-3">
           {% if product.metafields.custom.image1 != blanks %}
-            <img class="metafields" src="{{ product.metafields.custom.image1 | img_url: 'master'}}">
-            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image1 | img_url: 'master'}}"
+            <img class="metafields" src="{{ product.metafields.custom.image1 | img_url: '500x'}}" loading="lazy">
+            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image1 | img_url: '500x'}}"
               ><i class="icon icon-zoomin"></i>Zoom</a
             >
           {% endif %}
         </div>
         <div class="col-md-3">
           {% if product.metafields.custom.image2 != blanks %}
-            <img src="{{ product.metafields.custom.image2 | img_url: 'master' }}">
-            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image2 | img_url: 'master' }}"
+            <img src="{{ product.metafields.custom.image2 | img_url: '500x' }}" loading="lazy">
+            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image2 | img_url: '500x' }}"
               ><i class="icon icon-zoomin"></i>Zoom</a
             >
           {% endif %}
         </div>
         <div class="col-md-3">
           {% if product.metafields.custom.image3 != blanks %}
-            <img src="{{ product.metafields.custom.image3 | img_url: 'master' }}">
-            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image3 | img_url: 'master' }}"
+            <img src="{{ product.metafields.custom.image3 | img_url: '500x' }}" loading="lazy">
+            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image3 | img_url: '500x' }}"
               ><i class="icon icon-zoomin"></i>Zoom</a
             >
           {% endif %}
         </div>
         <div class="col-md-3">
           {% if product.metafields.custom.image4 != blanks %}
-            <img src="{{ product.metafields.custom.image4 | img_url: 'master' }}">
-            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image4 | img_url: 'master' }}"
+            <img src="{{ product.metafields.custom.image4 | img_url: '500x' }}" loading="lazy">
+            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image4 | img_url: '500x' }}"
               ><i class="icon icon-zoomin"></i>Zoom</a
             >
           {% endif %}

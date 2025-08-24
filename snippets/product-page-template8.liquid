@@ -14,20 +14,20 @@
 <div itemscope itemtype="http://schema.org/Product">
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
     <meta itemprop="name" content="{{ product.title }}">
-    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">  	
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
     {% if design == 'default' %}{% include 'product-page-design-default' %}{% else %} {% include 'product-page-design-creative' %} {% endif %}
-   
+
   {% comment %}{% unless product.metafields.c_f.notabs != blank %}{% include 'product-tabs' %}{% endunless %}{% endcomment %}
 </div>
   <div class="ebeded_description_pics">
-   
+
   <div class="col-md-7">
 
   </div>
 
   <div class="col-md-7">
-    <div class="usingEmailBlock">
-    
+    <div class="usingEmailBlock product-page-template8">
+
 <div class="row">
 <div class="col-md-3">
    {% if product.metafields.custom.image1 != blanks %}
