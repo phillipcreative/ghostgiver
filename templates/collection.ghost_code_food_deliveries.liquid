@@ -1,26 +1,3 @@
-{% comment %} <div class="banner-relative Desktop 4g">
-  <img class="bg-main-works " src="{{settings.imgbanner | img_url: 'master'}}">
-  <div class="banner-overlay-text">
-    <div class="container right-banner">
-      <div class="bs-vert " data-aos-delay="10000000">
-        <div class="bs-content">Ways to ghostgive</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="banner-relative mobile"  style="display:none ">
-       
-  <img class="bg-main-works " src="{{settings.imgbanner_mobile | img_url: 'master'}}">
-  <div class="banner-overlay-text">
-    <div class="container right-banner">
-      <div class="bs-vert " data-aos-delay="10000000">
-        <div class="bs-content">Ways to ghostgive</div>
-      </div>
-    </div>
-  </div>
-</div> {% endcomment %}
-
 <div class="custom-banner-wrapper ways-to-ghost">
   <img class="custom-banner-image" src="{{settings.imgbanner | img_url: 'master'}}" alt="Banner">
 
@@ -44,8 +21,6 @@
   </div>
 </div>
 
-
-
 {% assign collection_width = settings.collection_block_width %}
 {% assign collection_filter_ajax = settings.ajax %}{% if collection_filter_ajax %}{% assign collection_filter_ajax = 1 %}{% endif %}
 {% assign collection_left_sidebar = settings.collection_left_sidebar %}{% if collection_left_sidebar %}{% assign collection_left_sidebar = 1 %}{% endif %}
@@ -53,22 +28,21 @@
 {% if collection.description contains 'collection-filter-ajax-0' %}{% assign collection_filter_ajax = 0 %}{% endif %}
 {% if collection.description contains 'collection-left-sidebar-0' %}{% assign collection_left_sidebar = 0 %}{% endif %}
 {% comment %}{% include 'breadcrumbs' %}
-
 <div class="block block--no-preload global_width  offset-top-30  block--loaded">
   <div class="container">
     <ul class="breadcrumbs">
       <li><a href="/" title="Home">Home</a></li>
    <li>
-  
+
     /
-    
-      <span>Digital Gift Card (via Text) </span>
+
+      <span>Ghost Code (via E-tailers) </span>
     </li>
 
-  
 
 
-      
+
+
     </ul>
   </div>
 </div>
@@ -83,6 +57,7 @@
         <!-- /Two columns -->
     </div>
 </div>
+{% comment %}{% section 'text_shop_info' %} {% endcomment %}
 
 <script>
 

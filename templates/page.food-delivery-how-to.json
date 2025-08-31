@@ -22,10 +22,10 @@
       "settings": {
         "imgbanner": "shopify://shop_images/Ways_to_Ghostgive_Image_for_Desktop.jpg",
         "imgbanner_mobile": "shopify://shop_images/Ways_to_Ghostgive.png",
-        "link_page": "shopify://collections/individual-code-via-e-tailers",
+        "link_page": "shopify://collections/food-delivery",
         "headinmain": "HOW  IT WORKS",
-        "headinSub": "Online Retailers (Amazon, etc.)",
-        "img_below_head": "shopify://shop_images/Mask_Group_78_2x_1e3fd4c7-385a-4db2-957f-2b3986c49b71.png",
+        "headinSub": "Food Delivery (DoorDash, etc.)",
+        "img_below_head": "shopify://shop_images/Group_46141_2x_a1f7adfb-be6d-4f24-a6c4-19e9fba48f18.png",
         "enable": true,
         "block_width": "global_width",
         "outer_margin": "offset-top-50",

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -11,39 +20,39 @@
     "how_it_works_collection_eBYkbb": {
       "type": "How-it-works-collection",
       "settings": {
-        "imgbanner": "shopify:\/\/shop_images\/Ways_to_Ghostgive_Image_for_Desktop.jpg",
-        "imgbanner_mobile": "shopify:\/\/shop_images\/Ways_to_Ghostgive.png",
-        "link_page": "shopify:\/\/collections\/send-cash-via-venmo",
+        "imgbanner": "shopify://shop_images/Ways_to_Ghostgive_Image_for_Desktop.jpg",
+        "imgbanner_mobile": "shopify://shop_images/Ways_to_Ghostgive.png",
+        "link_page": "shopify://collections/send-cash",
         "headinmain": "HOW  IT WORKS",
         "headinSub": "Send Cash (Venmo)",
-        "img_below_head": "shopify:\/\/shop_images\/Mask_Group_94_2x_0354b123-b413-4354-9fbd-712842547dee.png",
+        "img_below_head": "shopify://shop_images/Mask_Group_94_2x_0354b123-b413-4354-9fbd-712842547dee.png",
         "enable": true,
         "block_width": "global_width",
         "outer_margin": "offset-top-50",
         "link_1": "",
         "link_target_1": "_self",
-        "icon1": "shopify:\/\/shop_images\/Mask_Group_91_2x_a0443973-e7b5-4a7a-b29e-fb7310d9a046.png",
+        "icon1": "shopify://shop_images/Venmo_Amount_Options.png",
         "cstmclass1": "",
         "box_1_caption_1": "SET AMOUNT",
         "box_1_caption_2": "Set the amount of money you would like us to send through Venmo.",
         "link_2": "",
         "link_target_2": "_self",
-        "icon2": "shopify:\/\/shop_images\/Mask_Group_93_2x_ea2c918b-8b89-4acd-9176-4cbddf3c91eb.png",
+        "icon2": "shopify://shop_images/Venmo_Payname_Image.png",
         "cstmclass2": "",
         "box_2_caption_1": "ADD ADDRESS",
         "box_2_caption_2": "Fill in the Venmo address of the recipient.",
         "link_3": "",
         "link_target_3": "_self",
-        "icon3": "shopify:\/\/shop_images\/Mask_Group_100_2x_ce89fb49-deb4-47d1-b83e-fb89d521b50d.png",
+        "icon3": "shopify://shop_images/Venmo_and_speech_bubble_image.png",
         "cstmclass3": "spacing-topp",
         "box_3_caption_1": "WE VENMO IT",
         "box_3_caption_2": "After checkout we’ll venmo your recipient the cash amount + instructions to retrieve your anonymous message.",
         "link_4": "",
         "link_target_4": "_self",
-        "icon4": "shopify:\/\/shop_images\/Mask_Group_63_2x_dac8ccef-b2b8-4550-a9ee-7aa274d4a456.png",
+        "icon4": "shopify://shop_images/Mask_Group_63_2x_dac8ccef-b2b8-4550-a9ee-7aa274d4a456.png",
         "cstmclass4": "spacing-topp",
         "box_4_caption_1": "GET NOTIFIED",
-        "box_4_caption_2": "Get real-time confirmation via text\/email when your gift is received, plus a possible thank you from your recipient.",
+        "box_4_caption_2": "Get real-time confirmation via text/email when your gift is received, plus a possible thank you from your recipient.",
         "link_5": "",
         "link_target_5": "_self",
         "cstmclass5": "",

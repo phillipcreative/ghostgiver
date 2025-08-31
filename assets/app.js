@@ -4021,7 +4021,7 @@
 				<label for="venmo-address"><b>Venmo</b> @Payname</label>
 				<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="basic-addon1">@</span>
-				  <input type="text" id="venmo-address" class="form-control cstm-input" aria-describedby="basic-addon1" placeholder="@Name">
+				  <input type="text" id="venmo-address" class="form-control cstm-input" aria-describedby="basic-addon1" placeholder="Name">
 				</div>
 			  </div>
 			  <button type="button" class="btn btn-block btn-lg" id="btn-save">Continue</button>

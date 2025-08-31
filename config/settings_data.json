@@ -1256,7 +1256,7 @@
       "collection-section": {
         "type": "collection-section",
         "settings": {
-          "custm_url_how_it_work": "shopify://pages/how-it-works-new",
+          "custm_url_how_it_work": "shopify://pages/copy-of-how-it-works-ghost-code-via-e-tailers",
           "custm_name_how_it_work": "how it works",
           "custm_url_example": "shopify://pages/free-printable-cards-of-example",
           "custm_name_example": "example",
@@ -2423,8 +2423,8 @@
           "imgbanner_mobile": "shopify://shop_images/Group_46142.png",
           "bannername_blog": "GHOST STORIES",
           "block_width": "global_width",
-          "posts_per_page": "5",
-          "posts_per_row": "2",
+          "posts_per_page": "12",
+          "posts_per_row": "3",
           "sidebar": false,
           "description": "<p>Check out stories from ghost givers and receivers just like you! You'll probably laugh. You might happy cry. But\nmostly, we hope you'll be inspired with ghostgiving ideas you can use again and again. Come to read or come\nto share—it's all about the good you can spread with Ghost Giver.</p>\n<p>\nIf you have a photo and ghostgiving experience you’d like to share, we’d love to hear from you. Just email us\nat <a class=\"color_purple_cs\" href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com</a></p>"
         }
@@ -2501,7 +2501,7 @@
           "product_availability": true,
           "product_inventory_count": false,
           "list": true,
-          "list_content": "<p><b>We'll give you all the\nset-up instructions for\nyour anonymous\nmessage after\ncheckout.</b></p>",
+          "list_content": "<p><b>We'll provide you with set-up instructions for your anonymous message after checkout.</b></p>",
           "pricetext_line": false,
           "shipping": true,
           "shipping_content": "",
@@ -3007,6 +3007,11 @@
           "ardHashtag": "ghostgiver",
           "redirectLink": "https://ghostgiver.com"
         }
+      },
+      "13768625480086291342": {
+        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "disabled": false,
+        "settings": {}
       }
     }
   },

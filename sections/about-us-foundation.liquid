@@ -1,10 +1,31 @@
-<div class="banner-relative Desktop">
+{% comment %} <div class="banner-relative Desktop">
   <img class="bg-main-works " src="{{section.settings.imgbanner | img_url: 'master'}}">
   <div class="banner-overlay-text">
     <div class="container right-banner">
       <div class="bs-vert " data-aos-delay="10000000">
         <div class="bs-content">{{ section.settings.bannername }}</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="banner-relative mobile" style="display:none;">
+  <img class="bg-main-works " src="{{section.settings.imgbanner_mobile | img_url: 'master'}}">
+  <div class="banner-overlay-text">
+    <div class="container right-banner">
+      <div class="bs-vert " data-aos-delay="10000000">
+        <div class="bs-content">{{ section.settings.bannername }}</div>
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+<div class="custom-banner-wrapper">
+  <img class="custom-banner-image" src="{{ section.settings.imgbanner | img_url: 'master' }}" alt="Banner">
+
+  <div class="custom-banner-overlay">
+    <div class="custom-banner-content">
+      <h1 class="custom-banner-heading">{{ section.settings.bannername }}</h1>
     </div>
   </div>
 </div>

@@ -506,6 +506,7 @@ if ($("body").hasClass("ajax_cart")) {
     $form = _this.closest("form");
     // addToCart(_this, $form);
     let variantId = _this.data("variant-id");
+    let productName = _this.data("product-name");
 
     // Check for packaging upsell container and checkbox
     let $packagingContainer = $(".packaging-upsell-container");

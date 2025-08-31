@@ -94,7 +94,9 @@
      {% if section.settings.custm_url_how_it_work != blank %}
    <div class="how-it-work-custm">
        {% assign coll_link = collection.metafields.custom.how_it_works_link.value.url %}
-   <a href="/pages/how-it-work-physical-cards-and-envelopes">{{ section.settings.custm_name_how_it_work }}</a>
+   {% comment %} <a data-test="{{ coll_link }}" href="/pages/how-it-work-physical-cards-and-envelopes">{{ section.settings.custm_name_how_it_work }}</a> {% endcomment %}
+       <a data-test="{{ coll_link }}" href="{{ coll_link }}">{{ section.settings.custm_name_how_it_work }}</a>
+
    </div>
        {% endif %}
      {% if section.settings.custm_url_example != blank %}

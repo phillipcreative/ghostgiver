@@ -2186,7 +2186,8 @@ body.You.Send.The.Gift .main-body-get .heading-content-get {
 }
 
 .block.boxed.offset-top-30.my-class.block--loaded {
-  margin-top: 50px !important;
+  /* margin-top: 50px !important; */
+  margin-top: 70px !important;
 }
 
 .aside .custom-main-img-contant-coll-main-wrap {
@@ -2678,7 +2679,6 @@ p:empty {
   }
 }
 
-
 /* ==================================================== */
             /* Site Requests 08.12.25 */
 /* ==================================================== */
@@ -2710,6 +2710,14 @@ p:empty {
 
 .dropdown-link.header-cart .dropdown-container .minicart-total {
   text-align: center !important;
+}
+
+div#shopify-section-collection-section .text_below_title {
+  margin-bottom: 0px !important;
+}
+
+.product-items .product-item-inside>.product-item-details {
+  padding-top: 10px !important
 }
 
 @media only screen and (max-width: 1200px) {
@@ -2925,7 +2933,6 @@ html, body {
   }
 }
 
-
 /* Zoom updates for PDP */
 
 .ebeded_description_pics .col-md-3 a.zoom-link.disable-gallery {
@@ -2942,4 +2949,101 @@ html, body {
   letter-spacing: normal;
   line-height: normal;
   justify-content: center;
+}
+
+/* ==================================================== */
+                /* Blog Updates  */
+/* ==================================================== */
+
+.blog-content>h2>a {
+  font-size: 25px;
+  line-height: normal;
+}
+
+.blog-grid-3 .blog-content {
+  padding-top: 12px;
+}
+
+.blog-text p:last-child {
+  font-size: 16px !important;
+}
+
+.blog-content h2.blog-title {
+  display: flex;
+  letter-spacing: normal;
+}
+
+.blog-meta>div>span, .blog-meta>div>span * {
+  font-size: 13px;
+  line-height: 19px;
+  font-weight: 600;
+}
+
+.blog-grid-2 .blog-meta, .blog-grid-3 .blog-meta, .blog-grid-4 .blog-meta {
+  margin-bottom: 10px;
+}
+
+.blog-content a.btn {
+  margin: 10px 0 0;
+  border-radius: 9px;
+  min-width: 140px;
+  min-height: 40px;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.blog-comments {
+  display: none;
+}
+.blog-grid-2, .blog-grid-3, .blog-grid-4 {
+  margin: 0px;
+}
+
+.blog-grid-2 .blog-post, .blog-grid-3 .blog-post, .blog-grid-4 .blog-post {
+  margin-left: 8px;
+  width: calc(33.33333% - 30px);
+}
+
+@media only screen and (max-width: 990px) {
+  .blog-content a.btn {
+    min-width: 125px !important;
+    min-height: 40px !important;
+    margin: 10px 0 0 !important;
+    height: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .blog-grid-2, .blog-grid-3, .blog-grid-4 {
+    width: 100%;
+  }
+
+  .blog-grid-2 .blog-post, .blog-grid-3 .blog-post, .blog-grid-4 .blog-post {
+    width: 100%;
+    /* margin: 0 0 0 -30px; */
+    margin: 0px;
+    margin-bottom: 3rem;
+    /* padding: 0 2rem; */
+  }
+}
+
+/* PLP UPDATES */
+
+div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name {
+  padding-bottom: 5px;
+  height: 35px !important;
+  line-height: 15px !important;
+}
+
+div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name a.product-item-link {
+  line-height: 15px !important;
+}
+
+/* ==================================================== */
+            /* Envelope Popup Edits */
+/* ==================================================== */
+
+.mdlchk .modal-content .mdlchk-row {
+  padding-left: 40px;
+  padding-right: 40px;
 }
