@@ -3713,7 +3713,7 @@ button:hover .slider-control-icon .play {
   position: static;
   background-color: #fff;
   padding: 20px 0 15px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
   color: #000;
   overflow-y: auto;
   overflow-x: hidden;
@@ -3764,12 +3764,12 @@ li.hovered .sub-menu {
 .sub-menu .category-image .btn-wrap .btn {
   opacity: 0;
 }
-.sub-menu .category-image:hover .btn {
+/* .sub-menu .category-image:hover .btn {
   animation-name: popIn;
   animation-duration: .7s;
   animation-fill-mode: both;
   opacity: 1;
-}
+} */
 .sub-menu .category-image {
   position: relative;
   overflow: hidden;
@@ -3787,10 +3787,10 @@ li.hovered .sub-menu {
   vertical-align: middle;
   max-width: 100%;
 }
-.sub-menu .category-image:hover img {
+/* .sub-menu .category-image:hover img {
   transition: transform 0.6s ease 0.05s;
   transform: scale(1.15) rotate(0.0001deg);
-}
+} */
 .sub-menu .category-title,
 .sub-menu .category-title > a:not(.btn) {
   position: relative;
@@ -3820,7 +3820,13 @@ li.hovered .sub-menu {
   margin: 0 0 20px;
   list-style: none;
 }
-.sub-menu .category-links li:hover > a:not(.btn),
+/* .sub-menu .category-links li:hover > a:not(.btn) {
+  color: #000;
+  text-decoration: none;
+  background-color: #f6f6f6;
+  padding-left: 18px;
+  padding-right: 20px;
+} */
 .sub-menu .category-links li.active > a:not(.btn) {
   color: #000;
   text-decoration: none;
@@ -4070,7 +4076,7 @@ li.hovered:hover body:not(.touch) .sub-menu {
   padding: 0 8px;
   opacity: 0;
   visibility: hidden;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); */
   transition: opacity 0s ease 0s, visibility 0s linear 0s;
 }
 .category-links li:hover > ul {
@@ -4105,7 +4111,7 @@ li.hovered:hover body:not(.touch) .sub-menu {
 .simple-dropdown .sub-menu,
 .simple-dropdown .sub-menu ul.category-links ul {
   background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
 }
 .simple-dropdown .sub-menu .category-title {
   padding: 12px 18px;
@@ -4133,7 +4139,7 @@ li.hovered:hover body:not(.touch) .sub-menu {
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); */
   transition: opacity 0s ease 0s, visibility 0s linear 0s;
 }
 .simple-dropdown .sub-menu ul.category-links li:hover > ul {

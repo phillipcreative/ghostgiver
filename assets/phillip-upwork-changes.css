@@ -185,7 +185,8 @@ header.page-header>.container .header-middle-row .header-middle-right .header-li
 } */
 
 .mega-dropdown .sub-menu>.container {
-  padding: 30px 25px 20px;
+  padding: 20px;
+  max-width: 100% !important;
 }
 
 html body .custom-slider-section .slide-content h2 {
@@ -3046,4 +3047,212 @@ div#shopify-section-collection-section .aside .product-items.products-grid .prod
 .mdlchk .modal-content .mdlchk-row {
   padding-left: 40px;
   padding-right: 40px;
+}
+
+
+/* ==================================================== */
+                /* Header Navigation Updates  */
+/* ==================================================== */
+
+.category-image-link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.mega-dropdown > .sub-menu .category-links {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.sub-menu .category-title.title-border {
+  border: 0px !important;
+  text-align: left !important;
+  margin: 0px !important;
+}
+
+/* Ways-to-Ghostgive style: two columns with center OR, image left + links right */
+@media screen and (min-width: 1025px) {
+  /* Theme uses overflow-x: hidden on .sub-menu > .container — clips fixed-width cols around ~1280–1440px */
+  .mega-dropdown > .sub-menu > .container.container--split-mega {
+    overflow-x: visible !important;
+  }
+
+  .mega-dropdown > .sub-menu > .container > .sub-menu-inside--split-mega {
+    width: 100% !important;
+    max-width: min(1200px, calc(100vw - 40px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+  }
+
+  .mega-dropdown > .sub-menu .sub-menu-inside {
+    justify-content: center;
+  }
+
+  .mega-dropdown > .sub-menu .sub-menu-inside > .megamenu-categories--split {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .megamenu-categories--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    justify-content: stretch;
+    justify-items: stretch;
+    align-items: stretch;
+    column-gap: clamp(0.75rem, 2vw, 1.25rem);
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .megamenu-categories--split > .megamenu-top,
+  .megamenu-categories--split > .megamenu-bottom {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .megamenu-categories--split > .col {
+    width: auto !important;
+    max-width: none;
+    min-width: 0;
+    display: block;
+    margin: 0 !important;
+    vertical-align: top;
+  }
+
+  .megamenu-categories--split .megamenu-split-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--mainBg);
+    white-space: nowrap;
+    padding: 0 0.35rem;
+  }
+
+  .megamenu-categories--split .category-image-link-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    align-items: stretch;
+    column-gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  }
+
+  .megamenu-categories--split .category-image {
+    margin: 0 !important;
+    max-width: min(280px, 36vw);
+  }
+
+  .megamenu-categories--split .category-image-wrapper {
+    width: min(280px, 100%);
+    max-width: min(280px, 36vw);
+    height: 160px;
+    overflow: hidden;
+    margin-right: 0;
+  }
+
+  .megamenu-categories--split .category-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+  }
+
+  .megamenu-categories--split .category-links {
+    min-height: 0;
+    min-width: 0;
+    margin-bottom: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: stretch;
+    list-style: none;
+  }
+
+  .megamenu-categories--split .category-links > li {
+    flex: 0 0 auto;
+  }
+
+  .megamenu-categories--split .category-links > li > a:not(.btn) {
+    padding: 0.45rem 0.5rem 0.45rem 0;
+    margin: 0;
+    display: block;
+  }
+
+  .megamenu-categories--split .category-links > li > a:not(.btn):after {
+    content: none !important;
+  }
+
+  .megamenu-categories--split .category-title {
+    margin-bottom: 1rem;
+    color: var(--mainBg);
+    font-size: 18px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .megamenu-split-divider {
+    display: none;
+  }
+}
+
+.sub-menu-inside {
+  max-width: 1080px !important;
+  margin: auto;
+}
+
+.mega-dropdown > .sub-menu .category-links a:not(.btn) {
+  padding: 0px;
+}
+
+/* Dev: add class "hoverd" on li.mega-dropdown.title-ways-to-ghostgive (or enable Header → Dev checkbox) */
+li.mega-dropdown.title-ways-to-ghostgive.hoverd .sub-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  top: 100% !important;
+}
+
+.megamenu-categories .col {
+  padding: 0px !important;
+}
+
+.mega-dropdown > .sub-menu .category-links > li:first-child > a:not(.btn) {
+  padding-top: 0 !important;
+}
+
+.mega-dropdown > .sub-menu .category-links > li:last-child > a:not(.btn) {
+  padding-bottom: 0 !important;
+}
+
+.mega-dropdown > .sub-menu .category-links li a {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block;
+}
+
+
+.mega-dropdown > .sub-menu .category-links a:not(.btn), .mega-dropdown > .sub-menu .category-links a:not(.btn):focus {
+  padding: 5px !important;
+}
+
+.mega-dropdown>.sub-menu .category-links a:not(.btn):hover {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  header.page-header > .container .header-nav-line .megamenu > ul.nav > li > a {
+    font-size: clamp(22px, 2.1vw, 30px);
+    padding-left: 6px;
+    padding-right: 6px;
+  }
 }

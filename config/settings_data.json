@@ -529,6 +529,7 @@
               "label_color": "menu-label-alt",
               "columns_in_row": "2",
               "limit": "",
+              "split_divider_text": "OR",
               "nav_col_1_yes": true,
               "nav_col_1_preview": "shopify://shop_images/Mask_Group_112_2x_e50d5dc4-d7eb-4e17-8ad8-5a877df2e3bd.png",
               "nav_col_1_title": "WE SEND THE GIFT",

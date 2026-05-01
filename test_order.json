@@ -1,0 +1,440 @@
+{
+    "Checkout": {
+        "Autocomplete": true,
+        "apiHost": "ghostgiver.com",
+        "assetsPath": "//cdn.shopify.com/shopifycloud/shopify",
+        "DefaultAddressFormat": "{country}_{firstName}{lastName}_{company}_{address1}_{address2}_{city}{province}{zip}_{phone}",
+        "geolocatedAddress": {
+            "lat": 33.196200000000005,
+            "lng": -80.0245
+        },
+        "i18n": {
+            "orders": {
+                "order_updates": {
+                    "title": "Order updates"
+                },
+                "complete_order": "Complete order",
+                "pay_now": "Pay now"
+            },
+            "shipping_line": {
+                "pickup_in_store_label": "Pickup in store",
+                "no_pickup_location": "There are no pickup locations available.",
+                "shipping_label": "Shipping",
+                "shipping_default_value": "Calculated at next step",
+                "shipping_free_value": "Free"
+            },
+            "continue_button": {
+                "continue_to_shipping_method": "Continue to shipping",
+                "continue_to_payment_method": "Continue to payment"
+            },
+            "qr_code": {
+                "title": "Track on your phone",
+                "subtitle": "Scan the code with your phone’s camera to track with Shop.",
+                "send_link_to_phone": "Or send a link to your phone"
+            }
+        },
+        "locale": "en-US",
+        "normalizedLocale": "en",
+        "moneyFormat": "${{amount}}",
+        "page": "thank_you",
+        "releaseStage": "production",
+        "deployStage": "production",
+        "requiresShipping": true,
+        "step": "thank_you",
+        "token": "75414ba5efb273a8860cbb99d49e47eb",
+        "currency": "USD",
+        "estimatedPrice": 0,
+        "dynamicCheckoutPaymentInstrumentsConfig": {
+            "paymentInstruments": {
+                "accessToken": "3b722e1c23077434e1f2e09496bcd8ae",
+                "amazonPayConfig": null,
+                "amazonPayCv2Config": null,
+                "applePayConfig": null,
+                "checkoutConfig": {
+                    "domain": "ghostgiver.com",
+                    "shopId": 50899943601
+                },
+                "shopifyPayConfig": null,
+                "currency": "USD",
+                "googlePayConfig": null,
+                "locale": "en-US",
+                "paypalConfig": {
+                    "domain": "ghostgiver.com",
+                    "environment": "production",
+                    "merchantId": "KWF43BZHSDYRN",
+                    "buttonVersion": "v3",
+                    "venmoSupported": false,
+                    "locale": "en_US",
+                    "shopId": 50899943601,
+                    "supportsSubscriptions": null,
+                    "supportsDeferredPurchaseOptions": null
+                },
+                "offsiteConfigs": null,
+                "supportsDiscounts": true,
+                "supportsGiftCards": true,
+                "checkoutDisabled": false
+            }
+        },
+        "applePayConfig": null,
+        "hasSellingPlan": false,
+        "requiresConfirmationStep": false,
+        "cartToken": "hWN0ybl5uzwWHLrgB7QhWI4I",
+        "isCheckoutOne": true,
+        "totalPrice": 5.15,
+        "shop": {
+            "id": 50899943601
+        },
+        "shippingAddress": {
+            "countryCode": "US",
+            "provinceCode": "SC"
+        },
+        "billingAddress": {
+            "countryCode": "US",
+            "provinceCode": "SC"
+        },
+        "OrderStatus": {},
+        "safeForDbAutocomplete": true
+    },
+    "houseNumberNudgeCountries": [
+        "AR",
+        "AU",
+        "AT",
+        "BE",
+        "BR",
+        "CA",
+        "CL",
+        "CO",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "HK",
+        "HU",
+        "IL",
+        "IT",
+        "JP",
+        "LV",
+        "MY",
+        "MX",
+        "NL",
+        "NZ",
+        "PL",
+        "PT",
+        "RO",
+        "RU",
+        "SG",
+        "ZA",
+        "ES",
+        "SE",
+        "CH",
+        "TR",
+        "AE",
+        "GB",
+        "US"
+    ],
+    "houseNumberMayBeInAddress2": [
+        "AT",
+        "BE",
+        "DK",
+        "DE",
+        "IT",
+        "JP",
+        "NL",
+        "PL",
+        "PT",
+        "ES",
+        "CH"
+    ],
+    "autocompleteEnabledCountries": [
+        "AU",
+        "AT",
+        "BE",
+        "BR",
+        "CA",
+        "DK",
+        "FR",
+        "DE",
+        "HK",
+        "IN",
+        "IT",
+        "JP",
+        "LU",
+        "NL",
+        "NZ",
+        "NO",
+        "SA",
+        "SG",
+        "ES",
+        "SE",
+        "CH",
+        "GB",
+        "US"
+    ],
+    "clientAttributesCollectionEventName": "client_attributes_checkout",
+    "shop": "ghostgiver.myshopify.com",
+    "locale": "en",
+    "currency": {
+        "active": "USD",
+        "rate": "1.0"
+    },
+    "country": "US",
+    "theme": {
+        "name": "[DEV] Upwork Updates - DEV UPDATES",
+        "id": 146522308785,
+        "theme_store_id": null,
+        "role": "main"
+    },
+    "cdnHost": "cdn.shopify.com",
+    "checkout": {
+        "created_at": "2025-09-05T17:02:31-06:00",
+        "currency": "USD",
+        "customer_id": 8304827990193,
+        "customer_locale": "en-US",
+        "email": "phillipdevelops@gmail.com",
+        "location_id": null,
+        "order_id": 6073366053041,
+        "payment_due": "5.15",
+        "payment_url": "https://checkout.pci.shopifyinc.com/sessions",
+        "phone": null,
+        "presentment_currency": "USD",
+        "reservation_time": null,
+        "reservation_time_left": 0,
+        "requires_shipping": true,
+        "source_name": "web",
+        "source_identifier": null,
+        "source_url": null,
+        "subtotal_price": "0.00",
+        "taxes_included": false,
+        "tax_exempt": false,
+        "tax_lines": [
+            {
+                "price": "0.00",
+                "rate": 0,
+                "title": "South Carolina State Tax"
+            }
+        ],
+        "token": "75414ba5efb273a8860cbb99d49e47eb",
+        "total_price": "5.15",
+        "total_price_set": {
+            "shop_money": {
+                "amount": "5.15",
+                "currency_code": "USD"
+            },
+            "presentment_money": {
+                "amount": "5.15",
+                "currency_code": "USD"
+            }
+        },
+        "total_tax": "0.00",
+        "updated_at": "2025-09-05T17:02:34-06:00",
+        "version": "edge",
+        "billing_address": null,
+        "credit_card": null,
+        "line_items": [
+            {
+                "id": "3bda417a599a8097b6f4f2ddafac61ed",
+                "key": "3bda417a599a8097b6f4f2ddafac61ed",
+                "product_id": 8120337006769,
+                "variant_id": 44584483750065,
+                "sku": null,
+                "vendor": "ghostgiver",
+                "title": "PINK POUCH + PEANUT M&Ms",
+                "variant_title": null,
+                "image_url": "https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Ghost_Giver_Pink_Pouch_plus_Peanut_MMs.png?v=1726653037",
+                "taxable": true,
+                "requires_shipping": true,
+                "gift_card": false,
+                "price": "17.99",
+                "compare_at_price": null,
+                "line_price": "17.99",
+                "properties": {},
+                "quantity": 1,
+                "grams": 0,
+                "fulfillment_service": "manual",
+                "applied_discounts": [],
+                "discount_allocations": [
+                    {
+                        "id": null,
+                        "amount": "17.99",
+                        "description": "Rob_Test_Code",
+                        "created_at": "2025-09-05T17:02:31-06:00",
+                        "application_type": null
+                    }
+                ],
+                "tax_lines": [
+                    {
+                        "price": "0.00",
+                        "rate": 0,
+                        "title": "South Carolina State Tax"
+                    }
+                ]
+            },
+            {
+                "id": "adf80d3e4735aca6f9ec082b26149eb7",
+                "key": "adf80d3e4735aca6f9ec082b26149eb7",
+                "product_id": 8013919879345,
+                "variant_id": 44236113313969,
+                "sku": "",
+                "vendor": "Ghost Giver",
+                "title": "PERSONALIZED ANONYMOUS MESSAGE",
+                "variant_title": null,
+                "image_url": "https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Personalizedwritten_audio_orvideomessage.png?v=1719467824",
+                "taxable": true,
+                "requires_shipping": false,
+                "gift_card": false,
+                "price": "0.00",
+                "compare_at_price": null,
+                "line_price": "0.00",
+                "properties": {
+                    "_GiftCard": "false",
+                    "_SplMsg": "true",
+                    "_SortIndex": "2"
+                },
+                "quantity": 1,
+                "grams": 0,
+                "fulfillment_service": "manual",
+                "applied_discounts": [],
+                "discount_allocations": [],
+                "tax_lines": [
+                    {
+                        "price": "0.00",
+                        "rate": 0,
+                        "title": "South Carolina State Tax"
+                    }
+                ]
+            }
+        ],
+        "gift_cards": [],
+        "shipping_rate": {
+            "handle": "shopify-Standard-5.15",
+            "price": "5.15",
+            "title": "Standard",
+            "tax_lines": [
+                {
+                    "price": "0.00",
+                    "rate": 0,
+                    "title": "South Carolina State Tax"
+                }
+            ]
+        },
+        "shipping_address": {
+            "id": null,
+            "first_name": "TEST DO NOT SHIP - PHILLIP TEST",
+            "last_name": "Scott",
+            "phone": null,
+            "company": null,
+            "address1": "113 blossom wood lane",
+            "address2": null,
+            "city": "summerville",
+            "province": "South Carolina",
+            "province_code": "SC",
+            "country": "United States",
+            "country_code": "US",
+            "zip": "29486"
+        },
+        "discount": {
+            "amount": "17.99",
+            "applicable": true,
+            "rate": "1.0",
+            "reason": null,
+            "uses_remaining": 0,
+            "code": "Rob_Test_Code"
+        }
+    },
+    "analytics": {
+        "replayQueue": [],
+        "initialized": true
+    },
+    "ClientAttributesCollection": {
+        "trekkie": {
+            "integrations": [
+                {
+                    "state": "initialized",
+                    "deferedEvents": {},
+                    "options": {},
+                    "defaultAttributes": {
+                        "shopId": 50899943601,
+                        "isMerchantRequest": null,
+                        "themeId": 146522308785,
+                        "themeCityHash": "10534721170300759573",
+                        "contentLanguage": "en",
+                        "currency": "USD",
+                        "checkoutToken": "75414ba5efb273a8860cbb99d49e47eb",
+                        "appName": "checkout",
+                        "uniqToken": "A6B1A7F4-3c64-4C6A-81b6-ba1039fccec1",
+                        "visitToken": "c867ca46-b9c3-4dec-b141-a2bb60cc60a8",
+                        "microSessionId": "1c1e1813-0EB3-4F0B-9FF1-5FE09DC9641B",
+                        "microSessionCount": 11,
+                        "isPersistentCookie": true
+                    }
+                },
+                {
+                    "state": "initialized",
+                    "deferedEvents": {},
+                    "options": {
+                        "facebookCapiEnabled": false,
+                        "agent": "shopify",
+                        "source": "trekkie-checkout-classic",
+                        "cartApiClientId": 580111,
+                        "apiClientId": 580111
+                    },
+                    "pageID": "1c1e1813-0EB3-4F0B-9FF1-5FE09DC9641B"
+                }
+            ],
+            "allIntegrationsHaveLoaded": true,
+            "config": {
+                "Trekkie": {
+                    "appName": "checkout",
+                    "development": false,
+                    "defaultAttributes": {
+                        "shopId": 50899943601,
+                        "isMerchantRequest": null,
+                        "themeId": 146522308785,
+                        "themeCityHash": "10534721170300759573",
+                        "contentLanguage": "en",
+                        "currency": "USD",
+                        "checkoutToken": "75414ba5efb273a8860cbb99d49e47eb"
+                    },
+                    "isServerSideCookieWritingEnabled": true,
+                    "enabledBetaFlags": [],
+                    "monorailRegion": "shop_domain"
+                },
+                "Session Attribution": {},
+                "S2S": {
+                    "facebookCapiEnabled": false,
+                    "cartApiClientId": 580111,
+                    "apiClientId": 580111,
+                    "source": "trekkie-checkout-classic"
+                },
+                "initialDocumentCookie": "localization=US; _shopify_y=A6B1A7F4-3c64-4C6A-81b6-ba1039fccec1; _ga=GA1.1.826163373.1747488830; currency=USD; _tracking_consent=3.AMPS_USSC_f_f_kvfO3BrkTWqnd3vjP4OBQw; storefront_digest=387f59b7f0ee0b8512e8432e2361a0bf1fb2fbe4d9c669ab51d8b15f1b74948f; _ga_90SYJ0EY9K=deleted; keep_alive=eyJ2IjoyLCJ0cyI6MTc1NzExMzAzMTE0MiwiZW52Ijp7IndkIjowLCJ1YSI6MSwiY3YiOjEsImJyIjoxfSwiYmh2Ijp7Im1hIjowLCJjYSI6MCwia2EiOjAsInNhIjowLCJrYmEiOjAsInRhIjowLCJ0IjowLCJubSI6MCwibXMiOjAsIm1qIjowLCJtc3AiOjAsInZjIjowLCJjcCI6MCwicmMiOjAsImtqIjowLCJraSI6MCwic3MiOjAsInNqIjowLCJzc20iOjAsInNwIjowLCJ0cyI6MCwidGoiOjAsInRwIjowLCJ0c20iOjB9LCJzZXMiOnsicCI6MTMsInMiOjE3NTcxMTI4ODc4NDQsImQiOjEzNn19; cart_currency=USD; _shopify_s=c867ca46-b9c3-4dec-b141-a2bb60cc60a8; _ga_90SYJ0EY9K=GS2.1.s1757112887$o88$g1$t1757113351$j49$l0$h0"
+            },
+            "navigationInfo": {
+                "navigationType": "navigate",
+                "navigationApi": "PerformanceNavigationTiming"
+            },
+            "trekkie": {
+                "state": "initialized",
+                "deferedEvents": {},
+                "options": {},
+                "defaultAttributes": {
+                    "shopId": 50899943601,
+                    "isMerchantRequest": null,
+                    "themeId": 146522308785,
+                    "themeCityHash": "10534721170300759573",
+                    "contentLanguage": "en",
+                    "currency": "USD",
+                    "checkoutToken": "75414ba5efb273a8860cbb99d49e47eb",
+                    "appName": "checkout",
+                    "uniqToken": "A6B1A7F4-3c64-4C6A-81b6-ba1039fccec1",
+                    "visitToken": "c867ca46-b9c3-4dec-b141-a2bb60cc60a8",
+                    "microSessionId": "1c1e1813-0EB3-4F0B-9FF1-5FE09DC9641B",
+                    "microSessionCount": 11,
+                    "isPersistentCookie": true
+                }
+            }
+        },
+        "checkoutToken": "75414ba5efb273a8860cbb99d49e47eb"
+    }
+}

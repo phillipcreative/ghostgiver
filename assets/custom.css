@@ -4278,10 +4278,10 @@ body.modal-open .modal .modal-dialog {
   position: relative;
 }
 
-.megamenu .nav > li .sub-menu > ul.category-links > li:hover > a {
+/* .megamenu .nav > li .sub-menu > ul.category-links > li:hover > a {
   padding-left: 50px !important;
   font-weight: 400;
-}
+} */
 
 .megamenu .nav > li .sub-menu > ul.category-links > li > a:after {
   content: "";
@@ -10643,15 +10643,40 @@ div#shopify-section-collection-section .product-items.products-grid {
   font-size: 16px;
   color: #3C5A72 !important;
 }
+@media screen and (min-width: 1025px) {
+  /*
+    .megamenu .nav > li { position: relative } makes each <li> the CB for .sub-menu.
+    Then left:0 is the nav item’s left edge and 100vw overflows right. Use static on
+    mega items so CB is .header-nav-line; calc(50% - 50vw) matches that width.
+  */
+  .megamenu .nav > li.mega-dropdown {
+    position: static;
+  }
+
+  .page-header .mega-dropdown > .sub-menu.sub-menu--boxed {
+    left: 0;
+    right: auto;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+}
+
 .page-header .sub-menu.sub-menu--boxed>.container {
   scrollbar-width: none;
 }
-.sub-menu .category-image:hover img {
+/* .sub-menu .category-image:hover img {
   transition: unset;
   transform: unset;
   cursor: default;
-}
-.mega-dropdown > .sub-menu .category-title > a:not(.btn):hover, .mega-dropdown > .sub-menu .category-title > a.menu-current:not(.btn), .view-all:not(.disabled):hover {
+} */
+/* .mega-dropdown > .sub-menu .category-title > a:not(.btn):hover,
+.view-all:not(.disabled):hover {
+  color: unset;
+} */
+.mega-dropdown > .sub-menu .category-title > a.menu-current:not(.btn) {
   color: unset;
 }
 .mega-dropdown > .sub-menu .category-title, .mega-dropdown > .sub-menu .category-title > a:not(.btn) {

@@ -236,6 +236,13 @@
                 "id":"sidebar_navigation",
                 "label":"Sidebar navigation",
                 "default":"main-menu"
+            },
+            {
+                "type": "checkbox",
+                "id": "ways_mega_dev_testing",
+                "label": "Dev: pin Ways mega open & mute column hovers",
+                "default": false,
+                "info": "Adds class hoverd to the Ways to Ghostgive mega item (keeps dropdown visible) and removes link/image hover styling there. Turn off before production."
             }
         ],
         "blocks": [
@@ -377,6 +384,12 @@
                         "id": "limit",
                         "label": "Limited visible links in columns",
                         "info":"set empty or write number"
+                    },
+                    {
+                        "type": "text",
+                        "id": "split_divider_text",
+                        "label": "Center divider between columns (desktop)",
+                        "info": "e.g. OR — inserts a column between the first and second nav column when both are enabled. Leave empty for the default column layout."
                     },
                     {
                         "type":"header",
