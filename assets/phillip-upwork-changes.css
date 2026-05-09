@@ -129,22 +129,23 @@ header.page-header>.container .header-middle-row .header-logo>a img {
 }
 
 header.page-header>.container .header-middle-row {
-  padding: 15px 0px;
+  padding: 35px 0px 15px 0px;
 }
 
 header.page-header>.container .header-content .header-nav-line {
   padding-top: 10px;
 }
 
-header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a {
+/* header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a {
   font-size: 18px;
   padding: 0 !important;
   padding-bottom: 15px !important;
-}
+} */
 
-header.page-header>.container .header-nav-line .megamenu>ul.nav {
+/* header.page-header>.container .header-nav-line .megamenu>ul.nav,
+.page-header .header-sticky .megamenu>ul.nav {
   gap: 3.5rem;
-}
+} */
 
 header.page-header {
   padding-bottom: 10px;
@@ -249,10 +250,10 @@ html body .custom-slider-section .slide-content h2 {
 }
 
 @media only screen and (max-width: 1280px) {
-  header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a {
+  /* header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a {
     font-size: 16px;
     padding: 0 20px 25px;
-  }
+  } */
 
 html body .custom-slider-section .slide-content h2 {
   line-height: 45px !important;
@@ -3265,10 +3266,10 @@ li.mega-dropdown.title-ways-to-ghostgive.hoverd .sub-menu {
 }
 
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
-  header.page-header > .container .header-nav-line .megamenu > ul.nav > li > a {
+  header.page-header > .container .header-nav-line .megamenu > ul.nav > li > a,
+  .page-header .header-sticky .megamenu > ul.nav > li > a {
     /* font-size: clamp(22px, 2.1vw, 30px); */
-    padding-left: 6px;
-    padding-right: 6px;
+    /* padding: 0 20px 20px; */
   }
 }
 
