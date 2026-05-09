@@ -3257,10 +3257,11 @@ li.mega-dropdown.title-ways-to-ghostgive.hoverd .sub-menu {
 
 .mega-dropdown > .sub-menu .category-links a:not(.btn), .mega-dropdown > .sub-menu .category-links a:not(.btn):focus {
   padding: 5px !important;
+  text-decoration: none;
 }
 
-.mega-dropdown>.sub-menu .category-links a:not(.btn):hover {
-  font-weight: bold;
+.mega-dropdown > .sub-menu .category-links a:not(.btn):hover {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 1440px) and (min-width: 1025px) {
