@@ -3274,7 +3274,6 @@ li.mega-dropdown.title-ways-to-ghostgive.hoverd .sub-menu {
 
 /* === Ways to Ghostgive dropdown - client edits === */
 @media screen and (min-width: 1025px) {
-li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-split-divider { align-self: center !important; }
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-links > li > a:not(.btn) { white-space: nowrap !important; padding-right: 0 !important; }
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-links { justify-content: space-between !important; align-self: stretch !important; }
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-image-link-wrapper { grid-template-columns: auto auto !important; }
@@ -3282,9 +3281,7 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-i
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-image-wrapper { width: 200px !important; max-width: 200px !important; }
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-image { max-width: 200px !important; }
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-image-wrapper img { object-position: left center !important; }
-li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-split-divider { transform: translateY(20px) !important; }
 
-/* Constrain & center the dropdown content to match reference */
-li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split { max-width: 1100px !important; margin-left: auto !important; margin-right: auto !important; grid-template-columns: auto auto minmax(0, 1fr) !important; }
+li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split { max-width: 1100px !important; margin-left: auto !important; margin-right: auto !important; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important; }
 /* Center the column headers (titles) over each image+links pair */
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-category-title, li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-title, li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split h3, li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split h4 { text-align: center !important; color: #1a2238 !important; width: 100% !important; }
