@@ -532,12 +532,12 @@
               "split_divider_text": "OR",
               "nav_col_1_yes": true,
               "nav_col_1_preview": "shopify://shop_images/Mask_Group_112_2x_e50d5dc4-d7eb-4e17-8ad8-5a877df2e3bd.png",
-              "nav_col_1_title": "WE SEND THE GIFT",
+              "nav_col_1_title": "WE SEND THE GIFT FOR YOU",
               "nav_col_1_link": "",
               "nav_col_1_list": "we-send-the-gift",
               "nav_col_2_yes": true,
               "nav_col_2_preview": "shopify://shop_images/Mask_Group_111_2x_65759a09-9c00-49cd-aca2-7c96557ee4f3.png",
-              "nav_col_2_title": "YOU SEND THE GIFT",
+              "nav_col_2_title": "YOU SEND OR DELIVER THE GIFT YOURSELF",
               "nav_col_2_link": "",
               "nav_col_2_list": "you-send-the-gift",
               "nav_col_3_yes": false,
@@ -657,7 +657,8 @@
           "blackout": false,
           "dropdown_animation": "fadein",
           "default_navigation": "",
-          "sidebar_navigation": "new-header-menu"
+          "sidebar_navigation": "new-header-menu",
+          "ways_mega_dev_testing": false
         }
       },
       "footer": {
@@ -3580,5 +3581,11 @@
       "checkout_button_color": "#1990C6",
       "checkout_error_color": "#ff6d6d"
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".card {border-radius: 30px }",
+      "/* Balance the Ways-to-Ghostgive dropdown columns */.site-nav__dropdown-columns,.site-nav__columns,.header__dropdown-columns,.header__columns,.mega-menu__columns,.nav-columns,.dropdown-columns,.dropdown__columns,.menu-columns,.navigation-columns,[class*=\"dropdown\"][class*=\"columns\"],[class*=\"columns-dropdown\"] {display: flex !important; justify-content: center !important; align-items: flex-start !important; gap: 40px !important; padding-left: 0 !important; padding-right: 0 !important; margin-left: auto !important; margin-right: auto !important; }"
+    ]
   }
 }
