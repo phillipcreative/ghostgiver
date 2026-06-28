@@ -347,7 +347,7 @@ header.page-header > .container .header-nav-line .megamenu > ul.nav > li > a,
   line-height: 100%;
   letter-spacing: 0;
   font-family: Work Sans;
-  color: var(--mainBg);
+  color: var(--purple);
   /* font-weight: 700; */
   font-weight: 900;
 }
@@ -889,15 +889,17 @@ a:hover {
   width: 0 !important;
   height: 0 !important;
 }
-.superactive a,
-header.page-header
-  > .container
-  .header-nav-line
-  .megamenu
-  > ul.nav
-  > li
-  > a:hover {
+header.page-header > .container .header-nav-line .megamenu > ul.nav > li.title-home > a,
+.page-header .header-sticky .megamenu > ul.nav > li.title-home > a {
+  color: var(--mainBg) !important;
+}
+header.page-header > .container .header-nav-line .megamenu > ul.nav > li.title-home > a:hover,
+.page-header .header-sticky .megamenu > ul.nav > li.title-home > a:hover {
   color: var(--purple) !important;
+}
+header.page-header > .container .header-nav-line .megamenu > ul.nav > li:not(.title-home) > a:hover,
+.page-header .header-sticky .megamenu > ul.nav > li:not(.title-home) > a:hover {
+  color: var(--mainBg) !important;
 }
 header.page-header
   > .container
@@ -2234,24 +2236,37 @@ body.page-page\.how_it_works_new .bg_img_footer {
 
 .megamenu .nav > li > a:not(.btn):before,
 .megamenu .nav > li > a:not(.btn):focus:before {
-  background-color: var(--purple) !important;
+  background-color: var(--mainBg) !important;
 }
 .product-item .product-item-inside {
   padding: 0 0px;
 }
 
-body .megamenu .nav > li:hover > a:not(.btn):before,
-body .megamenu .nav > li.menu-current > a:not(.btn):before {
-  /* bottom: 10px; */
+body .megamenu .nav > li:not(.title-home):hover > a:not(.btn):before {
   bottom: 15px;
   width: 100%;
   left: 0;
   right: 0;
   margin: auto;
+  opacity: 1;
 }
 
-.megamenu .nav > li > a:not(.btn):hover {
-  color: var(--purple);
+body .megamenu .nav > li.title-home:hover > a:not(.btn):before {
+  bottom: 15px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: var(--purple) !important;
+  opacity: 1;
+}
+
+.megamenu .nav > li:not(.title-home) > a:not(.btn):hover {
+  color: var(--mainBg) !important;
+}
+
+.megamenu .nav > li.title-home > a:not(.btn):hover {
+  color: var(--purple) !important;
 }
 .page-header.sticky .header-sticky .megamenu .nav > li > a:not(.btn)::before {
   bottom: 5px;

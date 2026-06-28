@@ -3286,3 +3286,38 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-i
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split { max-width: 1100px !important; margin-left: auto !important; margin-right: auto !important; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important; }
 /* Center the column headers (titles) over each image+links pair */
 li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-category-title, li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .category-title, li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split h3, li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split h4 { text-align: center !important; color: #1a2238 !important; width: 100% !important; }
+
+/* Main nav color swap — Home navy, others purple */
+@media screen and (min-width: 1025px) {
+  header.page-header > .container .header-nav-line .megamenu > ul.nav > li > a,
+  .page-header .header-sticky .megamenu > ul.nav > li > a {
+    color: var(--purple) !important;
+  }
+
+  header.page-header > .container .header-nav-line .megamenu > ul.nav > li.title-home > a,
+  .page-header .header-sticky .megamenu > ul.nav > li.title-home > a {
+    color: var(--mainBg) !important;
+  }
+
+  header.page-header > .container .header-nav-line .megamenu > ul.nav > li.title-home > a:hover,
+  .page-header .header-sticky .megamenu > ul.nav > li.title-home > a:hover,
+  .megamenu .nav > li.title-home > a:not(.btn):hover {
+    color: var(--purple) !important;
+  }
+
+  header.page-header > .container .header-nav-line .megamenu > ul.nav > li:not(.title-home) > a:hover,
+  .page-header .header-sticky .megamenu > ul.nav > li:not(.title-home) > a:hover,
+  .megamenu .nav > li:not(.title-home) > a:not(.btn):hover {
+    color: var(--mainBg) !important;
+  }
+
+  body .megamenu .nav > li:not(.title-home):hover > a:not(.btn):before {
+    opacity: 1 !important;
+    background-color: var(--mainBg) !important;
+  }
+
+  body .megamenu .nav > li.title-home:hover > a:not(.btn):before {
+    opacity: 1 !important;
+    background-color: var(--purple) !important;
+  }
+}
