@@ -7,6 +7,7 @@
 {% assign product_gift_card = all_products['gift-card-voucher-new'] %}
 {% assign gift_card_id = product_gift_card.id %}
 {% assign variant_id = product_to_add_auto.variants.first.id %}
+{% assign venmo_message_variant_id = 47650932490417 %}
 
 {% assign digital_gift_card_ids = all_products['gift-card-voucher-new'].variants | map: 'id' | join: ', ' %}
 
@@ -86,7 +87,7 @@
                       <div class="product-price">{{ item.price | money }}</div>
                     </div>
                     <div class="minicart-product-item-actions">
-                      {% if item.id != variant_id and item.id != 44236446269617 and item.id != 44398982234289 %}
+                      {% if item.id != variant_id and item.id != venmo_message_variant_id and item.id != 44236446269617 and item.id != 44398982234289 %}
                         <a
                           data-variant-id="{{ item.variant_id }}"
                           data-line-number="{{ forloop.index }}"

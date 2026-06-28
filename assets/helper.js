@@ -843,6 +843,7 @@ function cartPopupUpdate() {
       }
       if (
         item.id == $personalizedWrittenAudioVideoMessageId ||
+        item.id == $venmoPersonalizedMessageId ||
         item.id == $digitalGiftCardProcessingFeeId
       ) {
         $item =
@@ -959,11 +960,15 @@ function removeDisableFromAddToCart(_this) {
   }, 1000);
 }
 function removePersonalizedAudioVideoFromCart(data) {
+  const personalizedMessageIds = [
+    $personalizedWrittenAudioVideoMessageId,
+    $venmoPersonalizedMessageId,
+  ];
   if (
     data.item_count == 1 &&
-    data.items[0].id == $personalizedWrittenAudioVideoMessageId
+    personalizedMessageIds.includes(data.items[0].id)
   ) {
-    CartJS.removeItemById($personalizedWrittenAudioVideoMessageId, {
+    CartJS.removeItemById(data.items[0].id, {
       success: function (data, textStatus, jqXHR) {
         window.location.reload();
       },

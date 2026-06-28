@@ -45,6 +45,7 @@
   -->
 
   {% assign variant_id = product_to_add_auto.variants.first.id %}
+{% assign venmo_message_variant_id = 47650932490417 %}
   {% if cart.item_count > 0 %}
     <div class="block  block--no-preload global_width">
       <div class="container">
@@ -80,8 +81,8 @@
             {% for item in cart.items %}
 
               <div
-                class="table-row {% if item.id == variant_id %} designated-product{% endif %}"
-                {% if item.id == {{variant_id}} %}
+                class="table-row {% if item.id == variant_id or item.id == venmo_message_variant_id %} designated-product{% endif %}"
+                {% if item.id == {{variant_id}} or item.id == {{venmo_message_variant_id}} %}
                   style="background: #fde9fc; padding: 1rem 0;"
                 {% endif %}
                 {% if item.id == {{digital_gift_card_processing_fee_id}} or item.id == {{venmo_processing_fee_id}} or digital_gift_card_ids contains item.id %}
@@ -113,7 +114,7 @@
                       {{ item.product.title }}
                     {% endif %}
                   </a>
-                  {% if item.id == {{variant_id}} %}
+                  {% if item.id == {{variant_id}} or item.id == {{venmo_message_variant_id}} %}
                     {% assign item.properties = item.product.title %}
                     <div class="description">
                       {{ item.product.description }}
@@ -149,7 +150,7 @@
 
                     {% else %}
                   <fieldset>
-                      {% if item.id != {{variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}} %}
+                      {% if item.id != {{variant_id}} and item.id != {{venmo_message_variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}} %}
                         {% unless digital_gift_card_ids contains item.id or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
                           <input type="button" value="&#x2212;" class="decrease">
                         {% endunless %}
@@ -161,7 +162,7 @@
                         id="updates_{{ item.id }}"
                         value="{{ item.quantity }}"
                         data-min="0"
-                        {% if item.id == {{variant_id}} %}
+                        {% if item.id == {{variant_id}} or item.id == {{venmo_message_variant_id}} %}
                           readonly
                           style="padding: inherit;"
                         {% endif %}
@@ -170,7 +171,7 @@
                           style="padding: inherit;"
                         {% endif %}
                       >
-                      {% if item.id != {{variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}}%}
+                      {% if item.id != {{variant_id}} and item.id != {{venmo_message_variant_id}} and item.id != {{gift_card_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != {{venmo_processing_fee_id}}%}
                         {% unless digital_gift_card_ids contains item.id or send_cash_via_venmo_ids contains item.id or individual_code_via_e_tailers_ids contains item.id %}
                           <input type="button" value="+" class="increase">
                         {% endunless %}
@@ -197,7 +198,7 @@
                   {% comment %} {% if item.id != {{variant_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.product.title != "Digital Gift Card"%}
                     <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="icon icon-close-2 js-minicart-remove-item"></a>
                   {% endif %} {% endcomment %}
-                  {% if item.id != {{variant_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != 44398982234289  and item.id != 46103888789681 %}
+                  {% if item.id != {{variant_id}} and item.id != {{venmo_message_variant_id}} and item.id != {{digital_gift_card_processing_fee_id}} and item.id != 44398982234289  and item.id != 46103888789681 %}
                     <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-variant-id="{{ item.variant_id }}" data-line-number="{{ forloop.index }}" title="{{ 'cart.general.remove' | t }}" class="icon icon-close-2 js-cart-remove-item"></a>
                   {% endif %}
                 </div>

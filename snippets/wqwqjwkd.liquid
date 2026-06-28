@@ -36,6 +36,7 @@
   {% assign line_items_properties_For = line_items | map: "properties" |  map: "_For" %}
   {% assign line_items_properties_Contact = line_items | map: "properties" |  map: "_Contact" %}
   {% assign spl_message = line_items | where: "variant_id", 44236113313969 %}
+  {% assign venmo_spl_message = line_items | where: "variant_id", 47650932490417 %}
   {% assign individual_code = line_items | where: "variant_id", 44382753063089 %}
   {% assign found_gift_card_with_recipient_email = false %}
   {% assign order_id_str = order.id | append: "" %}
@@ -348,7 +349,7 @@
                     <td>
                       <h2>{{ email_title }}</h2>
                       <div id="main-content">
-                        {% if spl_message == empty %}
+                        {% if spl_message == empty and venmo_spl_message == empty %}
                           <div class="physical-card-case">
                             <div class="heading-area">
                               <h2 class="title-order">

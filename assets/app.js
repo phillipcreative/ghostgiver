@@ -4205,7 +4205,7 @@
               _Message: message,
             };
 
-            CartJS.addItem($personalizedWrittenAudioVideoMessageId, 1, custom_line_properties, {
+            CartJS.addItem($venmoPersonalizedMessageId, 1, custom_line_properties, {
               success: function () {
                 // Add the main Venmo product with both _Contact and _Message
                 $.ajax({
