@@ -8,6 +8,13 @@
     margin-top: 3px;
     color: black;
   }
+
+  .name .description.venmo-message-description,
+  .name .description.venmo-message-description p,
+  .name .description.venmo-message-description b,
+  .name .description.venmo-message-description strong {
+    font-weight: 500;
+  }
 </style>
 <!--
   set allProducts to "yes" if you want the product to be added regardless of the products in the cart - otherwise set it to "no"
@@ -116,7 +123,7 @@
                   </a>
                   {% if item.id == {{variant_id}} or item.id == {{venmo_message_variant_id}} %}
                     {% assign item.properties = item.product.title %}
-                    <div class="description">
+                    <div class="description{% if item.id == venmo_message_variant_id %} venmo-message-description{% endif %}">
                       {{ item.product.description }}
                     </div>
                     {% assign isProduct = true %}

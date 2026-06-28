@@ -77,7 +77,7 @@
 
       {% if featured_product_handle != '' %}
         <div class="product-actions-btn custom-collection-atc">
-          <button class="btn btn-lg js-add-to-cart-product-page" data-product-handle="{{ featured_product.handle }}" data-variant-id="{{ featured_product.selected_or_first_available_variant.id }}" title="Add to Cart">Continue</button>
+          <button class="btn btn-lg js-add-to-cart-product-page" data-product-handle="{{ featured_product.handle }}" data-variant-id="{{ featured_product.selected_or_first_available_variant.id }}" data-product-name="{{ featured_product.title }}" title="Add to Cart">Continue</button>
         </div>
       {% else %}
         <div class="give_us_try_cs">

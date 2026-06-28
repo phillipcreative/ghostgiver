@@ -177,6 +177,50 @@ function showErrorModal(otherCategory, productName) {
   }, 600);
 }
 
+function getAncillaryCartItemIds() {
+  return [
+    $personalizedWrittenAudioVideoMessageId,
+    $venmoPersonalizedMessageId,
+    $digitalGiftCardProcessingFeeId,
+    $venmoProcessingFeeId,
+  ];
+}
+
+function cartHasPersonalizedMessage() {
+  return CartJS.cart.items.some(
+    (item) =>
+      item.id == $personalizedWrittenAudioVideoMessageId ||
+      item.id == $venmoPersonalizedMessageId
+  );
+}
+
+function getMainCartItemCount() {
+  const ancillaryIds = getAncillaryCartItemIds();
+  return CartJS.cart.items.filter(
+    (item) => !ancillaryIds.includes(item.id)
+  ).length;
+}
+
+function findMainProductTitleFromCart() {
+  const ancillaryIds = getAncillaryCartItemIds();
+  const mainItem = CartJS.cart.items.find(
+    (item) => !ancillaryIds.includes(item.id)
+  );
+  if (mainItem) {
+    return mainItem.product_title;
+  }
+  const messageItem = CartJS.cart.items.find(
+    (item) =>
+      item.id == $venmoPersonalizedMessageId ||
+      item.id == $personalizedWrittenAudioVideoMessageId
+  );
+  return messageItem ? messageItem.product_title : "item";
+}
+
+function resolveProductNameForErrorModal(productName) {
+  return productName || findMainProductTitleFromCart();
+}
+
 function isCartContainingOtherCategory(categories) {
   let cartItems = CartJS.cart.items;
   let cartItemIds = cartItems.map((item) => item.id);
@@ -192,6 +236,9 @@ function isCartContainingOtherCategory(categories) {
       .includes("digital-gift-card-via-text")
   ) {
     cartItemIds.push(...$giftCardViaTextIds);
+  }
+  if (cartItemIds.some((id) => id == $venmoPersonalizedMessageId)) {
+    cartItemIds.push(...$sendCashViaVenmoIds);
   }
   return categories.some((category) =>
     cartItemIds.some((cartItemId) => category.includes(cartItemId))
@@ -242,11 +289,18 @@ function findItemNameFromCart() {
     return 'a "Digital Gift Card (via Text)"';
   } else if (cartItemIds.some((x) => $giftCardViaEmailIds.includes(x))) {
     return 'a "Digital Gift Card (via Email)"';
-  } else if (cartItemIds.some((x) => $sendCashViaVenmoIds.includes(x))) {
+  } else if (
+    cartItemIds.some(
+      (x) => $sendCashViaVenmoIds.includes(x) || x == $venmoPersonalizedMessageId
+    )
+  ) {
     return 'a "SEND CASH (VIA VENMO)"';
   } else if (cartItemIds.some((x) => $individualCodeViaETailers.includes(x))) {
     return 'an "INDIVIDUAL CODE (VIA E-TAILERS)"';
+  } else if (cartItemIds.some((x) => x == $personalizedWrittenAudioVideoMessageId)) {
+    return 'a "PERSONALIZED ANONYMOUS MESSAGE"';
   }
+  return "an item";
 }
 
 function addToCart(_this, $form) {
@@ -270,13 +324,13 @@ function addToCart(_this, $form) {
     return;
   } else {
     if (
-      CartJS.cart.item_count != 0 &&
+      getMainCartItemCount() != 0 &&
       !(
         $printedCardEnvelopeIds.includes(variantId) ||
         $giftIds.includes(variantId)
       )
     ) {
-      showErrorModal(false, productName);
+      showErrorModal(false, resolveProductNameForErrorModal(productName));
       removeDisableFromAddToCart(_this);
       return;
     }
@@ -300,10 +354,7 @@ function addToCart(_this, $form) {
       $("#modalVenmoCash").modal("show");
       removeDisableFromAddToCart(_this);
     } else if ($individualCodeViaETailers.includes(variantId)) {
-      let splMsgItem = CartJS.cart.items.find(
-        (cartItem) => cartItem.id == $personalizedWrittenAudioVideoMessageId
-      );
-      if (!splMsgItem) {
+      if (!cartHasPersonalizedMessage()) {
         var custom_line_properties = {
           _GiftCard: false,
           _SplMsg: true,
@@ -543,13 +594,13 @@ if ($("body").hasClass("ajax_cart")) {
       return;
     } else {
       if (
-        CartJS.cart.item_count != 0 &&
+        getMainCartItemCount() != 0 &&
         !(
           $printedCardEnvelopeIds.includes(variantId) ||
           $giftIds.includes(variantId)
         )
       ) {
-        showErrorModal(false, productName);
+        showErrorModal(false, resolveProductNameForErrorModal(productName));
         removeDisableFromAddToCart(_this);
         return;
       }
@@ -574,10 +625,7 @@ if ($("body").hasClass("ajax_cart")) {
         $("#modalVenmoCash").modal("show");
         removeDisableFromAddToCart(_this);
       } else if ($individualCodeViaETailers.includes(variantId)) {
-        let splMsgItem = CartJS.cart.items.find(
-          (cartItem) => cartItem.id == $personalizedWrittenAudioVideoMessageId
-        );
-        if (!splMsgItem) {
+        if (!cartHasPersonalizedMessage()) {
           var custom_line_properties = {
             _GiftCard: false,
             _SplMsg: true,
@@ -979,10 +1027,7 @@ function removePersonalizedAudioVideoFromCart(data) {
 }
 
 function addPersonalizedAudioVideoFromCart() {
-  let splMsgItem = CartJS.cart.items.find(
-    (cartItem) => cartItem.id == $personalizedWrittenAudioVideoMessageId
-  );
-  if (!splMsgItem) {
+  if (!cartHasPersonalizedMessage()) {
     var custom_line_properties = {
       _GiftCard: false,
       _SplMsg: true,

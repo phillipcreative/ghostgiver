@@ -4089,11 +4089,7 @@
               }
 
               $(this).prop("disabled", true);
-              let splMsgItem = CartJS.cart.items.find(
-                (cartItem) =>
-                  cartItem.id == $personalizedWrittenAudioVideoMessageId
-              );
-              if (!splMsgItem) {
+              if (!cartHasPersonalizedMessage()) {
                 var custom_line_properties = {
                   _GiftCard: false,
                   _SplMsg: true,
