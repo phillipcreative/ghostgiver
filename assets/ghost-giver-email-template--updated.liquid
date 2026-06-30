@@ -36,7 +36,6 @@
   {% assign line_items_properties_For = line_items | map: "properties" |  map: "_For" %}
   {% assign line_items_properties_Contact = line_items | map: "properties" |  map: "_Contact" %}
   {% assign spl_message = line_items | where: "variant_id", 44236113313969 %}
-  {% assign venmo_spl_message = line_items | where: "variant_id", 47650932490417 %}
   {% assign individual_code = line_items | where: "variant_id", 44382753063089 %}
   {% assign venmo_contact = '' %}
   {% for line_item in line_items %}
@@ -115,8 +114,8 @@
 
         /*
 
-   font-size: clamp(1rem, 3vw, 24px); 
-   line-height: clamp(1.1rem, 3vw, 29px); 
+   font-size: clamp(1rem, 3vw, 24px);
+   line-height: clamp(1.1rem, 3vw, 29px);
 */
         font-size: 1.5rem;
         line-height: 1.813rem;
@@ -128,8 +127,8 @@
 
         /*
 
-   font-size: clamp(1.3rem, 4vw, 30px); 
-   line-height: clamp(1rem, 3vw, 22px); 
+   font-size: clamp(1.3rem, 4vw, 30px);
+   line-height: clamp(1rem, 3vw, 22px);
 */
         font-size: 1.875rem;
         line-height: 1.375rem;
@@ -144,8 +143,8 @@
 
         /*
 
-   font-size: clamp(17px, 3vw, 25px) !important; 
-   line-height: clamp(1rem, 3vw, 30px); 
+   font-size: clamp(17px, 3vw, 25px) !important;
+   line-height: clamp(1rem, 3vw, 30px);
 */
         font-size: 1.563rem !important;
         line-height: 1.875rem;
@@ -160,8 +159,8 @@
 
         /*
 
-   font-size: clamp(10px, 2vw, 22px); 
-   line-height: clamp(10px, 2vw, 23px); 
+   font-size: clamp(10px, 2vw, 22px);
+   line-height: clamp(10px, 2vw, 23px);
 */
         font-size: 1.375rem;
         line-height: 1.438rem;
@@ -180,8 +179,8 @@
 
         /*
 
-   font-size: clamp(1rem, 2vw, 16px); 
-   line-height: clamp(1rem, 2vw, 22px); 
+   font-size: clamp(1rem, 2vw, 16px);
+   line-height: clamp(1rem, 2vw, 22px);
 */
         font-size: 1rem;
         line-height: 1.375rem;
@@ -191,8 +190,10 @@
       }
       .text_cstm4 {
 
+
         /*
-   font-size: clamp(1rem, 2vw, 19px); 
+
+   font-size: clamp(1rem, 2vw, 19px);
    line-height: clamp(1rem, 2vw, 25px);
 */
         font-size: 1.188rem;
@@ -272,8 +273,10 @@
 
       .text_cstm7 {
 
+
         /*
-   font-size: clamp(0.8rem, 2vw, 17px); 
+
+   font-size: clamp(0.8rem, 2vw, 17px);
    line-height: clamp(1.2rem, 2vw, 28px);
 */
         font-size: 1.063rem;
@@ -353,9 +356,10 @@
                 <table class="container">
                   <tr>
                     <td>
-                      <h2>{{ email_title }}</h2>
+                      <h2 style="text-align: center; margin-bottom: 1rem;">{{ email_title }}</h2>
                       <div id="main-content">
-                        {% if spl_message == empty and venmo_spl_message == empty %}
+                        {% if spl_message == empty %}
+                          {% comment %} Physical Card Instance {% endcomment %}
                           <div class="physical-card-case">
                             <div class="heading-area">
                               <h2 class="title-order">
@@ -379,6 +383,7 @@
                           </div>
                         {% else %}
                           {% if line_items_properties_For contains "send-cash-via-venmo" %}
+                            {% comment %} Venmo Instance {% endcomment %}
                             <div id="send-cash-via-venmo">
                               <div class="heading-area">
                                 <div class="text_cstm5">
@@ -404,12 +409,13 @@
                                   <img
                                     src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_39399.svg?v=1718373756"
                                     alt="Ghost Giver"
-                                    style="max-width: 32px; display: block; margin: 0 auto;"
+                                    style="max-width: 150px; display: block; margin: 0 auto;"
                                   />
                                 </div>
                               </div>
                             </div>
                           {% elsif line_items_properties_For contains "digital-gift-card-via-email" %}
+                            {% comment %} Digital Gift Card Via Email Instance {% endcomment %}
                             <div id="digital-gift-card-via-email">
                               <div class="heading-area">
                                 <div class="text_cstm5">
@@ -433,23 +439,22 @@
                                       </a>
                                     </div>
                                   </div>
-                                  <div class="text_cstm2">
-                                    <p>
-                                      Be sure to complete your anonymous message BEFORE your recipient gets their GHOST GIVE. Otherwise, they'll get a boring auto-generated message from us.<br/>
-                                      Booooo!
-                                    </p>
-                                  </div>
                                   <div class="text_cstm4">
-                                    For a quick refresher on what to expect next, please refer to our HOW IT WORKS and EXAMPLE pages below
+                                    For a quick refresher on what to expect next, please refer to our HOW IT WORKS page below
                                   </div>
-                                  <div class="btn-grp">
-                                    <button class="btn btn-primary" style="margin-left: auto; margin-right:0.5rem">HOW IT WORKS</button>
-                                    <button class="btn btn-primary" style="margin-right: auto; margin-left:0.5rem">EXAMPLE</button>
+                                  <div class="btn-grp" style="text-align: center;">
+                                    <a
+                                      class="btn btn-pink"
+                                      href="https://ghostgiver.com/pages/how-it-works-digital-gift-cardviaemail"
+                                      target="_blank"
+                                      style="display: inline-block; margin: 0 auto; text-decoration: none; color: #ffffff; background-color: #af59d7; font-size: 1.375rem; line-height: 1.438rem; border-radius: 1rem; letter-spacing: -0.8px; font-weight: 500; padding: 1.2rem 3rem;"
+                                    >HOW IT WORKS</a>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           {% elsif line_items_properties_For contains "digital-gift-card-via-text" %}
+                            {% comment %} Digital Gift Card Via Text Instance {% endcomment %}
                             <div id="digital-gift-card-via-email">
                               <div class="heading-area">
                                 <div class="text_cstm5">
@@ -458,6 +463,41 @@
                                 <div class="text_cstm6">{{ line_items_properties_Contact }}</div>
                                 <div class="text_cstm2">
                                   <p class="cstm_para">Below are the instructions you were provided after you checked out. If you haven't yet set up your anonymous message, please do so now, so we can send your text.</p>
+                                </div>
+                                <h1>
+                                  NOW IT’S TIME TO INCLUDE AN ANONYMOUS MESSAGE. JUST PRESS THE BUTTON BELOW TO GET STARTED
+                                </h1>
+                              </div>
+                              <div class="content-area">
+                                <div class="row-12">
+                                  <img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Personalized_written_audio_or_video_message.png?v=1719468689" />
+                                  <div style="margin-bottom: 2rem;">
+                                    <div class="btn-content">
+                                      <a class="btn btn-pink" href="https://setup.ghostgiver.com/typeOfMessage/?orderId={{order.id}}">
+                                        <span><img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Speech_bubble_for_button_on_Order_Confirmation_Page.png?v=1718617712" class="addMessage" /></span>ADD YOUR ANONYMOUS MESSAGE
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="text_cstm4">
+                                    For a quick refresher on what to expect next, please refer to our HOW IT WORKS page below
+                                  </div>
+                                  <div class="btn-grp" style="text-align: center;">
+                                    <a
+                                      class="btn btn-pink"
+                                      href="https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext"
+                                      target="_blank"
+                                      style="display: inline-block; margin: 0 auto; text-decoration: none; color: #ffffff; background-color: #af59d7; font-size: 1.375rem; line-height: 1.438rem; border-radius: 1rem; letter-spacing: -0.8px; font-weight: 500; padding: 1.2rem 3rem;"
+                                    >HOW IT WORKS</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          {% else %}
+                            {% if individual_code == empty %}
+                              {% comment %} Default Anonymous Message Instance {% endcomment %}
+                              <div class="heading-area">
+                                <div class="text_cstm2">
+                                  <p class="cstm_para">Below are the instructions you were provided after you checked out. Be sure to set up your anonymous message before your recipient receives their GHOST GIVE.</p>
                                 </div>
                                 <h1>
                                   NOW IT’S TIME TO INCLUDE AN ANONYMOUS MESSAGE. JUST PRESS THE BUTTON BELOW TO GET STARTED
@@ -483,31 +523,17 @@
                                     For a quick refresher on what to expect next, please refer to our HOW IT WORKS and EXAMPLE pages below
                                   </div>
                                   <div class="btn-grp">
-                                    <button class="btn btn-primary" style="margin-left: auto; margin-right:0.5rem">HOW IT WORKS</button>
-                                    <button class="btn btn-primary" style="margin-right: auto; margin-left:0.5rem">EXAMPLE</button>
+                                    <a
+                                      class="btn btn-pink"
+                                      href="https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext"
+                                      target="_blank"
+                                      style="margin: auto; text-decoration: none;"
+                                    >HOW IT WORKS</a>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          {% else %}
-                            {% if individual_code == empty %}
-                              <p>If you haven't already completed your anonymous message, click the ADD YOUR ANONYMOUS MESSAGE button to do so now. If you don't, your recipient will get a boring auto-generated message from us. Boooo!</p>
-                              <div class="row-2 button-area" style="margin: 1.2rem 0em 1.2rem 0rem;">
-                                <div class="cta-section d-md-flex" style="display: flex;">
-                                  <a
-                                    class="btn-velvey"
-                                    href="https://setup.ghostgiver.com/typeOfMessage/?orderId={{order.id}}"
-                                    style="margin: auto;">
-                                    <div style="position: relative;">
-                                      <img
-                                        class="img-icon"
-                                        src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/SEND_A_VELVEY_2x_de3970fc-e0df-4a1c-9249-a0d0d990d6a8.png?v=1718966539"
-                                        width="180">
-                                    </div>
-                                  </a>
-                                </div>
-                              </div>
                             {% else %}
+                              {% comment %} Individual Code Instance {% endcomment %}
                               <div id="individual-code-case" class="d-none">
                                 <div class="heading-area">
                                   <div class="text_cstm2">
@@ -548,7 +574,7 @@
                                       <div class="box-heading">{{ part1 }}-{{ part2 }}-{{ part3 }}-{{ part4 }}</div>
                                     </div>
                                     <div class="btn-grp">
-                                      <button class="btn btn-primary" style="margin-left: auto; margin-right:0.5rem">HOW IT WORKS</button>
+                                      <a href="https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext" target="_blank" style="margin-left: auto; text-decoration: none; margin-right: 0.5rem; color: #fff; font-size: 1.375rem; line-height: 1.438rem; border-radius: 1rem; letter-spacing: -0.8px; font-weight: 500; width: 43%; background-color: #1e3d5a !important; padding-top: 1.2rem; padding-bottom: 1.2rem;">HOW IT WORKS</a>
                                       <button class="btn btn-primary" style="margin-right: auto; margin-left:0.5rem">EXAMPLE</button>
                                     </div>
                                     <div class="text_cstm7">
@@ -1153,6 +1179,5 @@
         </td>
       </tr>
     </table>
-
   </body>
 </html>
