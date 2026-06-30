@@ -8,6 +8,14 @@ function getFormData($form) {
   return indexed_array;
 }
 
+function getLineItemProperties($form, variantId) {
+  var line_properties = getFormData($("[name*=properties]", $form));
+  if ($printedCardEnvelopeIds.includes(variantId)) {
+    line_properties._product_type = "physical-card";
+  }
+  return line_properties;
+}
+
 /*---------------------End MODAL GiftCard-----------------------------*/
 
 /*---------------------MODAL CHECKOUT-----------------------------*/
@@ -142,7 +150,11 @@ function checkoutModalGetUpsells(handle, callback) {
 }
 
 function checkoutModalUpsellsAddToCart(status, id) {
-  CartJS.addItem(id, 1, {
+  var line_properties = {};
+  if ($printedCardEnvelopeIds.includes(id)) {
+    line_properties._product_type = "physical-card";
+  }
+  CartJS.addItem(id, 1, line_properties, {
     success: function (data, textStatus, jqXHR) {
       $("#modalCheckout").data("cart", JSON.stringify(CartJS));
     },
@@ -388,7 +400,7 @@ function addToCart(_this, $form) {
       if (!$printedCardEnvelopeIds.includes(variantId)) {
         addPersonalizedAudioVideoFromCart();
       }
-      var line_properties = getFormData($("[name*=properties]", $form));
+      var line_properties = getLineItemProperties($form, variantId);
       CartJS.addItem(variantId, 1, line_properties, {
         success: function (data, textStatus, jqXHR) {
           if (_this.length) {
@@ -659,7 +671,7 @@ if ($("body").hasClass("ajax_cart")) {
         if (!$printedCardEnvelopeIds.includes(variantId)) {
           addPersonalizedAudioVideoFromCart();
         }
-        var line_properties = getFormData($("[name*=properties]", $form));
+        var line_properties = getLineItemProperties($form, variantId);
         _this
           .addClass("btn-loading")
           .addClass("disabled")
