@@ -2368,6 +2368,7 @@ body.modal-open .modal .modal-dialog {
     text-transform: none;
     padding: 5px 30px;
     margin: auto;
+    margin-bottom: 20px;
     display: block;
 }
 

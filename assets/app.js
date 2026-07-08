@@ -4173,6 +4173,9 @@
 
             $("#modalForVenmoMessage1").html(messageModalHTML);
             $("#modalForVenmoAddress").modal("hide");
+            $("#modalForVenmoMessage").one("shown.bs.modal", function () {
+              $("#venmo-message").trigger("focus");
+            });
             $("#modalForVenmoMessage").modal("show");
           });
 
