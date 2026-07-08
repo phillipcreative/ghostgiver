@@ -465,7 +465,7 @@
               </button>
               <a href="/checkout" class="btn btn-success dev-rounded w-100 w-sm-auto">{{ 'general.theme.go_to_checkout' | t }}</a>
             </div>
-            <div class="mdlchk-custom d-sm-block d-none">
+            {% comment %} <div class="mdlchk-custom d-sm-block d-none">
               {% if settings.checkout_popup_guaranteed %}
                 <h4>{{ settings.checkout_popup_guaranteed_caption }}</h4>
               {% endif %}
@@ -474,7 +474,7 @@
                 alt=""
                 class="img-responsive"
               >
-            </div>
+            </div> {% endcomment %}
           </div>
         </div>
       </div>

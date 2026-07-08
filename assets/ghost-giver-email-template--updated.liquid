@@ -36,6 +36,7 @@
   {% assign line_items_properties_For = line_items | map: "properties" |  map: "_For" %}
   {% assign line_items_properties_Contact = line_items | map: "properties" |  map: "_Contact" %}
   {% assign spl_message = line_items | where: "variant_id", 44236113313969 %}
+  {% assign venmo_spl_message = line_items | where: "variant_id", 47650932490417 %}
   {% assign individual_code = line_items | where: "variant_id", 44382753063089 %}
   {% assign venmo_contact = '' %}
   {% for line_item in line_items %}
@@ -358,7 +359,7 @@
                     <td>
                       <h2 style="text-align: center; margin-bottom: 1rem;">{{ email_title }}</h2>
                       <div id="main-content">
-                        {% if spl_message == empty %}
+                        {% if spl_message == empty and venmo_spl_message == empty %}
                           {% comment %} Physical Card Instance {% endcomment %}
                           <div class="physical-card-case">
                             <div class="heading-area">
@@ -406,12 +407,17 @@
                                   The cash amount you designated will be sent to the following Venmo address within the next 24 hours:
                                 </div>
                                 <div class="text_cstm6">@{{ venmo_contact }}</div>
-                                <div class="text_cstm5">
+                                <div class="text_cstm6">
                                   The personalized message you typed after choosing the dollar amount will be added as a note to the cash we send on your behalf.
                                 </div>
                               </div>
                               <div class="content-area">
                                 <div class="row-12">
+                                  <img
+                                    src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_39399.svg?v=1718373756"
+                                    alt="Ghost Giver"
+                                    style="max-width: 150px; display: block; margin: 0 auto;"
+                                  />
                                   <div class="text_cstm4">
                                     For a quick refresher on what to expect next, please refer to our HOW IT WORKS page below
                                   </div>
@@ -422,11 +428,6 @@
                                       style="margin: auto; text-decoration: none;"
                                     >HOW IT WORKS</a>
                                   </div>
-                                  <img
-                                    src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/Group_39399.svg?v=1718373756"
-                                    alt="Ghost Giver"
-                                    style="max-width: 150px; display: block; margin: 0 auto;"
-                                  />
                                 </div>
                               </div>
                             </div>
