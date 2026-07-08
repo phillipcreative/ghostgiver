@@ -1260,8 +1260,8 @@
         "settings": {
           "custm_url_how_it_work": "shopify://pages/copy-of-how-it-works-ghost-code-via-e-tailers",
           "custm_name_how_it_work": "how it works",
-          "custm_url_example": "",
-          "custm_name_example": "",
+          "custm_url_example": "shopify://pages/free-printable-cards-of-example",
+          "custm_name_example": "example",
           "collections_products_per_row": "4",
           "collections_per_row_mobile": "2",
           "products_per_page": "18",
