@@ -61,10 +61,17 @@
             {% endif %}
                {% if collection.metafields.custom.amount_content.value != blank %}
           <div class="price-sec">
-            {{ collection.metafields.custom.give_it_try_button_url.value.price | money_with_currency }}
-            <div class="pink-box">
-              <p><b>+ {{ collection.metafields.custom.amount_content.value }}</b></p>
-            </div>
+            {% if template.suffix != 'digital_gift_card_viatext' %}
+              $4.99
+              <div class="pink-box">
+                <p><b>+ {{ collection.metafields.custom.amount_content.value }}</b></p>
+              </div>
+            {% else %}
+              {{ collection.metafields.custom.give_it_try_button_url.value.price | money_with_currency }}
+              <div class="pink-box">
+                <p><b>+ {{ collection.metafields.custom.amount_content.value }}</b></p>
+              </div>
+            {% endif %}
           </div>
         {% elsif collection.metafields.custom.amount_content.value == blank and collection.metafields.custom.bold_content.value != blank %}
           <div class="price-sec">
