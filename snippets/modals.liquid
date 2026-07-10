@@ -96,7 +96,7 @@
     height: 175px !important;
     margin-bottom: 0px !important;
     cursor: text;
-    caret-color: #af59d7;
+    caret-color: transparent;
     background-color: #fff;
     resize: vertical;
   }
@@ -113,6 +113,31 @@
 
   .modal.venmo-message .text-area {
     cursor: text;
+  }
+
+  .venmo-message-caret {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 2px;
+    height: 1.15em;
+    background-color: #000;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .text-area.is-focused .venmo-message-caret {
+    animation: venmo-caret-blink 1s step-end infinite;
+  }
+
+  @keyframes venmo-caret-blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   .modal.venmo-message .modal-dialog {

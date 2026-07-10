@@ -4155,6 +4155,7 @@
                         maxlength="250"
                         placeholder="Type your message here... (250 character limit)"
                       ></textarea>
+                    <span class="venmo-message-caret" aria-hidden="true"></span>
                     <span id="message-count" style="position: absolute; bottom: 10px; right: 15px; color: #aaa; font-size: 1rem;">0/250</span>
                   </div>
                   <p class="comply-text">If message includes content that does not comply with our <a href="/policies/terms-of-service" target="_blank">Terms of Use</a>, it will not be sent.</p>
@@ -4178,6 +4179,72 @@
             });
             $("#modalForVenmoMessage").modal("show");
           });
+
+          /**
+           * Positions the custom Venmo message caret to match the textarea caret.
+           * @param {HTMLTextAreaElement} textarea
+           */
+          function updateVenmoMessageCaret(textarea) {
+            const $wrap = $(textarea).closest(".text-area");
+            const caret = $wrap.find(".venmo-message-caret")[0];
+            if (!caret) return;
+
+            const style = window.getComputedStyle(textarea);
+            const mirror = document.createElement("div");
+            const marker = document.createElement("span");
+            const props = [
+              "boxSizing",
+              "width",
+              "borderTopWidth",
+              "borderRightWidth",
+              "borderBottomWidth",
+              "borderLeftWidth",
+              "paddingTop",
+              "paddingRight",
+              "paddingBottom",
+              "paddingLeft",
+              "fontStyle",
+              "fontVariant",
+              "fontWeight",
+              "fontStretch",
+              "fontSize",
+              "lineHeight",
+              "fontFamily",
+              "textAlign",
+              "textTransform",
+              "textIndent",
+              "letterSpacing",
+              "wordSpacing",
+              "tabSize",
+              "whiteSpace",
+              "wordBreak",
+              "overflowWrap",
+            ];
+
+            mirror.setAttribute("aria-hidden", "true");
+            Object.assign(mirror.style, {
+              position: "absolute",
+              visibility: "hidden",
+              whiteSpace: "pre-wrap",
+              wordWrap: "break-word",
+              overflow: "hidden",
+              top: "0",
+              left: "-9999px",
+            });
+            props.forEach(function (prop) {
+              mirror.style[prop] = style[prop];
+            });
+            mirror.style.height = style.height;
+            mirror.textContent = textarea.value.substring(0, textarea.selectionEnd);
+            marker.textContent = "\u200b";
+            mirror.appendChild(marker);
+            document.body.appendChild(mirror);
+
+            caret.style.top = marker.offsetTop - textarea.scrollTop + "px";
+            caret.style.left = marker.offsetLeft - textarea.scrollLeft + "px";
+            caret.style.height = style.lineHeight;
+            document.body.removeChild(mirror);
+          }
 
           $(document).on("click", "#continue-message", function () {
             const message = $("#venmo-message").val().trim();
@@ -4318,11 +4385,25 @@
             }
           }
 
-          // modal text count
+          // modal text count + custom caret tracking
           $(document).on("input", "#venmo-message", function () {
             const max = 250;
             const len = $(this).val().length;
             $("#message-count").text(`${len}/${max}`);
+            updateVenmoMessageCaret(this);
+          });
+
+          $(document).on("focus", "#venmo-message", function () {
+            $(this).closest(".text-area").addClass("is-focused");
+            updateVenmoMessageCaret(this);
+          });
+
+          $(document).on("blur", "#venmo-message", function () {
+            $(this).closest(".text-area").removeClass("is-focused");
+          });
+
+          $(document).on("keyup click select scroll", "#venmo-message", function () {
+            updateVenmoMessageCaret(this);
           });
         });
       },
