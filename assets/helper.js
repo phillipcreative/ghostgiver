@@ -12,6 +12,8 @@ function getLineItemProperties($form, variantId) {
   var line_properties = getFormData($("[name*=properties]", $form));
   if ($printedCardEnvelopeIds.includes(variantId)) {
     line_properties._product_type = "physical-card";
+  } else if ($giftIds.includes(variantId)) {
+    line_properties._product_type = "gifts";
   }
   return line_properties;
 }
@@ -153,6 +155,8 @@ function checkoutModalUpsellsAddToCart(status, id) {
   var line_properties = {};
   if ($printedCardEnvelopeIds.includes(id)) {
     line_properties._product_type = "physical-card";
+  } else if ($giftIds.includes(id)) {
+    line_properties._product_type = "gifts";
   }
   CartJS.addItem(id, 1, line_properties, {
     success: function (data, textStatus, jqXHR) {
