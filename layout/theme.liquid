@@ -40,6 +40,23 @@
       map: 'id' | join: ', ' %} {% assign digital_gift_card_ids =
       all_products['gift-card-voucher-new'].variants | map: 'id' | join: ', ' %}
 
+      {% assign gifts_shipped_id_list = '' %}
+      {% for product in collections.all.products limit: 250 %}
+        {% if product.tags contains 'gifts-shipped' %}
+          {% for variant in product.variants %}
+            {% assign gifts_shipped_id_list = gifts_shipped_id_list | append: variant.id | append: ',' %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      {% for product in collections['gifts'].products %}
+        {% if product.tags contains 'gifts-shipped' %}
+          {% for variant in product.variants %}
+            {% assign gifts_shipped_id_list = gifts_shipped_id_list | append: variant.id | append: ',' %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      {% assign gifts_shipped_ids = gifts_shipped_id_list | split: ',' | compact | uniq | join: ', ' %}
+
       <script>
         //All Global Varibles
         if (window.location.pathname === '/collections/send-cash-via-venmo' || window.location.pathname === '/collections/send-cash-via-venmo-1') {
@@ -47,6 +64,7 @@
         }
         let $printedCardEnvelopeIds = [{{ printed_card_envelope_ids }}];
         let $giftIds = [{{ gift_ids }}];
+        let $giftsShippedIds = [{{ gifts_shipped_ids }}];
         let $giftCardViaTextIds = [{{ gift_card_via_text_ids }}];
         let $giftCardViaEmailIds = [{{ gift_card_via_email_ids }}];
         let $personalizedWrittenAudioVideoMessageId = 44236113313969;

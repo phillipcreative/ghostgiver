@@ -12,8 +12,8 @@ function getLineItemProperties($form, variantId) {
   var line_properties = getFormData($("[name*=properties]", $form));
   if ($printedCardEnvelopeIds.includes(variantId)) {
     line_properties._product_type = "physical-card";
-  } else if ($giftIds.includes(variantId)) {
-    line_properties._product_type = "gifts";
+  } else if ($giftsShippedIds.includes(variantId)) {
+    line_properties._product_type = "gifts-shipped";
   }
   return line_properties;
 }
@@ -155,8 +155,8 @@ function checkoutModalUpsellsAddToCart(status, id) {
   var line_properties = {};
   if ($printedCardEnvelopeIds.includes(id)) {
     line_properties._product_type = "physical-card";
-  } else if ($giftIds.includes(id)) {
-    line_properties._product_type = "gifts";
+  } else if ($giftsShippedIds.includes(id)) {
+    line_properties._product_type = "gifts-shipped";
   }
   CartJS.addItem(id, 1, line_properties, {
     success: function (data, textStatus, jqXHR) {

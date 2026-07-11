@@ -130,6 +130,9 @@
                 {% if product.selected_or_first_available_variant.inventory_management == "shopify" and product.selected_or_first_available_variant.inventory_quantity < 1 and product.selected_or_first_available_variant.inventory_policy == "continue" %}
                 <input type="hidden" name="properties[{{ 'general.theme.status' | t }}]" value="{{ 'general.theme.pre_order' | t }}">
                 {% endif %}
+                {% if product.tags contains 'gifts-shipped' %}
+                <input type="hidden" name="properties[_product_type]" value="gifts-shipped">
+                {% endif %}
                 {% if product.metafields.c_f.line_properties != blank %}
                     {{ product.metafields.c_f.line_properties }}
                 {% endif %}

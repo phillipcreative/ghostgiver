@@ -10,6 +10,9 @@
         name="properties[{{ 'general.theme.status' | t }}]"
         value="{{ 'general.theme.pre_order' | t }}">
     {% endif %}
+    {% if product.tags contains 'gifts-shipped' %}
+      <input type="hidden" name="properties[_product_type]" value="gifts-shipped">
+    {% endif %}
     <input
       type="hidden"
       name="id"
