@@ -4158,7 +4158,7 @@
                     <span class="venmo-message-caret" aria-hidden="true"></span>
                     <span id="message-count" style="position: absolute; bottom: 10px; right: 15px; color: #aaa; font-size: 1rem;">0/250</span>
                   </div>
-                  <p class="comply-text">If message includes content that does not comply with our <a href="/policies/terms-of-service" target="_blank">Terms of Use</a>, it will not be sent.</p>
+                  <p class="comply-text">If message includes content that does not comply with our <a href="/pages/terms-of-use" target="_blank">Terms of Use</a>, it will not be sent.</p>
 
                   <button
                     type="button"
