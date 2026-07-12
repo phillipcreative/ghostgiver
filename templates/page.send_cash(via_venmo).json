@@ -39,7 +39,7 @@
         "link_target_2": "_self",
         "icon2": "shopify://shop_images/Venmo_Payname_Image.png",
         "cstmclass2": "",
-        "box_2_caption_1": "ADD @PAYNAME",
+        "box_2_caption_1": "ADD @username",
         "box_2_caption_2": "Fill in the Venmo @username of the recipient.",
         "link_3": "",
         "link_target_3": "_self",
