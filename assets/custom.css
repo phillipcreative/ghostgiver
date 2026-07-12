@@ -11917,3 +11917,9 @@ font-size: 88px!important;
 .giftcard-subheading {
   padding-right: 2rem;
 }
+
+@media only screen and (max-width: 767px) {
+  .giftcard-subheading {
+    padding-right: 0;
+  }
+}
