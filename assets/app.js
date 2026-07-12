@@ -4014,11 +4014,11 @@
             } else {
               $("#modalForVenmoAddress1").html(`
 		  <div>
-			<h3 class="giftcard-heading">PROVIDE RECIPIENT'S @Payname</h3>
-			<p class="venmo-subheading">Enter the Venmo @Payname of the person that you'd like us to send this cash to.</p>
+			<h3 class="giftcard-heading">PROVIDE RECIPIENT'S @username</h3>
+			<p class="venmo-subheading">Enter the Venmo @username of the person that you'd like us to send this cash to.</p>
 			<form id="contact-form">
 			  <div class="contact-div">
-				<label for="venmo-address"><b>Venmo</b> @Payname</label>
+				<label for="venmo-address"><b>Venmo</b> @username</label>
 				<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="basic-addon1">@</span>
 				  <input type="text" id="venmo-address" class="form-control cstm-input" aria-describedby="basic-addon1" placeholder="Name">
