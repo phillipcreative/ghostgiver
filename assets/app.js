@@ -4014,7 +4014,7 @@
             } else {
               $("#modalForVenmoAddress1").html(`
 		  <div>
-			<h3 class="giftcard-heading">PROVIDE RECIPIENT'S @username</h3>
+			<h3 class="giftcard-heading">PROVIDE RECIPIENT'S @USERNAME</h3>
 			<p class="venmo-subheading">Enter the Venmo @username of the person that you'd like us to send this cash to.</p>
 			<form id="contact-form">
 			  <div class="contact-div">
