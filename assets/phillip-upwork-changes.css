@@ -2916,6 +2916,60 @@ html, body {
   margin-bottom: 10px !important;
 }
 
+#modalCheckout a.dev-rounded.gift-grid-init {
+  margin-bottom: 10px !important;
+  line-height: 19px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  #modalCheckout .gift-block h4 {
+    font-size: 16px !important;
+  }
+
+  #modalCheckout .gift-block h4:before {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #modalCheckout .gift-block {
+    flex-direction: column !important;
+    padding: 40px 8px 17px 19px !important;
+    align-items: center !important;
+  }
+
+  #modalCheckout .gift-block h4 {
+    font-size: 16px !important;
+    gap: 5px !important;
+  }
+
+  #modalCheckout .gift-block h4:before {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  #modalCheckout .gift-block .gift-block-img {
+    margin: 0 auto !important;
+    width: 80% !important;
+    max-width: 90px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  #modalCheckout .gift-block .gift-card-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0 !important;
+  }
+
+  #modalCheckout .gift-block .gift-card-content span {
+    text-align: center !important;
+  }
+}
+
 #modalCheckout .text-center.d-sm-flex.flex-wrap.align-items-center.flex-sm-wrap {
   justify-content: space-between;
 }

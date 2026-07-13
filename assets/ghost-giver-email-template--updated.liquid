@@ -39,9 +39,13 @@
   {% assign venmo_spl_message = line_items | where: "variant_id", 47650932490417 %}
   {% assign individual_code = line_items | where: "variant_id", 44382753063089 %}
   {% assign venmo_contact = '' %}
+  {% assign has_physical_gift_product = false %}
   {% for line_item in line_items %}
     {% if line_item.properties._For == 'send-cash-via-venmo' and line_item.properties._Contact != blank %}
       {% assign venmo_contact = line_item.properties._Contact %}
+    {% endif %}
+    {% if line_item.product.template_suffix == 'physical_product' %}
+      {% assign has_physical_gift_product = true %}
     {% endif %}
   {% endfor %}
   {% assign found_gift_card_with_recipient_email = false %}
@@ -359,7 +363,7 @@
                     <td>
                       <h2 style="text-align: center; margin-bottom: 1rem;">{{ email_title }}</h2>
                       <div id="main-content">
-                        {% if spl_message == empty and venmo_spl_message == empty %}
+                        {% if spl_message == empty and venmo_spl_message == empty and has_physical_gift_product == false %}
                           {% comment %} Physical Card Instance {% endcomment %}
                           <div class="physical-card-case">
                             <div class="heading-area">
@@ -537,12 +541,12 @@
                                     </p>
                                   </div>
                                   <div class="text_cstm4">
-                                    For a quick refresher on what to expect next, please refer to our HOW IT WORKS and EXAMPLE pages below
+                                    For a quick refresher on what to expect next, please refer to our HOW IT WORKS page below.
                                   </div>
                                   <div class="btn-grp">
                                     <a
                                       class="btn btn-pink"
-                                      href="https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext"
+                                      href="{% if has_physical_gift_product %}https://ghostgiver.com/pages/how-it-works-free-products{% else %}https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext{% endif %}"
                                       target="_blank"
                                       style="margin: auto; text-decoration: none;"
                                     >HOW IT WORKS</a>

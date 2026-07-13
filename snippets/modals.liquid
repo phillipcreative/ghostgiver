@@ -467,21 +467,38 @@
                 <div class="mdlchk-prd-price custom-color-alt js-mdlchk-prd-price"></div>
               </div>
             </div>
-            <div id="gift-block" class="display-flex">
-              <button href="#" class="dev-rounded gift-grid-init">
-                <div class="gift-block">
-                  <div style="display:flex; gap: 1rem; align-items: center; margin-bottom: 5px; margin-left: 1rem;">
-                    <img src="https://cdn.shopify.com/s/files/1/0508/9994/3601/files/transparent-plus.svg?v=1718868841" style="width: 30px;">
-                    <span class="add-digital-card">ADD A DIGITAL GIFT CARD</span>
+            <div
+              id="gift-block"
+              class="display-flex gift-block-container"
+              style="
+                margin-bottom: 10px;
+                margin-top: 10px;
+              "
+            >
+              <a href="#" class="dev-rounded gift-grid-init">
+                <div class="d-sm-flex gift-block">
+                  <div
+                    class="d-flex d-sm-block align-items-center justify-content-center h-100 gift-block-img"
+                    style="width:80%; margin:auto; "
+                  >
+                    <img
+                      width="100"
+                      style="align-self:center; margin-bottom:0.85rem;"
+                      class="img-responsive"
+                      src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/gift_list_2.png?v=1687931304"
+                    >
                   </div>
-                  <div style="display:flex; gap: 0.5rem; align-items: center;">
-                    <img width="100" style="align-self:center;" class="img-responsive" src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/gift_list_2.png?v=1687931304"/>
-                    <span style="font-style: italic; font-size:12px; line-height: 19px; font-weight: 600; text-align: left;">
-                      Choose a merchant, select a dollar amount, and your recipient will receive instructions on how to redeem with your personal message.
+                  <div class="text-white gift-card-content text-center text-sm-start">
+                    <h4 class="text-white" style="font-size: 16px; font-weight: normal; margin-bottom:0.35rem;">
+                      ADD A DIGITAL GIFT CARD
+                    </h4>
+                    <span style="font-style: italic; font-size:12px;">
+                      Choose a merchant, select a dollar amount, and your recipient will receive instructions on how to
+                      redeem with your personal message.
                     </span>
                   </div>
                 </div>
-              </button>
+              </a>
             </div>
 
             <div class="text-center d-sm-flex flex-wrap align-items-center flex-sm-wrap" style="justify-content: space-evenly;">
@@ -1143,12 +1160,70 @@
     margin: 0;
   }
   .gift-block {
-    flex-wrap: nowrap;
+    border-radius: 13px;
+    border: 3px dashed var(--purple);
     background: #F2F2F2;
-    font-size: 10px !important;
-    line-height: 12px;
+    margin: 0;
+    padding: 43px 8px 17px 19px;
+    position: relative;
+  }
+
+  .gift-block-container {
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .gift-block h4 {
+    display: flex;
+    position: absolute;
+    top: 13px;
+    left: 0;
+    right: 0;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    line-height: 25px;
+    color: #030303 !important;
+    margin: auto !important;
     align-items: center;
-    border-radius: 15px;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .gift-block h4:before {
+    content: "";
+    background-image: url(https://cdn.shopify.com/s/files/1/0447/4047/7095/files/plus-transparent.png?v=1710249431);
+    width: 29px;
+    height: 29px;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .gift-block .gift-card-content {
+    width: 100%;
+    max-width: calc(100% - 90px);
+    padding: 0 0 0 21px;
+    display: flex;
+    align-items: center;
+  }
+
+  .gift-block .gift-card-content span {
+    line-height: 19px;
+    font-weight: 500 !important;
+    font-style: normal !important;
+    color: #030303;
+    max-width: 100%;
+    display: block;
+    text-align: left !important;
+    font-size: 14px !important;
+  }
+
+  .gift-block .gift-block-img {
+    width: 100%;
+    max-width: 90px;
+    margin: 0;
   }
   .icon-plus {
     color: var(--purple);
