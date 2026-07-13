@@ -40,12 +40,16 @@
   {% assign individual_code = line_items | where: "variant_id", 44382753063089 %}
   {% assign venmo_contact = '' %}
   {% assign has_physical_gift_product = false %}
+  {% assign has_gifts_shipped = false %}
   {% for line_item in line_items %}
     {% if line_item.properties._For == 'send-cash-via-venmo' and line_item.properties._Contact != blank %}
       {% assign venmo_contact = line_item.properties._Contact %}
     {% endif %}
     {% if line_item.product.template_suffix == 'physical_product' %}
       {% assign has_physical_gift_product = true %}
+    {% endif %}
+    {% if line_item.properties._product_type == 'gifts-shipped' or line_item.product.tags contains 'gifts-shipped' %}
+      {% assign has_gifts_shipped = true %}
     {% endif %}
   {% endfor %}
   {% assign found_gift_card_with_recipient_email = false %}
@@ -363,7 +367,7 @@
                     <td>
                       <h2 style="text-align: center; margin-bottom: 1rem;">{{ email_title }}</h2>
                       <div id="main-content">
-                        {% if spl_message == empty and venmo_spl_message == empty and has_physical_gift_product == false %}
+                        {% if spl_message == empty and venmo_spl_message == empty and has_physical_gift_product == false and has_gifts_shipped == false %}
                           {% comment %} Physical Card Instance {% endcomment %}
                           <div class="physical-card-case">
                             <div class="heading-area">
@@ -408,7 +412,7 @@
                             <div id="send-cash-via-venmo">
                               <div class="heading-area">
                                 <div class="text_cstm5">
-                                  The cash amount you designated will be sent to the following Venmo address within the next 24 hours:
+                                  The cash amount you designated will be sent to the following Venmo username within the next 24 hours:
                                 </div>
                                 <div class="text_cstm6">@{{ venmo_contact }}</div>
                                 <div class="text_cstm5">
@@ -546,7 +550,7 @@
                                   <div class="btn-grp">
                                     <a
                                       class="btn btn-pink"
-                                      href="{% if has_physical_gift_product %}https://ghostgiver.com/pages/how-it-works-free-products{% else %}https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext{% endif %}"
+                                      href="{% if has_physical_gift_product or has_gifts_shipped %}https://ghostgiver.com/pages/how-it-works-free-products{% else %}https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext{% endif %}"
                                       target="_blank"
                                       style="margin: auto; text-decoration: none;"
                                     >HOW IT WORKS</a>
@@ -554,7 +558,7 @@
                                 </div>
                               </div>
                             {% else %}
-                              {% comment %} Individual Code Instance {% endcomment %}
+                              {% comment %} Etailers/Individual Code Instance {% endcomment %}
                               <div id="individual-code-case" class="d-none">
                                 <div class="heading-area">
                                   <div class="text_cstm2">
@@ -595,8 +599,7 @@
                                       <div class="box-heading">{{ part1 }}-{{ part2 }}-{{ part3 }}-{{ part4 }}</div>
                                     </div>
                                     <div class="btn-grp">
-                                      <a href="https://ghostgiver.com/pages/how-it-works-digital-gift-cardviatext" target="_blank" style="margin-left: auto; text-decoration: none; margin-right: 0.5rem; color: #fff; font-size: 1.375rem; line-height: 1.438rem; border-radius: 1rem; letter-spacing: -0.8px; font-weight: 500; width: 43%; background-color: #1e3d5a !important; padding-top: 1.2rem; padding-bottom: 1.2rem;">HOW IT WORKS</a>
-                                      <button class="btn btn-primary" style="margin-right: auto; margin-left:0.5rem">EXAMPLE</button>
+                                      <a href="https://ghostgiver.com/pages/how-it-works-ghost-code-via-e-tailers" target="_blank" style="margin-left: auto; text-decoration: none;margin: auto; color: #fff; font-size: 1.375rem; line-height: 1.438rem; border-radius: 1rem; letter-spacing: -0.8px; font-weight: 500; width: 43%; background-color: #1e3d5a !important; padding-top: 1.2rem; padding-bottom: 1.2rem;">HOW IT WORKS</a>
                                     </div>
                                     <div class="text_cstm7">
                                       Note: Several online retailers don’t allow you to include URLs in a gift message - due  to misuse. This is why we’ve included (dot) twice in our URL, message (dot) ghostgiver (dot) com, as opposed to message.ghostgiver.com. Your recipient should know to type the period in the browser's address bar - assuming they use the internet regularly.
