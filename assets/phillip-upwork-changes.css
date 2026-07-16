@@ -160,15 +160,31 @@ div#shopify-section-topline .container.header-topline.alert a.close i.icon.icon-
 /* ==================================================== */
 
 header.page-header>.container .header-middle-row .header-logo>a img {
-  max-height: 65px;
+  width: 100%;
+  height: auto;
+  max-height: unset;
 }
 
 header.page-header>.container .header-middle-row {
   padding: 35px 0px 15px 0px;
 }
 
+/* Match Velvey: prominent, aspect-preserved central logo + larger icons (desktop) */
+@media (min-width: 992px) {
+  header.page-header>.container .header-middle-row .header-logo {
+    max-width: 400px;
+    width: 100%;
+    flex-basis: auto;
+    padding: 0;
+  }
+
+  header.page-header>.container .header-middle-row .header-middle-right .header-link i.icon:before {
+    font-size: 40px;
+  }
+}
+
 header.page-header>.container .header-content .header-nav-line {
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 
 /* header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a {
@@ -182,9 +198,9 @@ header.page-header>.container .header-content .header-nav-line {
   gap: 3.5rem;
 } */
 
-header.page-header {
+/* header.page-header {
   padding-bottom: 10px;
-}
+} */
 
 header.page-header>.container .header-middle-row .header-middle-right .header-link span.badge {
   font-size: 14px;
@@ -209,6 +225,20 @@ header.page-header>.container .header-middle-row .header-middle-right .header-li
 
 .megamenu .nav>li {
   margin-right: 0px;
+}
+
+/* Match Velvey: nav item + parent padding (vertical padding on .megamenu, not .header-nav-line) */
+header.page-header>.container .header-nav-line {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+header.page-header>.container .header-nav-line .megamenu {
+  padding: 24.3px 0 10px;
+}
+
+header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a {
+  padding: 0 20px 20px;
 }
 
 .navbar:before {
@@ -387,7 +417,7 @@ html body .custom-slider-section .slide-content h2 {
 
 @media (max-width: 550px) {
   header.page-header>div.container {
-    padding: 10px 15px !important;
+    padding: 15px !important;
   }
 
   header.page-header>.container .header-content .header-nav-line {

@@ -14,8 +14,9 @@
       content_for_header
     }}
   </head>
+  {% assign page_title = page.title | downcase | replace: ' ', '-' %}
   <body
-    class="{{ collection.title }}{{ page.title }} page-{{ template }} {{
+    class="{{ collection.title }}{{ page.title }} custom-{{ page_title }} page-{{ template }} {{
       template.suffix
     }} {% if settings.boxed %}boxed{% else %}fullwidth{% endif %}  {% if settings.ajax_cart %}ajax_cart{% endif %} {% if settings.rtl or template contains 'rtl' %}rtl{% endif %} {% if settings.rounded %}rounded{% endif %} {% if settings.megamenu_spy_navigation %}has-spymenu{% endif %} {% if settings.checkout_popup %}checkout-popup{% endif %} {{
       settings.loader

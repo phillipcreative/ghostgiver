@@ -272,7 +272,7 @@ header.page-header > .container .header-nav-line .megamenu {
 header.page-header > .container .header-nav-line .megamenu > ul.nav,
 .page-header .header-sticky .megamenu > ul.nav {
   display: flex;
-  gap: 44px;
+  /* gap: 44px; */
 }
 
 header.page-header > .container .header-nav-line .megamenu > ul.nav > li > a,
@@ -5105,9 +5105,9 @@ header.page-header
   transform: translateY(9px);
 }
 
-header.page-header > .container .header-content .header-nav-line {
+/* header.page-header > .container .header-content .header-nav-line {
   padding: 18.2px 0 0px;
-}
+} */
 /* 03 sep 2024 ends */
 
 /* 04 sep 2024 starts */
@@ -11565,7 +11565,7 @@ html body .custom-slider-section .slide-content h2 {
 header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a,
 .page-header .header-sticky .megamenu>ul.nav>li>a {
    font-size: 28px;
-   padding: 0 22px 22px;
+   padding: 0 20px 20px;
 }
 }
 @media (min-width: 1200px) and (max-width: 1535px) {
@@ -11804,7 +11804,7 @@ body.page-index   .custom-html .instagram-title h2 {
   .page-header .header-sticky .megamenu>ul.nav>li>a {
    font-size: 28px;
    /* padding: 0 22px 22px; */
-   padding: 0 0 22px 0 !important;
+   padding: 0 20px 20px;
 }
   body.Ways.To.Ghostgive .banner-relative .banner-overlay-text>.container.right-banner .bs-content {
     position: static;
