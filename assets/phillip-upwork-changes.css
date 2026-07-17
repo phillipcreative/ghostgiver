@@ -3717,3 +3717,14 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-c
     margin: 1rem 0 !important;
   }
 }
+
+/* Sticky promo image column (image + button) while scrolling the product grid.
+   Scoped to the Digital Gift Cards template, desktop only (columns stack on mobile).
+   align-self:flex-start stops the flex child from stretching so it has room to stick. */
+@media only screen and (min-width: 992px) {
+  .template-Digital-Gift-Cards .custom-main-img-contant-coll-main-wrap>.image-btn-wrap {
+    position: sticky;
+    top: 90px;
+    align-self: flex-start;
+  }
+}
