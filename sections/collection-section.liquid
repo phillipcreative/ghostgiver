@@ -29,11 +29,6 @@
                <a href="{{ coll_link }}">{{ section.settings.custm_name_how_it_work }}</a>
              </div>
             {% endif %}
-            {% comment %} {% if coll_link1 != blank and template.suffix != 'digital_gift_card_viatext' %}
-             <div class="example-custm">
-               <a href="{{ coll_link1 }}">{{ section.settings.custm_name_example }}</a>
-             </div>
-            {% endif %} {% endcomment %}
           </div>
       </div>
       <div class="custm-but-cont-head">
@@ -109,11 +104,6 @@
      {% comment %} <a data-test="{{ coll_link }}" href="/pages/how-it-work-physical-cards-and-envelopes">{{ section.settings.custm_name_how_it_work }}</a> {% endcomment %}
          <a data-test="{{ coll_link }}" href="{{ coll_link }}">{{ section.settings.custm_name_how_it_work }}</a>
 
-     </div>
-         {% endif %}
-       {% if section.settings.custm_url_example != blank %}
-      <div class="example-custm">
-     <a href="{{ section.settings.custm_url_example }}">{{ section.settings.custm_name_example }}</a>
      </div>
          {% endif %}
      </div>

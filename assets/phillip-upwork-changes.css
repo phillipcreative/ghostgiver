@@ -2832,12 +2832,6 @@ div#shopify-section-collection-section .text_below_title {
   div#shopify-section-collection-section .text_below_title {
     margin: 0px !important;
   }
-
-  div#shopify-section-collection-section .product-item-inside>.product-item-details .price-box span.price-container>span.price-wrapper>span.special-price,
-  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name a.product-item-link {
-    font-size: 16px !important;
-    line-height: normal !important;
-  }
 }
 
 .header-topline-inside:before {
@@ -3157,14 +3151,95 @@ html, body {
 
 /* PLP UPDATES */
 
+/* Match Velvey PLP: roomy 2-line title */
 div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name {
-  padding-bottom: 5px;
-  height: 35px !important;
-  line-height: 15px !important;
+  padding-bottom: 0;
+  height: auto !important;
+  min-height: 50px;
+  margin: 0 0 10px;
+  line-height: 25px !important;
+  overflow: hidden;
 }
 
 div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name a.product-item-link {
-  line-height: 15px !important;
+  font-size: 21px !important;
+  line-height: 25px !important;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Match Velvey PLP: bold, prominent price */
+div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details .price-box span.price-container>span.price-wrapper>span.special-price {
+  font-size: 25px !important;
+  line-height: 30px !important;
+  font-weight: 800;
+}
+
+/* Match Velvey PLP: responsive title + price ladder (kept after desktop rules to win source order) */
+@media only screen and (max-width: 992px) {
+  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name a.product-item-link {
+    font-size: 18px !important;
+    line-height: 22px !important;
+  }
+
+  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details .price-box span.price-container>span.price-wrapper>span.special-price {
+    font-size: 18px !important;
+    line-height: 27px !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name a.product-item-link {
+    font-size: 16px !important;
+    line-height: 20px !important;
+  }
+
+  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details .price-box span.price-container>span.price-wrapper>span.special-price {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+}
+
+/* Match Velvey PLP: wider grid area = larger product images.
+   Desktop-only, and scoped with :has() so only collections that render a
+   product grid are affected (single-product promo pages keep their layout). */
+@media only screen and (min-width: 992px) {
+  .aside .custom-main-img-contant-coll-main-wrap:has(.product-items.products-grid) {
+    /* gap: 30px; */
+  }
+
+  .aside .custom-main-img-contant-coll-main-wrap:has(.product-items.products-grid)>.image-btn-wrap {
+    flex: 0 0 270px;
+    max-width: 270px;
+  }
+
+  .aside .custom-main-img-contant-coll-main-wrap:has(.product-items.products-grid) .custom-coll-img-main {
+    max-width: 240px;
+  }
+
+  .aside .custom-main-img-contant-coll-main-wrap:has(.product-items.products-grid) .custm-but-cont-head {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+
+  /* Velvey-style column gap + larger 3-up cards */
+  div#shopify-section-collection-section .aside .product-items.products-grid {
+    column-gap: 38px;
+    row-gap: 20px;
+  }
+
+  div#shopify-section-collection-section .aside .product-items.products-grid>.product-item {
+    max-width: calc(33.3333% - 26px);
+  }
+
+  /* Velvey-style breathing room above the title */
+  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details {
+    padding-top: 20px;
+  }
 }
 
 /* ==================================================== */
@@ -3564,5 +3639,81 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-c
     width: 100% !important;
     max-width: none !important;
     height: auto !important;
+  }
+}
+
+/* Upwork updates to match Velvey PLP spacing and grid*/
+
+.template-Digital-Gift-Cards,
+.template-Digital-Gift-Cards.my-class .container {
+ max-width: 1458px !important;
+}
+
+@media only screen and (min-width: 992px) {
+  .template-Digital-Gift-Cards .custm-but-cont-head {
+    max-width: calc(100% - 342px) !important;
+    padding: 0 0 0 35px !important;
+  }
+}
+
+.template-Digital-Gift-Cards div#shopify-section-collection-section .aside .product-items.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 38px;
+  grid-row-gap: 38px;
+  margin: 0;
+}
+
+.template-Digital-Gift-Cards div#shopify-section-collection-section .product-items.products-grid {
+  padding-top: 25px !important;
+}
+
+.template-Digital-Gift-Cards div#shopify-section-collection-section .aside .product-items.products-grid>.product-item {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  flex: initial;
+}
+
+.template-Digital-Gift-Cards .products-grid.data-to-show-xs-2 .product-item .product-item-actions {
+  display: none !important;
+}
+
+/* Velvey mobile: 2-up grid */
+@media only screen and (max-width: 991px) {
+  .template-Digital-Gift-Cards div#shopify-section-collection-section .aside .product-items.products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+  }
+
+  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name a.product-item-link {
+    font-size: 16px !important;
+  }
+
+  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name {
+    margin-bottom: 0px !important;
+  }
+
+  .template-Digital-Gift-Cards .block.boxed.offset-top-30.my-class.block--loaded {
+    margin-top: 50px !important;
+  }
+
+  .product-items .product-item-inside>.product-item-details {
+    padding: 5px !important;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+
+  div#shopify-section-collection-section .aside .product-items.products-grid .product-item-details>.product-item-name a.product-item-link {
+    font-size: 13px !important;
+  }
+
+  .template-Digital-Gift-Cards .aside .custom-main-img-contant-coll-main-wrap .custm-but-cont-head .custom-but-work-example-main {
+    margin: 1rem 0 !important;
   }
 }

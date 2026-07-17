@@ -22,7 +22,7 @@
 </div>
 
     <div class="banner-relative mobile"  style="display:none ">
-       
+
   <img class="bg-main-works " src="{{settings.imgbanner_mobile | img_url: 'master'}}">
   <div class="banner-overlay-text">
     <div class="container right-banner">
@@ -43,7 +43,7 @@
 {% comment %}
   {% include 'breadcrumbs' %}
 {% endcomment %}
-<div class="block {{ collection_width }} {{ settings.collection_outer_margin }} my-class">
+<div class="block {{ collection_width }} {{ settings.collection_outer_margin }} my-class test123 template-{{ template.suffix }}">
     <div class="container">
         <div class="row row-table">
             {% if collection_left_sidebar == 1 %}{% section 'collection-sidebar' %}{% endif %}
