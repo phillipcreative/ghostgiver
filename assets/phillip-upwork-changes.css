@@ -166,13 +166,14 @@ header.page-header>.container .header-middle-row .header-logo>a img {
 }
 
 header.page-header>.container .header-middle-row {
-  padding: 35px 0px 15px 0px;
+  /* padding: 33.6px 0px 15px 0px; */
+  padding: 33.6px 0px 0px 0px;
 }
 
 /* Match Velvey: prominent, aspect-preserved central logo + larger icons (desktop) */
 @media (min-width: 992px) {
   header.page-header>.container .header-middle-row .header-logo {
-    max-width: 400px;
+    max-width: 450px;
     width: 100%;
     flex-basis: auto;
     padding: 0;
@@ -186,21 +187,6 @@ header.page-header>.container .header-middle-row {
 header.page-header>.container .header-content .header-nav-line {
   /* padding-top: 10px; */
 }
-
-/* header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a {
-  font-size: 18px;
-  padding: 0 !important;
-  padding-bottom: 15px !important;
-} */
-
-/* header.page-header>.container .header-nav-line .megamenu>ul.nav,
-.page-header .header-sticky .megamenu>ul.nav {
-  gap: 3.5rem;
-} */
-
-/* header.page-header {
-  padding-bottom: 10px;
-} */
 
 header.page-header>.container .header-middle-row .header-middle-right .header-link span.badge {
   font-size: 14px;
@@ -374,6 +360,7 @@ html body .custom-slider-section .slide-content h2 {
 
   header.page-header>.container .header-content {
     align-items: center;
+    justify-content: space-between;
   }
 
   html body .custom-slider-section .slide-content h2 {
@@ -416,9 +403,6 @@ html body .custom-slider-section .slide-content h2 {
 }
 
 @media (max-width: 550px) {
-  header.page-header>div.container {
-    padding: 15px !important;
-  }
 
   header.page-header>.container .header-content .header-nav-line {
     padding-top: 0px;
@@ -3726,5 +3710,148 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-c
     position: sticky;
     top: 90px;
     align-self: flex-start;
+  }
+}
+
+/* Terms of Use / Privacy Policy: match Velvey's main-content typography.
+   The site-wide `body p` / `body h2` !important rules at the top of this file
+   force cramped 18px/normal copy; Velvey renders base 15px/23px paragraphs and
+   35px/43px headings. `.page-main` outranks `body p`, and !important beats the
+   global, so these read like Velvey and stay constant across breakpoints. */
+body:where(.Terms.of.Use, .Privacy.Policy) main.page-main p {
+  font-size: 15px !important;
+  line-height: 23px !important;
+}
+
+body:where(.Terms.of.Use,.Privacy.Policy) main.page-main .block--no-preload .title h1 {
+  display: block !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  margin: 0px !important;
+  font-size: 46px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+}
+
+body:where(.Terms.of.Use,.Privacy.Policy) main.page-main .block--no-preload .title {
+  margin-bottom: 0px !important;
+}
+
+body:where(.Terms.of.Use, .Privacy.Policy) main.page-main h2,
+body:where(.Terms.of.Use, .Privacy.Policy) main.page-main h3 {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 29px !important;
+  color: #000 !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 25px !important;
+  font-weight: 700 !important;
+}
+
+body:where(.Terms.of.Use,.Privacy.Policy) main.page-main p {
+  font-size: 24px !important;
+  line-height: 29px !important;
+  color: #000 !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 25px !important;
+  font-weight: 400 !important;
+}
+
+@media only screen and (max-width: 767px) {
+  body:where(.Terms.of.Use, .Privacy.Policy) main.page-main h2 {
+    font-size: 25px !important;
+    line-height: 30px !important;
+  }
+
+  body:where(.Terms.of.Use,.Privacy.Policy) main.page-main p {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    margin: 0 0 14px !important;
+  }
+}
+
+/* Header Updates to match Velvey */
+
+header.page-header>.container .header-nav-line .megamenu {
+  padding-top: 33.6px !important;
+}
+
+header.page-header>.container .header-content .header-nav-line {
+  padding-top: 0px !important;
+}
+
+@media only screen and (max-width: 1365px) {
+  header.page-header>.container .header-middle-row .header-logo {
+    max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  header.page-header>.container .header-middle-row .header-logo {
+    max-width: 300px;
+  }
+
+  header.page-header>.container .header-nav-line .megamenu {
+    padding: 15px 0 10px;
+  }
+
+  header.page-header>.container .header-nav-line .megamenu>ul.nav>li>a, .page-header .header-sticky .megamenu>ul.nav>li>a {
+    padding: 0 15px 15px !important;
+  }
+}
+
+/* Logo sizing: match Velvey's exact widths — 318px on desktop, 260px from 1365px down.
+   Placed last so it overrides the earlier 450 / 400 / 300 ladder at equal specificity. */
+header.page-header>.container .header-middle-row .header-logo {
+  max-width: 450px;
+}
+
+@media only screen and (max-width: 1365px) {
+  header.page-header>.container .header-middle-row .header-logo {
+    max-width: 300px;
+  }
+}
+
+/* Mobile header (hamburger view): logo dead-center, cart hugging the right edge.
+   Match Velvey — absolutely center the logo and push the cart out with margin-left:auto,
+   instead of the base theme's justify-content:center that groups logo+cart together. */
+@media only screen and (max-width: 1024px) {
+  /* Positioning context spans the full header width (the middle row is pushed
+     right by the in-flow hamburger), so the absolute logo centers on the viewport. */
+  header.page-header>.container .header-content {
+    position: relative;
+  }
+
+  header.page-header>.container .header-middle-row {
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 20px 15px; */
+  }
+
+  header.page-header>.container .header-middle-row .header-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+    padding: 0;
+    /* Keep the centered (clickable) logo from overlapping the hamburger/cart on
+       narrow phones: stays 300px where there's room, shrinks below ~450px. */
+    max-width: min(300px, calc(100vw - 150px));
+  }
+
+  header.page-header>.container .header-middle-row .header-middle-right {
+    width: auto !important;
+    order: 3;
+    margin-left: auto;
+  }
+
+  header.page-header>div.container {
+    padding: 15px !important;
+  }
+
+  header.page-header>.container .header-middle-row {
+    padding: 0px;
   }
 }
