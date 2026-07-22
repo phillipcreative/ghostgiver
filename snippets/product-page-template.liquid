@@ -116,3 +116,10 @@
     {% include 'related-products' %}
   {% endif %}
 </div>
+
+<script>
+  // Clicking a metafield image triggers its column's zoom link
+  $(document).on('click', '.ebeded_description_pics .col-md-3 img', function () {
+    $(this).closest('.col-md-3').find('.zoom-link').trigger('click');
+  });
+</script>

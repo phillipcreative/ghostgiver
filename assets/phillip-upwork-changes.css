@@ -3863,6 +3863,11 @@ header.page-header>.container .header-middle-row .header-logo {
   bottom: -30px !important;
 }
 
+/* Metafield images are clickable to open zoom */
+.ebeded_description_pics .col-md-3 img {
+  cursor: pointer;
+}
+
 .usingEmailBlock.product-template-main .row>.col-md-3 {
   height: fit-content !important;
 }
