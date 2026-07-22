@@ -33,34 +33,72 @@
   <div class="container">
     <div class="usingEmailBlock product-template-main">
       <div class="row">
-        <div class="col-md-3">
+        {% assign image1_alt = product.metafields.custom.image1.value.alt %}
+        {% assign image1_class = '' %}
+        {% assign image1_alt_down = image1_alt | downcase %}
+        {% if image1_alt_down contains 'card' %}{% assign image1_class = 'card-image' %}{% endif %}
+        <div class="col-md-3{% if image1_class != '' %} card_image{% endif %}">
+        {% if image1_class != '' and image1_alt contains 'front'%}
+            <span class="card-label front-label">FRONT</span>
+        {% elsif image1_class != '' and image1_alt contains 'back'%}
+            <span class="card-label back-label">BACK</span>
+        {% endif %}
           {% if product.metafields.custom.image1 != blanks %}
-            <img class="metafields" src="{{ product.metafields.custom.image1 | img_url: '500x'}}" loading="lazy">
-            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image1 | img_url: '500x'}}"
+            {% assign image1_url = product.metafields.custom.image1 | img_url: '500x' %}
+            {% if image1_class == '' %}<div class="regular-image-wrapper">{% endif %}
+            <img class="metafields {{ image1_class }}" src="{{ image1_url }}" loading="lazy" alt="{{ image1_alt }}">
+            {% if image1_class == '' %}</div>{% endif %}
+            <a class="zoom-link  disable-gallery" href="{{ image1_url }}"
               ><i class="icon icon-zoomin"></i>Zoom</a
             >
           {% endif %}
         </div>
-        <div class="col-md-3">
+        {% assign image2_alt = product.metafields.custom.image2.value.alt %}
+        {% assign image2_class = '' %}
+        {% assign image2_alt_down = image2_alt | downcase %}
+        {% if image2_alt_down contains 'card' %}{% assign image2_class = 'card-image' %}{% endif %}
+        <div class="col-md-3{% if image2_class != '' %} card_image{% endif %}">
+          {% if image2_class != '' and image2_alt contains 'front'%}
+            <span class="card-label front-label">FRONT</span>
+        {% elsif image2_class != '' and image2_alt contains 'back'%}
+            <span class="card-label back-label">BACK</span>
+        {% endif %}
           {% if product.metafields.custom.image2 != blanks %}
-            <img src="{{ product.metafields.custom.image2 | img_url: '500x' }}" loading="lazy">
-            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image2 | img_url: '500x' }}"
+            {% assign image2_url = product.metafields.custom.image2 | img_url: '500x' %}
+            {% if image2_class == '' %}<div class="regular-image-wrapper">{% endif %}
+            <img class="{{ image2_class }}" src="{{ image2_url }}" loading="lazy" alt="{{ image2_alt }}">
+            {% if image2_class == '' %}</div>{% endif %}
+            <a class="zoom-link  disable-gallery" href="{{ image2_url }}"
               ><i class="icon icon-zoomin"></i>Zoom</a
             >
           {% endif %}
         </div>
-        <div class="col-md-3">
+        {% assign image3_alt = product.metafields.custom.image3.value.alt %}
+        {% assign image3_class = '' %}
+        {% assign image3_alt_down = image3_alt | downcase %}
+        {% if image3_alt_down contains 'card' %}{% assign image3_class = 'card-image' %}{% endif %}
+        <div class="col-md-3{% if image3_class != '' %} card_image{% endif %}">
           {% if product.metafields.custom.image3 != blanks %}
-            <img src="{{ product.metafields.custom.image3 | img_url: '500x' }}" loading="lazy">
-            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image3 | img_url: '500x' }}"
+            {% assign image3_url = product.metafields.custom.image3 | img_url: '500x' %}
+            {% if image3_class == '' %}<div class="regular-image-wrapper">{% endif %}
+            <img class="{{ image3_class }}" src="{{ image3_url }}" loading="lazy" alt="{{ image3_alt }}">
+            {% if image3_class == '' %}</div>{% endif %}
+            <a class="zoom-link  disable-gallery" href="{{ image3_url }}"
               ><i class="icon icon-zoomin"></i>Zoom</a
             >
           {% endif %}
         </div>
-        <div class="col-md-3">
+        {% assign image4_alt = product.metafields.custom.image4.value.alt %}
+        {% assign image4_class = '' %}
+        {% assign image4_alt_down = image4_alt | downcase %}
+        {% if image4_alt_down contains 'card' %}{% assign image4_class = 'card-image' %}{% endif %}
+        <div class="col-md-3{% if image4_class != '' %} card_image{% endif %}">
           {% if product.metafields.custom.image4 != blanks %}
-            <img src="{{ product.metafields.custom.image4 | img_url: '500x' }}" loading="lazy">
-            <a class="zoom-link  disable-gallery" href="{{ product.metafields.custom.image4 | img_url: '500x' }}"
+            {% assign image4_url = product.metafields.custom.image4 | img_url: '500x' %}
+            {% if image4_class == '' %}<div class="regular-image-wrapper">{% endif %}
+            <img class="{{ image4_class }}" src="{{ image4_url }}" loading="lazy" alt="{{ image4_alt }}">
+            {% if image4_class == '' %}</div>{% endif %}
+            <a class="zoom-link  disable-gallery" href="{{ image4_url }}"
               ><i class="icon icon-zoomin"></i>Zoom</a
             >
           {% endif %}

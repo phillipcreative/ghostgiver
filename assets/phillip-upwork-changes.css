@@ -1991,7 +1991,7 @@ div#insta-feed {
   #shopify-section-product-section .ebeded_description_pics {
     justify-content: center;
     margin-bottom: 0px !important;
-    padding-top: 0px !important;
+    /* padding-top: 0px !important; */
   }
 }
 
@@ -3527,6 +3527,7 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-c
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 0;
+  column-gap: 24px;
 }
 
 .usingEmailBlock.product-template-main .row::before,
@@ -3552,7 +3553,7 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-c
   position: absolute !important;
   top: auto !important;
   right: auto !important;
-  bottom: 32px !important;
+  bottom: -18px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   display: flex;
@@ -3575,11 +3576,11 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-c
   font-size: 16px;
 }
 
-@media (max-width: 1600px) {
+/* @media (max-width: 1600px) {
   .usingEmailBlock.product-template-main .row > .col-md-3 a.zoom-link.disable-gallery {
-    bottom: 22px !important;
+    bottom: 12px !important;
   }
-}
+} */
 
 @media (max-width: 1439px) {
   .ebeded_description_pics:has(.usingEmailBlock.product-template-main) {
@@ -3588,28 +3589,29 @@ li.mega-dropdown.title-ways-to-ghostgive .megamenu-categories--split .megamenu-c
   }
 }
 
-@media screen and (max-width: 1199px) {
+/* @media screen and (max-width: 1199px) {
   .usingEmailBlock.product-template-main .row > .col-md-3 a.zoom-link.disable-gallery {
     bottom: 15px !important;
   }
-}
+} */
 
-@media screen and (max-width: 991px) {
+/* @media screen and (max-width: 991px) {
   .usingEmailBlock.product-template-main .row > .col-md-3 a.zoom-link.disable-gallery {
-    bottom: 5px !important;
+    bottom: 55px !important;
   }
-}
+} */
 
 /* Tablet + mobile: match Velvey 2x2 grid */
 @media (max-width: 1024px) {
   .ebeded_description_pics:has(.usingEmailBlock.product-template-main) {
-    padding: 20px 0 40px;
+    padding: 60px 0 40px;
     margin: 0 0 50px;
   }
 
   .usingEmailBlock.product-template-main .row {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px;
+    row-gap: 20px;
   }
 
   .usingEmailBlock.product-template-main .row > .col-md-3 {
@@ -3853,5 +3855,57 @@ header.page-header>.container .header-middle-row .header-logo {
 
   header.page-header>.container .header-middle-row {
     padding: 0px;
+  }
+}
+
+/* Zoom link position inside card_image columns */
+.usingEmailBlock.product-template-main .row>.col-md-3.card_image a.zoom-link.disable-gallery {
+  bottom: -30px !important;
+}
+
+.usingEmailBlock.product-template-main .row>.col-md-3 {
+  height: fit-content !important;
+}
+
+img.card-image {
+  padding: 0px 12px !important;
+}
+
+.card-label {
+  position: absolute;
+  top: -30px;
+  line-height: normal;
+  padding: 0px !important;
+  text-align: center;
+  width: 100%;
+  color: #000;
+  padding: 5px 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 991px) {
+  .usingEmailBlock.product-template-main .row>.col-md-3.card_image {
+    margin-bottom: 2rem !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .usingEmailBlock.product-template-main .row>.col-md-3.card_image {
+    margin-bottom: 30px !important;
+  }
+
+  .usingEmailBlock.product-template-main .row>.col-md-3.card_image a.zoom-link.disable-gallery {
+    bottom: -21px !important;
+  }
+
+  .usingEmailBlock.product-template-main .row {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  #shopify-section-product-section .ebeded_description_pics .col-md-3.card_image:first-child {
+    margin-bottom: 70px !important;
   }
 }
