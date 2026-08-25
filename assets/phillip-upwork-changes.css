@@ -3110,6 +3110,14 @@ html, body {
   width: calc(33.33333% - 30px);
 }
 
+@media only screen and (min-width: 481px) and (max-width: 991px) {
+  .blog-grid-2 .blog-post,
+  .blog-grid-3 .blog-post,
+  .blog-grid-4 .blog-post {
+    width: calc(50% - 30px);
+  }
+}
+
 @media only screen and (max-width: 990px) {
   .blog-content a.btn {
     min-width: 125px !important;
