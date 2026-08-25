@@ -2427,6 +2427,7 @@
           "block_width": "global_width",
           "posts_per_page": "12",
           "posts_per_row": "3",
+          "uniform_blog_images": true,
           "sidebar": false,
           "description": "<p>Check out stories from ghost givers and receivers just like you! You'll probably laugh. You might happy cry. But\nmostly, we hope you'll be inspired with ghostgiving ideas you can use again and again. Come to read or come\nto share—it's all about the good you can spread with Ghost Giver.</p>\n<p>\nIf you have a photo and ghostgiving experience you’d like to share, we’d love to hear from you. Just email us\nat <a class=\"color_purple_cs\" href=\"mailto:service@ghostgiver.com\">service@ghostgiver.com</a></p>"
         }
