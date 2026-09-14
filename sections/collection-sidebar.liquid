@@ -156,10 +156,10 @@
                           {% if all_collection_tags contains tag_only_dawncase %}
                             {% assign flag_link_to_remove_tag = false %}
                             {% if current_tags_str contains tag_only_dawncase %}
-                              {% capture user_tag_capture = %}{{ user_tag_value | link_to_remove_tag: user_tag_value_dawncase }}{% endcapture %}
+                              {% capture user_tag_capture %}{{ user_tag_value | link_to_remove_tag: user_tag_value_dawncase }}{% endcapture %}
                               {% assign flag_link_to_remove_tag = true %}
                             {% else %}
-                              {% capture user_tag_capture = %}{{ user_tag_value | link_to_add_tag: user_tag_value_dawncase }}{% endcapture %}
+                              {% capture user_tag_capture %}{{ user_tag_value | link_to_add_tag: user_tag_value_dawncase }}{% endcapture %}
                             {% endif %}
                             {% assign user_tag_capture_href = user_tag_capture | split: 'href="' | last | split: '"' | first %}
                             {% assign user_tag_capture_title = user_tag_capture | split: 'title="' | last | split: '"' | first %}
@@ -356,4 +356,16 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% capture user_tag_capture = %}"
+  to: "{% capture user_tag_capture %}"
+  position: 12728..12758
+- from: "{% capture user_tag_capture = %}"
+  to: "{% capture user_tag_capture %}"
+  position: 12987..13017
+{%- endcomment -%}

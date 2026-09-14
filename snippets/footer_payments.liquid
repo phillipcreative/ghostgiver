@@ -32,10 +32,37 @@
        <li><img src={{ settings.paymenticons1 | img_url:'master' }}></li>
         <li><img src={{ settings.paymenticons2 | img_url:'master' }}></li>
         <li><img src={{ settings.paymenticons3 | img_url:'master' }}></li>
-        {% if settings.paymenticons4 !=blank %}<li><img src={{ settings.paymenticons4 | img_url:'master' }}></li>{% endif %}
-        {% if settings.paymenticons5 !=blank %}<li><img src={{ settings.paymenticons5 | img_url:'master' }}></li>{% endif %}
-        {% if settings.paymenticons6 !=blank %}<li><img src={{ settings.paymenticons6 | img_url:'master' }}></li>{% endif %}
-        {% if settings.paymenticons7 !=blank %}<li><img src={{ settings.paymenticons7 | img_url:'master' }}></li>{% endif %}
-        {% if settings.paymenticons8 !=blank %}<li><img src={{ settings.paymenticons8| img_url:'master' }}></li>{% endif %}
+        {% if true %}{{ 'Liquid error (snippets/footer_payments line 35): Unknown operator !=blank' }}{% elsif false %}<li><img src={{ settings.paymenticons4 | img_url:'master' }}></li>{% endif %}
+        {% if true %}{{ 'Liquid error (snippets/footer_payments line 36): Unknown operator !=blank' }}{% elsif false %}<li><img src={{ settings.paymenticons5 | img_url:'master' }}></li>{% endif %}
+        {% if true %}{{ 'Liquid error (snippets/footer_payments line 37): Unknown operator !=blank' }}{% elsif false %}<li><img src={{ settings.paymenticons6 | img_url:'master' }}></li>{% endif %}
+        {% if true %}{{ 'Liquid error (snippets/footer_payments line 38): Unknown operator !=blank' }}{% elsif false %}<li><img src={{ settings.paymenticons7 | img_url:'master' }}></li>{% endif %}
+        {% if true %}{{ 'Liquid error (snippets/footer_payments line 39): Unknown operator !=blank' }}{% elsif false %}<li><img src={{ settings.paymenticons8| img_url:'master' }}></li>{% endif %}
     </ul>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% if settings.paymenticons4 !=blank %}"
+  to: "{% if true %}{{ 'Liquid error (snippets/footer_payments line 35): Unknown operator
+    !=blank' }}{% elsif false %}"
+  position: 1590..1701
+- from: "{% if settings.paymenticons5 !=blank %}"
+  to: "{% if true %}{{ 'Liquid error (snippets/footer_payments line 36): Unknown operator
+    !=blank' }}{% elsif false %}"
+  position: 1787..1898
+- from: "{% if settings.paymenticons6 !=blank %}"
+  to: "{% if true %}{{ 'Liquid error (snippets/footer_payments line 37): Unknown operator
+    !=blank' }}{% elsif false %}"
+  position: 1984..2095
+- from: "{% if settings.paymenticons7 !=blank %}"
+  to: "{% if true %}{{ 'Liquid error (snippets/footer_payments line 38): Unknown operator
+    !=blank' }}{% elsif false %}"
+  position: 2181..2292
+- from: "{% if settings.paymenticons8 !=blank %}"
+  to: "{% if true %}{{ 'Liquid error (snippets/footer_payments line 39): Unknown operator
+    !=blank' }}{% elsif false %}"
+  position: 2378..2489
+{% endcomment %}
