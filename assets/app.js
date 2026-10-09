@@ -3837,6 +3837,12 @@
               $("#gift-block").addClass("d-none");
             }
 
+            const isGiftsShipped = $giftsShippedIds.includes(
+              Number($(this).data("variant-id"))
+            );
+            $(".js-mdlchk-default-actions", this).toggleClass("mdlchk-actions-hidden", isGiftsShipped);
+            $(".js-mdlchk-shipped-actions", this).toggleClass("mdlchk-actions-hidden", !isGiftsShipped);
+
             // Unbind the event after it's executed once
             // $(this).off("shown.bs.modal");
           });
@@ -3896,6 +3902,13 @@
           });
 
           $(".gift-grid-init").on("click", function (e) {
+            const shippedVariantId = Number(
+              $(this).data("variant-id") || $("#modalCheckout").data("variant-id")
+            );
+            $("#modalGiftCardSelection").data(
+              "giftsShippedVariantId",
+              $giftsShippedIds.includes(shippedVariantId) ? shippedVariantId : null
+            );
             if (
               $("#printedCardsEnvelopes")
                 .html()
@@ -3909,6 +3922,10 @@
                 $("#modalGiftCardSelection").modal("show");
               }, 600);
             }
+          });
+
+          $(".js-mdlchk-add-giftcard").on("click", function () {
+            $("#gift-block .gift-grid-init").trigger("click");
           });
 
           function ShowingData(e) {
@@ -4347,6 +4364,22 @@
             )
               contact = $("#cell-phone").val();
 
+            const giftCardProperties = {
+              _GiftCard: true,
+              _SplMsg: false,
+              _SortIndex: 1,
+              _Id: giftId,
+              _Image: giftImage,
+              _For: modalFor,
+              _Contact: contact,
+              _FirstName: firstName,
+              _LastName: lastName,
+            };
+            const shippedVariantId = $("#modalGiftCardSelection").data("giftsShippedVariantId");
+            if (shippedVariantId) {
+              giftCardProperties._gifts_shipped_variant_id = shippedVariantId;
+            }
+
             if (id.length !== 0) {
               $.ajax({
                 type: "POST",
@@ -4354,17 +4387,7 @@
                 dataType: "json",
                 data: {
                   id: id,
-                  properties: {
-                    _GiftCard: true,
-                    _SplMsg: false,
-                    _SortIndex: 1,
-                    _Id: giftId,
-                    _Image: giftImage,
-                    _For: modalFor,
-                    _Contact: contact,
-                    _FirstName: firstName,
-                    _LastName: lastName,
-                  },
+                  properties: giftCardProperties,
                 },
                 success: function (r) {
                   $.ajax({
@@ -4430,16 +4453,9 @@ function clickvoucher(id, denominations, denominationType, image) {
     dataType: "json",
     success: function (r) {
       ;
-      var indices = [];
-      $digitalGiftCardIds.forEach(function (valor, indice, array) {
-        var u = r.items.findIndex((_item) => _item.id === valor);
-        if (u >= 0) {
-          indices.push(valor);
-        }
-      });
-      if (indices.length > 0) {
+      if (isDigitalGiftCardBlocked(r.items)) {
         $(".js-mdlchk-rows2").html(
-          `<p>You can only add one gift card per order</p>`
+          `<p>You can only add one gift card per gift</p>`
         );
       } else {
         var rd = $(this).parents(".js-mdlchk-rows");

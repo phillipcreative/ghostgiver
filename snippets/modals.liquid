@@ -501,11 +501,15 @@
               </a>
             </div>
 
-            <div class="text-center d-sm-flex flex-wrap align-items-center flex-sm-wrap" style="justify-content: space-evenly;">
+            <div class="text-center d-sm-flex flex-wrap align-items-center flex-sm-wrap js-mdlchk-default-actions" style="justify-content: space-evenly;">
               <button data-dismiss="modal" class="btn btn-alt btn-gold-cart dev-rounded w-100 mr-4 w-sm-auto">
                 {{ 'cart.general.continue' | t }}
               </button>
               <a href="/checkout" class="btn btn-success dev-rounded w-100 w-sm-auto">{{ 'general.theme.go_to_checkout' | t }}</a>
+            </div>
+            <div class="text-center d-sm-flex flex-wrap align-items-center flex-sm-wrap js-mdlchk-shipped-actions mdlchk-actions-hidden" style="justify-content: space-evenly;">
+              <a href="/checkout" class="btn btn-alt btn-gold-cart dev-rounded w-100 mr-4 w-sm-auto">GO TO CHECKOUT</a>
+              <button type="button" class="btn btn-success dev-rounded w-100 w-sm-auto js-mdlchk-add-giftcard">ADD GIFTCARD</button>
             </div>
             {% comment %} <div class="mdlchk-custom d-sm-block d-none">
               {% if settings.checkout_popup_guaranteed %}

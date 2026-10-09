@@ -85,11 +85,10 @@
             {% comment %} <div>{{ polina_products | json }}</div> {% endcomment %}
 
             {% comment %} {%- assign sorted_cart_items = cart.items | reverse -%} {% endcomment %}
-            {% assign cart_has_digital_gift_card = false %}
+            {% assign gift_card_shipped_variant_ids = ',' %}
             {% for cart_item in cart.items %}
-              {% if digital_gift_card_ids contains cart_item.id %}
-                {% assign cart_has_digital_gift_card = true %}
-                {% break %}
+              {% if digital_gift_card_ids contains cart_item.id and cart_item.properties._gifts_shipped_variant_id != blank %}
+                {% assign gift_card_shipped_variant_ids = gift_card_shipped_variant_ids | append: cart_item.properties._gifts_shipped_variant_id | append: ',' %}
               {% endif %}
             {% endfor %}
             {% for item in cart.items %}
@@ -221,7 +220,11 @@
               {% if item.properties._product_type == 'gifts-shipped' or item.product.tags contains 'gifts-shipped' %}
                 {% assign is_gifts_shipped_item = true %}
               {% endif %}
-              {% if is_gifts_shipped_item and cart_has_digital_gift_card == false %}
+              {% assign shipped_variant_id_token = ',' | append: item.variant_id | append: ',' %}
+              {% if is_gifts_shipped_item and gift_card_shipped_variant_ids contains shipped_variant_id_token %}
+                {% assign is_gifts_shipped_item = false %}
+              {% endif %}
+              {% if is_gifts_shipped_item %}
                 <div class="table-row cart-gift-card-upsell">
                   <div class="photo"></div>
                   <div class="name">

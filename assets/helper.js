@@ -210,6 +210,50 @@ function cartHasPersonalizedMessage() {
   );
 }
 
+/**
+ * Returns true when a new digital gift card is not allowed: the targeted shipped gift
+ * already has one, or (with no shipped gift targeted) the cart has any gift card.
+ * @param {Array} cartItems
+ */
+function isDigitalGiftCardBlocked(cartItems) {
+  const shippedVariantId = $("#modalGiftCardSelection").data("giftsShippedVariantId");
+  const giftCardItems = (cartItems || []).filter((item) =>
+    $digitalGiftCardIds.includes(item.id)
+  );
+  if (!shippedVariantId) return giftCardItems.length > 0;
+  return giftCardItems.some(
+    (item) =>
+      item.properties &&
+      item.properties._gifts_shipped_variant_id == shippedVariantId
+  );
+}
+
+/**
+ * Sets the processing fee quantity to match the gift cards left in the cart, then calls onDone with the cart.
+ * @param {Object} cart
+ * @param {Function} onDone
+ */
+function syncDigitalGiftCardProcessingFee(cart, onDone) {
+  const remainingGiftCards = cart.items.filter((item) =>
+    $digitalGiftCardIds.includes(item.id)
+  ).length;
+  const handleError = function (jqXHR, textStatus, errorThrown) {
+    $("#modalError .modal-body p").text(errorThrown);
+    $("#modalError").modal("show");
+  };
+  if (remainingGiftCards > 0) {
+    CartJS.updateItemById($digitalGiftCardProcessingFeeId, remainingGiftCards, {}, {
+      success: onDone,
+      error: handleError,
+    });
+    return;
+  }
+  CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
+    success: onDone,
+    error: handleError,
+  });
+}
+
 function getMainCartItemCount() {
   const ancillaryIds = getAncillaryCartItemIds();
   return CartJS.cart.items.filter(
@@ -1070,15 +1114,7 @@ $(document).on("click", "a.js-minicart-remove-item", function (e) {
   if ($digitalGiftCardIds.includes($(this).data("variantId"))) {
     CartJS.removeItemById($(this).data("variantId"), {
       success: function (data, textStatus, jqXHR) {
-        CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
-          success: function (data, textStatus, jqXHR) {
-            removePersonalizedAudioVideoFromCart(data);
-          },
-          error: function (jqXHR, textStatus, errorThrown) {
-            $("#modalError .modal-body p").text(errorThrown);
-            $("#modalError").modal("show");
-          },
-        });
+        syncDigitalGiftCardProcessingFee(data, removePersonalizedAudioVideoFromCart);
       },
       error: function (jqXHR, textStatus, errorThrown) {
         $("#modalError .modal-body p").text(errorThrown);
@@ -1140,27 +1176,15 @@ $(document).on("click", "a.js-cart-remove-item", function (e) {
         if (packagingItemToRemove && packagingLineNumber) {
           CartJS.removeItem(packagingLineNumber, {
             success: function (packagingData, packagingTextStatus, packagingJqXHR) {
-              CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
-                success: function (data, textStatus, jqXHR) {
-                  removePersonalizedAudioVideoFromCart(data);
-                },
-              });
+              syncDigitalGiftCardProcessingFee(packagingData, removePersonalizedAudioVideoFromCart);
             },
             error: function (jqXHR, textStatus, errorThrown) {
               console.error("Failed to remove packaging product:", errorThrown);
-              CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
-                success: function (data, textStatus, jqXHR) {
-                  removePersonalizedAudioVideoFromCart(data);
-                },
-              });
+              syncDigitalGiftCardProcessingFee(data, removePersonalizedAudioVideoFromCart);
             },
           });
         } else {
-          CartJS.removeItemById($digitalGiftCardProcessingFeeId, {
-            success: function (data, textStatus, jqXHR) {
-              removePersonalizedAudioVideoFromCart(data);
-            },
-          });
+          syncDigitalGiftCardProcessingFee(data, removePersonalizedAudioVideoFromCart);
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {

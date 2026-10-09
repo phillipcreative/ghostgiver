@@ -3079,6 +3079,10 @@ html, body {
   justify-content: space-between;
 }
 
+#modalCheckout .mdlchk-actions-hidden {
+  display: none !important;
+}
+
 @media only screen and (max-width: 990px) {
   .mdlchk .qty-changer input[type=button].decrease,
   .mdlchk .qty-changer input[type=button] {

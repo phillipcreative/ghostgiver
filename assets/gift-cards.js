@@ -378,18 +378,11 @@ async function ensureDataFast(signal) {
     fetch("/cart.js")
       .then(r => r.json())
       .then(r => {
-        const indices = [];
-        // assumes global $digitalGiftCardIds exists
-        ($digitalGiftCardIds || []).forEach((valor) => {
-          const u = (r.items || []).findIndex((_item) => _item.id === valor);
-          if (u >= 0) indices.push(valor);
-        });
-
         const msgContainer = document.querySelector(".js-mdlchk-rows2");
         if (!msgContainer) return;
 
-        if (indices.length > 0) {
-          msgContainer.innerHTML = `<p>You can only add one gift card per order</p>`;
+        if (window.isDigitalGiftCardBlocked(r.items)) {
+          msgContainer.innerHTML = `<p>You can only add one gift card per gift</p>`;
           return;
         }
 
