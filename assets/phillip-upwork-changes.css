@@ -2861,6 +2861,62 @@ div#shopify-section-collection-section .text_below_title {
   display: none !important;
 }
 
+.cart-table .table-row.cart-gift-card-upsell > div {
+  border-left: none;
+}
+
+.cart-table .table-row.cart-gift-card-upsell .name {
+  padding-bottom: 20px;
+}
+
+@media only screen and (max-width: 667px) {
+  .cart-table .table-row.cart-gift-card-upsell .photo {
+    display: none;
+  }
+
+  .cart-table .table-row.cart-gift-card-upsell .name {
+    float: none;
+    width: 100%;
+    padding: 0 !important;
+  }
+
+  .cart-gift-card-upsell .gift-block {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 55px 15px 20px !important;
+  }
+
+  .cart-gift-card-upsell .gift-block h4 {
+    font-size: 18px !important;
+    gap: 8px !important;
+  }
+
+  .cart-gift-card-upsell .gift-block h4:before {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .cart-gift-card-upsell .gift-block .gift-block-img {
+    display: flex !important;
+    justify-content: center !important;
+    max-width: 120px !important;
+    margin: 0 auto 15px !important;
+  }
+
+  .cart-gift-card-upsell .gift-block .gift-card-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    justify-content: center;
+  }
+
+  .cart-gift-card-upsell .gift-block .gift-card-content span {
+    text-align: center !important;
+    font-size: 15px !important;
+    line-height: 22px !important;
+  }
+}
+
 @media only screen and (max-width: 667px) {
   .cart-table .table-row .price {
     display: none;

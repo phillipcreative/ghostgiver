@@ -85,6 +85,13 @@
             {% comment %} <div>{{ polina_products | json }}</div> {% endcomment %}
 
             {% comment %} {%- assign sorted_cart_items = cart.items | reverse -%} {% endcomment %}
+            {% assign cart_has_digital_gift_card = false %}
+            {% for cart_item in cart.items %}
+              {% if digital_gift_card_ids contains cart_item.id %}
+                {% assign cart_has_digital_gift_card = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
             {% for item in cart.items %}
 
               <div
@@ -210,6 +217,41 @@
                   {% endif %}
                 </div>
               </div>
+              {% assign is_gifts_shipped_item = false %}
+              {% if item.properties._product_type == 'gifts-shipped' or item.product.tags contains 'gifts-shipped' %}
+                {% assign is_gifts_shipped_item = true %}
+              {% endif %}
+              {% if is_gifts_shipped_item and cart_has_digital_gift_card == false %}
+                <div class="table-row cart-gift-card-upsell">
+                  <div class="photo"></div>
+                  <div class="name">
+                    <a href="#" class="dev-rounded gift-grid-init" data-variant-id="{{ item.variant_id }}">
+                      <div class="d-sm-flex gift-block">
+                        <div class="d-flex d-sm-block align-items-center justify-content-center h-100 gift-block-img">
+                          <img
+                            width="100"
+                            height="100"
+                            class="img-responsive"
+                            src="https://cdn.shopify.com/s/files/1/0447/4047/7095/files/gift_list_2.png?v=1687931304"
+                            alt="Digital gift cards"
+                          >
+                        </div>
+                        <div class="gift-card-content text-center text-sm-start">
+                          <h4>ADD A DIGITAL GIFT CARD</h4>
+                          <span>
+                            Choose a merchant, select a dollar amount, and your recipient will receive instructions on how to
+                            redeem with your personal message.
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="price"></div>
+                  <div class="qty"></div>
+                  <div class="subtotal"></div>
+                  <div class="remove"></div>
+                </div>
+              {% endif %}
             {% endfor %}
             <div class="table-row custom-subtotal" style="background: #fde9fc;">
               <div class="col-md-12 col-xs-12">

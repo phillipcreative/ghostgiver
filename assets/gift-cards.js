@@ -212,7 +212,7 @@ async function ensureDataFast(signal) {
           <div id="redemptionNote" class="d-none">${s.redemptionNote || ''}</div>
           <div id="terms" class="d-none">${s.terms || ''}</div>
         </div>
-        <button class="tooltip1 btn-terms voucher-terms-btn" data-terms-id="${safeId}" aria-label="Terms and Conditions"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.3 74.2" class="voucher-terms-btn__icon"><path d="M32.5,41.7c3.6-1.9,6.7-4.8,8.7-8.4,2.1-3.6,3.1-7.6,3-11.7-.2-5.6-2.5-10.9-6.5-14.9C33.7,2.7,28.4.4,22.8.1,16.8,0,11.1,2.2,6.8,6.4,2.5,10.5.1,16.2.2,22.2c0,2.2,1.8,4,4,4s4-1.8,4-4c0-3.8,1.5-7.4,4.2-10,2.9-2.7,6.9-4,10.9-3.6,4,.4,7.6,2.5,9.9,5.7,2.3,3.2,3.2,7.3,2.4,11.2-.8,3.9-3.3,7.2-6.8,9.2-3.1,1.6-5.8,4-7.6,6.9-1.9,3-2.9,6.4-3,9.9v.4c0,2.2,1.8,4,4,4s4-1.8,4-4v-.4c.1-4.2,2.5-8,6.3-9.8h0Z"/><path d="M29.2,67.1c0,3.9-3.1,7-7,7s-7-3.1-7-7,3.1-7,7-7,7,3.1,7,7"/></svg><span class="voucher-terms-btn__label">Terms &amp; Conditions</span><span class="voucher-terms-btn__arrow">&rarr;</span></button>
+        <button class="tooltip1 btn-terms voucher-terms-btn" data-terms-id="${safeId}" aria-label="Terms and Conditions"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 30" class="voucher-terms-btn__icon"><circle cx="8.8" cy="4.2" r="3.4"/><path d="M2.2,14.6C3.5,12.2,6.2,10.6,9,10.8c1.6.1,2.4,1.2,2.4,2.8v10.6c.9-.6,1.6-1.6,2.2-2.6.5-.7,1.5-.3,1.1.6-1.3,3.2-3.8,6.4-6.3,6.4-1.8,0-2.4-1-2.4-2.6V15c-.8-.4-2,.3-2.7.9-.6.5-1.5-.5-1.1-1.3Z"/></svg><span class="voucher-terms-btn__label">Terms &amp; Conditions</span><span class="voucher-terms-btn__arrow">&rarr;</span></button>
       </div>`;
     }).join("");
 
