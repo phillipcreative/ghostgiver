@@ -1276,7 +1276,7 @@
           "dynamic_checkout_button": false,
           "zoom": true,
           "product_prev_next": true,
-          "product_sku": true,
+          "product_sku": false,
           "show_label_new": true,
           "show_label_sale": true,
           "product_rating": true,
