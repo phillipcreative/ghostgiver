@@ -2984,6 +2984,90 @@
           "per_row_desctop_2": "4",
           "per_row_mobile_port_2": "2"
         }
+      },
+      "landing-nav": {
+        "type": "landing-nav",
+        "settings": {
+          "link_1_label": "How It Works",
+          "link_1_url": "",
+          "link_2_label": "Ways to Ghostgive",
+          "link_2_url": "",
+          "link_3_label": "Ghost Stories",
+          "link_3_url": "",
+          "button_label": "Send a Gift",
+          "button_link": ""
+        }
+      },
+      "landing-hero": {
+        "type": "landing-hero",
+        "settings": {
+          "kicker": "Anonymous Giving Made Fun",
+          "heading_lead": "Send a Gift Anonymously.",
+          "heading_accent": "Keep Them Guessing.",
+          "text": "Choose a thoughtful gift, add a personal message, and we'll ship it anonymously to the recipient. They'll love the surprise and wonder who sent it.",
+          "gift_label": "Choose a Gift",
+          "gift_link": "shopify://collections/gifts",
+          "video_label": "Watch Video",
+          "video": "shopify://files/videos/Ghost Giver_Explainer_web.mp4",
+          "video_url": "",
+          "image_alt": "A woman opening an anonymous Ghost Giver gift"
+        }
+      },
+      "landing-benefits": {
+        "type": "landing-benefits",
+        "settings": {
+          "kicker": "Why Ghost Giver",
+          "heading": "What Makes Us Different",
+          "card_1_title": "Make It Personal",
+          "card_1_text": "Add a personal message that turns a thoughtful gift into an unforgettable surprise.",
+          "card_2_title": "Give Anonymously",
+          "card_2_text": "We ship your gift directly to the recipient without revealing your identity.",
+          "card_3_title": "Hear Back From Them",
+          "card_3_text": "The recipient can send a thank-you back through Ghost Giver, while your identity remains a mystery."
+        }
+      },
+      "landing-how-it-works": {
+        "type": "landing-how-it-works",
+        "settings": {
+          "kicker": "The Process",
+          "heading": "How It Works",
+          "intro": "Three simple steps to send someone a gift anonymously.",
+          "step_1_title": "Choose a Gift",
+          "step_1_text": "Browse our selection of gifts and choose the perfect surprise.",
+          "step_2_title": "Add Your Message",
+          "step_2_text": "Make it personal with an anonymous text, audio, or video message.",
+          "step_3_title": "We Ship It",
+          "step_3_text": "We ship your gift directly to the recipient without revealing who sent it.",
+          "button_label": "Choose a Gift",
+          "button_link": ""
+        }
+      },
+      "landing-experience": {
+        "type": "landing-experience",
+        "settings": {
+          "kicker": "The Experience",
+          "heading": "Imagine Their Surprise",
+          "text": "An unexpected gift arrives in the mail. They open it to discover a thoughtful surprise from someone who chose to remain anonymous. Just imagine the smile on their face and the curiosity about who sent it.",
+          "button_label": "Choose a Gift",
+          "button_link": ""
+        }
+      },
+      "landing-faq": {
+        "type": "landing-faq",
+        "settings": {
+          "kicker": "Common Questions",
+          "heading": "Frequently Asked"
+        }
+      },
+      "landing-final-cta": {
+        "type": "landing-final-cta",
+        "settings": {
+          "kicker": "Ghost someone...the good way",
+          "heading": "Ready to Make Someone’s Day?",
+          "text": "Choose a gift, add a personal message, and we'll ship it anonymously without revealing who sent it.",
+          "button_label": "Choose a Gift",
+          "button_link": ""
+        }
       }
     },
     "content_for_index": [
