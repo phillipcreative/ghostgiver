@@ -4,7 +4,8 @@ body.landing-page .page-header .header-middle-row,
 body.landing-page .page-header .header-sticky,
 body.landing-page .page-header .menu-toggle,
 body.landing-page .page-header .megamenu,
-body.landing-page .spy-menu {
+body.landing-page .spy-menu,
+body.landing-page .bg_img_footer {
   display: none !important;
 }
 
