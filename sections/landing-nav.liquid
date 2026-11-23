@@ -1,0 +1,66 @@
+<nav class="gg-landing gg-nav" aria-label="{{ shop.name | escape }}">
+  <a class="gg-nav__logo" href="{{ routes.root_url }}">
+    <img src="{{ 'landing-logo.svg' | asset_url }}" alt="{{ shop.name | escape }}" width="269" height="55">
+  </a>
+  <div class="gg-nav__links">
+    <a class="gg-nav__link" href="{{ section.settings.link_1_url | default: '/pages/how-it-works-new' }}">{{ section.settings.link_1_label }}</a>
+    <a class="gg-nav__link" href="{{ section.settings.link_2_url | default: '/pages/ways-to-ghostgive' }}">{{ section.settings.link_2_label }}</a>
+    <a class="gg-nav__link" href="{{ section.settings.link_3_url | default: '/blogs/ghost-stories' }}">{{ section.settings.link_3_label }}</a>
+    <a class="gg-nav__button" href="{{ section.settings.button_link | default: '/collections/gifts' }}">{{ section.settings.button_label }}</a>
+  </div>
+  <a class="gg-nav__menu mobilemenu-toggle" href="#" aria-label="Menu">
+    <img src="{{ 'landing-icon-menu.svg' | asset_url }}" alt="" width="24" height="18">
+  </a>
+</nav>
+
+{% schema %}
+{
+  "name": "Landing nav",
+  "settings": [
+    {
+      "type": "text",
+      "id": "link_1_label",
+      "label": "Link 1 label",
+      "default": "How It Works"
+    },
+    {
+      "type": "url",
+      "id": "link_1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_2_label",
+      "label": "Link 2 label",
+      "default": "Ways to Ghostgive"
+    },
+    {
+      "type": "url",
+      "id": "link_2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "link_3_label",
+      "label": "Link 3 label",
+      "default": "Ghost Stories"
+    },
+    {
+      "type": "url",
+      "id": "link_3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Send a Gift"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}

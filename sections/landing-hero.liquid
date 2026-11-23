@@ -1,0 +1,188 @@
+{%- liquid
+  assign hero_video = section.settings.video
+  assign hero_video_url = section.settings.video_url
+  assign hero_video_modal_id = 'GgVideoModal-' | append: section.id
+  assign has_hero_video = false
+  if hero_video != blank or hero_video_url != blank
+    assign has_hero_video = true
+  endif
+  if hero_video_url.type == 'youtube'
+    assign hero_video_embed = 'https://www.youtube.com/embed/' | append: hero_video_url.id | append: '?autoplay=1&rel=0'
+  else
+    assign hero_video_embed = 'https://player.vimeo.com/video/' | append: hero_video_url.id | append: '?autoplay=1'
+  endif
+-%}
+
+<section class="gg-landing gg-hero">
+  <picture>
+    <source media="(max-width: 989px)" srcset="{{ 'landing-hero-scene-mobile.svg' | asset_url }}" width="430" height="226">
+    <img
+      class="gg-hero__scene"
+      src="{{ 'landing-hero-scene.svg' | asset_url }}"
+      alt=""
+      width="1440"
+      height="316"
+    >
+  </picture>
+  <img
+    class="gg-hero__house"
+    src="{{ 'landing-hero-house.png' | asset_url }}"
+    alt=""
+    width="1450"
+    height="912"
+  >
+  <div class="gg-hero__frame">
+    <img
+      class="gg-hero__bats"
+      src="{{ 'landing-hero-bats.svg' | asset_url }}"
+      alt=""
+      width="181"
+      height="102"
+    >
+    <div class="gg-hero__copy">
+      <p class="gg-kicker gg-hero__kicker">{{ section.settings.kicker }}</p>
+      <h1 class="gg-hero__title">
+        {{ section.settings.heading_lead }}
+        <span>{{ section.settings.heading_accent }}</span>
+      </h1>
+      <p class="gg-hero__text">{{ section.settings.text }}</p>
+      <div class="gg-hero__actions">
+        <a class="gg-btn" href="{{ section.settings.gift_link | default: '/collections/gifts' }}">
+          <img src="{{ 'landing-icon-package.svg' | asset_url }}" alt="" width="18" height="18">
+          {{ section.settings.gift_label }}
+        </a>
+        {% if has_hero_video %}
+          <button
+            class="gg-btn gg-btn--ghost"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="{{ hero_video_modal_id }}"
+            data-gg-video-open
+          >
+            {{ section.settings.video_label }}
+          </button>
+        {% endif %}
+      </div>
+    </div>
+    <div class="gg-hero__media">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 1400 | image_tag: class: 'gg-hero__photo', alt: section.settings.image_alt }}
+      {% else %}
+        <img
+          class="gg-hero__photo"
+          src="{{ 'landing-hero-photo.png' | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="570"
+          height="473"
+        >
+      {% endif %}
+    </div>
+    <img
+      class="gg-hero__ghost"
+      src="{{ 'landing-hero-ghost.svg' | asset_url }}"
+      alt=""
+      width="316"
+      height="297"
+    >
+  </div>
+  {% if has_hero_video %}
+    <dialog class="gg-video-modal" id="{{ hero_video_modal_id }}" aria-label="{{ section.settings.video_label | escape }}">
+      <button class="gg-video-modal__close" type="button" aria-label="Close video">
+        <span></span>
+        <span></span>
+      </button>
+      {% if hero_video != blank %}
+        {{ hero_video | video_tag: image_size: '1800x', controls: true, preload: 'none', class: 'gg-video-modal__video' }}
+      {% else %}
+        <iframe
+          class="gg-video-modal__video"
+          data-src="{{ hero_video_embed }}"
+          title="{{ section.settings.video_label | escape }}"
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowfullscreen
+        ></iframe>
+      {% endif %}
+    </dialog>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Landing hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Anonymous Giving Made Fun"
+    },
+    {
+      "type": "text",
+      "id": "heading_lead",
+      "label": "Heading",
+      "default": "Send a Gift Anonymously."
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Heading accent",
+      "default": "Keep Them Guessing."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Choose a thoughtful gift, add a personal message, and we'll ship it anonymously to the recipient. They'll love the surprise and wonder who sent it."
+    },
+    {
+      "type": "header",
+      "content": "Gift button"
+    },
+    {
+      "type": "text",
+      "id": "gift_label",
+      "label": "Gift button label",
+      "default": "Choose a Gift"
+    },
+    {
+      "type": "url",
+      "id": "gift_link",
+      "label": "Gift button link"
+    },
+    {
+      "type": "header",
+      "content": "Video button"
+    },
+    {
+      "type": "text",
+      "id": "video_label",
+      "label": "Video button label",
+      "default": "Watch Video"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "info": "Plays in a popup. Used instead of the video URL when both are set."
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video URL",
+      "accept": ["youtube", "vimeo"],
+      "info": "YouTube or Vimeo link. The video button is hidden until a video or video URL is set."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Photo"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Photo alt text",
+      "default": "A woman opening an anonymous Ghost Giver gift"
+    }
+  ]
+}
+{% endschema %}

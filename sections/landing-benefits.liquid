@@ -1,0 +1,85 @@
+<section class="gg-landing gg-benefits">
+  <div class="gg-benefits__header">
+    <p class="gg-kicker">{{ section.settings.kicker }}</p>
+    <h2 class="gg-benefits__title">{{ section.settings.heading }}</h2>
+  </div>
+  <div class="gg-benefits__grid">
+    <article class="gg-benefit">
+      <div class="gg-benefit__icon">
+        <img src="{{ 'landing-icon-personal.svg' | asset_url }}" alt="" width="32" height="33">
+      </div>
+      <h3>{{ section.settings.card_1_title }}</h3>
+      <p>{{ section.settings.card_1_text }}</p>
+    </article>
+    <article class="gg-benefit">
+      <div class="gg-benefit__icon">
+        <img src="{{ 'landing-icon-anonymous.svg' | asset_url }}" alt="" width="39" height="33">
+      </div>
+      <h3>{{ section.settings.card_2_title }}</h3>
+      <p>{{ section.settings.card_2_text }}</p>
+    </article>
+    <article class="gg-benefit">
+      <div class="gg-benefit__icon">
+        <img src="{{ 'landing-icon-thanks.svg' | asset_url }}" alt="" width="32" height="32">
+      </div>
+      <h3>{{ section.settings.card_3_title }}</h3>
+      <p>{{ section.settings.card_3_text }}</p>
+    </article>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Why Ghost Giver"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Makes Us Different"
+    },
+    {
+      "type": "text",
+      "id": "card_1_title",
+      "label": "Card 1 title",
+      "default": "Make It Personal"
+    },
+    {
+      "type": "textarea",
+      "id": "card_1_text",
+      "label": "Card 1 text",
+      "default": "Add a personal message that turns a thoughtful gift into an unforgettable surprise."
+    },
+    {
+      "type": "text",
+      "id": "card_2_title",
+      "label": "Card 2 title",
+      "default": "Give Anonymously"
+    },
+    {
+      "type": "textarea",
+      "id": "card_2_text",
+      "label": "Card 2 text",
+      "default": "We ship your gift directly to the recipient without revealing your identity."
+    },
+    {
+      "type": "text",
+      "id": "card_3_title",
+      "label": "Card 3 title",
+      "default": "Hear Back From Them"
+    },
+    {
+      "type": "textarea",
+      "id": "card_3_text",
+      "label": "Card 3 text",
+      "default": "The recipient can send a thank-you back through Ghost Giver, while your identity remains a mystery."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,85 @@
+<section class="gg-landing gg-faq">
+  <div class="gg-faq__header">
+    <p class="gg-kicker">{{ section.settings.kicker }}</p>
+    <h2 class="gg-faq__title">{{ section.settings.heading }}</h2>
+  </div>
+  <div class="gg-faq__list">
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        <div class="gg-faq__item{% if forloop.first %} is-open{% endif %}" {{ block.shopify_attributes }}>
+          <button class="gg-faq__toggle" type="button" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+            <span>{{ block.settings.question }}</span>
+            <span class="gg-faq__icon" aria-hidden="true">
+              <span class="gg-faq__icon-closed">+</span>
+              <span class="gg-faq__icon-open">−</span>
+            </span>
+          </button>
+          <div class="gg-faq__answer">
+            <div class="gg-faq__answer-inner">
+              <p>{{ block.settings.answer }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      {% assign faq_questions = "Will the recipient know who sent the gift?|How does the recipient read my anonymous message?|Can the recipient send me a thank you?|Do I need the recipient's mailing address?|How long does shipping take?|How much does it cost to send a gift?" | split: "|" %}
+      {% assign faq_answers = "Ghost Giver is designed to keep your identity private from the recipient. We send the gift on your behalf, and you decide whether to include any hints about who you are in your personal message.|When you ghostgive through Ghost Giver, your recipient visits message.ghostgiver.com and enters the code on their card. That is where they read, listen to, or watch your anonymous message.|Yes. After they open their message, we ask if they would like to send a thank-you. If they do, you will get a text and email, and your identity stays hidden.|Yes. We ship the gift, so we need the recipient’s mailing address. Your name is not on the package.|Shipping time depends on the gift and the destination. You will see the shipping options for your gift before you check out.|You pay for the gift you choose, plus any shipping or message options shown at checkout." | split: "|" %}
+      {% for question in faq_questions %}
+        <div class="gg-faq__item{% if forloop.first %} is-open{% endif %}">
+          <button class="gg-faq__toggle" type="button" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+            <span>{{ question }}</span>
+            <span class="gg-faq__icon" aria-hidden="true">
+              <span class="gg-faq__icon-closed">+</span>
+              <span class="gg-faq__icon-open">−</span>
+            </span>
+          </button>
+          <div class="gg-faq__answer">
+            <div class="gg-faq__answer-inner">
+              <p>{{ faq_answers[forloop.index0] }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Common Questions"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Answer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

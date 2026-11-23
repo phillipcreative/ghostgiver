@@ -1,0 +1,113 @@
+<section class="gg-landing gg-steps">
+  <div class="gg-steps__scene">
+    <img
+      class="gg-silhouettes"
+      src="{{ 'landing-silhouettes.svg' | asset_url }}"
+      alt=""
+      width="1440"
+      height="569"
+      loading="lazy"
+    >
+  </div>
+  <div class="gg-steps__inner">
+    <p class="gg-kicker">{{ section.settings.kicker }}</p>
+    <h2 class="gg-steps__title">{{ section.settings.heading }}</h2>
+    <p class="gg-steps__intro">{{ section.settings.intro }}</p>
+    <ol class="gg-steps__list">
+      <li class="gg-step">
+        <div class="gg-step__index">01</div>
+        <div class="gg-step__rule"></div>
+        <h3>{{ section.settings.step_1_title }}</h3>
+        <p>{{ section.settings.step_1_text }}</p>
+      </li>
+      <li class="gg-step">
+        <div class="gg-step__index">02</div>
+        <div class="gg-step__rule"></div>
+        <h3>{{ section.settings.step_2_title }}</h3>
+        <p>{{ section.settings.step_2_text }}</p>
+      </li>
+      <li class="gg-step">
+        <div class="gg-step__index">03</div>
+        <div class="gg-step__rule"></div>
+        <h3>{{ section.settings.step_3_title }}</h3>
+        <p>{{ section.settings.step_3_text }}</p>
+      </li>
+    </ol>
+    <div class="gg-steps__action">
+      <a class="gg-btn" href="{{ section.settings.button_link | default: '/collections/gifts' }}">{{ section.settings.button_label }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing how it works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "The Process"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How It Works"
+    },
+    {
+      "type": "text",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Three simple steps to send someone a gift anonymously."
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Step 1 title",
+      "default": "Choose a Gift"
+    },
+    {
+      "type": "textarea",
+      "id": "step_1_text",
+      "label": "Step 1 text",
+      "default": "Browse our selection of gifts and choose the perfect surprise."
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Step 2 title",
+      "default": "Add Your Message"
+    },
+    {
+      "type": "textarea",
+      "id": "step_2_text",
+      "label": "Step 2 text",
+      "default": "Make it personal with an anonymous text, audio, or video message."
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Step 3 title",
+      "default": "We Ship It"
+    },
+    {
+      "type": "textarea",
+      "id": "step_3_text",
+      "label": "Step 3 text",
+      "default": "We ship your gift directly to the recipient without revealing who sent it."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Choose a Gift"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ]
+}
+{% endschema %}
