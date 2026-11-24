@@ -680,7 +680,7 @@
           "twitter_widget_content": "<h4>\n<span style=\"color:#ff358b\">Hurry up! </span>Limited Gift Cards!</h4><a href=\"https://help.shopify.com/manual/products/gift-card-products\"><img src=\"https://cdn.shopify.com/s/files/1/1880/9649/files/gift_card_small_b3560c34-d4f4-44bd-8ff7-ad272a3a7b86.png?15558946316617159827\" alt=\"-25%\"></a>",
           "shop_info_yes": false,
           "newsletter": true,
-          "show_methods_of_payment": true,
+          "show_methods_of_payment": false,
           "show_brands": false,
           "show_instagram": false,
           "social_icons": false,
