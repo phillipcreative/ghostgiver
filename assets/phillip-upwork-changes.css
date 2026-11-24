@@ -2985,7 +2985,10 @@ div#shopify-section-collection-section .text_below_title {
                 /* Overflow Overrides  */
 /* ==================================================== */
 
-html, body {
+/* Clip sideways overflow on the body only. overflow-x on html stops
+   the body's overflow from moving to the window, so the scrollbar is
+   painted on the body and slides under the fixed spy icons. */
+body {
   overflow-x: hidden !important;
 }
 
