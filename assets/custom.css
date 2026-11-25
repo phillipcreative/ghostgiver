@@ -11934,3 +11934,8 @@ font-size: 88px!important;
     padding-right: 0;
   }
 }
+
+/* 2026-11-25 fixes - zoom alignment, product price size, About Us mobile buttons */
+body[class*="page-product"] main.page-main { position: static; }
+.product-info-block .price-sec { font-size: 24px !important; }
+@media (max-width: 767px) { .about_us .custom_btn > div > a.btn.btn-purple, .custom_btn > div > a.btn.btn-purple { font-size: 15px !important; padding: 0 10px !important; gap: 8px; } }
